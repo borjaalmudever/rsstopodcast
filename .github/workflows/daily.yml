@@ -1,0 +1,47 @@
+name: Generar resumen diario de feeds
+
+on:
+  schedule:
+    # 05:30 UTC = 07:30 hora de España en invierno / 07:30 en horario de verano
+    - cron: "30 6 * * *"
+  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install feedparser requests anthropic
+          sudo apt-get update -y && sudo apt-get install -y ffmpeg
+
+      - name: Generar episodios
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: |
+          python resumen_feeds.py iCloud_RSS.opml \
+            --hours 24 \
+            --base-url "${{ vars.PODCAST_BASE_URL }}" \
+            --fish-reference-id "${{ vars.FISH_REFERENCE_ID }}"
+
+      - name: Reconstruir feed del podcast
+        run: |
+          python generar_feed_podcast.py --base-url "${{ vars.PODCAST_BASE_URL }}"
+
+      - name: Publicar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "Episodios del $(date -u +%Y-%m-%d)"
+          git push
