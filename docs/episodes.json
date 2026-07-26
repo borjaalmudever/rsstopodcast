@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "guid": "41cc352d-1f62-4ec9-9129-810254350928",
+    "title": "CULT — 2026-07-26",
+    "folder": "CULT",
+    "description": "Esto es lo destacado en CULT.\n\nEmpezamos con una polémica que ha estallado en redes y que mezcla política y música pop, algo que no vemos todos los días. Resulta que la Casa Blanca ha compartido en TikTok un vídeo donde Estados Unidos muestra un bombardeo, con el texto \"Irán ha sido advertida\". Y aquí viene lo llamativo: la música que eligieron para acompañar esas imágenes es nada menos que \"Firework\", el clásico de Katy Perry, usando precisamente el fragmento más explosivo de la canción. Como p",
+    "pub_date": "2026-07-26T09:06:41.404022+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/CULT_2026-07-26.mp3",
+    "file_size": 2360632,
+    "duration_seconds": 147
+  },
+  {
+    "guid": "5d98926c-53fe-4e35-9744-efe9aefc058a",
+    "title": "GEEK — 2026-07-26",
+    "folder": "GEEK",
+    "description": "Esto es lo destacado en GEEK.\n\nEmpezamos con Apple, que como siempre nos deja un buen puñado de novedades. La primera tiene que ver con la batería del iPhone. ¿Recuerdan que con iOS 26 se prometió un modo de consumo adaptativo que, la verdad, dejó bastante que desear? Pues con iOS 27 parece que Apple ha hecho los deberes. Se ha probado durante las betas y el algoritmo ha mejorado notablemente, aunque con una advertencia importante: al tratarse de una versión beta, la autonomía todavía es menor q",
+    "pub_date": "2026-07-26T09:06:41.404022+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/GEEK_2026-07-26.mp3",
+    "file_size": 2807430,
+    "duration_seconds": 175
+  },
+  {
+    "guid": "24ec71e0-88f1-448b-be9b-b2265ce8f7a8",
+    "title": "NEWS — 2026-07-26",
+    "folder": "NEWS",
+    "description": "Esto es lo destacado en NEWS.\n\nEmpezamos con el tema que domina la actualidad: los incendios forestales, que siguen golpeando con fuerza a España. La UME ya da por contenidos todos los frentes de los fuegos en Madrid y Ávila, aunque todavía mantienen activas varias cabezas de incendio. La cifra es enorme: más de ciento veintiún mil personas evacuadas entre Madrid, Ávila, Toledo y Castellón. Las tareas de extinción siguen complicadas por las altas temperaturas, la baja humedad y un viento que no ",
+    "pub_date": "2026-07-26T09:06:41.404022+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/NEWS_2026-07-26.mp3",
+    "file_size": 2677445,
+    "duration_seconds": 167
+  },
+  {
+    "guid": "a5bf6ac1-4e1d-4bed-af5c-cf81471403b1",
+    "title": "SMART LIFE — 2026-07-26",
+    "folder": "SMART LIFE",
+    "description": "Esto es lo destacado en SMART LIFE.\n\nHoy toca hablar de esas pequeñas cosas que nos hacen la vida más fácil en casa, desde el cuidado de la ropa hasta la tecnología que usamos todos los días.\n\nEmpezamos por el verano, que ya está aquí y con él llega el eterno dilema del bañador y el bikini. Los expertos lo tienen claro: eso de llegar a casa después de la piscina o la playa y darle un enjuague rápido con agua fría no es suficiente. Ayuda, sí, pero no elimina del todo los restos de cloro, sal o cr",
+    "pub_date": "2026-07-26T09:06:41.404022+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/SMART_LIFE_2026-07-26.mp3",
+    "file_size": 2403682,
+    "duration_seconds": 150
+  },
+  {
+    "guid": "037f14b5-9953-488d-81cc-86906a60c60c",
+    "title": "TV — 2026-07-26",
+    "folder": "TV",
+    "description": "Esto es lo destacado en televisión, así que vamos a repasarlo con calma.\n\nEmpezamos por el gran protagonista del fin de semana: Eduardo, conocido como \"El Campanero\". Este joven cantante sevillano de solo trece años se ha proclamado ganador de la undécima edición de La Voz Kids en Antena 3. Lo hizo cantando un tema de Miguel Poveda, con un vibrato flamenco que ya había conquistado a los coaches y que finalmente rindió también al público en la gran final, donde competía contra otros siete finalis",
+    "pub_date": "2026-07-26T09:06:41.404022+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/TV_2026-07-26.mp3",
+    "file_size": 4228492,
+    "duration_seconds": 264
+  }
+]
