@@ -2,20 +2,28 @@
 """
 resumen_feeds.py
 -----------------
-Genera un episodio de podcast por cada carpeta de un OPML exportado desde Reeder.
+Genera UN ÚNICO episodio de podcast al día que recorre todas las carpetas
+de un OPML exportado desde Reeder, con capítulos (uno por carpeta) dentro
+del propio MP3.
 
-Para cada carpeta:
-  1. Descarga las entradas recientes de sus feeds (feedparser).
-  2. Pide a Claude que escriba un guion hablado y natural.
-  3. Convierte ese guion a audio (MP3) con Fish Audio.
-  4. Añade el episodio a docs/episodes.json (histórico, usado luego por
-     generar_feed_podcast.py para reconstruir el podcast.xml).
+Flujo:
+  1. Lee el OPML y agrupa los feeds por carpeta.
+  2. Para cada carpeta con novedades, descarga sus entradas recientes y pide
+     a Claude un segmento hablado, seleccionando las noticias más relevantes
+     (no solo las más recientes) dentro de un presupuesto de palabras.
+  3. Genera una intro (saludo + fecha + efeméride real del día, vía Wikipedia)
+     y un cierre breve.
+  4. Convierte cada segmento a audio con Fish Audio y los concatena con ffmpeg.
+  5. Escribe capítulos ID3 (uno por segmento) en el MP3 final.
+  6. Genera un título llamativo y una descripción de 3 frases con Claude.
+  7. Añade el episodio a docs/episodes.json (un registro por día).
 
-Pensado para correr dentro de GitHub Actions, pero funciona igual en local.
+Pensado para correr en GitHub Actions, pero funciona igual en local.
 """
 
 import argparse
 import json
+import math
 import os
 import re
 import subprocess
@@ -32,6 +40,25 @@ try:
     import anthropic
 except ImportError:
     anthropic = None
+
+try:
+    from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
+except ImportError:
+    ID3 = None
+
+
+MESES_ES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+
+TRANSICIONES = [
+    "Empezamos con la sección de {folder}.",
+    "Vamos ahora con {folder}.",
+    "Pasamos a {folder}.",
+    "Toca hablar de {folder}.",
+    "Seguimos con {folder}.",
+]
 
 
 # ---------- 1. Parsear el OPML por carpetas ----------
@@ -68,7 +95,7 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def fetch_recent_entries(feeds: list, hours: int) -> list:
+def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     entries = []
     for feed_title, url in feeds:
@@ -95,50 +122,162 @@ def fetch_recent_entries(feeds: list, hours: int) -> list:
                 "published": published,
             })
     entries.sort(key=lambda e: e["published"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
-    return entries
+    # Se recorta solo para no reventar el tamaño del prompt; la SELECCIÓN de
+    # cuáles importan de verdad la hace Claude, no este corte por fecha.
+    return entries[:max_entries]
 
 
-# ---------- 3. Resumen hablado con Claude ----------
+# ---------- 3. Efeméride real del día (Wikipedia) ----------
 
-def build_script_with_claude(folder_name: str, entries: list, client) -> str:
+def get_efemeride(dt: datetime) -> dict:
+    headers = {"User-Agent": "ResumenFeedsPodcast/1.0 (uso personal, sin fines comerciales)"}
+    url = f"https://api.wikimedia.org/feed/v1/wikipedia/es/onthisday/selected/{dt.month:02d}/{dt.day:02d}"
+    try:
+        resp = requests.get(url, headers=headers, timeout=15)
+        resp.raise_for_status()
+        events = resp.json().get("selected", [])
+        if events:
+            ev = events[0]
+            return {"year": ev.get("year"), "text": strip_html(ev.get("text", ""))}
+    except Exception as e:
+        print(f"  [aviso] no se pudo obtener efeméride: {e}")
+    return {}
+
+
+# ---------- 4. Normalización de texto para TTS ----------
+
+def normalize_for_tts(text: str) -> str:
+    """Red de seguridad: convierte símbolos problemáticos a palabras,
+    por si el modelo deja alguno sin transcribir a texto natural."""
+    text = text.replace("%", " por ciento")
+    text = re.sub(r"(\d)\s*€", r"\1 euros", text)
+    text = text.replace("€", "euros")
+    text = re.sub(r"\$\s*(\d)", r"\1 dólares", text)
+    text = text.replace("&", " y ")
+    text = text.replace("#", " almohadilla ")
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+# ---------- 5. Guiones con Claude ----------
+
+def build_intro_script(dt: datetime, efemeride: dict, client) -> str:
+    fecha_natural = f"{dt.day} de {MESES_ES[dt.month - 1]}"
+    efemeride_txt = ""
+    if efemeride.get("text"):
+        efemeride_txt = f'Además, incluye este dato curioso real, redactado con tus palabras: en el año {efemeride.get("year")}, {efemeride["text"]}'
+
+    prompt = f"""Escribe la introducción hablada de un podcast diario en español, para ser LEÍDA EN VOZ ALTA.
+
+Debe:
+- Empezar saludando "Buenos días" y decir que hoy es {fecha_natural}.
+- Dirigirte al oyente en segunda persona del SINGULAR ("tú", "tienes"), nunca en plural ("vosotros", "tenéis").
+- {efemeride_txt if efemeride_txt else "No inventes ninguna efeméride si no se te da un dato: simplemente da los buenos días y la fecha."}
+- No inventes ningún dato histórico que no te haya dado yo explícitamente arriba.
+- Ser breve: 2 a 4 frases en total.
+- Todos los números y símbolos deben escribirse en palabras (ej. "quince por ciento", nunca "15%"). Los años sí se pueden decir con cifras normales si suena mejor en voz alta (ej "mil novecientos ochenta").
+- No uses markdown ni asteriscos, solo texto plano para voz.
+"""
+    response = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=400,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
+
+
+def build_folder_segment(folder_name: str, entries: list, client, word_budget: int) -> str:
     if not entries:
-        return f"No hay novedades nuevas en la carpeta {folder_name} en las últimas horas."
+        return ""
 
     articles_text = "\n\n".join(
-        f"- {e['title']} ({e['feed']}): {e['summary']}" for e in entries[:25]
+        f"- {e['title']} ({e['feed']}): {e['summary']}" for e in entries
     )
 
-    prompt = f"""Eres un locutor de radio que prepara un briefing de noticias hablado en español.
+    prompt = f"""Eres un locutor de radio que prepara un segmento hablado en español para un podcast diario.
 
-Carpeta de feeds: "{folder_name}"
+Sección: "{folder_name}"
 
-Aquí tienes los artículos recientes (título, fuente y resumen):
+Artículos disponibles (título, fuente, resumen) — hay más de los que caben en el tiempo asignado:
 
 {articles_text}
 
 Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos):
-- Empieza con una frase breve tipo "Esto es lo destacado en {folder_name}".
+- Tienes un presupuesto de aproximadamente {word_budget} palabras. NO tienes que
+  mencionar todos los artículos: ELIGE solo los que consideres más relevantes
+  o importantes para el oyente, no simplemente los más recientes. Ignora sin
+  problema los artículos menores, repetitivos o de relleno.
 - Agrupa temas relacionados, no leas la lista uno por uno de forma mecánica.
-- Dirígete al oyente en segunda persona del SINGULAR ("lo que tienes que saber", "te cuento",
-  "esto te interesa"). NUNCA uses la segunda persona del plural ("tenéis", "os cuento").
-- Menciona explícitamente la fuente de cada noticia dentro de la frase, de forma natural,
-  por ejemplo "según publica El País..." o "The Verge cuenta que...". No dejes ninguna noticia
-  sin decir de dónde sale.
-- Tono natural, conversacional, como un briefing de podcast de 2-4 minutos (300-500 palabras).
+- Dirígete al oyente en segunda persona del SINGULAR ("lo que tienes que saber",
+  "te cuento", "esto te interesa"). NUNCA uses la segunda persona del plural
+  ("tenéis", "os cuento").
+- Menciona explícitamente la fuente de cada noticia dentro de la frase, de
+  forma natural, por ejemplo "según publica El País..." o "The Verge cuenta
+  que...". No dejes ninguna noticia sin decir de dónde sale.
+- Todos los números, porcentajes, precios y símbolos deben escribirse en
+  palabras para que se puedan leer en voz alta (ej. "quince por ciento" en
+  vez de "15%", "treinta euros" en vez de "30€").
 - No inventes datos que no estén en los resúmenes.
 - No uses markdown, listas ni asteriscos: solo texto plano para voz.
-- Termina con una frase de cierre breve.
+- No incluyas saludos ni despedidas, ni menciones el nombre de la sección al
+  principio (eso ya lo dice la transición previa) — empieza directo con el
+  contenido.
 """
-
     response = client.messages.create(
         model="claude-sonnet-5",
         max_tokens=1200,
         messages=[{"role": "user", "content": prompt}],
     )
-    return "".join(block.text for block in response.content if block.type == "text").strip()
+    text = "".join(b.text for b in response.content if b.type == "text").strip()
+    return normalize_for_tts(text)
 
 
-# ---------- 4. Texto -> Audio con Fish Audio ----------
+def build_outro_script(client) -> str:
+    prompt = """Escribe el cierre de un podcast diario de noticias en español, en segunda
+persona del singular ("nos vemos mañana", nunca "vemos mañana" en plural).
+Debe ser una sola frase breve de despedida, natural, sin markdown."""
+    response = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=100,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
+
+
+def build_title_and_description(date_str: str, headlines: list, client) -> dict:
+    headlines_text = "\n".join(f"- {h}" for h in headlines) or "Sin novedades destacadas hoy."
+
+    prompt = f"""Estos son los titulares más destacados del episodio de hoy ({date_str}) de un
+podcast de resumen de noticias:
+
+{headlines_text}
+
+Devuelve ÚNICAMENTE un JSON válido (sin texto adicional, sin markdown, sin
+bloques de código) con esta forma exacta:
+{{"titular": "...", "descripcion": "..."}}
+
+Donde:
+- "titular": un titular llamativo y breve (6 a 10 palabras) que resuma lo más
+  interesante del episodio de hoy, sin exagerar ni inventar nada que no esté
+  en los titulares de arriba.
+- "descripcion": un resumen de lo más llamativo del episodio en un MÁXIMO de
+  3 frases, en español, sin markdown.
+"""
+    response = client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw = "".join(b.text for b in response.content if b.type == "text").strip()
+    raw = re.sub(r"^```(json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
+    try:
+        data = json.loads(raw)
+    except Exception:
+        data = {"titular": "Resumen del día", "descripcion": "Resumen de noticias del día."}
+    return data
+
+
+# ---------- 6. Texto -> Audio con Fish Audio ----------
 
 def text_to_speech_fish(text: str, out_path: Path, api_key: str,
                          model: str = "s2.1-pro-free", reference_id: str = None):
@@ -156,33 +295,70 @@ def text_to_speech_fish(text: str, out_path: Path, api_key: str,
     out_path.write_bytes(resp.content)
 
 
-def get_duration_seconds(mp3_path: Path) -> int:
+def get_duration_seconds(mp3_path: Path) -> float:
+    result = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(mp3_path)],
+        capture_output=True, text=True, check=True,
+    )
+    return float(result.stdout.strip())
+
+
+def concatenate_segments(segment_paths: list, out_path: Path):
+    inputs = []
+    for p in segment_paths:
+        inputs += ["-i", str(p)]
+    n = len(segment_paths)
+    filter_complex = "".join(f"[{i}:a:0]" for i in range(n)) + f"concat=n={n}:v=0:a=1[out]"
+    cmd = ["ffmpeg", "-y", *inputs, "-filter_complex", filter_complex,
+           "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "96k", str(out_path)]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+def write_chapters(mp3_path: Path, chapters: list):
+    """chapters: lista de dicts {title, start_ms, end_ms}"""
+    if ID3 is None:
+        print("  [aviso] mutagen no disponible, se omiten los capítulos")
+        return
     try:
-        result = subprocess.run(
-            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-             "-of", "default=noprint_wrappers=1:nokey=1", str(mp3_path)],
-            capture_output=True, text=True, check=True,
-        )
-        return int(float(result.stdout.strip()))
-    except Exception:
-        return 0
+        tags = ID3(str(mp3_path))
+    except ID3NoHeaderError:
+        tags = ID3()
+
+    child_ids = []
+    for i, ch in enumerate(chapters):
+        elem_id = f"chp{i}"
+        child_ids.append(elem_id)
+        tags.add(CHAP(
+            element_id=elem_id,
+            start_time=int(ch["start_ms"]),
+            end_time=int(ch["end_ms"]),
+            start_offset=0xFFFFFFFF,
+            end_offset=0xFFFFFFFF,
+            sub_frames=[TIT2(text=[ch["title"]])],
+        ))
+    tags.add(CTOC(
+        element_id="toc",
+        flags=CTOCFlags.TOP_LEVEL | CTOCFlags.ORDERED,
+        child_element_ids=child_ids,
+        sub_frames=[TIT2(text=["Capítulos"])],
+    ))
+    tags.save(str(mp3_path), v2_version=3)
 
 
 # ---------- Main ----------
 
 def main():
-    parser = argparse.ArgumentParser(description="Genera episodios de podcast por carpeta de Reeder")
-    parser.add_argument("opml_path", help="Ruta al archivo .opml exportado de Reeder")
-    parser.add_argument("--hours", type=int, default=24, help="Ventana de artículos a incluir (horas)")
-    parser.add_argument("--docs-dir", default="docs", help="Carpeta servida por GitHub Pages")
-    parser.add_argument("--base-url", required=True,
-                         help="URL pública base de GitHub Pages, ej: https://usuario.github.io/repo")
-    parser.add_argument("--fish-reference-id", default=None,
-                         help="ID de la voz de Fish Audio a usar (opcional)")
-    parser.add_argument("--fish-model", default="s2.1-pro-free",
-                         help="Modelo de Fish Audio a usar")
-    parser.add_argument("--folders", nargs="*", default=None,
-                         help="Procesar solo estas carpetas. Por defecto: todas.")
+    parser = argparse.ArgumentParser(description="Genera un único episodio diario de podcast a partir de las carpetas de Reeder")
+    parser.add_argument("opml_path")
+    parser.add_argument("--hours", type=int, default=24)
+    parser.add_argument("--docs-dir", default="docs")
+    parser.add_argument("--base-url", required=True)
+    parser.add_argument("--fish-reference-id", default=None)
+    parser.add_argument("--fish-model", default="s2.1-pro-free")
+    parser.add_argument("--target-minutes", type=float, default=15.0,
+                         help="Duración objetivo del episodio en minutos")
+    parser.add_argument("--folders", nargs="*", default=None)
     args = parser.parse_args()
 
     if anthropic is None:
@@ -193,9 +369,14 @@ def main():
 
     docs_dir = Path(args.docs_dir)
     audio_dir = docs_dir / "audio"
-    transcripts_dir = docs_dir / "transcripts"
     audio_dir.mkdir(parents=True, exist_ok=True)
+    # Las transcripciones son de uso interno: se guardan FUERA de docs/, así
+    # no se publican en GitHub Pages.
+    transcripts_dir = Path("transcripts")
     transcripts_dir.mkdir(parents=True, exist_ok=True)
+
+    tmp_dir = Path("tmp_audio")
+    tmp_dir.mkdir(parents=True, exist_ok=True)
 
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
@@ -208,50 +389,102 @@ def main():
     now = datetime.now(timezone.utc)
     date_str = now.strftime("%Y-%m-%d")
 
+    # --- Recopilar entradas por carpeta ---
+    folder_entries = {}
     for folder_name, feeds in folders.items():
-        print(f"\n== {folder_name} ({len(feeds)} feeds) ==")
+        print(f"== {folder_name} ({len(feeds)} feeds) ==")
         entries = fetch_recent_entries(feeds, args.hours)
-        print(f"  {len(entries)} artículos nuevos en las últimas {args.hours}h")
+        print(f"  {len(entries)} artículos disponibles en las últimas {args.hours}h")
+        if entries:
+            folder_entries[folder_name] = entries
 
-        if not entries:
-            print("  Sin novedades, se omite el episodio de hoy para esta carpeta.")
+    if not folder_entries:
+        print("Sin novedades en ninguna carpeta hoy. No se genera episodio.")
+        return
+
+    # --- Presupuesto de palabras por carpeta (proporcional, no solo recencia) ---
+    WPM = 160
+    total_budget = int(args.target_minutes * WPM)
+    intro_budget, outro_budget = 60, 30
+    remaining = max(total_budget - intro_budget - outro_budget, 300)
+
+    weights = {f: math.sqrt(len(e)) for f, e in folder_entries.items()}
+    total_weight = sum(weights.values())
+    word_budgets = {}
+    for f in folder_entries:
+        budget = int(remaining * weights[f] / total_weight)
+        word_budgets[f] = max(120, min(budget, 600))
+
+    # --- Efeméride + intro ---
+    efemeride = get_efemeride(now)
+    print("Generando introducción...")
+    intro_text = build_intro_script(now, efemeride, client)
+
+    # --- Segmentos por carpeta ---
+    segment_texts = {}
+    headlines = []
+    for i, (folder_name, entries) in enumerate(folder_entries.items()):
+        print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
+        transicion = TRANSICIONES[i % len(TRANSICIONES)].format(folder=folder_name)
+        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name])
+        segment_texts[folder_name] = f"{transicion} {cuerpo}"
+        headlines.append(entries[0]["title"])
+
+    outro_text = build_outro_script(client)
+
+    # --- Título y descripción ---
+    print("Generando título y descripción del episodio...")
+    meta = build_title_and_description(date_str, headlines, client)
+    episode_title = f"{now.day} de {MESES_ES[now.month - 1]} — {meta.get('titular', 'Resumen del día')}"
+    episode_description = meta.get("descripcion", "Resumen de noticias del día.")
+
+    # --- Guardar transcripción interna completa ---
+    full_transcript = intro_text + "\n\n" + "\n\n".join(segment_texts.values()) + "\n\n" + outro_text
+    (transcripts_dir / f"{date_str}.txt").write_text(full_transcript, encoding="utf-8")
+
+    # --- Generar audio por segmento y concatenar ---
+    print("Generando audio con Fish Audio...")
+    segment_order = ["__intro__"] + list(segment_texts.keys()) + ["__outro__"]
+    segment_audio_paths = {}
+    for key in segment_order:
+        text = {"__intro__": intro_text, "__outro__": outro_text}.get(key, segment_texts.get(key))
+        if not text:
             continue
+        safe = re.sub(r"[^\w\-]+", "_", key.strip())
+        path = tmp_dir / f"{safe}.mp3"
+        text_to_speech_fish(text, path, os.environ["FISH_API_KEY"],
+                             model=args.fish_model, reference_id=args.fish_reference_id)
+        segment_audio_paths[key] = path
 
-        script_text = build_script_with_claude(folder_name, entries, client)
+    ordered_keys = [k for k in segment_order if k in segment_audio_paths]
+    final_mp3 = audio_dir / f"episodio_{date_str}.mp3"
+    concatenate_segments([segment_audio_paths[k] for k in ordered_keys], final_mp3)
 
-        safe_name = re.sub(r"[^\w\-]+", "_", folder_name.strip())
-        mp3_filename = f"{safe_name}_{date_str}.mp3"
-        mp3_path = audio_dir / mp3_filename
+    # --- Capítulos (offsets calculados sobre los audios individuales) ---
+    chapters = []
+    cursor_ms = 0.0
+    for key in ordered_keys:
+        dur = get_duration_seconds(segment_audio_paths[key]) * 1000
+        title = "Introducción" if key == "__intro__" else ("Cierre" if key == "__outro__" else key)
+        chapters.append({"title": title, "start_ms": cursor_ms, "end_ms": cursor_ms + dur})
+        cursor_ms += dur
+    write_chapters(final_mp3, chapters)
 
-        txt_filename = f"{safe_name}_{date_str}.txt"
-        (transcripts_dir / txt_filename).write_text(script_text, encoding="utf-8")
-        transcript_url = f"{args.base_url.rstrip('/')}/transcripts/{txt_filename}"
+    duration_seconds = get_duration_seconds(final_mp3)
+    file_size = final_mp3.stat().st_size
 
-        try:
-            text_to_speech_fish(script_text, mp3_path, os.environ["FISH_API_KEY"],
-                                 model=args.fish_model, reference_id=args.fish_reference_id)
-        except Exception as e:
-            print(f"  [error] no se pudo generar audio con Fish Audio: {e}")
-            continue
-
-        duration = get_duration_seconds(mp3_path)
-        file_size = mp3_path.stat().st_size
-
-        episodes.append({
-            "guid": str(uuid.uuid4()),
-            "title": f"{folder_name} — {date_str}",
-            "folder": folder_name,
-            "description": script_text,
-            "transcript_url": transcript_url,
-            "pub_date": now.isoformat(),
-            "mp3_url": f"{args.base_url.rstrip('/')}/audio/{mp3_filename}",
-            "file_size": file_size,
-            "duration_seconds": duration,
-        })
-        print(f"  Episodio generado: {mp3_filename}")
-
+    episodes.append({
+        "guid": str(uuid.uuid4()),
+        "title": episode_title,
+        "description": episode_description,
+        "pub_date": now.isoformat(),
+        "mp3_url": f"{args.base_url.rstrip('/')}/audio/{final_mp3.name}",
+        "file_size": file_size,
+        "duration_seconds": int(duration_seconds),
+        "chapters": [{"title": c["title"], "start_ms": int(c["start_ms"])} for c in chapters],
+    })
     episodes_path.write_text(json.dumps(episodes, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"\nListo. {len(episodes)} episodios en total en {episodes_path}")
+    print(f"\nListo. Episodio generado: {final_mp3.name} ({duration_seconds/60:.1f} min)")
 
 
 if __name__ == "__main__":

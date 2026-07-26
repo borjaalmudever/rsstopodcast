@@ -3,7 +3,9 @@
 generar_feed_podcast.py
 ------------------------
 Reconstruye docs/podcast.xml (feed RSS compatible con Apple Podcasts)
-a partir de docs/episodes.json.
+a partir de docs/episodes.json. Un episodio por día, con capítulos
+declarados vía <podcast:chapters> (los capítulos "de verdad" ya están
+además incrustados como metadatos ID3 en el propio MP3).
 
 Uso:
   python generar_feed_podcast.py --base-url https://usuario.github.io/repo
@@ -21,7 +23,6 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
     base_url = base_url.rstrip("/")
     items_xml = []
 
-    # Más recientes primero
     ordered = sorted(episodes, key=lambda e: e["pub_date"], reverse=True)
 
     for ep in ordered:
@@ -31,14 +32,10 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
         hours, minutes = divmod(minutes, 60)
         duration_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
-        description = ep["description"]
-        if ep.get("transcript_url"):
-            description += f"\n\nTranscripción completa: {ep['transcript_url']}"
-
         items_xml.append(f"""
     <item>
       <title>{escape(ep['title'])}</title>
-      <description>{escape(description)}</description>
+      <description>{escape(ep['description'])}</description>
       <pubDate>{pub_rfc2822}</pubDate>
       <guid isPermaLink="false">{escape(ep['guid'])}</guid>
       <enclosure url="{escape(ep['mp3_url'])}" length="{ep.get('file_size', 0)}" type="audio/mpeg" />
@@ -78,7 +75,7 @@ def main():
     parser.add_argument("--docs-dir", default="docs")
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--title", default="Mis Feeds — Resumen diario")
-    parser.add_argument("--description", default="Resumen en audio de mis carpetas de Reeder, generado automáticamente.")
+    parser.add_argument("--description", default="Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.")
     parser.add_argument("--author", default="Resumen Feeds")
     args = parser.parse_args()
 
