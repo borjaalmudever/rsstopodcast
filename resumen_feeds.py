@@ -112,13 +112,18 @@ def build_script_with_claude(folder_name: str, entries: list, client) -> str:
 
 Carpeta de feeds: "{folder_name}"
 
-Artículos recientes (título, fuente, resumen):
+Aquí tienes los artículos recientes (título, fuente y resumen):
 
 {articles_text}
 
 Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos):
 - Empieza con una frase breve tipo "Esto es lo destacado en {folder_name}".
 - Agrupa temas relacionados, no leas la lista uno por uno de forma mecánica.
+- Dirígete al oyente en segunda persona del SINGULAR ("lo que tienes que saber", "te cuento",
+  "esto te interesa"). NUNCA uses la segunda persona del plural ("tenéis", "os cuento").
+- Menciona explícitamente la fuente de cada noticia dentro de la frase, de forma natural,
+  por ejemplo "según publica El País..." o "The Verge cuenta que...". No dejes ninguna noticia
+  sin decir de dónde sale.
 - Tono natural, conversacional, como un briefing de podcast de 2-4 minutos (300-500 palabras).
 - No inventes datos que no estén en los resúmenes.
 - No uses markdown, listas ni asteriscos: solo texto plano para voz.
@@ -174,6 +179,8 @@ def main():
                          help="URL pública base de GitHub Pages, ej: https://usuario.github.io/repo")
     parser.add_argument("--fish-reference-id", default=None,
                          help="ID de la voz de Fish Audio a usar (opcional)")
+    parser.add_argument("--fish-model", default="s2.1-pro-free",
+                         help="Modelo de Fish Audio a usar")
     parser.add_argument("--folders", nargs="*", default=None,
                          help="Procesar solo estas carpetas. Por defecto: todas.")
     args = parser.parse_args()
@@ -186,7 +193,9 @@ def main():
 
     docs_dir = Path(args.docs_dir)
     audio_dir = docs_dir / "audio"
+    transcripts_dir = docs_dir / "transcripts"
     audio_dir.mkdir(parents=True, exist_ok=True)
+    transcripts_dir.mkdir(parents=True, exist_ok=True)
 
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
@@ -214,9 +223,13 @@ def main():
         mp3_filename = f"{safe_name}_{date_str}.mp3"
         mp3_path = audio_dir / mp3_filename
 
+        txt_filename = f"{safe_name}_{date_str}.txt"
+        (transcripts_dir / txt_filename).write_text(script_text, encoding="utf-8")
+        transcript_url = f"{args.base_url.rstrip('/')}/transcripts/{txt_filename}"
+
         try:
             text_to_speech_fish(script_text, mp3_path, os.environ["FISH_API_KEY"],
-                                 reference_id=args.fish_reference_id)
+                                 model=args.fish_model, reference_id=args.fish_reference_id)
         except Exception as e:
             print(f"  [error] no se pudo generar audio con Fish Audio: {e}")
             continue
@@ -228,7 +241,8 @@ def main():
             "guid": str(uuid.uuid4()),
             "title": f"{folder_name} — {date_str}",
             "folder": folder_name,
-            "description": script_text[:500],
+            "description": script_text,
+            "transcript_url": transcript_url,
             "pub_date": now.isoformat(),
             "mp3_url": f"{args.base_url.rstrip('/')}/audio/{mp3_filename}",
             "file_size": file_size,

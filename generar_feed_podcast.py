@@ -31,10 +31,14 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
         hours, minutes = divmod(minutes, 60)
         duration_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
+        description = ep["description"]
+        if ep.get("transcript_url"):
+            description += f"\n\nTranscripción completa: {ep['transcript_url']}"
+
         items_xml.append(f"""
     <item>
       <title>{escape(ep['title'])}</title>
-      <description>{escape(ep['description'])}</description>
+      <description>{escape(description)}</description>
       <pubDate>{pub_rfc2822}</pubDate>
       <guid isPermaLink="false">{escape(ep['guid'])}</guid>
       <enclosure url="{escape(ep['mp3_url'])}" length="{ep.get('file_size', 0)}" type="audio/mpeg" />
