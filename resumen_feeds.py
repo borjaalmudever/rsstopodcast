@@ -136,7 +136,7 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 # ---------- 4. Texto -> Audio con Fish Audio ----------
 
 def text_to_speech_fish(text: str, out_path: Path, api_key: str,
-                         model: str = "s2-pro", reference_id: str = None):
+                         model: str = "s2.1-pro-free", reference_id: str = None):
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
