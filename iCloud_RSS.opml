@@ -4,9 +4,11 @@
 <title>iCloud RSS</title>
 </head>
 <body>
-<outline text="CULTURA POP" title="CULTURA POP">
-<outline text="The Verge" title="The Verge" htmlUrl="https://www.theverge.com/culture" type="rss" xmlUrl="http://www.theverge.com/culture/rss/index.xml" />
-<outline htmlUrl="https://jenesaispop.com/" type="rss" title="Yé Né Sé Pop" text="Yé Né Sé Pop" xmlUrl="https://jenesaispop.com/feed/" />
+<outline title="TELEVISIÓN" text="TELEVISIÓN">
+<outline type="rss" title="El Confidencial" htmlUrl="https://rss.elconfidencial.com/television/" xmlUrl="https://rss.elconfidencial.com/television/" text="El Confidencial" />
+<outline text="Vertele" htmlUrl="https://www.eldiario.es/vertele/" title="Vertele" xmlUrl="https://vertele.eldiario.es/rss/" type="rss" />
+<outline text="EL PAÍS" title="EL PAÍS" htmlUrl="https://elpais.com" xmlUrl="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/television/portada" type="rss" />
+<outline type="rss" htmlUrl="https://www.elperiodico.com/es/" title="Yotele" xmlUrl="https://www.elperiodico.com/es/rss/yotele/rss.xml" text="Yotele" />
 </outline>
 <outline text="GEEK" title="GEEK">
 <outline htmlUrl="https://www.genbeta.com" type="rss" title="Lo mejor de Genbeta" text="Lo mejor de Genbeta" xmlUrl="https://www.genbeta.com/lomejor/rss2.xml" />
@@ -17,21 +19,19 @@
 <outline htmlUrl="https://www.applesfera.com" text="Applesfera" title="Applesfera" type="rss" xmlUrl="http://feeds.weblogssl.com/applesfera" />
 <outline text="Xataka Smart Home" title="Xataka Smart Home" htmlUrl="https://www.xatakahome.com" xmlUrl="http://feeds.weblogssl.com/xatakahome" type="rss" />
 </outline>
-<outline title="MEDIA TECH" text="MEDIA TECH">
-<outline htmlUrl="https://filmplusgear.com/" type="rss" text="filmplusgear" title="filmplusgear" xmlUrl="https://filmplusgear.com/feed/" />
-<outline xmlUrl="https://philipbloom.net/blog/feed/" htmlUrl="https://philipbloom.net/blog" text="Philip Bloom- Blog" title="Philip Bloom- Blog" type="rss" />
-</outline>
 <outline title="POPCORN" text="POPCORN">
 <outline xmlUrl="http://www.theverge.com/culture/rss/index.xml" htmlUrl="https://www.theverge.com/culture" title="The Verge" text="The Verge" type="rss" />
 <outline htmlUrl="https://editorial.rottentomatoes.com" text="Roten Tomeitos" title="Roten Tomeitos" type="rss" xmlUrl="https://editorial.rottentomatoes.com/rss/feed" />
 <outline text="Variety" type="rss" htmlUrl="https://variety.com" xmlUrl="https://feeds.feedburner.com/variety/boxofficeandratings/tvratings" title="Variety" />
 <outline text="El Septimo Arte" type="rss" htmlUrl="https://www.elseptimoarte.net/noticias/" title="El Septimo Arte" xmlUrl="https://www.elseptimoarte.net/rss.php" />
 </outline>
-<outline title="TELEVISIÓN" text="TELEVISIÓN">
-<outline type="rss" title="El Confidencial" htmlUrl="https://rss.elconfidencial.com/television/" xmlUrl="https://rss.elconfidencial.com/television/" text="El Confidencial" />
-<outline text="Vertele" htmlUrl="https://www.eldiario.es/vertele/" title="Vertele" xmlUrl="https://vertele.eldiario.es/rss/" type="rss" />
-<outline text="EL PAÍS" title="EL PAÍS" htmlUrl="https://elpais.com" xmlUrl="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/television/portada" type="rss" />
-<outline type="rss" htmlUrl="https://www.elperiodico.com/es/" title="Yotele" xmlUrl="https://www.elperiodico.com/es/rss/yotele/rss.xml" text="Yotele" />
+<outline text="CULTURA POP" title="CULTURA POP">
+<outline text="The Verge" title="The Verge" htmlUrl="https://www.theverge.com/culture" type="rss" xmlUrl="http://www.theverge.com/culture/rss/index.xml" />
+<outline htmlUrl="https://jenesaispop.com/" type="rss" title="Yé Né Sé Pop" text="Yé Né Sé Pop" xmlUrl="https://jenesaispop.com/feed/" />
+</outline>
+<outline title="MEDIA TECH" text="MEDIA TECH">
+<outline htmlUrl="https://filmplusgear.com/" type="rss" text="filmplusgear" title="filmplusgear" xmlUrl="https://filmplusgear.com/feed/" />
+<outline xmlUrl="https://philipbloom.net/blog/feed/" htmlUrl="https://philipbloom.net/blog" text="Philip Bloom- Blog" title="Philip Bloom- Blog" type="rss" />
 </outline>
 </body>
 </opml>
