@@ -4,7 +4,7 @@
 <title>iCloud RSS</title>
 </head>
 <body>
-<outline text="CULT" title="CULT">
+<outline text="CULTURA" title="CULTURA">
 <outline text="Los Replicantes" htmlUrl="https://www.losreplicantes.com" title="Los Replicantes" type="rss" xmlUrl="https://www.losreplicantes.com/rss/feed.xml" />
 <outline xmlUrl="http://www.theverge.com/culture/rss/index.xml" type="rss" title="The Verge - Culture Posts" htmlUrl="https://www.theverge.com/culture" text="The Verge - Culture Posts" />
 <outline title="jenesaispop.com" xmlUrl="https://jenesaispop.com/feed/" type="rss" text="jenesaispop.com" htmlUrl="https://jenesaispop.com/" />
@@ -20,10 +20,6 @@
 <outline text="MEDIA TECH" title="MEDIA TECH">
 <outline text="filmplusgear" htmlUrl="https://filmplusgear.com/" xmlUrl="https://filmplusgear.com/feed/" title="filmplusgear" type="rss" />
 <outline text="Philip Bloom- Blog" type="rss" htmlUrl="https://philipbloom.net/blog" xmlUrl="https://philipbloom.net/blog/feed/" title="Philip Bloom- Blog" />
-</outline>
-<outline title="NEWS" text="NEWS">
-<outline xmlUrl="https://www.elperiodico.com/es/rss/rss_portada.xml" title="El Periódico - portada" text="El Periódico - portada" type="rss" htmlUrl="https://www.elperiodico.com/es/" />
-<outline type="rss" text="Últimas noticias: la última hora de hoy en EL PAÍS" title="Últimas noticias: la última hora de hoy en EL PAÍS" htmlUrl="https://elpais.com" xmlUrl="https://ep00.epimg.net/rss/tags/ultimas_noticias.xml" />
 </outline>
 <outline title="POPCORN" text="POPCORN">
 <outline xmlUrl="https://variety.com/wp-json/wp/v2/pages/1234620387" title="variety.com" type="rss" text="variety.com" htmlUrl="https://variety.com" />
