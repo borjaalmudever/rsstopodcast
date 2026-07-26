@@ -1,0 +1,37 @@
+[
+  {
+    "guid": "bfff727b-8f09-47e5-ab46-e23aafcefe35",
+    "title": "26 de julio — Incendios, WiFi vecinal y gafas inteligentes de Apple centran la jornada",
+    "description": "Ferreras adelanta el fin de sus vacaciones para conducir un especial de 'Al Rojo Vivo' dedicado a los incendios forestales. Apple prepara unas gafas inteligentes centradas en la privacidad que se presentarían en la WWDC 2027. Además, se comparten trucos para mantener la velocidad del WiFi cuando los vecinos regresan de vacaciones.",
+    "pub_date": "2026-07-26T16:37:18.679632+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-26.mp3",
+    "file_size": 7326771,
+    "duration_seconds": 609,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "CULTURA",
+        "start_ms": 19748
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 124682
+      },
+      {
+        "title": "SMART LIFE",
+        "start_ms": 289958
+      },
+      {
+        "title": "TV",
+        "start_ms": 431725
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 604917
+      }
+    ]
+  }
+]
