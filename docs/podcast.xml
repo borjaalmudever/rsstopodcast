@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mis Feeds — Resumen diario</title>
+    <link>https://borjaalmudever.github.io/rsstopodcast</link>
+    <language>es-es</language>
+    <description>Resumen en audio de mis carpetas de Reeder, generado automáticamente.</description>
+    <itunes:author>Resumen Feeds</itunes:author>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/cover.jpg" />
+    <image>
+      <url>https://borjaalmudever.github.io/rsstopodcast/cover.jpg</url>
+      <title>Mis Feeds — Resumen diario</title>
+      <link>https://borjaalmudever.github.io/rsstopodcast</link>
+    </image>
+    <itunes:category text="News" />
+    <lastBuildDate>Sun, 26 Jul 2026 08:57:34 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    
+  </channel>
+</rss>
