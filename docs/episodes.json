@@ -33,5 +33,40 @@
         "start_ms": 604917
       }
     ]
+  },
+  {
+    "guid": "1e8a41d9-db69-4423-9dc8-97c91229fb55",
+    "title": "27 de julio — Resumen del día",
+    "description": "Resumen de noticias del día.",
+    "pub_date": "2026-07-27T06:00:04.865331+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-27.mp3",
+    "file_size": 6874629,
+    "duration_seconds": 572,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24607
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 177162
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 307643
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 470360
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 567901
+      }
+    ]
   }
 ]

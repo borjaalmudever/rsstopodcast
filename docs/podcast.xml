@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Mis feeds al día</title>
+    <title>Mis Feeds — Resumen diario</title>
     <link>https://borjaalmudever.github.io/rsstopodcast</link>
     <language>es-es</language>
-    <description>Los feeds que tengo Reeder, convertidos en podcast automáticamente.</description>
-    <itunes:author>@borjaalmudever</itunes:author>
+    <description>Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.</description>
+    <itunes:author>Resumen Feeds</itunes:author>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/cover.jpg" />
     <image>
       <url>https://borjaalmudever.github.io/rsstopodcast/cover.jpg</url>
-      <title>Mis feeds al día</title>
+      <title>Mis Feeds — Resumen diario</title>
       <link>https://borjaalmudever.github.io/rsstopodcast</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 26 Jul 2026 16:41:24 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 06:03:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>27 de julio — Resumen del día</title>
+      <description>Resumen de noticias del día.</description>
+      <pubDate>Mon, 27 Jul 2026 06:00:04 +0000</pubDate>
+      <guid isPermaLink="false">1e8a41d9-db69-4423-9dc8-97c91229fb55</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-27.mp3" length="6874629" type="audio/mpeg" />
+      <itunes:duration>00:09:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>26 de julio — Incendios, WiFi vecinal y gafas inteligentes de Apple centran la jornada</title>
       <description>Ferreras adelanta el fin de sus vacaciones para conducir un especial de 'Al Rojo Vivo' dedicado a los incendios forestales. Apple prepara unas gafas inteligentes centradas en la privacidad que se presentarían en la WWDC 2027. Además, se comparten trucos para mantener la velocidad del WiFi cuando los vecinos regresan de vacaciones.</description>
