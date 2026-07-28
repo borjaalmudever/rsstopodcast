@@ -14,9 +14,18 @@
       <link>https://borjaalmudever.github.io/rsstopodcast</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 27 Jul 2026 06:03:20 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 06:53:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>28 de julio — IA, audiencias y Spider-Man marcan la jornada</title>
+      <description>El 'Grand Prix 2026' arrasó en audiencia frente a una competencia que no superó el doble dígito. Preocupa el auge de amigos digitales con IA como riesgo para la salud mental adolescente. Además, las primeras reacciones a 'Spider-Man: Brand New Day' destacan a Tom Holland y una historia más terrenal, mientras Charli xcx acapara titulares entre música, moda y cine.</description>
+      <pubDate>Tue, 28 Jul 2026 06:50:10 +0000</pubDate>
+      <guid isPermaLink="false">20e409c9-3437-427c-bb18-cb8895c18d75</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-28.mp3" length="6506561" type="audio/mpeg" />
+      <itunes:duration>00:09:01</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>27 de julio — Resumen del día</title>
       <description>Resumen de noticias del día.</description>

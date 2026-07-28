@@ -68,5 +68,40 @@
         "start_ms": 567901
       }
     ]
+  },
+  {
+    "guid": "20e409c9-3437-427c-bb18-cb8895c18d75",
+    "title": "28 de julio — IA, audiencias y Spider-Man marcan la jornada",
+    "description": "El 'Grand Prix 2026' arrasó en audiencia frente a una competencia que no superó el doble dígito. Preocupa el auge de amigos digitales con IA como riesgo para la salud mental adolescente. Además, las primeras reacciones a 'Spider-Man: Brand New Day' destacan a Tom Holland y una historia más terrenal, mientras Charli xcx acapara titulares entre música, moda y cine.",
+    "pub_date": "2026-07-28T06:50:10.539737+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-28.mp3",
+    "file_size": 6506561,
+    "duration_seconds": 541,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21733
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 166373
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 295758
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 408763
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 537024
+      }
+    ]
   }
 ]
