@@ -49,6 +49,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
           python resumen_feeds.py iCloud_RSS.opml \
             --hours 24 \
@@ -59,7 +60,9 @@ jobs:
       - name: Reconstruir feed del podcast
         if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
-          python generar_feed_podcast.py --base-url "${{ vars.PODCAST_BASE_URL }}"
+          python generar_feed_podcast.py \
+            --base-url "${{ vars.PODCAST_BASE_URL }}" \
+            --website "https://borja.almudever.com"
 
       - name: Publicar cambios
         if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
