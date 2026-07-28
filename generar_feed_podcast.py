@@ -19,8 +19,9 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 
-def build_rss(episodes: list, base_url: str, title: str, description: str, author: str) -> str:
+def build_rss(episodes: list, base_url: str, website: str, title: str, description: str, author: str) -> str:
     base_url = base_url.rstrip("/")
+    website = website.rstrip("/")
     items_xml = []
 
     ordered = sorted(episodes, key=lambda e: e["pub_date"], reverse=True)
@@ -50,7 +51,7 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>{escape(title)}</title>
-    <link>{base_url}</link>
+    <link>{website}</link>
     <language>es-es</language>
     <description>{escape(description)}</description>
     <itunes:author>{escape(author)}</itunes:author>
@@ -59,7 +60,7 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
     <image>
       <url>{cover_url}</url>
       <title>{escape(title)}</title>
-      <link>{base_url}</link>
+      <link>{website}</link>
     </image>
     <itunes:category text="News" />
     <lastBuildDate>{last_build}</lastBuildDate>
@@ -73,17 +74,20 @@ def build_rss(episodes: list, base_url: str, title: str, description: str, autho
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--docs-dir", default="docs")
-    parser.add_argument("--base-url", required=True)
-    parser.add_argument("--title", default="Mis Feeds — Resumen diario")
+    parser.add_argument("--base-url", required=True,
+                         help="URL de GitHub Pages donde viven cover.jpg y los mp3")
+    parser.add_argument("--website", default="https://borja.almudever.com",
+                         help="Web mostrada como sitio del podcast (no tiene por qué coincidir con base-url)")
+    parser.add_argument("--title", default="Mis feeds al día")
     parser.add_argument("--description", default="Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.")
-    parser.add_argument("--author", default="Resumen Feeds")
+    parser.add_argument("--author", default="@borjaalmudever")
     args = parser.parse_args()
 
     docs_dir = Path(args.docs_dir)
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
 
-    rss = build_rss(episodes, args.base_url, args.title, args.description, args.author)
+    rss = build_rss(episodes, args.base_url, args.website, args.title, args.description, args.author)
     out_path = docs_dir / "podcast.xml"
     out_path.write_text(rss, encoding="utf-8")
     print(f"Feed escrito en {out_path} con {len(episodes)} episodios.")

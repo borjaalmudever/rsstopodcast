@@ -60,6 +60,25 @@ TRANSICIONES = [
     "Seguimos con {folder}.",
 ]
 
+PORTADA_TRANSICION = (
+    "Vamos a repasar las últimas noticias: lo que llevan hoy en portada los "
+    "principales medios."
+)
+
+# Nombres de fuente que se pronuncian mal por defecto en TTS: se sustituyen
+# por una versión fonética antes de pasarlos a Claude, así el guion ya los
+# cita correctamente.
+PRONUNCIACIONES = {
+    "jenesaispop.com": "Yé Né Sé Pop",
+    "jenesaispop": "Yé Né Sé Pop",
+}
+
+
+def aplicar_pronunciaciones(texto: str) -> str:
+    for original, pronunciacion in PRONUNCIACIONES.items():
+        texto = re.sub(re.escape(original), pronunciacion, texto, flags=re.IGNORECASE)
+    return texto
+
 
 # ---------- 1. Parsear el OPML por carpetas ----------
 
@@ -116,7 +135,7 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
 
             summary = strip_html(getattr(entry, "summary", "") or getattr(entry, "description", ""))
             entries.append({
-                "feed": feed_title,
+                "feed": aplicar_pronunciaciones(feed_title),
                 "title": entry.get("title", "Sin título"),
                 "summary": summary[:600],
                 "published": published,
@@ -127,21 +146,72 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
     return entries[:max_entries]
 
 
+def fetch_portada_articles(api_key: str, hours: int = 24, per_source: int = 10) -> list:
+    """Trae, vía NewsAPI.ai, las noticias de las últimas `hours` horas de
+    El País y El Mundo, quedándose con las `per_source` mejores de cada
+    medio según su socialScore."""
+    if not api_key:
+        return []
+
+    fuentes = {"El País": "elpais.com", "El Mundo": "elmundo.es"}
+    date_start = (datetime.now(timezone.utc) - timedelta(hours=hours)).strftime("%Y-%m-%d")
+    entries = []
+
+    for nombre_medio, source_uri in fuentes.items():
+        try:
+            payload = {
+                "action": "getArticles",
+                "sourceUri": source_uri,
+                "dateStart": date_start,
+                "lang": "spa",
+                "articlesSortBy": "socialScore",
+                "articlesCount": per_source,
+                "includeArticleSocialScore": True,
+                "resultType": "articles",
+                "apiKey": api_key,
+            }
+            resp = requests.post(
+                "https://eventregistry.org/api/v1/article/getArticles",
+                json=payload, timeout=30,
+            )
+            resp.raise_for_status()
+            arts = resp.json().get("articles", {}).get("results", [])
+            for a in arts:
+                published = None
+                try:
+                    published = datetime.fromisoformat(
+                        a.get("dateTimePub", "").replace("Z", "+00:00")
+                    )
+                except Exception:
+                    pass
+                entries.append({
+                    "feed": nombre_medio,
+                    "title": a.get("title", "Sin título"),
+                    "summary": strip_html(a.get("body", ""))[:600],
+                    "published": published,
+                })
+        except Exception as e:
+            print(f"  [aviso] no se pudo obtener portada de {nombre_medio}: {e}")
+
+    return entries
+
+
 # ---------- 3. Efeméride real del día (Wikipedia) ----------
 
-def get_efemeride(dt: datetime) -> dict:
+def get_efemeride(dt: datetime, max_events: int = 6) -> list:
     headers = {"User-Agent": "ResumenFeedsPodcast/1.0 (uso personal, sin fines comerciales)"}
     url = f"https://api.wikimedia.org/feed/v1/wikipedia/es/onthisday/selected/{dt.month:02d}/{dt.day:02d}"
     try:
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
-        events = resp.json().get("selected", [])
-        if events:
-            ev = events[0]
-            return {"year": ev.get("year"), "text": strip_html(ev.get("text", ""))}
+        events = resp.json().get("selected", [])[:max_events]
+        return [
+            {"year": ev.get("year"), "text": strip_html(ev.get("text", ""))}
+            for ev in events if ev.get("text")
+        ]
     except Exception as e:
         print(f"  [aviso] no se pudo obtener efeméride: {e}")
-    return {}
+    return []
 
 
 # ---------- 4. Normalización de texto para TTS ----------
@@ -149,6 +219,7 @@ def get_efemeride(dt: datetime) -> dict:
 def normalize_for_tts(text: str) -> str:
     """Red de seguridad: convierte símbolos problemáticos a palabras,
     por si el modelo deja alguno sin transcribir a texto natural."""
+    text = aplicar_pronunciaciones(text)
     text = text.replace("%", " por ciento")
     text = re.sub(r"(\d)\s*€", r"\1 euros", text)
     text = text.replace("€", "euros")
@@ -161,18 +232,27 @@ def normalize_for_tts(text: str) -> str:
 
 # ---------- 5. Guiones con Claude ----------
 
-def build_intro_script(dt: datetime, efemeride: dict, client) -> str:
+def build_intro_script(dt: datetime, efemerides: list, client) -> str:
     fecha_natural = f"{dt.day} de {MESES_ES[dt.month - 1]}"
-    efemeride_txt = ""
-    if efemeride.get("text"):
-        efemeride_txt = f'Además, incluye este dato curioso real, redactado con tus palabras: en el año {efemeride.get("year")}, {efemeride["text"]}'
+    if efemerides:
+        opciones = "\n".join(f"- Año {e['year']}: {e['text']}" for e in efemerides)
+        efemeride_txt = f"""Además, elige UNA (y solo una) de estas efemérides reales de hoy —
+la que te parezca más interesante o llamativa para el oyente— y redáctala
+con tus propias palabras de forma natural:
+
+{opciones}
+
+No inventes ninguna efeméride que no esté en esta lista, y no menciones
+más de una."""
+    else:
+        efemeride_txt = "No incluyas ninguna efeméride: simplemente da los buenos días y la fecha."
 
     prompt = f"""Escribe la introducción hablada de un podcast diario en español, para ser LEÍDA EN VOZ ALTA.
 
 Debe:
 - Empezar saludando "Buenos días" y decir que hoy es {fecha_natural}.
 - Dirigirte al oyente en segunda persona del SINGULAR ("tú", "tienes"), nunca en plural ("vosotros", "tenéis").
-- {efemeride_txt if efemeride_txt else "No inventes ninguna efeméride si no se te da un dato: simplemente da los buenos días y la fecha."}
+- {efemeride_txt}
 - No inventes ningún dato histórico que no te haya dado yo explícitamente arriba.
 - Ser breve: 2 a 4 frases en total.
 - Todos los números y símbolos deben escribirse en palabras (ej. "quince por ciento", nunca "15%"). Los años sí se pueden decir con cifras normales si suena mejor en voz alta (ej "mil novecientos ochenta").
@@ -391,6 +471,20 @@ def main():
 
     # --- Recopilar entradas por carpeta ---
     folder_entries = {}
+
+    newsapi_key = os.environ.get("NEWSAPI_KEY")
+    print("== Portada (El País + El Mundo, NewsAPI.ai) ==")
+    if newsapi_key:
+        try:
+            portada_entries = fetch_portada_articles(newsapi_key, hours=args.hours)
+            print(f"  {len(portada_entries)} artículos recuperados")
+            if portada_entries:
+                folder_entries["Portada"] = portada_entries
+        except Exception as e:
+            print(f"  [aviso] fallo recuperando Portada: {e}")
+    else:
+        print("  [aviso] NEWSAPI_KEY no configurada, se omite la sección Portada")
+
     for folder_name, feeds in folders.items():
         print(f"== {folder_name} ({len(feeds)} feeds) ==")
         entries = fetch_recent_entries(feeds, args.hours)
@@ -423,9 +517,14 @@ def main():
     # --- Segmentos por carpeta ---
     segment_texts = {}
     headlines = []
-    for i, (folder_name, entries) in enumerate(folder_entries.items()):
+    rss_idx = 0
+    for folder_name, entries in folder_entries.items():
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
-        transicion = TRANSICIONES[i % len(TRANSICIONES)].format(folder=folder_name)
+        if folder_name == "Portada":
+            transicion = PORTADA_TRANSICION
+        else:
+            transicion = TRANSICIONES[rss_idx % len(TRANSICIONES)].format(folder=folder_name)
+            rss_idx += 1
         cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name])
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
         headlines.append(entries[0]["title"])
