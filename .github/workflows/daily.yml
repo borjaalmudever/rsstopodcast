@@ -24,7 +24,7 @@ jobs:
         run: |
           HORA_MADRID=$(TZ="Europe/Madrid" date +%H:%M)
           echo "Hora actual en Madrid: $HORA_MADRID"
-          if [[ "$HORA_MADRID" > "07:45" && "$HORA_MADRID" < "07:55" ]]; then
+          if [[ "$HORA_MADRID" > "07:40" && "$HORA_MADRID" < "08:20" ]]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
