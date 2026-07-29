@@ -1,12 +1,11 @@
 name: Generar resumen diario de feeds
 
+# Ya no usa el "schedule" interno de GitHub Actions (poco fiable en cuanto a
+# puntualidad). Se dispara exclusivamente vía la API de GitHub
+# (workflow_dispatch), llamada por un cron externo a las 8:30 hora de Madrid.
+# Ver README para la configuración del cron externo.
 on:
-  schedule:
-    # 05:50 UTC -> 07:50 hora de Madrid en horario de VERANO (CEST, UTC+2)
-    - cron: "50 5 * * *"
-    # 06:50 UTC -> 07:50 hora de Madrid en horario de INVIERNO (CET, UTC+1)
-    - cron: "50 6 * * *"
-  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña Actions, ignorando el chequeo de hora
+  workflow_dispatch: {}
 
 concurrency:
   group: podcast-daily
@@ -19,33 +18,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Comprobar que es la hora correcta en Madrid
-        id: check_time
-        run: |
-          HORA_MADRID=$(TZ="Europe/Madrid" date +%H:%M)
-          echo "Hora actual en Madrid: $HORA_MADRID"
-          if [[ "$HORA_MADRID" > "07:40" && "$HORA_MADRID" < "08:20" ]]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - uses: actions/checkout@v4
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
 
       - uses: actions/setup-python@v5
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         with:
           python-version: "3.11"
 
       - name: Instalar dependencias
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           pip install feedparser requests anthropic mutagen
           sudo apt-get update -y && sudo apt-get install -y ffmpeg
 
       - name: Generar episodio
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
@@ -58,14 +42,12 @@ jobs:
             --fish-reference-id "${{ vars.FISH_REFERENCE_ID }}"
 
       - name: Reconstruir feed del podcast
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           python generar_feed_podcast.py \
             --base-url "${{ vars.PODCAST_BASE_URL }}" \
             --website "https://borja.almudever.com"
 
       - name: Publicar cambios
-        if: steps.check_time.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
