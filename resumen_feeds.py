@@ -159,23 +159,13 @@ def fetch_portada_articles(api_key: str, hours: int = 24, per_source: int = 10) 
 
     for nombre_medio, source_uri in fuentes.items():
         try:
-            payload = {
-                "action": "getArticles",
-                "sourceUri": source_uri,
-                "dateStart": date_start,
-                "lang": "spa",
-                "articlesSortBy": "socialScore",
-                "articlesCount": per_source,
-                "includeArticleSocialScore": True,
-                "resultType": "articles",
-                "apiKey": api_key,
-            }
-            resp = requests.post(
-                "https://eventregistry.org/api/v1/article/getArticles",
-                json=payload, timeout=30,
-            )
-            resp.raise_for_status()
-            arts = resp.json().get("articles", {}).get("results", [])
+            arts = _consultar_newsapi_ai(api_key, source_uri, date_start, per_source,
+                                          location_uri="http://en.wikipedia.org/wiki/Spain")
+            if len(arts) < 3:
+                # El filtro geográfico ha dejado muy pocos resultados: repetimos
+                # sin filtrar por ubicación para no dejar la sección casi vacía.
+                arts = _consultar_newsapi_ai(api_key, source_uri, date_start, per_source)
+
             for a in arts:
                 published = None
                 try:
@@ -194,6 +184,30 @@ def fetch_portada_articles(api_key: str, hours: int = 24, per_source: int = 10) 
             print(f"  [aviso] no se pudo obtener portada de {nombre_medio}: {e}")
 
     return entries
+
+
+def _consultar_newsapi_ai(api_key: str, source_uri: str, date_start: str,
+                           per_source: int, location_uri: str = None) -> list:
+    payload = {
+        "action": "getArticles",
+        "sourceUri": source_uri,
+        "dateStart": date_start,
+        "lang": "spa",
+        "articlesSortBy": "socialScore",
+        "articlesCount": per_source,
+        "includeArticleSocialScore": True,
+        "resultType": "articles",
+        "apiKey": api_key,
+    }
+    if location_uri:
+        payload["locationUri"] = location_uri
+
+    resp = requests.post(
+        "https://eventregistry.org/api/v1/article/getArticles",
+        json=payload, timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json().get("articles", {}).get("results", [])
 
 
 # ---------- 3. Efeméride real del día (Wikipedia) ----------
@@ -237,8 +251,8 @@ def build_intro_script(dt: datetime, efemerides: list, client) -> str:
     if efemerides:
         opciones = "\n".join(f"- Año {e['year']}: {e['text']}" for e in efemerides)
         efemeride_txt = f"""Además, elige UNA (y solo una) de estas efemérides reales de hoy —
-la que te parezca más interesante o llamativa para el oyente— y redáctala
-con tus propias palabras de forma natural:
+la que consideres más interesante o llamativa PARA UNA AUDIENCIA DE ESPAÑA—
+y redáctala con tus propias palabras de forma natural:
 
 {opciones}
 
@@ -274,6 +288,27 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
         f"- {e['title']} ({e['feed']}): {e['summary']}" for e in entries
     )
 
+    instruccion_audiencias = ""
+    if folder_name.strip().upper() == "TV":
+        instruccion_audiencias = """
+- Si entre los artículos hay datos de audiencias de televisión (normalmente
+  del día anterior), EMPIEZA el segmento por ahí, antes de cualquier otra
+  noticia de televisión.
+- Dentro de esos datos de audiencia, si se menciona la cifra (share o
+  espectadores) de alguno de estos programas, cítala explícitamente:
+  "Y ahora Sonsoles", "YAS Verano", "Directo al grano", "Malas lenguas".
+- MUY IMPORTANTE: solo menciones la cifra de un programa si aparece
+  literalmente en los resúmenes de abajo. Si un programa de esa lista no
+  tiene dato disponible, simplemente no lo menciones — no inventes ni
+  estimes ninguna cifra.
+"""
+    elif folder_name.strip() == "Portada":
+        instruccion_audiencias = """
+- Prioriza noticias de ESPAÑA. Si tienes que elegir entre una noticia
+  centrada en España y otra centrada en Latinoamérica de importancia
+  similar, elige la de España.
+"""
+
     prompt = f"""Eres un locutor de radio que prepara un segmento hablado en español para un podcast diario.
 
 Sección: "{folder_name}"
@@ -302,7 +337,7 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 - No incluyas saludos ni despedidas, ni menciones el nombre de la sección al
   principio (eso ya lo dice la transición previa) — empieza directo con el
   contenido.
-"""
+{instruccion_audiencias}"""
     response = client.messages.create(
         model="claude-sonnet-5",
         max_tokens=1200,
