@@ -142,5 +142,44 @@
         "start_ms": 670144
       }
     ]
+  },
+  {
+    "guid": "dc29aded-88c2-42cb-bcdb-9d37f4da2e9d",
+    "title": "29 de julio — Muere Glen Hansard y Trump vuelve a burlarse de México",
+    "description": "El episodio de hoy destaca la trágica noticia de la muerte de Glen Hansard en un accidente de moto y las nuevas burlas de Trump hacia México en un mitin. También se repasan los estrenos de series para agosto, la salida de Joe Miñoso de 'Chicago Fire' tras 15 temporadas y el análisis del nuevo Galaxy Z Fold8 frente al iPhone Ultra.",
+    "pub_date": "2026-07-29T19:00:17.764608+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-29.mp3",
+    "file_size": 7362312,
+    "duration_seconds": 612,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 21159
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 154070
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 260989
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 405864
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 521873
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 607450
+      }
+    ]
   }
 ]
