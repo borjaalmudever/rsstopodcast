@@ -103,5 +103,44 @@
         "start_ms": 537024
       }
     ]
+  },
+  {
+    "guid": "c7663e7b-78b8-4a16-8ea7-78b242295f24",
+    "title": "29 de julio — ONCE, audiencias TV, Apple Upgrade y Jumanji final",
+    "description": "Repasamos el cupón de la ONCE del martes y las audiencias de TV, donde 'Dog House' y 'Código 10' destacaron en la noche. Apple presenta Upgrade, un plan para renovar el iPhone pagando menos. Además, llega el tráiler de 'Jumanji: Open World', la tercera y última entrega con Dwayne Johnson, Kevin Hart y Jack Black, y nueva música de Tyla con 'A*POP'.",
+    "pub_date": "2026-07-29T06:54:17.032153+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-29.mp3",
+    "file_size": 8109116,
+    "duration_seconds": 674,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 21681
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 177945
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 322455
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 445387
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 552724
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 670144
+      }
+    ]
   }
 ]

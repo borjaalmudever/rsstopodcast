@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Mis Feeds — Resumen diario</title>
-    <link>https://borjaalmudever.github.io/rsstopodcast</link>
+    <title>Mis feeds al día</title>
+    <link>https://borja.almudever.com</link>
     <language>es-es</language>
     <description>Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.</description>
-    <itunes:author>Resumen Feeds</itunes:author>
+    <itunes:author>@borjaalmudever</itunes:author>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/cover.jpg" />
     <image>
       <url>https://borjaalmudever.github.io/rsstopodcast/cover.jpg</url>
-      <title>Mis Feeds — Resumen diario</title>
-      <link>https://borjaalmudever.github.io/rsstopodcast</link>
+      <title>Mis feeds al día</title>
+      <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 28 Jul 2026 06:53:36 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 06:58:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>29 de julio — ONCE, audiencias TV, Apple Upgrade y Jumanji final</title>
+      <description>Repasamos el cupón de la ONCE del martes y las audiencias de TV, donde 'Dog House' y 'Código 10' destacaron en la noche. Apple presenta Upgrade, un plan para renovar el iPhone pagando menos. Además, llega el tráiler de 'Jumanji: Open World', la tercera y última entrega con Dwayne Johnson, Kevin Hart y Jack Black, y nueva música de Tyla con 'A*POP'.</description>
+      <pubDate>Wed, 29 Jul 2026 06:54:17 +0000</pubDate>
+      <guid isPermaLink="false">c7663e7b-78b8-4a16-8ea7-78b242295f24</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-29.mp3" length="8109116" type="audio/mpeg" />
+      <itunes:duration>00:11:14</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>28 de julio — IA, audiencias y Spider-Man marcan la jornada</title>
       <description>El 'Grand Prix 2026' arrasó en audiencia frente a una competencia que no superó el doble dígito. Preocupa el auge de amigos digitales con IA como riesgo para la salud mental adolescente. Además, las primeras reacciones a 'Spider-Man: Brand New Day' destacan a Tom Holland y una historia más terrenal, mientras Charli xcx acapara titulares entre música, moda y cine.</description>
