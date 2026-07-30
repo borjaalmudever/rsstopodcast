@@ -181,5 +181,44 @@
         "start_ms": 607450
       }
     ]
+  },
+  {
+    "guid": "481d6707-333f-4a0f-8c71-5e0743c2499f",
+    "title": "30 de julio — Milei desata polémica diplomática tras agravios a Lula",
+    "description": "El Gobierno argentino justificó los duros comentarios de Milei hacia Lula, lo que generó el repudio de la oposición, que se mostró avergonzada como argentinos. Además, se destacan cambios en el formato de 'Rueda la letra' de Telecinco para igualarlo a 'Pasapalabra', y Carrefour presenta un aire acondicionado portátil para la ola de calor. También resalta la defensa de Joyce Carol Oates a la traducción de 'La Odisea' frente a críticas severas.",
+    "pub_date": "2026-07-30T06:31:18.581787+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-30.mp3",
+    "file_size": 7611456,
+    "duration_seconds": 633,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 22256
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 161619
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 293616
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 417540
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 544940
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 628401
+      }
+    ]
   }
 ]

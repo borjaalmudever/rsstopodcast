@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 29 Jul 2026 19:05:09 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 06:37:30 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>30 de julio — Milei desata polémica diplomática tras agravios a Lula</title>
+      <description>El Gobierno argentino justificó los duros comentarios de Milei hacia Lula, lo que generó el repudio de la oposición, que se mostró avergonzada como argentinos. Además, se destacan cambios en el formato de 'Rueda la letra' de Telecinco para igualarlo a 'Pasapalabra', y Carrefour presenta un aire acondicionado portátil para la ola de calor. También resalta la defensa de Joyce Carol Oates a la traducción de 'La Odisea' frente a críticas severas.</description>
+      <pubDate>Thu, 30 Jul 2026 06:31:18 +0000</pubDate>
+      <guid isPermaLink="false">481d6707-333f-4a0f-8c71-5e0743c2499f</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-30.mp3" length="7611456" type="audio/mpeg" />
+      <itunes:duration>00:10:33</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>29 de julio — Muere Glen Hansard y Trump vuelve a burlarse de México</title>
       <description>El episodio de hoy destaca la trágica noticia de la muerte de Glen Hansard en un accidente de moto y las nuevas burlas de Trump hacia México en un mitin. También se repasan los estrenos de series para agosto, la salida de Joe Miñoso de 'Chicago Fire' tras 15 temporadas y el análisis del nuevo Galaxy Z Fold8 frente al iPhone Ultra.</description>
