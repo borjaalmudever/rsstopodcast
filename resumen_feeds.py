@@ -71,6 +71,8 @@ PORTADA_TRANSICION = (
 PRONUNCIACIONES = {
     "jenesaispop.com": "Yé Né Sé Pop",
     "jenesaispop": "Yé Né Sé Pop",
+    "variety.com": "Varáyeti",
+    "variety": "Varáyeti",
 }
 
 
@@ -332,6 +334,10 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 - Todos los números, porcentajes, precios y símbolos deben escribirse en
   palabras para que se puedan leer en voz alta (ej. "quince por ciento" en
   vez de "15%", "treinta euros" en vez de "30€").
+- Si varias noticias tratan sobre personas (artistas, famosos, deportistas,
+  etc.), prioriza y ordena primero a los más conocidos o reconocibles para
+  el público general, y deja para el final (o descarta si no hay espacio)
+  a los perfiles emergentes o menos conocidos.
 - No inventes datos que no estén en los resúmenes.
 - No uses markdown, listas ni asteriscos: solo texto plano para voz.
 - No incluyas saludos ni despedidas, ni menciones el nombre de la sección al
@@ -359,34 +365,40 @@ Debe ser una sola frase breve de despedida, natural, sin markdown."""
     return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
 
 
-def build_title_and_description(date_str: str, headlines: list, client) -> dict:
-    headlines_text = "\n".join(f"- {h}" for h in headlines) or "Sin novedades destacadas hoy."
+def build_title_and_description(date_str: str, guion_final: str, client) -> dict:
+    prompt = f"""Este es el guion COMPLETO y DEFINITIVO del episodio de hoy ({date_str})
+de un podcast de resumen de noticias — es exactamente lo que se va a leer en
+voz alta, palabra por palabra:
 
-    prompt = f"""Estos son los titulares más destacados del episodio de hoy ({date_str}) de un
-podcast de resumen de noticias:
+---
+{guion_final}
+---
 
-{headlines_text}
-
-Devuelve ÚNICAMENTE un JSON válido (sin texto adicional, sin markdown, sin
-bloques de código) con esta forma exacta:
+Devuelve ÚNICAMENTE un JSON válido (sin texto adicional antes ni después, sin
+markdown, sin bloques de código) con esta forma exacta:
 {{"titular": "...", "descripcion": "..."}}
 
 Donde:
 - "titular": un titular llamativo y breve (6 a 10 palabras) que resuma lo más
-  interesante del episodio de hoy, sin exagerar ni inventar nada que no esté
-  en los titulares de arriba.
+  interesante del episodio de hoy.
 - "descripcion": un resumen de lo más llamativo del episodio en un MÁXIMO de
   3 frases, en español, sin markdown.
+
+REGLA MÁS IMPORTANTE: el titular y la descripción SOLO pueden mencionar cosas
+que aparezcan literalmente en el guion de arriba. Está terminantemente
+prohibido mencionar cualquier noticia, dato o nombre que no esté en el texto,
+aunque te parezca relevante o lo conozcas de otra forma. Si tienes dudas
+sobre si algo se cuenta en el guion o no, no lo menciones.
 """
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=300,
+        max_tokens=600,
         messages=[{"role": "user", "content": prompt}],
     )
     raw = "".join(b.text for b in response.content if b.type == "text").strip()
-    raw = re.sub(r"^```(json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
+    match = re.search(r"\{.*\}", raw, flags=re.DOTALL)
     try:
-        data = json.loads(raw)
+        data = json.loads(match.group(0)) if match else json.loads(raw)
     except Exception:
         data = {"titular": "Resumen del día", "descripcion": "Resumen de noticias del día."}
     return data
@@ -401,7 +413,11 @@ def text_to_speech_fish(text: str, out_path: Path, api_key: str,
         "Content-Type": "application/json",
         "model": model,
     }
-    payload = {"text": text, "format": "mp3"}
+    payload = {
+        "text": text,
+        "format": "mp3",
+        "max_new_tokens": 8192,
+    }
     if reference_id:
         payload["reference_id"] = reference_id
 
@@ -551,7 +567,6 @@ def main():
 
     # --- Segmentos por carpeta ---
     segment_texts = {}
-    headlines = []
     rss_idx = 0
     for folder_name, entries in folder_entries.items():
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
@@ -562,13 +577,15 @@ def main():
             rss_idx += 1
         cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name])
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
-        headlines.append(entries[0]["title"])
 
     outro_text = build_outro_script(client)
 
-    # --- Título y descripción ---
+    # --- Título y descripción (basados en el guion REAL ya escrito, no en
+    # las noticias en bruto antes de seleccionar, para que nunca mencionen
+    # algo que luego no se cuenta) ---
     print("Generando título y descripción del episodio...")
-    meta = build_title_and_description(date_str, headlines, client)
+    guion_noticias = "\n\n".join(segment_texts.values())
+    meta = build_title_and_description(date_str, guion_noticias, client)
     episode_title = f"{now.day} de {MESES_ES[now.month - 1]} — {meta.get('titular', 'Resumen del día')}"
     episode_description = meta.get("descripcion", "Resumen de noticias del día.")
 
