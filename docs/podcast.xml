@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 30 Jul 2026 06:37:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 06:35:17 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>31 de julio — San Sebastián, Meta y Spider-Man protagonizan la jornada</title>
+      <description>El alcalde de San Sebastián reafirma que la prohibición de las cenas solidarias es irrevocable, mientras Meta enfrenta burlas y recelos hacia sus gafas inteligentes. En cine, llega un nuevo estreno de Peter Parker y se analiza la serie 'DTF St. Louis'. Además, se comenta la colaboración musical entre Martin Garrix y U2 en 'Fireflies'.</description>
+      <pubDate>Fri, 31 Jul 2026 06:31:14 +0000</pubDate>
+      <guid isPermaLink="false">9214fa25-ac3a-42b5-a208-7ef1c539b2db</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-31.mp3" length="7109718" type="audio/mpeg" />
+      <itunes:duration>00:09:51</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>30 de julio — Milei desata polémica diplomática tras agravios a Lula</title>
       <description>El Gobierno argentino justificó los duros comentarios de Milei hacia Lula, lo que generó el repudio de la oposición, que se mostró avergonzada como argentinos. Además, se destacan cambios en el formato de 'Rueda la letra' de Telecinco para igualarlo a 'Pasapalabra', y Carrefour presenta un aire acondicionado portátil para la ola de calor. También resalta la defensa de Joyce Carol Oates a la traducción de 'La Odisea' frente a críticas severas.</description>

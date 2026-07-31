@@ -220,5 +220,44 @@
         "start_ms": 628401
       }
     ]
+  },
+  {
+    "guid": "9214fa25-ac3a-42b5-a208-7ef1c539b2db",
+    "title": "31 de julio — San Sebastián, Meta y Spider-Man protagonizan la jornada",
+    "description": "El alcalde de San Sebastián reafirma que la prohibición de las cenas solidarias es irrevocable, mientras Meta enfrenta burlas y recelos hacia sus gafas inteligentes. En cine, llega un nuevo estreno de Peter Parker y se analiza la serie 'DTF St. Louis'. Además, se comenta la colaboración musical entre Martin Garrix y U2 en 'Fireflies'.",
+    "pub_date": "2026-07-31T06:31:14.561691+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-07-31.mp3",
+    "file_size": 7109718,
+    "duration_seconds": 591,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 19800
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 134974
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 245681
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 369501
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 488202
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 587493
+      }
+    ]
   }
 ]
