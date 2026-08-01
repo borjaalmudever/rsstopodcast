@@ -27,7 +27,7 @@ para contenido informativo, salida estructurada donde procede y reintentos
 con espera exponencial.
 
 Variables de entorno opcionales:
-  GEMINI_MODEL             modelo a usar (por defecto gemini-2.5-flash-lite)
+  GEMINI_MODEL             modelo a usar (por defecto gemini-3.5-flash-lite)
   GEMINI_TEMPERATURE       temperatura de generación (por defecto 0.35)
   GEMINI_SAFETY_THRESHOLD  umbral de los filtros (por defecto BLOCK_ONLY_HIGH)
 """
@@ -60,7 +60,7 @@ except ImportError:
 # cambiar de un día para otro sin que toques una línea de código. En un cron
 # diario conviene FIJAR una versión concreta y actualizarla a mano cuando se
 # haya probado. Se puede sobreescribir con GEMINI_MODEL.
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
 # La temperatura por defecto de la API es 1.0. Para un guion de noticias cuya
 # premisa es "no inventes nada", bajarla es la mejora más barata que existe:
