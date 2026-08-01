@@ -79,7 +79,7 @@ def main():
     parser.add_argument("--website", default="https://borja.almudever.com",
                          help="Web mostrada como sitio del podcast (no tiene por qué coincidir con base-url)")
     parser.add_argument("--title", default="Mis feeds al día")
-    parser.add_argument("--description", default="Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.")
+    parser.add_argument("--description", default="Resumen diario en audio de mis feeds, generado automáticamente.")
     parser.add_argument("--author", default="@borjaalmudever")
     args = parser.parse_args()
 
