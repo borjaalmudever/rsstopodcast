@@ -26,12 +26,12 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install feedparser requests anthropic mutagen
+          pip install feedparser requests google-genai mutagen
           sudo apt-get update -y && sudo apt-get install -y ffmpeg
 
       - name: Generar episodio
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |

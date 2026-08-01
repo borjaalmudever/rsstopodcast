@@ -9,13 +9,14 @@ del propio MP3.
 Flujo:
   1. Lee el OPML y agrupa los feeds por carpeta.
   2. Para cada carpeta con novedades, descarga sus entradas recientes y pide
-     a Claude un segmento hablado, seleccionando las noticias más relevantes
+     a Gemini un segmento hablado, seleccionando las noticias más relevantes
      (no solo las más recientes) dentro de un presupuesto de palabras.
-  3. Genera una intro (saludo + fecha + efeméride real del día, vía Wikipedia)
-     y un cierre breve.
-  4. Convierte cada segmento a audio con Fish Audio y los concatena con ffmpeg.
+  3. Genera una intro (saludo + fecha + efeméride real del día, vía Wikipedia),
+     seguida de la cabecera musical, y una música de fondo por sección.
+  4. Convierte cada segmento a audio con Fish Audio, lo mezcla con su música
+     de fondo y encadena cabecera + secciones + cierre con crossfade.
   5. Escribe capítulos ID3 (uno por segmento) en el MP3 final.
-  6. Genera un título llamativo y una descripción de 3 frases con Claude.
+  6. Genera un título llamativo y una descripción de 3 frases con Gemini.
   7. Añade el episodio a docs/episodes.json (un registro por día).
 
 Pensado para correr en GitHub Actions, pero funciona igual en local.
@@ -37,9 +38,23 @@ import feedparser
 import requests
 
 try:
-    import anthropic
+    from google import genai
 except ImportError:
-    anthropic = None
+    genai = None
+
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest")
+
+
+def gemini_generate(client, prompt: str):
+    """Devuelve (texto, truncado_por_limite_de_tokens)."""
+    response = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
+    text = (response.text or "").strip()
+    truncated = False
+    try:
+        truncated = "MAX_TOKENS" in str(response.candidates[0].finish_reason)
+    except Exception:
+        pass
+    return text, truncated
 
 try:
     from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
@@ -53,7 +68,6 @@ MESES_ES = [
 ]
 
 TRANSICIONES = [
-    "Empezamos con la sección de {folder}.",
     "Vamos ahora con {folder}.",
     "Pasamos a {folder}.",
     "Toca hablar de {folder}.",
@@ -66,7 +80,7 @@ PORTADA_TRANSICION = (
 )
 
 # Nombres de fuente que se pronuncian mal por defecto en TTS: se sustituyen
-# por una versión fonética antes de pasarlos a Claude, así el guion ya los
+# por una versión fonética antes de pasarlos a Gemini, así el guion ya los
 # cita correctamente.
 PRONUNCIACIONES = {
     "jenesaispop.com": "Yé Né Sé Pop",
@@ -97,8 +111,10 @@ CIERRE_FILENAME = "06_CIERRE.mp3"
 
 # Envolvente de volumen de la música de fondo bajo cada sección: entra a un
 # golpe de entrada ("sting", volumen normal de la pista, similar a la
-# cabecera) antes de que arranque la voz, baja ("duck") a un nivel de fondo
-# mientras se habla, y se desvanece a silencio tras terminar la locución.
+# cabecera) con una subida rápida ("con fuerza"), baja ("duck") a un nivel de
+# fondo bajo ANTES de que arranque la voz (con margen, para que la locución
+# nunca empiece con la música aún alta), se mantiene baja mientras se habla,
+# y se desvanece a silencio en una cola corta tras terminar la locución.
 #
 # MUSIC_REF_LUFS es el nivel al que se normaliza cada música (con `loudnorm`)
 # ANTES de aplicar la envolvente: es, por tanto, el volumen real del "sting",
@@ -106,15 +122,22 @@ CIERRE_FILENAME = "06_CIERRE.mp3"
 # normalizar). MUSIC_DUCK_DB es cuántos dB por debajo de ese nivel cae el
 # fondo mientras se habla (la envolvente solo ATENÚA desde ese punto, nunca
 # vuelve a normalizar, para no acabar recortando dos veces el volumen).
-MUSIC_PRE_ROLL_SEC = 2.0
-MUSIC_DUCK_FADE_SEC = 1.0
-MUSIC_TAIL_SEC = 2.5
+MUSIC_PRE_ROLL_SEC = 2.0       # duración total de pre-roll antes de la voz
+MUSIC_FADE_IN_SEC = 0.4        # subida rápida hasta el golpe de entrada
+MUSIC_DUCK_FADE_SEC = 0.8      # duración de la bajada al nivel de fondo
+MUSIC_DUCK_LEAD_SEC = 0.6      # cuánto antes de la voz debe haber terminado de bajar
+MUSIC_TAIL_SEC = 1.2           # cola tras la voz, antes de silencio (corta)
 MUSIC_REF_LUFS = -15.0
-MUSIC_DUCK_DB = 20.0
+MUSIC_DUCK_DB = 26.0
 # Solape entre pistas consecutivas al encadenarlas (cabecera -> secciones ->
 # cierre): cae dentro de las zonas de pre-roll/tail, que son solo música
 # (nunca voz), así que el crossfade no puede pisar dos locuciones.
-MUSIC_CROSSFADE_SEC = 1.2
+MUSIC_CROSSFADE_SEC = 0.8
+# Comprime el rango dinámico de la música ANTES de normalizar/atenuar: sin
+# esto, pasajes internos ya de por sí más flojos de la propia canción (no el
+# punto de bucle) pueden quedar casi en silencio al sumarles el "duck" y,
+# como se repiten en cada vuelta del loop, se notan como un corte periódico.
+MUSIC_COMPRESSOR = "acompressor=threshold=-20dB:ratio=4:attack=20:release=250:makeup=2"
 
 
 # ---------- 1. Parsear el OPML por carpetas ----------
@@ -179,7 +202,7 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
             })
     entries.sort(key=lambda e: e["published"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
     # Se recorta solo para no reventar el tamaño del prompt; la SELECCIÓN de
-    # cuáles importan de verdad la hace Claude, no este corte por fecha.
+    # cuáles importan de verdad la hace Gemini, no este corte por fecha.
     return entries[:max_entries]
 
 
@@ -281,7 +304,7 @@ def normalize_for_tts(text: str) -> str:
     return text
 
 
-# ---------- 5. Guiones con Claude ----------
+# ---------- 5. Guiones con Gemini ----------
 
 def build_intro_script(dt: datetime, efemerides: list, client) -> str:
     fecha_natural = f"{dt.day} de {MESES_ES[dt.month - 1]}"
@@ -309,12 +332,8 @@ Debe:
 - Todos los números y símbolos deben escribirse en palabras (ej. "quince por ciento", nunca "15%"). Los años sí se pueden decir con cifras normales si suena mejor en voz alta (ej "mil novecientos ochenta").
 - No uses markdown ni asteriscos, solo texto plano para voz.
 """
-    response = client.messages.create(
-        model="claude-sonnet-5",
-        max_tokens=400,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
+    text, _ = gemini_generate(client, prompt)
+    return normalize_for_tts(text)
 
 
 def recortar_a_frase_completa(texto: str) -> str:
@@ -399,14 +418,13 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 - No incluyas saludos ni despedidas, ni menciones el nombre de la sección al
   principio (eso ya lo dice la transición previa) — empieza directo con el
   contenido.
+- NUNCA empieces el segmento con "empezamos", "para empezar", "primero" ni
+  ninguna otra palabra que dé a entender que esta es la primera sección del
+  episodio: antes de esta ya han sonado la portada y, según el caso, otras
+  secciones.
 {instruccion_audiencias}"""
-    response = client.messages.create(
-        model="claude-sonnet-5",
-        max_tokens=2500,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = "".join(b.text for b in response.content if b.type == "text").strip()
-    if response.stop_reason == "max_tokens":
+    text, truncated = gemini_generate(client, prompt)
+    if truncated:
         print(f"  [aviso] el segmento '{folder_name}' se quedó sin espacio de tokens, se recorta a la última frase completa")
         text = recortar_a_frase_completa(text)
     return normalize_for_tts(text)
@@ -437,12 +455,7 @@ prohibido mencionar cualquier noticia, dato o nombre que no esté en el texto,
 aunque te parezca relevante o lo conozcas de otra forma. Si tienes dudas
 sobre si algo se cuenta en el guion o no, no lo menciones.
 """
-    response = client.messages.create(
-        model="claude-sonnet-5",
-        max_tokens=600,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    raw = "".join(b.text for b in response.content if b.type == "text").strip()
+    raw, _ = gemini_generate(client, prompt)
     match = re.search(r"\{.*\}", raw, flags=re.DOTALL)
     try:
         data = json.loads(match.group(0)) if match else json.loads(raw)
@@ -511,19 +524,22 @@ def build_music_envelope_expr(voice_duration: float) -> str:
     nivel ya normalizado por `loudnorm` (1.0 = MUSIC_REF_LUFS, el volumen del
     golpe de entrada): entra YA sonando al nivel de fondo (nunca en silencio
     absoluto, para no dejar un hueco muerto justo tras la sección anterior),
-    sube a ese golpe de entrada, baja al nivel de fondo cuando arranca la
-    voz, se mantiene baja mientras se habla, y se desvanece a silencio al
+    sube rápido al golpe de entrada, baja al nivel de fondo con margen ANTES
+    de que arranque la voz (a t=MUSIC_PRE_ROLL_SEC), se mantiene baja
+    mientras se habla, y se desvanece a silencio en una cola corta al
     terminar la sección."""
-    pre, duck, tail = MUSIC_PRE_ROLL_SEC, MUSIC_DUCK_FADE_SEC, MUSIC_TAIL_SEC
+    fade_in_end = MUSIC_FADE_IN_SEC
+    duck_end = MUSIC_PRE_ROLL_SEC - MUSIC_DUCK_LEAD_SEC
+    duck_start = duck_end - MUSIC_DUCK_FADE_SEC
+    voice_end = MUSIC_PRE_ROLL_SEC + voice_duration
+    tail_end = voice_end + MUSIC_TAIL_SEC
     bg = db_to_amplitude(-MUSIC_DUCK_DB)
-    duck_end = pre + duck
-    voice_end = duck_end + voice_duration
-    tail_end = voice_end + tail
     return (
-        f"if(lt(t,{pre}),{bg}+(t/{pre})*(1.0-{bg}),"
-        f"if(lt(t,{duck_end}),1.0-(t-{pre})/{duck}*(1.0-{bg}),"
+        f"if(lt(t,{fade_in_end}),{bg}+(t/{fade_in_end})*(1.0-{bg}),"
+        f"if(lt(t,{duck_start}),1.0,"
+        f"if(lt(t,{duck_end}),1.0-(t-{duck_start})/{MUSIC_DUCK_FADE_SEC}*(1.0-{bg}),"
         f"if(lt(t,{voice_end}),{bg},"
-        f"if(lt(t,{tail_end}),{bg}*(1-(t-{voice_end})/{tail}),0))))"
+        f"if(lt(t,{tail_end}),{bg}*(1-(t-{voice_end})/{MUSIC_TAIL_SEC}),0)))))"
     )
 
 
@@ -536,8 +552,14 @@ def mix_section_audio(voice_path: Path, music_path: Path, out_path: Path):
     pre_roll_ms = int(round(MUSIC_PRE_ROLL_SEC * 1000))
 
     filter_complex = (
-        f"[1:a]atrim=0:{total_len},asetpts=PTS-STARTPTS,"
+        # `aloop` opera sobre las muestras ya decodificadas (bucle continuo,
+        # sin reabrir el contenedor mp3 en cada vuelta) y `acompressor` nivela
+        # los pasajes internos más flojos de la propia música ANTES de
+        # normalizar/atenuar, para que no se noten como microsilencios al
+        # repetirse en cada vuelta del loop.
+        f"[1:a]aloop=loop=-1:size=2147483647,atrim=0:{total_len},asetpts=PTS-STARTPTS,"
         f"aformat=sample_rates=44100:channel_layouts=stereo,"
+        f"{MUSIC_COMPRESSOR},"
         f"loudnorm=I={MUSIC_REF_LUFS}:TP=-2:LRA=7,"
         f"volume=eval=frame:volume='{envelope}'[music];"
         f"[0:a]aformat=sample_rates=44100:channel_layouts=stereo,"
@@ -547,7 +569,7 @@ def mix_section_audio(voice_path: Path, music_path: Path, out_path: Path):
     cmd = [
         "ffmpeg", "-y",
         "-i", str(voice_path),
-        "-stream_loop", "-1", "-i", str(music_path),
+        "-i", str(music_path),
         "-filter_complex", filter_complex,
         "-map", "[out]", "-t", str(total_len),
         "-c:a", "libmp3lame", "-b:a", "96k", str(out_path),
@@ -632,9 +654,9 @@ def main():
     parser.add_argument("--folders", nargs="*", default=None)
     args = parser.parse_args()
 
-    if anthropic is None:
-        sys.exit("Falta instalar el SDK: pip install anthropic")
-    for var in ("ANTHROPIC_API_KEY", "FISH_API_KEY"):
+    if genai is None:
+        sys.exit("Falta instalar el SDK: pip install google-genai")
+    for var in ("GEMINI_API_KEY", "FISH_API_KEY"):
         if var not in os.environ:
             sys.exit(f"Falta la variable de entorno {var}")
 
@@ -658,7 +680,7 @@ def main():
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
 
-    client = anthropic.Anthropic()
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     folders = parse_opml_by_folder(args.opml_path)
     if args.folders:
         folders = {k: v for k, v in folders.items() if k in args.folders}
