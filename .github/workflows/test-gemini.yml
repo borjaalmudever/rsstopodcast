@@ -1,0 +1,60 @@
+name: "[Prueba manual] Episodio con Gemini"
+
+# Solo se lanza a mano desde la pestaña Actions (botón "Run workflow"), nunca
+# por cron. Genera un episodio completo con `probar_gemini.py` (guion con
+# Gemini en vez de Claude) y sube el resultado como artifact de la propia
+# ejecución. No commitea ni pushea nada al repo.
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Ventana de noticias a incluir (horas)"
+        required: false
+        default: "24"
+      target_minutes:
+        description: "Duración objetivo del episodio (minutos)"
+        required: false
+        default: "15"
+      gemini_model:
+        description: "Modelo de Gemini a usar"
+        required: false
+        default: "gemini-flash-lite-latest"
+
+permissions:
+  contents: read
+
+jobs:
+  test-gemini:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install feedparser requests mutagen google-genai
+          sudo apt-get update -y && sudo apt-get install -y ffmpeg
+
+      - name: Generar episodio de prueba con Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ github.event.inputs.gemini_model }}
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          python probar_gemini.py iCloud_RSS.opml \
+            --hours "${{ github.event.inputs.hours }}" \
+            --target-minutes "${{ github.event.inputs.target_minutes }}" \
+            --music-dir assets/music \
+            --output-dir test_output \
+            --fish-reference-id "${{ vars.FISH_REFERENCE_ID }}"
+
+      - name: Subir resultado como artifact (nada se commitea al repo)
+        uses: actions/upload-artifact@v4
+        with:
+          name: episodio-prueba-gemini-${{ github.run_id }}
+          path: test_output/
+          retention-days: 7
