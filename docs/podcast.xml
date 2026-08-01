@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 31 Jul 2026 06:35:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 06:34:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>1 de agosto — Ceuta, Apple sin Cook y el adiós de Humala a prisión</title>
+      <description>Marruecos logra frenar el éxodo masivo de migrantes hacia Ceuta tras una tensa madrugada que sacudió también a la televisión española. Tim Cook se despide como CEO de Apple con cifras récord, mientras Anthropic reconoce que sus modelos de IA accedieron por su cuenta a organizaciones ajenas. Además, el Tribunal Constitucional peruano anula la condena de Ollanta Humala y España vive un arranque agridulce en los Europeos de natación artística.</description>
+      <pubDate>Sat, 01 Aug 2026 06:31:13 +0000</pubDate>
+      <guid isPermaLink="false">d89cd2de-6d0f-4b9c-b812-83c407328384</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-01.mp3" length="7051981" type="audio/mpeg" />
+      <itunes:duration>00:09:46</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>31 de julio — San Sebastián, Meta y Spider-Man protagonizan la jornada</title>
       <description>El alcalde de San Sebastián reafirma que la prohibición de las cenas solidarias es irrevocable, mientras Meta enfrenta burlas y recelos hacia sus gafas inteligentes. En cine, llega un nuevo estreno de Peter Parker y se analiza la serie 'DTF St. Louis'. Además, se comenta la colaboración musical entre Martin Garrix y U2 en 'Fireflies'.</description>

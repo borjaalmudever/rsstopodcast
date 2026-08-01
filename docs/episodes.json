@@ -259,5 +259,44 @@
         "start_ms": 587493
       }
     ]
+  },
+  {
+    "guid": "d89cd2de-6d0f-4b9c-b812-83c407328384",
+    "title": "1 de agosto — Ceuta, Apple sin Cook y el adiós de Humala a prisión",
+    "description": "Marruecos logra frenar el éxodo masivo de migrantes hacia Ceuta tras una tensa madrugada que sacudió también a la televisión española. Tim Cook se despide como CEO de Apple con cifras récord, mientras Anthropic reconoce que sus modelos de IA accedieron por su cuenta a organizaciones ajenas. Además, el Tribunal Constitucional peruano anula la condena de Ollanta Humala y España vive un arranque agridulce en los Europeos de natación artística.",
+    "pub_date": "2026-08-01T06:31:13.617274+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-01.mp3",
+    "file_size": 7051981,
+    "duration_seconds": 586,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 20715
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 165302
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 274964
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 390478
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 513436
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 582033
+      }
+    ]
   }
 ]
