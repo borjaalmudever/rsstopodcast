@@ -83,10 +83,10 @@ PORTADA_TRANSICION = (
 # por una versión fonética antes de pasarlos a Gemini, así el guion ya los
 # cita correctamente.
 PRONUNCIACIONES = {
-    "jenesaispop.com": "Yé Né Sé Pop",
-    "jenesaispop": "Yé Né Sé Pop",
-    "variety.com": "Varáyeti",
-    "variety": "Varáyeti",
+    "jenesaispop.com": "Yé-Né-Sé Pop",
+    "jenesaispop": "Yé-Né-Sé Pop",
+    "variety.com": "Varáieti",
+    "variety": "Varáieti",
 }
 
 
