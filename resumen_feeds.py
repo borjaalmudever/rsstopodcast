@@ -282,6 +282,21 @@ Debe:
     return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
 
 
+def recortar_a_frase_completa(texto: str) -> str:
+    """Si el texto termina a media frase, recorta hasta el último punto,
+    exclamación o interrogación completo, para no dejar pasar nunca una
+    idea a medias al audio."""
+    finales = [m.end() for m in re.finditer(r"[\.\!\?]\s", texto)]
+    if not finales:
+        return texto
+    ultimo = finales[-1]
+    # Si el texto ya termina justo en una frase completa (con poco margen
+    # de diferencia), no tocamos nada.
+    if len(texto) - ultimo <= 2:
+        return texto
+    return texto[:ultimo].strip()
+
+
 def build_folder_segment(folder_name: str, entries: list, client, word_budget: int) -> str:
     if not entries:
         return ""
@@ -334,6 +349,12 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 - Todos los números, porcentajes, precios y símbolos deben escribirse en
   palabras para que se puedan leer en voz alta (ej. "quince por ciento" en
   vez de "15%", "treinta euros" en vez de "30€").
+- MUY IMPORTANTE: el presupuesto de {word_budget} palabras es un límite
+  estricto, no una sugerencia. Si ves que te vas a pasar, recorta contenido
+  (menciona menos artículos) en vez de escribir frases más largas. Nunca
+  dejes una frase a medias: es preferible terminar el segmento un poco antes
+  de lo previsto, con una frase completa, que quedarte sin espacio a mitad
+  de una idea.
 - Si varias noticias tratan sobre personas (artistas, famosos, deportistas,
   etc.), prioriza y ordena primero a los más conocidos o reconocibles para
   el público general, y deja para el final (o descarta si no hay espacio)
@@ -346,10 +367,13 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
 {instruccion_audiencias}"""
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=1200,
+        max_tokens=2500,
         messages=[{"role": "user", "content": prompt}],
     )
     text = "".join(b.text for b in response.content if b.type == "text").strip()
+    if response.stop_reason == "max_tokens":
+        print(f"  [aviso] el segmento '{folder_name}' se quedó sin espacio de tokens, se recorta a la última frase completa")
+        text = recortar_a_frase_completa(text)
     return normalize_for_tts(text)
 
 
