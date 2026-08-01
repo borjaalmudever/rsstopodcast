@@ -82,6 +82,41 @@ def aplicar_pronunciaciones(texto: str) -> str:
     return texto
 
 
+# Música de fondo por sección: nombre de carpeta OPML (o "Portada") -> mp3
+# dentro de --music-dir. Cualquier carpeta que no aparezca aquí (p.ej. "MEDIA
+# TECH") queda excluida del episodio.
+SECTION_MUSIC = {
+    "Portada": "01_PORTADA.mp3",
+    "TELEVISIÓN": "02_TV.mp3",
+    "GEEK": "03_GEEK.mp3",
+    "POPCORN": "04_POPCORN.mp3",
+    "CULTURA POP": "05_CULTURA.mp3",
+}
+CABECERA_FILENAME = "00_CABECERA.mp3"
+CIERRE_FILENAME = "06_CIERRE.mp3"
+
+# Envolvente de volumen de la música de fondo bajo cada sección: entra a un
+# golpe de entrada ("sting", volumen normal de la pista, similar a la
+# cabecera) antes de que arranque la voz, baja ("duck") a un nivel de fondo
+# mientras se habla, y se desvanece a silencio tras terminar la locución.
+#
+# MUSIC_REF_LUFS es el nivel al que se normaliza cada música (con `loudnorm`)
+# ANTES de aplicar la envolvente: es, por tanto, el volumen real del "sting",
+# calibrado cerca del de la cabecera/cierre (que se usan tal cual, sin
+# normalizar). MUSIC_DUCK_DB es cuántos dB por debajo de ese nivel cae el
+# fondo mientras se habla (la envolvente solo ATENÚA desde ese punto, nunca
+# vuelve a normalizar, para no acabar recortando dos veces el volumen).
+MUSIC_PRE_ROLL_SEC = 2.0
+MUSIC_DUCK_FADE_SEC = 1.0
+MUSIC_TAIL_SEC = 2.5
+MUSIC_REF_LUFS = -15.0
+MUSIC_DUCK_DB = 20.0
+# Solape entre pistas consecutivas al encadenarlas (cabecera -> secciones ->
+# cierre): cae dentro de las zonas de pre-roll/tail, que son solo música
+# (nunca voz), así que el crossfade no puede pisar dos locuciones.
+MUSIC_CROSSFADE_SEC = 1.2
+
+
 # ---------- 1. Parsear el OPML por carpetas ----------
 
 def parse_opml_by_folder(opml_path: str) -> dict:
@@ -377,18 +412,6 @@ Escribe un guion para ser LEÍDO EN VOZ ALTA (no un texto para leer con los ojos
     return normalize_for_tts(text)
 
 
-def build_outro_script(client) -> str:
-    prompt = """Escribe el cierre de un podcast diario de noticias en español, en segunda
-persona del singular ("nos vemos mañana", nunca "vemos mañana" en plural).
-Debe ser una sola frase breve de despedida, natural, sin markdown."""
-    response = client.messages.create(
-        model="claude-sonnet-5",
-        max_tokens=100,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return normalize_for_tts("".join(b.text for b in response.content if b.type == "text").strip())
-
-
 def build_title_and_description(date_str: str, guion_final: str, client) -> dict:
     prompt = f"""Este es el guion COMPLETO y DEFINITIVO del episodio de hoy ({date_str})
 de un podcast de resumen de noticias — es exactamente lo que se va a leer en
@@ -464,7 +487,98 @@ def concatenate_segments(segment_paths: list, out_path: Path):
     for p in segment_paths:
         inputs += ["-i", str(p)]
     n = len(segment_paths)
-    filter_complex = "".join(f"[{i}:a:0]" for i in range(n)) + f"concat=n={n}:v=0:a=1[out]"
+    # Cada segmento pasa por aformat antes del concat: los segmentos hablados
+    # (Fish Audio) y los mp3 de música/jingles suministrados aparte pueden
+    # venir con sample rate o número de canales distintos, y el filtro
+    # `concat` exige que todas las entradas compartan formato.
+    normalize = "".join(
+        f"[{i}:a:0]aformat=sample_rates=44100:channel_layouts=stereo[a{i}];" for i in range(n)
+    )
+    concat_inputs = "".join(f"[a{i}]" for i in range(n))
+    filter_complex = normalize + f"{concat_inputs}concat=n={n}:v=0:a=1[out]"
+    cmd = ["ffmpeg", "-y", *inputs, "-filter_complex", filter_complex,
+           "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "96k", str(out_path)]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+def db_to_amplitude(db: float) -> float:
+    return 10 ** (db / 20)
+
+
+def build_music_envelope_expr(voice_duration: float) -> str:
+    """Expresión ffmpeg (filtro `volume`, eval=frame) que dibuja la
+    envolvente de la música de fondo de una sección, en amplitud RELATIVA al
+    nivel ya normalizado por `loudnorm` (1.0 = MUSIC_REF_LUFS, el volumen del
+    golpe de entrada): entra YA sonando al nivel de fondo (nunca en silencio
+    absoluto, para no dejar un hueco muerto justo tras la sección anterior),
+    sube a ese golpe de entrada, baja al nivel de fondo cuando arranca la
+    voz, se mantiene baja mientras se habla, y se desvanece a silencio al
+    terminar la sección."""
+    pre, duck, tail = MUSIC_PRE_ROLL_SEC, MUSIC_DUCK_FADE_SEC, MUSIC_TAIL_SEC
+    bg = db_to_amplitude(-MUSIC_DUCK_DB)
+    duck_end = pre + duck
+    voice_end = duck_end + voice_duration
+    tail_end = voice_end + tail
+    return (
+        f"if(lt(t,{pre}),{bg}+(t/{pre})*(1.0-{bg}),"
+        f"if(lt(t,{duck_end}),1.0-(t-{pre})/{duck}*(1.0-{bg}),"
+        f"if(lt(t,{voice_end}),{bg},"
+        f"if(lt(t,{tail_end}),{bg}*(1-(t-{voice_end})/{tail}),0))))"
+    )
+
+
+def mix_section_audio(voice_path: Path, music_path: Path, out_path: Path):
+    """Mezcla la voz de una sección con su música de fondo: pre-roll musical
+    antes de la voz, música baja bajo la locución, fade out al terminar."""
+    voice_duration = get_duration_seconds(voice_path)
+    total_len = MUSIC_PRE_ROLL_SEC + voice_duration + MUSIC_TAIL_SEC
+    envelope = build_music_envelope_expr(voice_duration)
+    pre_roll_ms = int(round(MUSIC_PRE_ROLL_SEC * 1000))
+
+    filter_complex = (
+        f"[1:a]atrim=0:{total_len},asetpts=PTS-STARTPTS,"
+        f"aformat=sample_rates=44100:channel_layouts=stereo,"
+        f"loudnorm=I={MUSIC_REF_LUFS}:TP=-2:LRA=7,"
+        f"volume=eval=frame:volume='{envelope}'[music];"
+        f"[0:a]aformat=sample_rates=44100:channel_layouts=stereo,"
+        f"adelay={pre_roll_ms}|{pre_roll_ms}[voice];"
+        f"[music][voice]amix=inputs=2:duration=longest:normalize=0[out]"
+    )
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(voice_path),
+        "-stream_loop", "-1", "-i", str(music_path),
+        "-filter_complex", filter_complex,
+        "-map", "[out]", "-t", str(total_len),
+        "-c:a", "libmp3lame", "-b:a", "96k", str(out_path),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+def crossfade_chain(paths: list, out_path: Path, crossfade_sec: float = MUSIC_CROSSFADE_SEC):
+    """Encadena varios mp3 ya mezclados (voz + música) solapando ligeramente
+    la música de sus bordes (pre-roll/tail, sin voz) con `acrossfade`, en vez
+    de pegarlos secos con `concat`."""
+    inputs = []
+    for p in paths:
+        inputs += ["-i", str(p)]
+
+    fmt_parts = [
+        f"[{i}:a]aformat=sample_rates=44100:channel_layouts=stereo[f{i}]" for i in range(len(paths))
+    ]
+    if len(paths) == 1:
+        filter_complex = "[0:a]aformat=sample_rates=44100:channel_layouts=stereo[out]"
+    else:
+        xfade_parts = []
+        prev_label = "f0"
+        for i in range(1, len(paths)):
+            out_label = f"xf{i}" if i < len(paths) - 1 else "out"
+            xfade_parts.append(
+                f"[{prev_label}][f{i}]acrossfade=d={crossfade_sec}:c1=tri:c2=tri[{out_label}]"
+            )
+            prev_label = out_label
+        filter_complex = ";".join(fmt_parts + xfade_parts)
+
     cmd = ["ffmpeg", "-y", *inputs, "-filter_complex", filter_complex,
            "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "96k", str(out_path)]
     subprocess.run(cmd, check=True, capture_output=True)
@@ -511,6 +625,8 @@ def main():
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--fish-reference-id", default=None)
     parser.add_argument("--fish-model", default="s2.1-pro-free")
+    parser.add_argument("--music-dir", default="assets/music",
+                         help="Carpeta con la cabecera, el cierre y la música de fondo de cada sección")
     parser.add_argument("--target-minutes", type=float, default=15.0,
                          help="Duración objetivo del episodio en minutos")
     parser.add_argument("--folders", nargs="*", default=None)
@@ -533,6 +649,12 @@ def main():
     tmp_dir = Path("tmp_audio")
     tmp_dir.mkdir(parents=True, exist_ok=True)
 
+    music_dir = Path(args.music_dir)
+    required_music_files = [CABECERA_FILENAME, CIERRE_FILENAME, *SECTION_MUSIC.values()]
+    missing_music = [f for f in required_music_files if not (music_dir / f).exists()]
+    if missing_music:
+        sys.exit(f"Faltan ficheros de música en {music_dir}: {', '.join(missing_music)}")
+
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
 
@@ -540,6 +662,9 @@ def main():
     folders = parse_opml_by_folder(args.opml_path)
     if args.folders:
         folders = {k: v for k, v in folders.items() if k in args.folders}
+    # Solo se locutan las carpetas con música de fondo asignada (ver
+    # SECTION_MUSIC); el resto (p.ej. "MEDIA TECH") queda fuera del episodio.
+    folders = {k: v for k, v in folders.items() if k in SECTION_MUSIC}
 
     now = datetime.now(timezone.utc)
     date_str = now.strftime("%Y-%m-%d")
@@ -574,8 +699,8 @@ def main():
     # --- Presupuesto de palabras por carpeta (proporcional, no solo recencia) ---
     WPM = 160
     total_budget = int(args.target_minutes * WPM)
-    intro_budget, outro_budget = 60, 30
-    remaining = max(total_budget - intro_budget - outro_budget, 300)
+    intro_budget = 60
+    remaining = max(total_budget - intro_budget, 300)
 
     weights = {f: math.sqrt(len(e)) for f, e in folder_entries.items()}
     total_weight = sum(weights.values())
@@ -602,8 +727,6 @@ def main():
         cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name])
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
 
-    outro_text = build_outro_script(client)
-
     # --- Título y descripción (basados en el guion REAL ya escrito, no en
     # las noticias en bruto antes de seleccionar, para que nunca mencionen
     # algo que luego no se cuenta) ---
@@ -614,35 +737,68 @@ def main():
     episode_description = meta.get("descripcion", "Resumen de noticias del día.")
 
     # --- Guardar transcripción interna completa ---
-    full_transcript = intro_text + "\n\n" + "\n\n".join(segment_texts.values()) + "\n\n" + outro_text
+    full_transcript = intro_text + "\n\n" + "\n\n".join(segment_texts.values())
     (transcripts_dir / f"{date_str}.txt").write_text(full_transcript, encoding="utf-8")
 
-    # --- Generar audio por segmento y concatenar ---
+    # --- Voz: intro + una locución por sección ---
     print("Generando audio con Fish Audio...")
-    segment_order = ["__intro__"] + list(segment_texts.keys()) + ["__outro__"]
-    segment_audio_paths = {}
-    for key in segment_order:
-        text = {"__intro__": intro_text, "__outro__": outro_text}.get(key, segment_texts.get(key))
-        if not text:
-            continue
-        safe = re.sub(r"[^\w\-]+", "_", key.strip())
-        path = tmp_dir / f"{safe}.mp3"
-        text_to_speech_fish(text, path, os.environ["FISH_API_KEY"],
+    intro_path = tmp_dir / "intro.mp3"
+    text_to_speech_fish(intro_text, intro_path, os.environ["FISH_API_KEY"],
+                         model=args.fish_model, reference_id=args.fish_reference_id)
+
+    ordered_sections = list(segment_texts.keys())
+    section_mixed_paths = {}
+    section_durations_ms = {}
+    for folder_name in ordered_sections:
+        safe = re.sub(r"[^\w\-]+", "_", folder_name.strip())
+        voice_path = tmp_dir / f"voz_{safe}.mp3"
+        text_to_speech_fish(segment_texts[folder_name], voice_path, os.environ["FISH_API_KEY"],
                              model=args.fish_model, reference_id=args.fish_reference_id)
-        segment_audio_paths[key] = path
+        print(f"  Mezclando música de fondo: {folder_name}")
+        mixed_path = tmp_dir / f"mix_{safe}.mp3"
+        mix_section_audio(voice_path, music_dir / SECTION_MUSIC[folder_name], mixed_path)
+        section_mixed_paths[folder_name] = mixed_path
+        section_durations_ms[folder_name] = get_duration_seconds(mixed_path) * 1000
 
-    ordered_keys = [k for k in segment_order if k in segment_audio_paths]
+    # La cabecera y el cierre se encadenan con crossfade igual que las
+    # secciones entre sí: sus bordes son música pura (cabecera no lleva voz,
+    # y el borde de la última sección es su cola de fade-out reservada), así
+    # que solapar un poco evita el hueco de silencio que deja el corte seco
+    # justo cuando la cabecera/el cierre ya están casi en silencio de por sí.
+    print("  Encadenando cabecera, secciones y cierre con crossfade musical...")
+    cabecera_path = music_dir / CABECERA_FILENAME
+    cierre_path = music_dir / CIERRE_FILENAME
+    chain_paths = [cabecera_path] + [section_mixed_paths[f] for f in ordered_sections] + [cierre_path]
+    body_path = tmp_dir / "cuerpo_completo.mp3"
+    crossfade_chain(chain_paths, body_path)
+
     final_mp3 = audio_dir / f"episodio_{date_str}.mp3"
-    concatenate_segments([segment_audio_paths[k] for k in ordered_keys], final_mp3)
+    concatenate_segments([intro_path, body_path], final_mp3)
 
-    # --- Capítulos (offsets calculados sobre los audios individuales) ---
+    # --- Capítulos ---
+    # Dentro del tramo con crossfade, cada unión se solapa MUSIC_CROSSFADE_SEC
+    # segundos, así que ese solape se resta al offset acumulado para que los
+    # capítulos sigan cuadrando con el audio real.
     chapters = []
-    cursor_ms = 0.0
-    for key in ordered_keys:
-        dur = get_duration_seconds(segment_audio_paths[key]) * 1000
-        title = "Introducción" if key == "__intro__" else ("Cierre" if key == "__outro__" else key)
-        chapters.append({"title": title, "start_ms": cursor_ms, "end_ms": cursor_ms + dur})
+    crossfade_ms = MUSIC_CROSSFADE_SEC * 1000
+
+    # La cabecera suena pegada al saludo/efeméride y forma parte del mismo
+    # bloque de introducción: no es un capítulo aparte en la metadata.
+    intro_dur = get_duration_seconds(intro_path) * 1000
+    cabecera_dur = get_duration_seconds(cabecera_path) * 1000
+    chapters.append({"title": "Introducción", "start_ms": 0.0, "end_ms": intro_dur + cabecera_dur})
+    cursor_ms = intro_dur + cabecera_dur
+
+    for folder_name in ordered_sections:
+        cursor_ms -= crossfade_ms
+        dur = section_durations_ms[folder_name]
+        chapters.append({"title": folder_name, "start_ms": cursor_ms, "end_ms": cursor_ms + dur})
         cursor_ms += dur
+
+    cursor_ms -= crossfade_ms
+    cierre_dur = get_duration_seconds(cierre_path) * 1000
+    chapters.append({"title": "Cierre", "start_ms": cursor_ms, "end_ms": cursor_ms + cierre_dur})
+
     write_chapters(final_mp3, chapters)
 
     duration_seconds = get_duration_seconds(final_mp3)
