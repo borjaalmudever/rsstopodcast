@@ -111,10 +111,12 @@ CIERRE_FILENAME = "06_CIERRE.mp3"
 
 # Envolvente de volumen de la música de fondo bajo cada sección: entra a un
 # golpe de entrada ("sting", volumen normal de la pista, similar a la
-# cabecera) con una subida rápida ("con fuerza"), baja ("duck") a un nivel de
-# fondo bajo ANTES de que arranque la voz (con margen, para que la locución
-# nunca empiece con la música aún alta), se mantiene baja mientras se habla,
-# y se desvanece a silencio en una cola corta tras terminar la locución.
+# cabecera) con una subida rápida ("con fuerza"), y luego baja ("duck") al
+# nivel de fondo de forma progresiva y NATURAL: el descenso empieza un poco
+# antes de que arranque la voz pero no termina hasta un rato después de que
+# la locución ya ha empezado (se solapan), en vez de cortar en seco justo
+# antes de la voz. Se mantiene baja mientras se habla, y se desvanece a
+# silencio en una cola corta tras terminar la locución.
 #
 # MUSIC_REF_LUFS es el nivel al que se normaliza cada música (con `loudnorm`)
 # ANTES de aplicar la envolvente: es, por tanto, el volumen real del "sting",
@@ -122,11 +124,11 @@ CIERRE_FILENAME = "06_CIERRE.mp3"
 # normalizar). MUSIC_DUCK_DB es cuántos dB por debajo de ese nivel cae el
 # fondo mientras se habla (la envolvente solo ATENÚA desde ese punto, nunca
 # vuelve a normalizar, para no acabar recortando dos veces el volumen).
-MUSIC_PRE_ROLL_SEC = 2.0       # duración total de pre-roll antes de la voz
-MUSIC_FADE_IN_SEC = 0.4        # subida rápida hasta el golpe de entrada
-MUSIC_DUCK_FADE_SEC = 0.8      # duración de la bajada al nivel de fondo
-MUSIC_DUCK_LEAD_SEC = 0.6      # cuánto antes de la voz debe haber terminado de bajar
-MUSIC_TAIL_SEC = 1.2           # cola tras la voz, antes de silencio (corta)
+MUSIC_PRE_ROLL_SEC = 1.5        # duración de pre-roll antes de que arranque la voz
+MUSIC_FADE_IN_SEC = 0.3         # subida rápida hasta el golpe de entrada
+MUSIC_DUCK_FADE_SEC = 1.3       # duración de la bajada al nivel de fondo (progresiva)
+MUSIC_DUCK_OVERLAP_SEC = 0.6    # cuánto continúa bajando la música tras arrancar la voz
+MUSIC_TAIL_SEC = 1.2            # cola tras la voz, antes de silencio (corta)
 MUSIC_REF_LUFS = -15.0
 MUSIC_DUCK_DB = 26.0
 # Solape entre pistas consecutivas al encadenarlas (cabecera -> secciones ->
@@ -524,12 +526,13 @@ def build_music_envelope_expr(voice_duration: float) -> str:
     nivel ya normalizado por `loudnorm` (1.0 = MUSIC_REF_LUFS, el volumen del
     golpe de entrada): entra YA sonando al nivel de fondo (nunca en silencio
     absoluto, para no dejar un hueco muerto justo tras la sección anterior),
-    sube rápido al golpe de entrada, baja al nivel de fondo con margen ANTES
-    de que arranque la voz (a t=MUSIC_PRE_ROLL_SEC), se mantiene baja
-    mientras se habla, y se desvanece a silencio en una cola corta al
-    terminar la sección."""
+    sube rápido al golpe de entrada, y baja al nivel de fondo de forma
+    progresiva empezando un poco antes de que arranque la voz y terminando
+    un poco después (se solapan, en vez de cortar en seco antes de la
+    locución), se mantiene baja mientras se habla, y se desvanece a silencio
+    en una cola corta al terminar la sección."""
     fade_in_end = MUSIC_FADE_IN_SEC
-    duck_end = MUSIC_PRE_ROLL_SEC - MUSIC_DUCK_LEAD_SEC
+    duck_end = MUSIC_PRE_ROLL_SEC + MUSIC_DUCK_OVERLAP_SEC
     duck_start = duck_end - MUSIC_DUCK_FADE_SEC
     voice_end = MUSIC_PRE_ROLL_SEC + voice_duration
     tail_end = voice_end + MUSIC_TAIL_SEC
