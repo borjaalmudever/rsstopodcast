@@ -76,7 +76,7 @@ def main():
     parser.add_argument("--docs-dir", default="docs")
     parser.add_argument("--base-url", required=True,
                          help="URL de GitHub Pages donde viven cover.jpg y los mp3")
-    parser.add_argument("--website", default="https://borja.almudever.com",
+    parser.add_argument("--website", default="https://borja.almudever.com/podcast",
                          help="Web mostrada como sitio del podcast (no tiene por qué coincidir con base-url)")
     parser.add_argument("--title", default="Mis feeds al día")
     parser.add_argument("--description", default="Resumen diario en audio de mis feeds, generado automáticamente.")
