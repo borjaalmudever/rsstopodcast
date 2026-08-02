@@ -73,6 +73,12 @@ GEMINI_TEMPERATURE = float(os.environ.get("GEMINI_TEMPERATURE", "0.35"))
 GEMINI_MAX_RETRIES = 4
 GEMINI_RETRY_BASE_SEC = 4
 
+# Se descubre en la primera llamada del proceso si GEMINI_MODEL admite
+# thinking_config, y se recuerda para el resto de llamadas: evita repetir la
+# misma petición fallida (y su reintento) en cada una de las ~7 llamadas que
+# hace un episodio completo, ya que el modelo no cambia durante la ejecución.
+_thinking_config_soportado = True
+
 _RETRYABLE_MARKERS = (
     "429", "500", "502", "503", "504",
     "RESOURCE_EXHAUSTED", "UNAVAILABLE", "INTERNAL", "DEADLINE_EXCEEDED",
@@ -167,7 +173,8 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
     tope real de tokens, ajustes de seguridad aptos para noticias, salida
     estructurada opcional y reintentos con espera exponencial.
     """
-    sin_thinking = True
+    global _thinking_config_soportado
+    sin_thinking = _thinking_config_soportado
     ultimo_error = None
 
     for intento in range(GEMINI_MAX_RETRIES):
@@ -179,11 +186,19 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
             )
         except Exception as e:
             mensaje = str(e)
-            # Algunos modelos (los de la serie 3) rechazan thinking_budget.
-            # Se reintenta una vez sin ese parámetro antes de darse por vencido.
-            if sin_thinking and ("thinking" in mensaje.lower() or "Unknown name" in mensaje):
-                print("  [aviso] el modelo no admite thinking_budget, se repite sin ese ajuste")
+            # Algunos modelos (los de la serie 3) rechazan thinking_budget,
+            # pero no siempre lo dicen en el mensaje de error: gemini-3.5
+            # -flash-lite, por ejemplo, devuelve un genérico "400
+            # INVALID_ARGUMENT: Request contains an invalid argument" sin
+            # mencionar "thinking" en ningún sitio. Así que, ante CUALQUIER
+            # fallo del primer intento con thinking_config activo, se
+            # reintenta una vez sin ese parámetro antes de aplicar la lógica
+            # de reintentos normal (no se puede confiar en el texto del
+            # mensaje para detectarlo).
+            if sin_thinking:
+                print(f"  [aviso] fallo con thinking_config activo ({mensaje[:120]}), se repite sin ese ajuste")
                 sin_thinking = False
+                _thinking_config_soportado = False
                 continue
             ultimo_error = e
             if any(m in mensaje for m in _RETRYABLE_MARKERS) and intento < GEMINI_MAX_RETRIES - 1:
