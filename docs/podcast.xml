@@ -4,7 +4,7 @@
     <title>Mis feeds al día</title>
     <link>https://borja.almudever.com</link>
     <language>es-es</language>
-    <description>Resumen diario en audio de mis carpetas de Reeder, generado automáticamente.</description>
+    <description>Resumen diario en audio de mis feeds, generado automáticamente.</description>
     <itunes:author>@borjaalmudever</itunes:author>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/cover.jpg" />
@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 01 Aug 2026 06:34:36 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 06:50:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>2 de agosto — La FIFA frena la privatización del Mundial de fútbol</title>
+      <description>La FIFA frena la privatización del Mundial de fútbol tras escuchar opiniones divididas. Por otro lado, RTVE arrasa en las audiencias de julio y firma su mejor mes en casi veinte años gracias al Mundial ganado por España. Además, fallece a los ochenta años el actor Vincent Pastore, conocido por su papel en Los Soprano.</description>
+      <pubDate>Sun, 02 Aug 2026 06:47:38 +0000</pubDate>
+      <guid isPermaLink="false">64b6dcc5-3f1a-4401-938b-06776b9486ff</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-02.mp3" length="6021832" type="audio/mpeg" />
+      <itunes:duration>00:08:21</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>1 de agosto — Ceuta, Apple sin Cook y el adiós de Humala a prisión</title>
       <description>Marruecos logra frenar el éxodo masivo de migrantes hacia Ceuta tras una tensa madrugada que sacudió también a la televisión española. Tim Cook se despide como CEO de Apple con cifras récord, mientras Anthropic reconoce que sus modelos de IA accedieron por su cuenta a organizaciones ajenas. Además, el Tribunal Constitucional peruano anula la condena de Ollanta Humala y España vive un arranque agridulce en los Europeos de natación artística.</description>

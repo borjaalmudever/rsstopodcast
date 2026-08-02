@@ -298,5 +298,44 @@
         "start_ms": 582033
       }
     ]
+  },
+  {
+    "guid": "64b6dcc5-3f1a-4401-938b-06776b9486ff",
+    "title": "2 de agosto — La FIFA frena la privatización del Mundial de fútbol",
+    "description": "La FIFA frena la privatización del Mundial de fútbol tras escuchar opiniones divididas. Por otro lado, RTVE arrasa en las audiencias de julio y firma su mejor mes en casi veinte años gracias al Mundial ganado por España. Además, fallece a los ochenta años el actor Vincent Pastore, conocido por su papel en Los Soprano.",
+    "pub_date": "2026-08-02T06:47:38.361031+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-02.mp3",
+    "file_size": 6021832,
+    "duration_seconds": 501,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 17832
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 155873
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 202459
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 304399
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 383534
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 494720
+      }
+    ]
   }
 ]
