@@ -242,6 +242,11 @@ MESES_ES = [
     "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
 ]
 
+# Índice: datetime.weekday() (0 = lunes) -> nombre del día.
+DIAS_ES = [
+    "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
+]
+
 TRANSICIONES = [
     "Vamos ahora con {folder}.",
     "Pasamos a {folder}.",
@@ -262,6 +267,7 @@ PRONUNCIACIONES = {
     "jenesaispop": "Yé-Né-Sé Pop",
     "variety.com": "Varáieti",
     "variety": "Varáieti",
+    "xataka": "Shataka",
 }
 
 
@@ -281,6 +287,11 @@ SECTION_MUSIC = {
     "POPCORN": "04_POPCORN.mp3",
     "CULTURA POP": "05_CULTURA.mp3",
 }
+
+# Orden fijo del episodio, independiente del orden de las carpetas dentro del
+# OPML (que puede cambiar si alguien reordena o edita el fichero a mano).
+SECTION_ORDER = ["Portada", "TELEVISIÓN", "GEEK", "CULTURA POP", "POPCORN"]
+
 CABECERA_FILENAME = "00_CABECERA.mp3"
 CIERRE_FILENAME = "06_CIERRE.mp3"
 
@@ -578,12 +589,23 @@ def recortar_a_frase_completa(texto: str) -> str:
 EJEMPLO_SEGMENTO = """El Confidencial cuenta que la compañía cerrará su planta de Vitoria a final de año, con unos cuatrocientos empleos afectados; la dirección lo achaca a la caída de pedidos, aunque el comité de empresa lo discute y ya ha convocado paros para la semana que viene. Con esto enlaza otra historia que publica Expansión: el sector encadena tres trimestres de descensos y las previsiones para el año que viene tampoco invitan al optimismo."""
 
 
-def build_folder_segment(folder_name: str, entries: list, client, word_budget: int) -> str:
+def build_folder_segment(folder_name: str, entries: list, client, word_budget: int,
+                          dt: datetime = None) -> str:
     if not entries:
         return ""
 
+    def _fecha_articulo(e):
+        pub = e.get("published")
+        if not pub:
+            return "fecha desconocida"
+        return f"{DIAS_ES[pub.weekday()]} {pub.day} de {MESES_ES[pub.month - 1]}"
+
+    # La fecha de cada artículo va en los materiales para que el modelo
+    # pueda razonar sobre si un dato sigue vigente o es un resto de días
+    # atrás (ver instrucción específica de TV más abajo).
     articles_text = "\n\n".join(
-        f"- {e['title']} ({e['feed']}): {e['summary']}" for e in entries
+        f"- {e['title']} ({e['feed']}, publicado el {_fecha_articulo(e)}): {e['summary']}"
+        for e in entries
     )
 
     # Aproximadamente cuántas noticias caben en el presupuesto. Es un ancla
@@ -595,15 +617,28 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
     # OJO: la carpeta se llama "TELEVISIÓN" en SECTION_MUSIC. Comparar contra
     # "TV" a secas hacía que este bloque no se aplicara nunca.
     if folder_name.strip().upper() in {"TV", "TELEVISIÓN", "TELEVISION"}:
-        instruccion_especifica = """
+        ref_dt = dt or datetime.now(timezone.utc)
+        hoy_txt = f"{DIAS_ES[ref_dt.weekday()]} {ref_dt.day} de {MESES_ES[ref_dt.month - 1]}"
+        ayer_dt = ref_dt - timedelta(days=1)
+        ayer_txt = f"{DIAS_ES[ayer_dt.weekday()]} {ayer_dt.day} de {MESES_ES[ayer_dt.month - 1]}"
+        instruccion_especifica = f"""
 PRIORIDADES DE ESTA SECCIÓN
-- Si entre los artículos hay datos de audiencias de televisión (normalmente
-  del día anterior), abre el segmento con ellos, antes que con cualquier otra
-  noticia de televisión.
-- Dentro de esos datos, cita explícitamente la cifra (share o espectadores)
-  de estos programas siempre que la cifra aparezca escrita en los resúmenes
-  de arriba: "Y ahora Sonsoles", "YAS Verano", "Directo al grano",
-  "Malas lenguas".
+- Las audiencias de televisión se publican SIEMPRE al día siguiente del día
+  que describen: una publicación fechada hoy ({hoy_txt}) cuenta las
+  audiencias de ayer ({ayer_txt}).
+- Busca entre los artículos uno sobre audiencias cuya fecha de publicación
+  sea literalmente hoy ({hoy_txt}). Si existe, abre el segmento con esos
+  datos, antes que con cualquier otra noticia de televisión, y puedes
+  llamarlos "de ayer".
+- Si NINGÚN artículo de audiencias está publicado hoy ({hoy_txt}) —por
+  ejemplo porque el más reciente es de hace varios días—, OMITE POR COMPLETO
+  el ángulo de audiencias: no lo menciones ni como apertura ni como noticia
+  secundaria, y monta la sección solo con las demás noticias de televisión
+  disponibles.
+- Cuando sí haya publicación de hoy, cita explícitamente la cifra (share o
+  espectadores) de estos programas siempre que la cifra aparezca escrita en
+  los resúmenes de arriba: "Y ahora Sonsoles", "YAS Verano", "Directo al
+  grano", "Malas lenguas".
 - De esa lista, hablas solo de los programas cuya cifra puedas leer
   literalmente en los materiales. Los que no tengan dato disponible se
   quedan fuera del guion.
@@ -633,6 +668,12 @@ SELECCIÓN
   artículos se quedan fuera y no pasa nada.
 - Agrupa los temas relacionados y enlázalos entre sí, de forma que el segmento
   se escuche como un relato y no como una lista leída una por una.
+- Los enlaces entre noticias ("siguiendo en España", "en la misma línea",
+  "por otro lado"...) tienen que ser ciertos: usa "siguiendo en España" solo
+  si la noticia que sigue ocurre de verdad en España, y así con cualquier
+  otro enlace de lugar o tema. Si dos noticias seguidas no comparten ese
+  hilo, engánchalas con una transición neutra o cambia de frase, pero nunca
+  con un enlace que contradiga el contenido real.
 - Cuando varias noticias hablen de personas (artistas, famosos, deportistas),
   coloca primero a las más conocidas por el público general y deja para el
   final a los perfiles emergentes o menos reconocibles, que además son los
@@ -988,6 +1029,10 @@ def main():
         print("Sin novedades en ninguna carpeta hoy. No se genera episodio.")
         return
 
+    # Orden fijo del episodio (ver SECTION_ORDER), no el orden de inserción
+    # (que depende de en qué orden aparecen las carpetas en el OPML).
+    folder_entries = {k: folder_entries[k] for k in SECTION_ORDER if k in folder_entries}
+
     # --- Presupuesto de palabras por carpeta (proporcional, no solo recencia) ---
     WPM = 160
     total_budget = int(args.target_minutes * WPM)
@@ -1016,7 +1061,7 @@ def main():
         else:
             transicion = TRANSICIONES[rss_idx % len(TRANSICIONES)].format(folder=folder_name)
             rss_idx += 1
-        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name])
+        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name], dt=now)
         if not cuerpo.strip():
             # Sin cuerpo, la sección sería solo la transición seguida de
             # música: mejor dejarla fuera del episodio que emitir el hueco.
