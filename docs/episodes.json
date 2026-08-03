@@ -337,5 +337,44 @@
         "start_ms": 494720
       }
     ]
+  },
+  {
+    "guid": "3c042c39-478e-4227-8158-d944543ab375",
+    "title": "3 de agosto — Crisis en Ceuta y fiebre por el eclipse solar",
+    "description": "España afronta una crisis migratoria en Ceuta sin respuestas claras del Gobierno mientras se prepara para la llegada masiva de turistas por el eclipse solar. En el ámbito internacional y cultural, la Unión Europea muestra fatiga en sus sanciones a Rusia y Spider-Man arrasa en la taquilla de Corea del Sur y China. Además, el actor Vincent Pastore fallece a los ochenta años y Ariana Grande anuncia un descanso temporal de los focos.",
+    "pub_date": "2026-08-03T06:31:35.523537+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-03.mp3",
+    "file_size": 5585360,
+    "duration_seconds": 464,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 17780
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 142681
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 202329
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 283762
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 344716
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 458306
+      }
+    ]
   }
 ]

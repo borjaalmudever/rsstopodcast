@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 02 Aug 2026 06:50:40 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 06:34:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>3 de agosto — Crisis en Ceuta y fiebre por el eclipse solar</title>
+      <description>España afronta una crisis migratoria en Ceuta sin respuestas claras del Gobierno mientras se prepara para la llegada masiva de turistas por el eclipse solar. En el ámbito internacional y cultural, la Unión Europea muestra fatiga en sus sanciones a Rusia y Spider-Man arrasa en la taquilla de Corea del Sur y China. Además, el actor Vincent Pastore fallece a los ochenta años y Ariana Grande anuncia un descanso temporal de los focos.</description>
+      <pubDate>Mon, 03 Aug 2026 06:31:35 +0000</pubDate>
+      <guid isPermaLink="false">3c042c39-478e-4227-8158-d944543ab375</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-03.mp3" length="5585360" type="audio/mpeg" />
+      <itunes:duration>00:07:44</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>2 de agosto — La FIFA frena la privatización del Mundial de fútbol</title>
       <description>La FIFA frena la privatización del Mundial de fútbol tras escuchar opiniones divididas. Por otro lado, RTVE arrasa en las audiencias de julio y firma su mejor mes en casi veinte años gracias al Mundial ganado por España. Además, fallece a los ochenta años el actor Vincent Pastore, conocido por su papel en Los Soprano.</description>
