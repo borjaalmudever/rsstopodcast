@@ -340,12 +340,18 @@ PRONUNCIACIONES = {
     "variety.com": "Varáieti",
     "variety": "Varáieti",
     "xataka": "Shataka",
+    "antena 3 noticias 1": "Antena tres noticias uno",
+    "la 1": "La Uno",
+    "grand prix": "Gran Priks",
 }
 
 
 def aplicar_pronunciaciones(texto: str) -> str:
+    # Los límites de palabra (\b) evitan que entradas con dígitos sueltos
+    # (p.ej. "la 1") se cuelen dentro de otro número más largo como "la 10".
     for original, pronunciacion in PRONUNCIACIONES.items():
-        texto = re.sub(re.escape(original), pronunciacion, texto, flags=re.IGNORECASE)
+        texto = re.sub(r"\b" + re.escape(original) + r"\b", pronunciacion,
+                       texto, flags=re.IGNORECASE)
     return texto
 
 
@@ -583,7 +589,7 @@ TRATO AL OYENTE
 
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes, precios y símbolos van escritos con letras, tal y como se leen: "quince por ciento", "treinta euros", "cien millones", "y" en lugar del ampersand.
-- Los años puedes darlos en cifras si suenan mejor al leerlos.
+- Los años SIEMPRE van en cifras, nunca escritos con letras: "1992", no "mil novecientos noventa y dos". Deletrear un año a mano es la fuente más habitual de números mal formados ("mil cuatrovecientos" en vez de "mil cuatrocientos"); en cifras el sintetizador de voz lo lee bien solo.
 
 VERACIDAD
 - Solo afirmas aquello que aparezca de forma explícita en los datos que te llegan en cada encargo.
@@ -721,6 +727,16 @@ PRIORIDADES DE ESTA SECCIÓN
 - Da preferencia a las noticias de ESPAÑA. Entre una noticia centrada en
   España y otra centrada en Latinoamérica de importancia parecida, va la de
   España.
+"""
+    elif folder_name.strip().upper() == "POPCORN":
+        instruccion_especifica = """
+PRIORIDADES DE ESTA SECCIÓN
+- Esta sección es de cine y series, no de música. Variety mezcla en su feed
+  noticias de música (lanzamientos, listas de éxitos, giras, fichajes
+  discográficos) junto con las de cine y televisión: descarta por completo
+  las noticias musicales de Variety, aunque parezcan relevantes. Esas
+  noticias, si vienen de otra fuente, ya tienen su sitio en la sección de
+  CULTURA POP.
 """
 
     prompt = f"""Sección del episodio de hoy: "{folder_name}"
