@@ -376,5 +376,44 @@
         "start_ms": 458306
       }
     ]
+  },
+  {
+    "guid": "28de08ef-2efc-4bb3-8a6b-4bf5beec3962",
+    "title": "4 de agosto — Ceuta cuenta cien cuerpos tras el mayor asalto fronterizo",
+    "description": "Ceuta afronta una macro morgue con cien cadáveres tras la avalancha de más de sesenta mil personas, y Moncloa destituye a la funcionaria que difundió la cifra oficial de entradas. Además, un chat de voluntarios destapa riesgos en la lucha contra el mayor incendio de la historia de España, mientras Nueva York y otros estados demandan a Trump por sus aranceles y drones ucranianos matan a siete personas en Rusia. También repasamos la parrilla de TV, los movimientos de Apple con el copiar y pegar en Windows y las gafas inteligentes, y las últimas noticias de Ariana Grande, Massive Attack y el estreno de El diablo viste de Prada dos.",
+    "pub_date": "2026-08-04T07:06:49.650736+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-04.mp3",
+    "file_size": 8582927,
+    "duration_seconds": 714,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 26923
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 154463
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 326698
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 505646
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 593924
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 707906
+      }
+    ]
   }
 ]

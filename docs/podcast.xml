@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 03 Aug 2026 06:34:51 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 07:26:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>4 de agosto — Ceuta cuenta cien cuerpos tras el mayor asalto fronterizo</title>
+      <description>Ceuta afronta una macro morgue con cien cadáveres tras la avalancha de más de sesenta mil personas, y Moncloa destituye a la funcionaria que difundió la cifra oficial de entradas. Además, un chat de voluntarios destapa riesgos en la lucha contra el mayor incendio de la historia de España, mientras Nueva York y otros estados demandan a Trump por sus aranceles y drones ucranianos matan a siete personas en Rusia. También repasamos la parrilla de TV, los movimientos de Apple con el copiar y pegar en Windows y las gafas inteligentes, y las últimas noticias de Ariana Grande, Massive Attack y el estreno de El diablo viste de Prada dos.</description>
+      <pubDate>Tue, 04 Aug 2026 07:06:49 +0000</pubDate>
+      <guid isPermaLink="false">28de08ef-2efc-4bb3-8a6b-4bf5beec3962</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-04.mp3" length="8582927" type="audio/mpeg" />
+      <itunes:duration>00:11:54</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>3 de agosto — Crisis en Ceuta y fiebre por el eclipse solar</title>
       <description>España afronta una crisis migratoria en Ceuta sin respuestas claras del Gobierno mientras se prepara para la llegada masiva de turistas por el eclipse solar. En el ámbito internacional y cultural, la Unión Europea muestra fatiga en sus sanciones a Rusia y Spider-Man arrasa en la taquilla de Corea del Sur y China. Además, el actor Vincent Pastore fallece a los ochenta años y Ariana Grande anuncia un descanso temporal de los focos.</description>
