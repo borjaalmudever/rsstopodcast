@@ -69,8 +69,11 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
 GEMINI_TEMPERATURE = float(os.environ.get("GEMINI_TEMPERATURE", "0.35"))
 
 # Reintentos: un 429 o un 503 puntual de Gemini no puede tumbar el episodio
-# del día entero en GitHub Actions.
-GEMINI_MAX_RETRIES = 4
+# del día entero en GitHub Actions. Los modelos "-lite" gratuitos tienen
+# rachas de alta demanda (503 "This model is currently experiencing high
+# demand") que pueden durar más de treinta segundos, así que el presupuesto
+# de reintentos tiene que aguantar minuto y medio largo, no solo segundos.
+GEMINI_MAX_RETRIES = 6
 GEMINI_RETRY_BASE_SEC = 4
 
 # Se descubre en la primera llamada del proceso si GEMINI_MODEL admite
@@ -177,7 +180,8 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
     sin_thinking = _thinking_config_soportado
     ultimo_error = None
 
-    for intento in range(GEMINI_MAX_RETRIES):
+    intento = 0
+    while intento < GEMINI_MAX_RETRIES:
         try:
             config = _build_config(system_instruction, max_output_tokens,
                                    response_schema, sin_thinking)
@@ -194,7 +198,9 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
             # fallo del primer intento con thinking_config activo, se
             # reintenta una vez sin ese parámetro antes de aplicar la lógica
             # de reintentos normal (no se puede confiar en el texto del
-            # mensaje para detectarlo).
+            # mensaje para detectarlo). Este sondeo no cuenta como intento:
+            # no puede restarle presupuesto de reintentos a un fallo temporal
+            # real (p.ej. un 503 de sobrecarga del modelo).
             if sin_thinking:
                 print(f"  [aviso] fallo con thinking_config activo ({mensaje[:120]}), se repite sin ese ajuste")
                 sin_thinking = False
@@ -205,6 +211,7 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
                 espera = GEMINI_RETRY_BASE_SEC * (2 ** intento)
                 print(f"  [aviso] fallo temporal de Gemini ({mensaje[:120]}). Reintento en {espera}s")
                 time.sleep(espera)
+                intento += 1
                 continue
             raise
 
@@ -224,6 +231,7 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
             espera = GEMINI_RETRY_BASE_SEC * (2 ** intento)
             print(f"  [aviso] Gemini devolvió texto vacío ({motivo}). Reintento en {espera}s")
             time.sleep(espera)
+            intento += 1
             continue
         # Fallar de forma RUIDOSA: un texto vacío que siguiera adelante
         # acabaría como un tramo mudo dentro del mp3 sin que nadie se entere.
