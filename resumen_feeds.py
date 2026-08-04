@@ -96,6 +96,14 @@ ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
 # hace un episodio completo, ya que el modelo no cambia durante la ejecución.
 _thinking_config_soportado = True
 
+# En cuanto una llamada agota los reintentos de Gemini y cae a Claude, se da
+# por caído para el resto de la ejecución: una racha de 503 "high demand"
+# dura minutos, no segundos, así que es casi seguro que las llamadas
+# siguientes del mismo episodio también fallarán. Sin esto, cada una de las
+# ~7 llamadas repetiría el ciclo completo de reintentos (hasta ~124s de
+# espera) antes de caer a Claude, en vez de ir directa.
+_gemini_caido = False
+
 _RETRYABLE_MARKERS = (
     "429", "500", "502", "503", "504",
     "RESOURCE_EXHAUSTED", "UNAVAILABLE", "INTERNAL", "DEADLINE_EXCEEDED",
@@ -278,16 +286,22 @@ def generate_script(gemini_client, claude_client, prompt: str, system_instructio
     racha larga de 503 "high demand" del modelo -lite gratuito), cae a Claude
     para no perder el episodio del día entero. Sin ANTHROPIC_API_KEY
     configurada (claude_client=None), el fallo de Gemini se propaga igual
-    que antes."""
-    try:
-        return gemini_generate(gemini_client, prompt, system_instruction=system_instruction,
-                               max_output_tokens=max_output_tokens, response_schema=response_schema)
-    except Exception as e:
-        if claude_client is None:
-            raise
-        print(f"  [aviso] Gemini agotó sus reintentos ({str(e)[:120]}); se usa Claude como respaldo")
-        return claude_generate(claude_client, prompt, system_instruction=system_instruction,
-                               max_output_tokens=max_output_tokens)
+    que antes. En cuanto Gemini se confirma caído (ver _gemini_caido), las
+    llamadas siguientes de la misma ejecución van directas a Claude."""
+    global _gemini_caido
+    if not (claude_client is not None and _gemini_caido):
+        try:
+            return gemini_generate(gemini_client, prompt, system_instruction=system_instruction,
+                                   max_output_tokens=max_output_tokens, response_schema=response_schema)
+        except Exception as e:
+            if claude_client is None:
+                raise
+            print(f"  [aviso] Gemini agotó sus reintentos ({str(e)[:120]}); se usa Claude como respaldo")
+            _gemini_caido = True
+    else:
+        print("  [aviso] Gemini ya se confirmó caído en esta ejecución; se usa Claude directamente")
+    return claude_generate(claude_client, prompt, system_instruction=system_instruction,
+                           max_output_tokens=max_output_tokens)
 
 try:
     from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
