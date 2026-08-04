@@ -24,12 +24,16 @@ Pensado para correr en GitHub Actions, pero funciona igual en local.
 Las llamadas a Gemini van centralizadas en `gemini_generate()`, con system
 instruction, temperatura baja, tope de tokens, ajustes de seguridad aptos
 para contenido informativo, salida estructurada donde procede y reintentos
-con espera exponencial.
+con espera exponencial. Si Gemini agota esos reintentos (rachas largas de
+503 "high demand" del modelo -lite gratuito), `generate_script()` cae a
+Claude como respaldo, siempre que haya ANTHROPIC_API_KEY configurada.
 
 Variables de entorno opcionales:
   GEMINI_MODEL             modelo a usar (por defecto gemini-3.5-flash-lite)
   GEMINI_TEMPERATURE       temperatura de generación (por defecto 0.35)
   GEMINI_SAFETY_THRESHOLD  umbral de los filtros (por defecto BLOCK_ONLY_HIGH)
+  ANTHROPIC_API_KEY        si está presente, habilita el respaldo con Claude
+  ANTHROPIC_MODEL          modelo de respaldo a usar (por defecto claude-sonnet-5)
 """
 
 import argparse
@@ -55,6 +59,11 @@ except ImportError:
     genai = None
     types = None
 
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
+
 
 # El alias "-latest" apunta siempre al último modelo de la familia y puede
 # cambiar de un día para otro sin que toques una línea de código. En un cron
@@ -75,6 +84,11 @@ GEMINI_TEMPERATURE = float(os.environ.get("GEMINI_TEMPERATURE", "0.35"))
 # de reintentos tiene que aguantar minuto y medio largo, no solo segundos.
 GEMINI_MAX_RETRIES = 6
 GEMINI_RETRY_BASE_SEC = 4
+
+# Respaldo cuando Gemini agota sus reintentos (rachas de 503 más largas que
+# el presupuesto de arriba): se reintenta el guion con Claude, tal y como se
+# hacía antes de adoptar Gemini. Solo se activa si hay ANTHROPIC_API_KEY.
+ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
 
 # Se descubre en la primera llamada del proceso si GEMINI_MODEL admite
 # thinking_config, y se recuerda para el resto de llamadas: evita repetir la
@@ -238,6 +252,42 @@ def gemini_generate(client, prompt: str, system_instruction: str = None,
         raise GeminiEmptyResponse(f"Gemini no devolvió texto utilizable: {motivo}")
 
     raise ultimo_error or RuntimeError("Gemini: fallo desconocido")
+
+
+def claude_generate(client, prompt: str, system_instruction: str = None,
+                    max_output_tokens: int = None):
+    """Igual forma que gemini_generate() (texto, truncado) pero contra
+    Claude. Sin reintentos propios: se usa como respaldo puntual cuando
+    Gemini ya agotó los suyos, no como ruta principal."""
+    kwargs = {
+        "model": ANTHROPIC_MODEL,
+        "max_tokens": max_output_tokens or 2000,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    if system_instruction:
+        kwargs["system"] = system_instruction
+    response = client.messages.create(**kwargs)
+    text = "".join(b.text for b in response.content if b.type == "text").strip()
+    truncated = response.stop_reason == "max_tokens"
+    return text, truncated
+
+
+def generate_script(gemini_client, claude_client, prompt: str, system_instruction: str = None,
+                    max_output_tokens: int = None, response_schema=None):
+    """Genera el guion con Gemini y, si agota sus reintentos (típicamente una
+    racha larga de 503 "high demand" del modelo -lite gratuito), cae a Claude
+    para no perder el episodio del día entero. Sin ANTHROPIC_API_KEY
+    configurada (claude_client=None), el fallo de Gemini se propaga igual
+    que antes."""
+    try:
+        return gemini_generate(gemini_client, prompt, system_instruction=system_instruction,
+                               max_output_tokens=max_output_tokens, response_schema=response_schema)
+    except Exception as e:
+        if claude_client is None:
+            raise
+        print(f"  [aviso] Gemini agotó sus reintentos ({str(e)[:120]}); se usa Claude como respaldo")
+        return claude_generate(claude_client, prompt, system_instruction=system_instruction,
+                               max_output_tokens=max_output_tokens)
 
 try:
     from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
@@ -543,7 +593,7 @@ def _tope_tokens(word_budget: int) -> int:
     return int(word_budget * 2.6) + 300
 
 
-def build_intro_script(dt: datetime, efemerides: list, client) -> str:
+def build_intro_script(dt: datetime, efemerides: list, client, claude_client=None) -> str:
     fecha_natural = f"{dt.day} de {MESES_ES[dt.month - 1]}"
     if efemerides:
         opciones = "\n".join(f"- Año {e['year']}: {e['text']}" for e in efemerides)
@@ -569,7 +619,7 @@ Escribe la introducción hablada del episodio de hoy.
 - Los únicos datos históricos que puedes dar son los de la lista de arriba.
 
 Responde solo con el texto de la introducción."""
-    text, _ = gemini_generate(client, prompt, system_instruction=SYSTEM_LOCUTOR,
+    text, _ = generate_script(client, claude_client, prompt, system_instruction=SYSTEM_LOCUTOR,
                               max_output_tokens=400)
     return normalize_for_tts(text)
 
@@ -598,7 +648,7 @@ EJEMPLO_SEGMENTO = """El Confidencial cuenta que la compañía cerrará su plant
 
 
 def build_folder_segment(folder_name: str, entries: list, client, word_budget: int,
-                          dt: datetime = None) -> str:
+                          dt: datetime = None, claude_client=None) -> str:
     if not entries:
         return ""
 
@@ -714,8 +764,8 @@ noticias de hoy; fíjate únicamente en la forma:
 
 Responde solo con el texto del segmento."""
 
-    text, truncated = gemini_generate(
-        client, prompt,
+    text, truncated = generate_script(
+        client, claude_client, prompt,
         system_instruction=SYSTEM_LOCUTOR,
         max_output_tokens=_tope_tokens(word_budget),
     )
@@ -747,7 +797,7 @@ else:
     ESQUEMA_META = None
 
 
-def build_title_and_description(date_str: str, guion_final: str, client) -> dict:
+def build_title_and_description(date_str: str, guion_final: str, client, claude_client=None) -> dict:
     prompt = f"""Este es el guion COMPLETO y DEFINITIVO del episodio de hoy ({date_str})
 de un podcast de resumen de noticias — es exactamente lo que se va a leer en
 voz alta, palabra por palabra:
@@ -766,10 +816,14 @@ REGLA MÁS IMPORTANTE: el titular y la descripción se construyen únicamente co
 cosas que aparezcan literalmente en el guion de arriba. Cualquier noticia,
 dato o nombre que no esté en ese texto se queda fuera, por relevante que te
 parezca o por bien que lo conozcas por otra vía. Ante la duda de si algo se
-cuenta o no en el guion, se queda fuera."""
+cuenta o no en el guion, se queda fuera.
+
+Devuelve ÚNICAMENTE un JSON válido (sin texto adicional antes ni después, sin
+markdown, sin bloques de código) con esta forma exacta:
+{{"titular": "...", "descripcion": "..."}}"""
 
     try:
-        raw, _ = gemini_generate(client, prompt, system_instruction=SYSTEM_META,
+        raw, _ = generate_script(client, claude_client, prompt, system_instruction=SYSTEM_META,
                                  max_output_tokens=600, response_schema=ESQUEMA_META)
         data = json.loads(raw)
         if not isinstance(data, dict) or not data.get("titular"):
@@ -999,6 +1053,11 @@ def main():
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
 
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    claude_client = None
+    if anthropic is not None and os.environ.get("ANTHROPIC_API_KEY"):
+        claude_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    else:
+        print("  [aviso] ANTHROPIC_API_KEY no configurada: sin respaldo si Gemini se satura")
     print(f"Modelo de guion: {GEMINI_MODEL} (temperatura {GEMINI_TEMPERATURE})")
     folders = parse_opml_by_folder(args.opml_path)
     if args.folders:
@@ -1057,7 +1116,7 @@ def main():
     # --- Efeméride + intro ---
     efemeride = get_efemeride(now)
     print("Generando introducción...")
-    intro_text = build_intro_script(now, efemeride, client)
+    intro_text = build_intro_script(now, efemeride, client, claude_client)
 
     # --- Segmentos por carpeta ---
     segment_texts = {}
@@ -1069,7 +1128,8 @@ def main():
         else:
             transicion = TRANSICIONES[rss_idx % len(TRANSICIONES)].format(folder=folder_name)
             rss_idx += 1
-        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name], dt=now)
+        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name],
+                                      dt=now, claude_client=claude_client)
         if not cuerpo.strip():
             # Sin cuerpo, la sección sería solo la transición seguida de
             # música: mejor dejarla fuera del episodio que emitir el hueco.
@@ -1086,7 +1146,7 @@ def main():
     # algo que luego no se cuenta) ---
     print("Generando título y descripción del episodio...")
     guion_noticias = "\n\n".join(segment_texts.values())
-    meta = build_title_and_description(date_str, guion_noticias, client)
+    meta = build_title_and_description(date_str, guion_noticias, client, claude_client)
     episode_title = f"{now.day} de {MESES_ES[now.month - 1]} — {meta.get('titular', 'Resumen del día')}"
     episode_description = meta.get("descripcion", "Resumen de noticias del día.")
 
