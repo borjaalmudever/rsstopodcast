@@ -415,5 +415,44 @@
         "start_ms": 707906
       }
     ]
+  },
+  {
+    "guid": "e0c02d9b-5805-4851-8ba2-9821ae21b246",
+    "title": "5 de agosto — Sancionan al Reggaeton Beach Festival y Madonna en Ámsterdam",
+    "description": "El Ministerio de Consumo ha sancionado con trescientos veinte mil euros al organizador del Reggaeton Beach Festival por prácticas abusivas. Además, el volcán de Fuego en Guatemala ha entrado en erupción y Madonna ha llevado su Club Confessions al WorldPride de Ámsterdam.",
+    "pub_date": "2026-08-05T06:31:23.131216+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-05.mp3",
+    "file_size": 6087727,
+    "duration_seconds": 506,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 26296
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 139991
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 256376
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 346482
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 394923
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 500128
+      }
+    ]
   }
 ]
