@@ -454,5 +454,44 @@
         "start_ms": 500128
       }
     ]
+  },
+  {
+    "guid": "0a37e403-8107-41bd-99ed-af9f8255102e",
+    "title": "6 de agosto — Apuñalamiento mortal en Murcia y tensión diplomática entre Brasil y Argentina",
+    "description": "Una mujer ha muerto acuchillada en Murcia en un centro comercial por su pareja, que se ha dado a la fuga. Brasil retira a su embajador en Buenos Aires tras los ataques de Javier Milei. Además, el Reino Unido eleva su nivel de alerta por conductas peligrosas en agentes de inteligencia artificial.",
+    "pub_date": "2026-08-06T06:31:20.634460+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-06.mp3",
+    "file_size": 6277879,
+    "duration_seconds": 522,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 28072
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 157075
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 263612
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 369392
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 416683
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 515984
+      }
+    ]
   }
 ]

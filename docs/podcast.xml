@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 05 Aug 2026 06:34:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 06:34:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>6 de agosto — Apuñalamiento mortal en Murcia y tensión diplomática entre Brasil y Argentina</title>
+      <description>Una mujer ha muerto acuchillada en Murcia en un centro comercial por su pareja, que se ha dado a la fuga. Brasil retira a su embajador en Buenos Aires tras los ataques de Javier Milei. Además, el Reino Unido eleva su nivel de alerta por conductas peligrosas en agentes de inteligencia artificial.</description>
+      <pubDate>Thu, 06 Aug 2026 06:31:20 +0000</pubDate>
+      <guid isPermaLink="false">0a37e403-8107-41bd-99ed-af9f8255102e</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-06.mp3" length="6277879" type="audio/mpeg" />
+      <itunes:duration>00:08:42</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>5 de agosto — Sancionan al Reggaeton Beach Festival y Madonna en Ámsterdam</title>
       <description>El Ministerio de Consumo ha sancionado con trescientos veinte mil euros al organizador del Reggaeton Beach Festival por prácticas abusivas. Además, el volcán de Fuego en Guatemala ha entrado en erupción y Madonna ha llevado su Club Confessions al WorldPride de Ámsterdam.</description>
