@@ -383,18 +383,32 @@ CIERRE_FILENAME = "06_CIERRE.mp3"
 # silencio en una cola corta tras terminar la locución.
 #
 # MUSIC_REF_LUFS es el nivel al que se normaliza cada música (con `loudnorm`)
-# ANTES de aplicar la envolvente: es, por tanto, el volumen real del "sting",
-# calibrado cerca del de la cabecera/cierre (que se usan tal cual, sin
-# normalizar). MUSIC_DUCK_DB es cuántos dB por debajo de ese nivel cae el
-# fondo mientras se habla (la envolvente solo ATENÚA desde ese punto, nunca
-# vuelve a normalizar, para no acabar recortando dos veces el volumen).
+# ANTES de aplicar la envolvente: es, por tanto, el volumen real del "sting".
+# Antes la voz nunca se normalizaba (cada guion salía de Fish Audio con el
+# volumen "natural" que le diera la gana, distinto segmento a segmento) y
+# cabecera/cierre se usaban tal cual sin pasar por loudnorm, así que
+# MUSIC_REF_LUFS solo se había calibrado cerca del nivel crudo de la
+# cabecera, nunca contra la voz. Ahora TODO tramo de audio del episodio pasa
+# por una única pasada de `loudnorm`: la voz (intro y cada sección) a
+# VOICE_REF_LUFS, y la música (golpe de entrada de cada sección, cabecera y
+# cierre) a MUSIC_REF_LUFS, calibrado por debajo de VOICE_REF_LUFS para que
+# el "sting" no tape la voz. MUSIC_DUCK_DB es cuántos dB por debajo de
+# MUSIC_REF_LUFS cae el fondo mientras se habla (la envolvente solo ATENÚA
+# desde ese punto, nunca vuelve a normalizar, para no acabar recortando dos
+# veces el volumen).
+VOICE_REF_LUFS = -16.0          # objetivo de volumen para toda locución (intro y secciones)
 MUSIC_PRE_ROLL_SEC = 1.5        # duración de pre-roll antes de que arranque la voz
 MUSIC_FADE_IN_SEC = 0.3         # subida rápida hasta el golpe de entrada
 MUSIC_DUCK_FADE_SEC = 1.3       # duración de la bajada al nivel de fondo (progresiva)
 MUSIC_DUCK_OVERLAP_SEC = 0.6    # cuánto continúa bajando la música tras arrancar la voz
 MUSIC_TAIL_SEC = 1.2            # cola tras la voz, antes de silencio (corta)
-MUSIC_REF_LUFS = -15.0
-MUSIC_DUCK_DB = 26.0
+MUSIC_REF_LUFS = -19.0          # ~3 dB por debajo de VOICE_REF_LUFS
+# Baja en la misma proporción (4 dB) que MUSIC_REF_LUFS respecto a su valor
+# anterior (-15.0), para que el nivel ABSOLUTO del fondo bajo la voz no
+# cambie (-15-26 = -41 antes, -19-22 = -41 ahora): ese nivel de fondo ya se
+# dio por bueno en una ronda de ajuste anterior y no debía tocarse — solo
+# baja el golpe de entrada/sting, no el fondo bajo la voz.
+MUSIC_DUCK_DB = 22.0
 # Solape entre pistas consecutivas al encadenarlas (cabecera -> secciones ->
 # cierre): cae dentro de las zonas de pre-roll/tail, que son solo música
 # (nunca voz), así que el crossfade no puede pisar dos locuciones.
@@ -896,6 +910,31 @@ def get_duration_seconds(mp3_path: Path) -> float:
     return float(result.stdout.strip())
 
 
+def _loudnorm_pass(in_path: Path, out_path: Path, target_lufs: float, true_peak: float):
+    """Una única pasada de ffmpeg `loudnorm` (medición y corrección en el
+    mismo paso, sin dos pasadas): de sobra para un pipeline desatendido que
+    ya se ajusta a oído, número a número, tras cada episodio real."""
+    cmd = ["ffmpeg", "-y", "-i", str(in_path), "-af",
+           f"loudnorm=I={target_lufs}:TP={true_peak}:LRA=7",
+           "-c:a", "libmp3lame", "-b:a", "96k", str(out_path)]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+def normalize_voice_audio(in_path: Path, out_path: Path):
+    """Normaliza una locución (intro o sección) a VOICE_REF_LUFS antes de
+    que llegue a mix_section_audio()/concatenate_segments(): da a todos los
+    tramos hablados del episodio el mismo suelo de volumen, aunque Fish
+    Audio los devuelva con niveles naturales distintos."""
+    _loudnorm_pass(in_path, out_path, VOICE_REF_LUFS, true_peak=-1.5)
+
+
+def normalize_jingle_audio(in_path: Path, out_path: Path):
+    """Normaliza cabecera/cierre a MUSIC_REF_LUFS, el mismo nivel al que se
+    normaliza el golpe de entrada de la música de cada sección: cabecera y
+    cierre dejan de ser una excepción más alta que el resto del episodio."""
+    _loudnorm_pass(in_path, out_path, MUSIC_REF_LUFS, true_peak=-2.0)
+
+
 def concatenate_segments(segment_paths: list, out_path: Path):
     inputs = []
     for p in segment_paths:
@@ -1186,18 +1225,25 @@ def main():
 
     # --- Voz: intro + una locución por sección ---
     print("Generando audio con Fish Audio...")
+    intro_path_raw = tmp_dir / "intro_raw.mp3"
     intro_path = tmp_dir / "intro.mp3"
-    text_to_speech_fish(intro_text, intro_path, os.environ["FISH_API_KEY"],
+    text_to_speech_fish(intro_text, intro_path_raw, os.environ["FISH_API_KEY"],
                          model=args.fish_model, reference_id=args.fish_reference_id)
+    normalize_voice_audio(intro_path_raw, intro_path)
 
     ordered_sections = list(segment_texts.keys())
     section_mixed_paths = {}
     section_durations_ms = {}
     for folder_name in ordered_sections:
         safe = re.sub(r"[^\w\-]+", "_", folder_name.strip())
+        voice_path_raw = tmp_dir / f"voz_{safe}_raw.mp3"
         voice_path = tmp_dir / f"voz_{safe}.mp3"
-        text_to_speech_fish(segment_texts[folder_name], voice_path, os.environ["FISH_API_KEY"],
+        text_to_speech_fish(segment_texts[folder_name], voice_path_raw, os.environ["FISH_API_KEY"],
                              model=args.fish_model, reference_id=args.fish_reference_id)
+        # Cada sección es una llamada TTS independiente y puede volver con un
+        # volumen natural distinto: normalizar aquí, antes de mezclar, es lo
+        # que evita que la voz salte de nivel entre secciones.
+        normalize_voice_audio(voice_path_raw, voice_path)
         print(f"  Mezclando música de fondo: {folder_name}")
         mixed_path = tmp_dir / f"mix_{safe}.mp3"
         mix_section_audio(voice_path, music_dir / SECTION_MUSIC[folder_name], mixed_path)
@@ -1210,8 +1256,10 @@ def main():
     # que solapar un poco evita el hueco de silencio que deja el corte seco
     # justo cuando la cabecera/el cierre ya están casi en silencio de por sí.
     print("  Encadenando cabecera, secciones y cierre con crossfade musical...")
-    cabecera_path = music_dir / CABECERA_FILENAME
-    cierre_path = music_dir / CIERRE_FILENAME
+    cabecera_path = tmp_dir / "cabecera_norm.mp3"
+    cierre_path = tmp_dir / "cierre_norm.mp3"
+    normalize_jingle_audio(music_dir / CABECERA_FILENAME, cabecera_path)
+    normalize_jingle_audio(music_dir / CIERRE_FILENAME, cierre_path)
     chain_paths = [cabecera_path] + [section_mixed_paths[f] for f in ordered_sections] + [cierre_path]
     body_path = tmp_dir / "cuerpo_completo.mp3"
     crossfade_chain(chain_paths, body_path)
