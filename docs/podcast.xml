@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 06 Aug 2026 06:34:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 06:34:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>7 de agosto — Luis Miguel reaparece y Cine de barrio cambia de cadena</title>
+      <description>Luis Miguel reaparece en una campaña publicitaria de Coca-Cola y Donald Trump firma órdenes ejecutivas para limitar la ciudadanía por nacimiento. Además, el programa Cine de barrio abandona La Uno tras treinta y uno años para trasladarse a La 2.</description>
+      <pubDate>Fri, 07 Aug 2026 06:31:50 +0000</pubDate>
+      <guid isPermaLink="false">e0b3465a-8abf-4491-bcdd-e7ccc8ff8acd</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-07.mp3" length="5668513" type="audio/mpeg" />
+      <itunes:duration>00:07:51</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>6 de agosto — Apuñalamiento mortal en Murcia y tensión diplomática entre Brasil y Argentina</title>
       <description>Una mujer ha muerto acuchillada en Murcia en un centro comercial por su pareja, que se ha dado a la fuga. Brasil retira a su embajador en Buenos Aires tras los ataques de Javier Milei. Además, el Reino Unido eleva su nivel de alerta por conductas peligrosas en agentes de inteligencia artificial.</description>

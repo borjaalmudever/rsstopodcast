@@ -493,5 +493,44 @@
         "start_ms": 515984
       }
     ]
+  },
+  {
+    "guid": "e0b3465a-8abf-4491-bcdd-e7ccc8ff8acd",
+    "title": "7 de agosto — Luis Miguel reaparece y Cine de barrio cambia de cadena",
+    "description": "Luis Miguel reaparece en una campaña publicitaria de Coca-Cola y Donald Trump firma órdenes ejecutivas para limitar la ciudadanía por nacimiento. Además, el programa Cine de barrio abandona La Uno tras treinta y uno años para trasladarse a La 2.",
+    "pub_date": "2026-08-07T06:31:50.157978+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-07.mp3",
+    "file_size": 5668513,
+    "duration_seconds": 471,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 29128
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 124066
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 208243
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 335756
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 381715
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 465291
+      }
+    ]
   }
 ]
