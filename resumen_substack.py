@@ -253,7 +253,7 @@ def main():
     parser.add_argument("--docs-dir", default="docs")
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--fish-reference-id", default=None, help="Voz A: la locutora/el locutor habitual del podcast")
-    parser.add_argument("--fish-reference-id-2", default="a57f25d2318c4765a5b9be7e7f34617c",
+    parser.add_argument("--fish-reference-id-2", default="f336da44e4044a7fbeb624f2ff89f100",
                          help="Voz B: coanfitrión/a del diálogo de REFLEXIONES DIGITALES")
     parser.add_argument("--fish-model", default="s2.1-pro-free")
     parser.add_argument("--music-dir", default="assets/music", help="Carpeta con la cabecera y el cierre")
@@ -414,7 +414,7 @@ def main():
     partes_transcripcion = [bienvenida_text] + list(segment_texts.values()) + reflexiones_clip_texts
     guion_texto = "\n\n".join(partes_transcripcion)
     meta = rf.build_title_and_description(date_str, guion_texto, client, claude_client)
-    episode_title = f"{now.day} de {rf.MESES_ES[now.month - 1]} - EDICIÓN SUBSTACK"
+    episode_title = f"{now.day} de {rf.MESES_ES[now.month - 1]} — EDICIÓN SUBSTACK"
     episode_description = meta.get("descripcion", "Resumen de las publicaciones de Substack de la semana.")
 
     full_transcript = "\n\n".join(partes_transcripcion)
@@ -452,13 +452,13 @@ def main():
         concat_with_pauses(clips, DIALOGUE_TURN_PAUSE_SEC, merged_path, tmp_dir)
         section_merged_paths[folder_name] = merged_path
 
-    print("  Encadenando cabecera, bienvenida, secciones y cierre...")
+    print("  Encadenando bienvenida, cabecera, secciones y cierre...")
     cabecera_path = tmp_dir / "cabecera_norm.mp3"
     cierre_path = tmp_dir / "cierre_norm.mp3"
     rf.normalize_jingle_audio(music_dir / rf.CABECERA_FILENAME, cabecera_path)
     rf.normalize_jingle_audio(music_dir / rf.CIERRE_FILENAME, cierre_path)
 
-    all_blocks = [cabecera_path, bienvenida_path] + [section_merged_paths[f] for f in ordered_sections_present] + [cierre_path]
+    all_blocks = [bienvenida_path, cabecera_path] + [section_merged_paths[f] for f in ordered_sections_present] + [cierre_path]
     final_mp3 = audio_dir / f"episodio_substack_{date_str}.mp3"
     concat_with_pauses(all_blocks, MUSIC_PAUSE_SEC, final_mp3, tmp_dir)
 
@@ -466,7 +466,7 @@ def main():
     pause_ms = MUSIC_PAUSE_SEC * 1000
     cabecera_dur = rf.get_duration_seconds(cabecera_path) * 1000
     bienvenida_dur = rf.get_duration_seconds(bienvenida_path) * 1000
-    intro_end = cabecera_dur + pause_ms + bienvenida_dur
+    intro_end = bienvenida_dur + pause_ms + cabecera_dur
 
     chapters = [{"title": "Introducción", "start_ms": 0.0, "end_ms": intro_end}]
     cursor_ms = intro_end
