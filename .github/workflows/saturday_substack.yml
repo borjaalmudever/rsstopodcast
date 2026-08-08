@@ -1,0 +1,63 @@
+name: Generar edición especial de Substack (sábados)
+
+# Segundo episodio del podcast, además del diario. Igual que daily.yml, no
+# usa el "schedule" interno de GitHub Actions: se dispara vía
+# workflow_dispatch, llamado por un cron externo NUEVO que hay que dar de
+# alta aparte, disparando SOLO los sábados (ver README para la
+# configuración del cron externo del episodio diario; esta es la misma
+# idea, con una entrada de cron distinta).
+on:
+  workflow_dispatch: {}
+
+# Mismo grupo de concurrencia que daily.yml a propósito: los sábados pueden
+# dispararse los dos workflows, y ambos leen-modifican-escriben
+# docs/episodes.json y hacen push a main. Compartir grupo los pone en cola
+# en vez de dejarlos correr en paralelo, evitando una condición de carrera
+# sobre el mismo fichero y la misma rama.
+concurrency:
+  group: podcast-daily
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install feedparser requests google-genai anthropic mutagen
+          sudo apt-get update -y && sudo apt-get install -y ffmpeg
+
+      - name: Generar edición Substack
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: |
+          python resumen_substack.py iCloud_RSS.opml \
+            --hours 168 \
+            --base-url "${{ vars.PODCAST_BASE_URL }}" \
+            --fish-reference-id "${{ vars.FISH_REFERENCE_ID }}"
+
+      - name: Reconstruir feed del podcast
+        run: |
+          python generar_feed_podcast.py \
+            --base-url "${{ vars.PODCAST_BASE_URL }}" \
+            --website "https://borja.almudever.com"
+
+      - name: Publicar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ transcripts/
+          git diff --cached --quiet || git commit -m "Edición Substack del $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push

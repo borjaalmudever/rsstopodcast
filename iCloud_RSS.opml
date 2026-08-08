@@ -29,5 +29,21 @@
 <outline xmlUrl="https://www.elperiodico.com/es/rss/yotele/rss.xml" title="Yotele" type="rss" text="Yotele" htmlUrl="https://www.elperiodico.com/es/" />
 <outline htmlUrl="https://barloventocomunicacion.es" title="Barlovento Comunicación" xmlUrl="https://barloventocomunicacion.es/feed/" text="Barlovento Comunicación" type="rss" />
 </outline>
+<outline text="NOTICIAS DE INTERNET" title="NOTICIAS DE INTERNET">
+<outline text="Kuration" title="Kuration" type="rss" xmlUrl="https://www.kuration.email/feed" htmlUrl="https://www.kuration.email" />
+</outline>
+<outline text="HERRAMIENTAS ONLINE" title="HERRAMIENTAS ONLINE">
+<outline text="Good Tools" title="Good Tools" type="rss" xmlUrl="https://goodtools.substack.com/feed" htmlUrl="https://goodtools.substack.com" />
+<outline text="Wonder Tools" title="Wonder Tools" type="rss" xmlUrl="https://wondertools.substack.com/feed" htmlUrl="https://wondertools.substack.com" />
+</outline>
+<outline text="REFLEXIONES DIGITALES" title="REFLEXIONES DIGITALES">
+<outline text="Escape the Algorythm" title="Escape the Algorythm" type="rss" xmlUrl="https://escapethealgorithm.substack.com/feed" htmlUrl="https://escapethealgorithm.substack.com" />
+<outline text="Górgola Digital" title="Górgola Digital" type="rss" xmlUrl="https://gargoladigital.substack.com/feed" htmlUrl="https://gargoladigital.substack.com" />
+<outline text="Hemorragia Digital" title="Hemorragia Digital" type="rss" xmlUrl="https://bloodygirls.substack.com/feed" htmlUrl="https://bloodygirls.substack.com" />
+<outline text="Minimalismos" title="Minimalismos" type="rss" xmlUrl="https://www.edgarotero.es/feed" htmlUrl="https://www.edgarotero.es" />
+<outline text="Truffle Season" title="Truffle Season" type="rss" xmlUrl="https://truffleseason.substack.com/feed" htmlUrl="https://truffleseason.substack.com" />
+<outline text="One Hit Wonder" title="One Hit Wonder" type="rss" xmlUrl="https://onehitwonders.substack.com/feed" htmlUrl="https://onehitwonders.substack.com" />
+<outline text="Las Personas y el Momento" title="Las Personas y el Momento" type="rss" xmlUrl="https://annapacheco.substack.com/feed" htmlUrl="https://annapacheco.substack.com" />
+</outline>
 </body>
 </opml>
