@@ -685,15 +685,13 @@ PRIORIDADES DE ESTA SECCIÓN
   literalmente en los materiales. Los que no tengan dato disponible se
   quedan fuera del guion.
 """
-    elif folder_name.strip().upper() == "POPCORN":
+    elif folder_name.strip().upper() == "CULTURA POP":
         instruccion_especifica = """
 PRIORIDADES DE ESTA SECCIÓN
-- Esta sección es de cine y series, no de música. Variety mezcla en su feed
-  noticias de música (lanzamientos, listas de éxitos, giras, fichajes
-  discográficos) junto con las de cine y televisión: descarta por completo
-  las noticias musicales de Variety, aunque parezcan relevantes. Esas
-  noticias, si vienen de otra fuente, ya tienen su sitio en la sección de
-  CULTURA POP.
+- Variety mezcla en su feed noticias de música con las de cine y
+  televisión: quédate solo con las musicales de Variety y descarta las de
+  cine o series, aunque parezcan relevantes — esas ya tienen su sitio en la
+  sección de POPCORN.
 """
 
     prompt = f"""Sección del episodio de hoy: "{folder_name}"
