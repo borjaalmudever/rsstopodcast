@@ -571,29 +571,5 @@
         "start_ms": 493284
       }
     ]
-  },
-  {
-    "guid": "6c0ed32e-77c8-486a-a6a7-bcd058cfb383",
-    "title": "8 de agosto — EDICIÓN SUBSTACK",
-    "description": "Edgar Otero propone en su newsletter Minimalismos dejar atras las aplicaciones de streaming musical. La idea es rescatar un reproductor MP3 para evitar la trampa del alquiler musical y practicar la escucha lenta. Se destacan modelos actuales como el HIFI WALKER H2 Mini o el Innioasis Y1.",
-    "pub_date": "2026-08-08T12:10:03.952840+00:00",
-    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-08-08.mp3",
-    "file_size": 967177,
-    "duration_seconds": 80,
-    "chapters": [
-      {
-        "title": "Introducción",
-        "start_ms": 0
-      },
-      {
-        "title": "REFLEXIONES DIGITALES",
-        "start_ms": 12672
-      },
-      {
-        "title": "Cierre",
-        "start_ms": 73771
-      }
-    ],
-    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
