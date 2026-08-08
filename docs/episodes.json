@@ -571,5 +571,29 @@
         "start_ms": 493284
       }
     ]
+  },
+  {
+    "guid": "29927f91-fc3a-4734-86a3-272d47f8cff9",
+    "title": "8 de agosto - EDICIÓN SUBSTACK",
+    "description": "Edgar Otero defiende en Minimalismos volver al reproductor MP3 este verano para escapar de las plataformas de streaming. La propuesta busca recuperar la propiedad de la música y practicar una escucha lenta de discos completos.",
+    "pub_date": "2026-08-08T11:58:47.820596+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-08-08.mp3",
+    "file_size": 1175634,
+    "duration_seconds": 96,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 12792
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 89878
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
