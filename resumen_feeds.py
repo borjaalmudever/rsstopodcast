@@ -326,11 +326,6 @@ TRANSICIONES = [
     "Seguimos con {folder}.",
 ]
 
-PORTADA_TRANSICION = (
-    "Vamos a repasar las últimas noticias: lo que llevan hoy en portada los "
-    "principales medios."
-)
-
 # Nombres de fuente que se pronuncian mal por defecto en TTS: se sustituyen
 # por una versión fonética antes de pasarlos a Gemini, así el guion ya los
 # cita correctamente.
@@ -343,6 +338,12 @@ PRONUNCIACIONES = {
     "antena 3 noticias 1": "Antena tres noticias uno",
     "la 1": "La Uno",
     "grand prix": "Gran Priks",
+    # El modelo no siempre reproduce estas palabras fonéticas inventadas tal
+    # cual (no son vocabulario real, así que puede variarlas ligeramente al
+    # generar texto): estas entradas corrigen las variantes observadas en
+    # transcripciones reales, además de la forma "correcta" de arriba.
+    "varáyeti": "Varáieti",
+    "yé né sé pop": "Yé-Né-Sé Pop",
 }
 
 
@@ -355,11 +356,10 @@ def aplicar_pronunciaciones(texto: str) -> str:
     return texto
 
 
-# Música de fondo por sección: nombre de carpeta OPML (o "Portada") -> mp3
-# dentro de --music-dir. Cualquier carpeta que no aparezca aquí (p.ej. "MEDIA
-# TECH") queda excluida del episodio.
+# Música de fondo por sección: nombre de carpeta OPML -> mp3 dentro de
+# --music-dir. Cualquier carpeta que no aparezca aquí (p.ej. "MEDIA TECH")
+# queda excluida del episodio.
 SECTION_MUSIC = {
-    "Portada": "01_PORTADA.mp3",
     "TELEVISIÓN": "02_TV.mp3",
     "GEEK": "03_GEEK.mp3",
     "POPCORN": "04_POPCORN.mp3",
@@ -368,7 +368,7 @@ SECTION_MUSIC = {
 
 # Orden fijo del episodio, independiente del orden de las carpetas dentro del
 # OPML (que puede cambiar si alguien reordena o edita el fichero a mano).
-SECTION_ORDER = ["Portada", "TELEVISIÓN", "GEEK", "CULTURA POP", "POPCORN"]
+SECTION_ORDER = ["TELEVISIÓN", "GEEK", "CULTURA POP", "POPCORN"]
 
 CABECERA_FILENAME = "00_CABECERA.mp3"
 CIERRE_FILENAME = "06_CIERRE.mp3"
@@ -486,70 +486,6 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
     return entries[:max_entries]
 
 
-def fetch_portada_articles(api_key: str, hours: int = 24, per_source: int = 10) -> list:
-    """Trae, vía NewsAPI.ai, las noticias de las últimas `hours` horas de
-    El País y El Mundo, quedándose con las `per_source` mejores de cada
-    medio según su socialScore."""
-    if not api_key:
-        return []
-
-    fuentes = {"El País": "elpais.com", "El Mundo": "elmundo.es"}
-    date_start = (datetime.now(timezone.utc) - timedelta(hours=hours)).strftime("%Y-%m-%d")
-    entries = []
-
-    for nombre_medio, source_uri in fuentes.items():
-        try:
-            arts = _consultar_newsapi_ai(api_key, source_uri, date_start, per_source,
-                                          location_uri="http://en.wikipedia.org/wiki/Spain")
-            if len(arts) < 3:
-                # El filtro geográfico ha dejado muy pocos resultados: repetimos
-                # sin filtrar por ubicación para no dejar la sección casi vacía.
-                arts = _consultar_newsapi_ai(api_key, source_uri, date_start, per_source)
-
-            for a in arts:
-                published = None
-                try:
-                    published = datetime.fromisoformat(
-                        a.get("dateTimePub", "").replace("Z", "+00:00")
-                    )
-                except Exception:
-                    pass
-                entries.append({
-                    "feed": nombre_medio,
-                    "title": a.get("title", "Sin título"),
-                    "summary": strip_html(a.get("body", ""))[:600],
-                    "published": published,
-                })
-        except Exception as e:
-            print(f"  [aviso] no se pudo obtener portada de {nombre_medio}: {e}")
-
-    return entries
-
-
-def _consultar_newsapi_ai(api_key: str, source_uri: str, date_start: str,
-                           per_source: int, location_uri: str = None) -> list:
-    payload = {
-        "action": "getArticles",
-        "sourceUri": source_uri,
-        "dateStart": date_start,
-        "lang": "spa",
-        "articlesSortBy": "socialScore",
-        "articlesCount": per_source,
-        "includeArticleSocialScore": True,
-        "resultType": "articles",
-        "apiKey": api_key,
-    }
-    if location_uri:
-        payload["locationUri"] = location_uri
-
-    resp = requests.post(
-        "https://eventregistry.org/api/v1/article/getArticles",
-        json=payload, timeout=30,
-    )
-    resp.raise_for_status()
-    return resp.json().get("articles", {}).get("results", [])
-
-
 # ---------- 3. Efeméride real del día (Wikipedia) ----------
 
 def get_efemeride(dt: datetime, max_events: int = 6) -> list:
@@ -597,6 +533,7 @@ Todo lo que escribes se va a leer EN VOZ ALTA con un sintetizador de voz, así q
 FORMATO
 - Escribes prosa continua en texto plano: frases seguidas, tal y como se pronuncian.
 - Un único bloque de texto corrido, sin títulos, sin viñetas, sin guiones de lista, sin asteriscos, sin markdown y sin emojis.
+- Escribes SIEMPRE en español. No mezclas palabras sueltas en inglés (ni siquiera para números o cantidades: "doscientos", nunca "two hundred" ni "dos hundred"), salvo nombres propios o títulos de obras que no tengan traducción habitual.
 
 TRATO AL OYENTE
 - Hablas siempre con UNA sola persona, en segunda persona del singular: "tú", "tienes", "te cuento", "esto te interesa".
@@ -604,6 +541,7 @@ TRATO AL OYENTE
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes, precios y símbolos van escritos con letras, tal y como se leen: "quince por ciento", "treinta euros", "cien millones", "y" en lugar del ampersand.
 - Los años SIEMPRE van en cifras, nunca escritos con letras: "1992", no "mil novecientos noventa y dos". Deletrear un año a mano es la fuente más habitual de números mal formados ("mil cuatrovecientos" en vez de "mil cuatrocientos"); en cifras el sintetizador de voz lo lee bien solo.
+- Las centenas (doscientos/doscientas, trescientos/trescientas, cuatrocientos/cuatrocientas... novecientos/novecientas) concuerdan en género con lo que cuentan. Por defecto usa la forma masculina ("trescientos euros", "cuatrocientos empleados", "novecientos mil espectadores"), y solo la femenina cuando lo contado es explícitamente femenino ("trescientas personas", "novecientas páginas"). Ante la duda, masculino.
 
 VERACIDAD
 - Solo afirmas aquello que aparezca de forma explícita en los datos que te llegan en cada encargo.
@@ -651,18 +589,30 @@ Escribe la introducción hablada del episodio de hoy.
 - Continúa con la efeméride elegida, si la hay.
 - Extensión: de dos a cuatro frases en total.
 - Los únicos datos históricos que puedes dar son los de la lista de arriba.
+- Termina justo después del saludo/efeméride, sin ninguna despedida ni
+  cierre ("que tengas un buen día", "nos vemos", "hasta luego"...): esto es
+  solo la apertura del episodio, no el final, así que no se dice adiós
+  todavía.
 
 Responde solo con el texto de la introducción."""
     text, _ = generate_script(client, claude_client, prompt, system_instruction=SYSTEM_LOCUTOR,
                               max_output_tokens=400)
+    text = recortar_a_frase_completa(text)
     return normalize_for_tts(text)
 
 
 def recortar_a_frase_completa(texto: str) -> str:
     """Si el texto termina a media frase, recorta hasta el último punto,
     exclamación o interrogación completo, para no dejar pasar nunca una
-    idea a medias al audio."""
-    finales = [m.end() for m in re.finditer(r"[\.\!\?]\s", texto)]
+    idea a medias al audio.
+
+    Se llama SIEMPRE (no solo cuando la API marca truncado), así que un
+    punto final seguido de espacio (`\\s`) no basta: la respuesta de la API
+    normalmente termina justo en el punto, sin espacio de sobra detrás. Por
+    eso el final de frase también cuenta como válido si el punto está al
+    final de la cadena (`$`), no solo si le sigue un espacio."""
+    texto = texto.rstrip()
+    finales = [m.end() for m in re.finditer(r"[\.\!\?](?=\s|$)", texto)]
     if not finales:
         return texto
     ultimo = finales[-1]
@@ -735,13 +685,6 @@ PRIORIDADES DE ESTA SECCIÓN
   literalmente en los materiales. Los que no tengan dato disponible se
   quedan fuera del guion.
 """
-    elif folder_name.strip() == "Portada":
-        instruccion_especifica = """
-PRIORIDADES DE ESTA SECCIÓN
-- Da preferencia a las noticias de ESPAÑA. Entre una noticia centrada en
-  España y otra centrada en Latinoamérica de importancia parecida, va la de
-  España.
-"""
     elif folder_name.strip().upper() == "POPCORN":
         instruccion_especifica = """
 PRIORIDADES DE ESTA SECCIÓN
@@ -776,6 +719,8 @@ SELECCIÓN
   otro enlace de lugar o tema. Si dos noticias seguidas no comparten ese
   hilo, engánchalas con una transición neutra o cambia de frase, pero nunca
   con un enlace que contradiga el contenido real.
+- Varía los conectores entre noticias: no repitas la misma fórmula
+  ("cambiando de tercio" u otra) más de una vez dentro de este segmento.
 - Cuando varias noticias hablen de personas (artistas, famosos, deportistas),
   coloca primero a las más conocidas por el público general y deja para el
   final a los perfiles emergentes o menos reconocibles, que además son los
@@ -813,9 +758,15 @@ Responde solo con el texto del segmento."""
         system_instruction=SYSTEM_LOCUTOR,
         max_output_tokens=_tope_tokens(word_budget),
     )
-    if truncated:
-        print(f"  [aviso] el segmento '{folder_name}' se quedó sin espacio de tokens, se recorta a la última frase completa")
-        text = recortar_a_frase_completa(text)
+    # Se recorta SIEMPRE a la última frase completa, no solo cuando la API
+    # marca `truncated`: esa marca puede no llegar aunque el texto quede
+    # incompleto, y recortar_a_frase_completa() es un no-op sobre un texto
+    # que ya termina bien, así que no hay coste en aplicarlo siempre.
+    text_recortado = recortar_a_frase_completa(text)
+    if text_recortado != text:
+        motivo = "se quedó sin espacio de tokens" if truncated else "terminó a media frase"
+        print(f"  [aviso] el segmento '{folder_name}' {motivo}, se recorta a la última frase completa")
+    text = text_recortado
     return normalize_for_tts(text)
 
 
@@ -1141,19 +1092,6 @@ def main():
     # --- Recopilar entradas por carpeta ---
     folder_entries = {}
 
-    newsapi_key = os.environ.get("NEWSAPI_KEY")
-    print("== Portada (El País + El Mundo, NewsAPI.ai) ==")
-    if newsapi_key:
-        try:
-            portada_entries = fetch_portada_articles(newsapi_key, hours=args.hours)
-            print(f"  {len(portada_entries)} artículos recuperados")
-            if portada_entries:
-                folder_entries["Portada"] = portada_entries
-        except Exception as e:
-            print(f"  [aviso] fallo recuperando Portada: {e}")
-    else:
-        print("  [aviso] NEWSAPI_KEY no configurada, se omite la sección Portada")
-
     for folder_name, feeds in folders.items():
         print(f"== {folder_name} ({len(feeds)} feeds) ==")
         entries = fetch_recent_entries(feeds, args.hours)
@@ -1189,14 +1127,10 @@ def main():
 
     # --- Segmentos por carpeta ---
     segment_texts = {}
-    rss_idx = 0
+    transicion_idx = 0
+    primera_seccion = True
     for folder_name, entries in folder_entries.items():
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
-        if folder_name == "Portada":
-            transicion = PORTADA_TRANSICION
-        else:
-            transicion = TRANSICIONES[rss_idx % len(TRANSICIONES)].format(folder=folder_name)
-            rss_idx += 1
         cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name],
                                       dt=now, claude_client=claude_client)
         if not cuerpo.strip():
@@ -1204,6 +1138,15 @@ def main():
             # música: mejor dejarla fuera del episodio que emitir el hueco.
             print(f"  [aviso] segmento vacío para '{folder_name}', se omite la sección")
             continue
+        # La transición se decide DESPUÉS de confirmar que la sección tiene
+        # contenido: así "Empezamos con..." siempre cae en la sección que de
+        # verdad abre el episodio, no en una que luego resulte vacía.
+        if primera_seccion:
+            transicion = f"Empezamos con las novedades sobre {folder_name}."
+            primera_seccion = False
+        else:
+            transicion = TRANSICIONES[transicion_idx % len(TRANSICIONES)].format(folder=folder_name)
+            transicion_idx += 1
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
 
     if not segment_texts:
