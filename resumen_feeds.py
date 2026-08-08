@@ -566,7 +566,11 @@ def _tope_tokens(word_budget: int) -> int:
 
 
 def build_intro_script(dt: datetime, efemerides: list, client, claude_client=None) -> str:
-    fecha_natural = f"{dt.day} de {MESES_ES[dt.month - 1]}"
+    # El día de la semana se calcula aquí y se le da hecho al modelo: si no
+    # se le da, el modelo lo "adivina" por su cuenta y puede acertar el día
+    # y mes pero fallar el día de la semana (visto en producción: dijo
+    # "jueves" en una fecha que era sábado).
+    fecha_natural = f"{DIAS_ES[dt.weekday()]} {dt.day} de {MESES_ES[dt.month - 1]}"
     if efemerides:
         opciones = "\n".join(f"- Año {e['year']}: {e['text']}" for e in efemerides)
         efemeride_txt = f"""Efemérides reales de hoy — elige UNA sola, la que te parezca más
@@ -585,7 +589,8 @@ exactamente una."""
 ENCARGO
 Escribe la introducción hablada del episodio de hoy.
 
-- Empieza saludando con "Buenos días" y di que hoy es {fecha_natural}.
+- Empieza saludando con "Buenos días" y di que hoy es {fecha_natural}, exactamente así (día de la
+  semana, día del mes y mes): no calcules ni cambies el día de la semana, usa el que se te da aquí.
 - Continúa con la efeméride elegida, si la hay.
 - Extensión: de dos a cuatro frases en total.
 - Los únicos datos históricos que puedes dar son los de la lista de arriba.
