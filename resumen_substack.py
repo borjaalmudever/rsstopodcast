@@ -5,7 +5,8 @@ resumen_substack.py
 Genera la edición especial de los sábados: repaso semanal de las
 publicaciones de Substack suscritas, con tres secciones (NOTICIAS DE
 INTERNET, HERRAMIENTAS ONLINE, REFLEXIONES DIGITALES) y, en la última, un
-diálogo a dos voces por cada fuente.
+comentario por cada fuente narrado por una sola voz, alternando entre la
+voz principal del podcast y una segunda voz de Fish Audio.
 
 Reutiliza el pipeline ya construido en resumen_feeds.py (Gemini con Claude
 de respaldo, Fish Audio, mezcla con ffmpeg, capítulos ID3, episodes.json)
@@ -55,59 +56,32 @@ SUBSTACK_SECTION_ORDER = ["NOTICIAS DE INTERNET", "HERRAMIENTAS ONLINE", "REFLEX
 # así que aquí no hay crossfade musical posible: se usan pausas cortas de
 # silencio real en vez de la envolvente de ducking que sí usa el diario.
 MUSIC_PAUSE_SEC = 0.6
-DIALOGUE_TURN_PAUSE_SEC = 0.5
+REFLEXION_PAUSE_SEC = 0.5
 
-SYSTEM_DIALOGO = """Eres el guionista de la sección REFLEXIONES DIGITALES de un podcast semanal
-en español de España que repasa publicaciones de Substack.
+SYSTEM_REFLEXION = """Eres locutor/a de la sección REFLEXIONES DIGITALES de un podcast semanal en
+español de España que repasa publicaciones de Substack.
 
-Escribes un DIÁLOGO entre dos voces que comentan una única publicación:
-- Voz A es la locutora/el locutor habitual del podcast.
-- Voz B es una persona invitada que coanfitriona esta sección.
+Comentas TÚ SOLO/A una única publicación: no es un diálogo, hablas directamente al oyente.
 
 Todo lo que escribes se va a leer EN VOZ ALTA con un sintetizador de voz, así que:
 
 FORMATO
-- Cada turno es una frase o dos, en prosa continua, sin títulos, viñetas, asteriscos, markdown ni emojis.
-- Alternáis turnos de forma natural, como una conversación real: os hacéis eco el uno del otro, os
-  contestáis, no os limitáis a leer datos por turnos.
-- Escribís SIEMPRE en español. No mezcláis palabras sueltas en inglés (ni siquiera para números o
+- Prosa continua, sin títulos, viñetas, asteriscos, markdown ni emojis.
+- Escribes SIEMPRE en español. No mezclas palabras sueltas en inglés (ni siquiera para números o
   cantidades), salvo nombres propios o títulos que no tengan traducción habitual.
 
 TRATO AL OYENTE
-- Habláis entre vosotros dos, no os dirigís directamente al oyente.
+- Te diriges directamente al oyente, en segunda persona del singular: "tú", "te cuento".
 
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes y símbolos van escritos con letras, tal y como se leen.
 - Los años SIEMPRE van en cifras, nunca escritos con letras.
 
 CONTENIDO
-- Resumís lo esencial de la publicación, destacáis lo más interesante y añadís una reflexión
-  personal breve, siempre a partir de lo que dice el texto que se os entrega.
-- Solo afirmáis aquello que aparezca de forma explícita en ese texto; si algo no está, no lo
-  inventáis.
-- No repetís la misma idea con otras palabras: cada turno aporta algo nuevo a la conversación."""
-
-
-def _build_esquema_dialogo():
-    if types is None:
-        return None
-    return types.Schema(
-        type=types.Type.OBJECT,
-        properties={
-            "turnos": types.Schema(
-                type=types.Type.ARRAY,
-                items=types.Schema(
-                    type=types.Type.OBJECT,
-                    properties={
-                        "voz": types.Schema(type=types.Type.STRING, description="A o B"),
-                        "texto": types.Schema(type=types.Type.STRING),
-                    },
-                    required=["voz", "texto"],
-                ),
-            ),
-        },
-        required=["turnos"],
-    )
+- Resumes lo esencial de la publicación, destacas lo más interesante y añades una reflexión
+  personal breve, siempre a partir de lo que dice el texto que se te entrega.
+- Solo afirmas aquello que aparezca de forma explícita en ese texto; si algo no está, no lo
+  inventas."""
 
 
 # ---------- Substacks: última publicación por fuente, con autor y texto largo ----------
@@ -117,7 +91,7 @@ def fetch_substack_entries(feeds: list, hours: int) -> list:
     (si no hay ninguna, esa fuente se omite). A diferencia de
     rf.fetch_recent_entries (pensada para resúmenes cortos multi-noticia),
     aquí interesa UNA sola publicación por fuente con su autor y el texto
-    más completo posible, para poder sostener un diálogo sobre ella."""
+    más completo posible, para poder comentarla con detalle."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     results = []
     for feed_title, url in feeds:
@@ -178,11 +152,10 @@ Responde solo con el texto de la bienvenida."""
     return rf.normalize_for_tts(text)
 
 
-def build_dialogue_segment(source_name: str, entry: dict, client, claude_client=None) -> list:
-    """Devuelve una lista de turnos [{"voz": "A"|"B", "texto": "..."}] a
-    partir del contenido de una publicación. Ante cualquier fallo de
-    formato, degrada a un turno único de voz A en vez de reventar el
-    episodio entero por una sola fuente."""
+def build_reflexion_monologue(source_name: str, entry: dict, client, claude_client=None) -> str:
+    """Comentario de una sola voz (resumen + lo más destacado + reflexión
+    breve) sobre una publicación. Ante cualquier fallo, degrada a una frase
+    de resumen genérica en vez de reventar el episodio por una sola fuente."""
     prompt = f"""PUBLICACIÓN A COMENTAR
 Fuente: {source_name}
 Título: {entry['title']}
@@ -191,31 +164,22 @@ Texto:
 {entry['content']}
 
 ENCARGO
-Escribid el diálogo de esta sección sobre la publicación de arriba: entre cuatro y ocho turnos en
-total, alternando voz A y voz B de forma natural (no tiene que ser estrictamente ABAB si la
-conversación pide otra cosa).
+Comenta la publicación de arriba: resume lo esencial, destaca lo más interesante y añade una
+reflexión personal breve. Entre cuatro y seis frases en total.
 
-Devuelve ÚNICAMENTE un JSON válido (sin texto adicional antes ni después, sin markdown, sin
-bloques de código) con esta forma exacta:
-{{"turnos": [{{"voz": "A", "texto": "..."}}, {{"voz": "B", "texto": "..."}}]}}"""
+Responde solo con el texto del comentario."""
 
     try:
-        raw, _ = rf.generate_script(client, claude_client, prompt, system_instruction=SYSTEM_DIALOGO,
-                                     max_output_tokens=1400, response_schema=_build_esquema_dialogo())
-        data = json.loads(raw)
-        turnos = data.get("turnos") or []
-        limpios = []
-        for t in turnos:
-            voz = str(t.get("voz", "")).strip().upper()
-            texto = rf.normalize_for_tts(str(t.get("texto", "")).strip())
-            if voz in ("A", "B") and texto:
-                limpios.append({"voz": voz, "texto": texto})
-        if not limpios:
-            raise ValueError("respuesta sin turnos válidos")
-        return limpios
+        text, _ = rf.generate_script(client, claude_client, prompt, system_instruction=SYSTEM_REFLEXION,
+                                      max_output_tokens=700)
+        text = rf.recortar_a_frase_completa(text)
+        text = rf.normalize_for_tts(text)
+        if not text.strip():
+            raise ValueError("respuesta vacía")
+        return text
     except Exception as e:
-        print(f"  [aviso] no se pudo generar el diálogo de '{source_name}' ({str(e)[:120]}); se usa un resumen de reserva")
-        return [{"voz": "A", "texto": rf.normalize_for_tts(f"Esta semana {source_name} ha publicado {entry['title']}.")}]
+        print(f"  [aviso] no se pudo generar el comentario de '{source_name}' ({str(e)[:120]}); se usa un resumen de reserva")
+        return rf.normalize_for_tts(f"Esta semana {source_name} ha publicado {entry['title']}.")
 
 
 # ---------- Audio: silencio y encadenado con pausas ----------
@@ -254,7 +218,8 @@ def main():
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--fish-reference-id", default=None, help="Voz A: la locutora/el locutor habitual del podcast")
     parser.add_argument("--fish-reference-id-2", default="f336da44e4044a7fbeb624f2ff89f100",
-                         help="Voz B: coanfitrión/a del diálogo de REFLEXIONES DIGITALES")
+                         help="Voz B: segunda voz que narra, alternando con la principal, los "
+                              "comentarios de REFLEXIONES DIGITALES")
     parser.add_argument("--fish-model", default="s2.1-pro-free")
     parser.add_argument("--music-dir", default="assets/music", help="Carpeta con la cabecera y el cierre")
     parser.add_argument("--target-minutes", type=float, default=15.0,
@@ -334,8 +299,9 @@ def main():
         print("Sin novedades en ninguna sección esta semana. No se genera la edición Substack.")
         return
 
-    # --- Presupuesto de palabras (solo para las 2 secciones normales; el
-    # diálogo de REFLEXIONES DIGITALES se gestiona por número de turnos) ---
+    # --- Presupuesto de palabras (solo para las 2 secciones normales; los
+    # comentarios de REFLEXIONES DIGITALES se generan uno por fuente, sin
+    # presupuesto de palabras propio) ---
     WPM = 160
     total_budget = int(args.target_minutes * WPM)
     word_budgets = {}
@@ -382,28 +348,30 @@ def main():
         transicion = _abre_seccion(folder_name)
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
 
-    # --- REFLEXIONES DIGITALES: apertura + diálogo por fuente ---
+    # --- REFLEXIONES DIGITALES: apertura (voz principal) + un comentario por
+    # fuente, alternando entre voz secundaria y principal, empezando por la
+    # secundaria (fuente 1: B, fuente 2: A, fuente 3: B...) ---
     reflexiones_clip_texts = []
     reflexiones_voice_specs = []  # lista de (texto, voz)
     if reflexiones_entries:
         apertura_seccion = _abre_seccion("REFLEXIONES DIGITALES")
         reflexiones_voice_specs.append((apertura_seccion, "A"))
         reflexiones_clip_texts.append(apertura_seccion)
-        for entry in reflexiones_entries:
+        for i, entry in enumerate(reflexiones_entries):
+            voz = "B" if i % 2 == 0 else "A"
             fuente = entry["feed"]
             autor = entry.get("author")
             if autor:
-                frase_apertura = rf.normalize_for_tts(f"Vamos con la última publicación de {fuente}, de {autor}.")
+                frase_apertura = f"Vamos con la última publicación de {fuente}, de {autor}."
             else:
-                frase_apertura = rf.normalize_for_tts(f"Vamos con la última publicación de {fuente}.")
-            reflexiones_voice_specs.append((frase_apertura, "A"))
-            reflexiones_clip_texts.append(frase_apertura)
+                frase_apertura = f"Vamos con la última publicación de {fuente}."
+            frase_apertura = rf.normalize_for_tts(frase_apertura)
 
-            print(f"  Generando diálogo: {fuente}")
-            turnos = build_dialogue_segment(fuente, entry, client, claude_client)
-            for turno in turnos:
-                reflexiones_voice_specs.append((turno["texto"], turno["voz"]))
-                reflexiones_clip_texts.append(f"[{turno['voz']}] {turno['texto']}")
+            print(f"  Generando comentario ({'voz secundaria' if voz == 'B' else 'voz principal'}): {fuente}")
+            comentario = build_reflexion_monologue(fuente, entry, client, claude_client)
+            texto_completo = f"{frase_apertura} {comentario}"
+            reflexiones_voice_specs.append((texto_completo, voz))
+            reflexiones_clip_texts.append(f"[{voz}] {texto_completo}")
 
     if not segment_texts and not reflexiones_voice_specs:
         print("No se pudo generar ningún segmento hoy. No se genera la edición Substack.")
@@ -449,7 +417,7 @@ def main():
         clips = section_clip_paths[folder_name]
         safe = re.sub(r"[^\w\-]+", "_", folder_name)
         merged_path = tmp_dir / f"seccion_{safe}.mp3"
-        concat_with_pauses(clips, DIALOGUE_TURN_PAUSE_SEC, merged_path, tmp_dir)
+        concat_with_pauses(clips, REFLEXION_PAUSE_SEC, merged_path, tmp_dir)
         section_merged_paths[folder_name] = merged_path
 
     print("  Encadenando bienvenida, cabecera, secciones y cierre...")

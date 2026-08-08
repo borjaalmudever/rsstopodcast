@@ -14,19 +14,9 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 08 Aug 2026 12:10:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 12:41:22 +0000</lastBuildDate>
     <ttl>60</ttl>
     
-    <item>
-      <title>8 de agosto — EDICIÓN SUBSTACK</title>
-      <description>Edgar Otero propone en su newsletter Minimalismos dejar atras las aplicaciones de streaming musical. La idea es rescatar un reproductor MP3 para evitar la trampa del alquiler musical y practicar la escucha lenta. Se destacan modelos actuales como el HIFI WALKER H2 Mini o el Innioasis Y1.</description>
-      <pubDate>Sat, 08 Aug 2026 12:10:03 +0000</pubDate>
-      <guid isPermaLink="false">6c0ed32e-77c8-486a-a6a7-bcd058cfb383</guid>
-      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-08-08.mp3" length="967177" type="audio/mpeg" />
-      <itunes:duration>00:01:20</itunes:duration>
-      <itunes:explicit>false</itunes:explicit>
-      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
-    </item>
     <item>
       <title>8 de agosto — Meloni responde a Sánchez y cambios en la televisión</title>
       <description>El Gobierno de Giorgia Meloni respondió al requerimiento de España sobre los controles a viajeros. Además, Televisión Española pone fin a Cine de barrio y reorganiza sus corresponsalías y mañanas. En el ámbito tecnológico, un juez obliga a Meta a reparar los daños en la salud mental de los menores.</description>
