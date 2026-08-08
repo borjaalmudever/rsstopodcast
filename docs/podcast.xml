@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 07 Aug 2026 06:34:44 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 06:35:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>8 de agosto — Meloni responde a Sánchez y cambios en la televisión</title>
+      <description>El Gobierno de Giorgia Meloni respondió al requerimiento de España sobre los controles a viajeros. Además, Televisión Española pone fin a Cine de barrio y reorganiza sus corresponsalías y mañanas. En el ámbito tecnológico, un juez obliga a Meta a reparar los daños en la salud mental de los menores.</description>
+      <pubDate>Sat, 08 Aug 2026 06:31:40 +0000</pubDate>
+      <guid isPermaLink="false">3463cf95-94ae-4ef9-9eb5-3f6c76d66f17</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-08.mp3" length="6004574" type="audio/mpeg" />
+      <itunes:duration>00:08:19</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>7 de agosto — Luis Miguel reaparece y Cine de barrio cambia de cadena</title>
       <description>Luis Miguel reaparece en una campaña publicitaria de Coca-Cola y Donald Trump firma órdenes ejecutivas para limitar la ciudadanía por nacimiento. Además, el programa Cine de barrio abandona La Uno tras treinta y uno años para trasladarse a La 2.</description>

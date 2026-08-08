@@ -532,5 +532,44 @@
         "start_ms": 465291
       }
     ]
+  },
+  {
+    "guid": "3463cf95-94ae-4ef9-9eb5-3f6c76d66f17",
+    "title": "8 de agosto — Meloni responde a Sánchez y cambios en la televisión",
+    "description": "El Gobierno de Giorgia Meloni respondió al requerimiento de España sobre los controles a viajeros. Además, Televisión Española pone fin a Cine de barrio y reorganiza sus corresponsalías y mañanas. En el ámbito tecnológico, un juez obliga a Meta a reparar los daños en la salud mental de los menores.",
+    "pub_date": "2026-08-08T06:31:40.132014+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-08.mp3",
+    "file_size": 6004574,
+    "duration_seconds": 499,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "Portada",
+        "start_ms": 23920
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 151067
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 238013
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 383080
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 433898
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 493284
+      }
+    ]
   }
 ]
