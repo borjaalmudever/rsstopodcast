@@ -44,6 +44,7 @@ jobs:
         run: |
           python resumen_substack.py iCloud_RSS.opml \
             --hours 168 \
+            --target-minutes 15 \
             --base-url "${{ vars.PODCAST_BASE_URL }}" \
             --fish-reference-id "${{ vars.FISH_REFERENCE_ID }}"
 

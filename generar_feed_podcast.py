@@ -33,6 +33,13 @@ def build_rss(episodes: list, base_url: str, website: str, title: str, descripti
         hours, minutes = divmod(minutes, 60)
         duration_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
+        image_xml = ""
+        if ep.get("image_url"):
+            # Episode art: Apple Podcasts usa esto para mostrar una
+            # portada distinta a la del canal en episodios concretos
+            # (p.ej. la edición Substack de los sábados).
+            image_xml = f'\n      <itunes:image href="{escape(ep["image_url"])}" />'
+
         items_xml.append(f"""
     <item>
       <title>{escape(ep['title'])}</title>
@@ -41,7 +48,7 @@ def build_rss(episodes: list, base_url: str, website: str, title: str, descripti
       <guid isPermaLink="false">{escape(ep['guid'])}</guid>
       <enclosure url="{escape(ep['mp3_url'])}" length="{ep.get('file_size', 0)}" type="audio/mpeg" />
       <itunes:duration>{duration_str}</itunes:duration>
-      <itunes:explicit>false</itunes:explicit>
+      <itunes:explicit>false</itunes:explicit>{image_xml}
     </item>""")
 
     cover_url = f"{base_url}/cover.jpg"

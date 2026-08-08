@@ -257,8 +257,11 @@ def main():
                          help="Voz B: coanfitrión/a del diálogo de REFLEXIONES DIGITALES")
     parser.add_argument("--fish-model", default="s2.1-pro-free")
     parser.add_argument("--music-dir", default="assets/music", help="Carpeta con la cabecera y el cierre")
-    parser.add_argument("--target-minutes", type=float, default=8.0,
+    parser.add_argument("--target-minutes", type=float, default=15.0,
                          help="Duración objetivo de NOTICIAS DE INTERNET + HERRAMIENTAS ONLINE")
+    parser.add_argument("--episode-image", default="substack_cover.jpg",
+                         help="Fichero de portada (episode art) dentro de --docs-dir, servido en "
+                              "{base-url}/{episode-image} y declarado como <itunes:image> del episodio")
     args = parser.parse_args()
 
     if genai is None or types is None:
@@ -281,6 +284,14 @@ def main():
     missing_music = [f for f in required_music_files if not (music_dir / f).exists()]
     if missing_music:
         sys.exit(f"Faltan ficheros de música en {music_dir}: {', '.join(missing_music)}")
+
+    # Episode art: todo episodio de esta edición lleva la misma portada,
+    # distinta de la del canal (docs/cover.jpg), declarada como
+    # <itunes:image> propia del <item> en el feed.
+    episode_image_path = docs_dir / args.episode_image
+    if not episode_image_path.exists():
+        sys.exit(f"Falta el episode art en {episode_image_path}")
+    episode_image_url = f"{args.base_url.rstrip('/')}/{args.episode_image}"
 
     episodes_path = docs_dir / "episodes.json"
     episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
@@ -333,7 +344,12 @@ def main():
         total_weight = sum(weights.values())
         for f in folder_entries:
             budget = int(total_budget * weights[f] / total_weight)
-            word_budgets[f] = max(120, min(budget, 600))
+            # Tope más alto que en el diario (que reparte 15 min entre 4
+            # secciones): aquí como mucho hay 2 secciones de texto
+            # (NOTICIAS DE INTERNET/HERRAMIENTAS ONLINE) compitiendo por el
+            # mismo presupuesto de 15 min, así que cada una puede necesitar
+            # bastante más margen para no quedarse corta.
+            word_budgets[f] = max(120, min(budget, 900))
 
     print("Generando bienvenida...")
     bienvenida_text = build_bienvenida_substack(now, client, claude_client)
@@ -477,6 +493,7 @@ def main():
         "file_size": file_size,
         "duration_seconds": int(duration_seconds),
         "chapters": [{"title": c["title"], "start_ms": int(c["start_ms"])} for c in chapters],
+        "image_url": episode_image_url,
     })
     episodes_path.write_text(json.dumps(episodes, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nListo. Edición Substack generada: {final_mp3.name} ({duration_seconds/60:.1f} min)")
