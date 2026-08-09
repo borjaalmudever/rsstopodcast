@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 08 Aug 2026 12:42:20 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 06:34:47 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>9 de agosto — Antena Tres lidera la audiencia y Silvia Intxaurrondo continúa en Televisión Española</title>
+      <description>Antena Tres se corona como la cadena más vista del día gracias a sus informativos y a su media general. En televisión, Silvia Intxaurrondo regresa a La hora de La uno tras los rumores sobre su fichaje por La Séptima. Por su parte, la red social X anuncia que eliminará su programa de reparto de ingresos para creadores.</description>
+      <pubDate>Sun, 09 Aug 2026 06:32:11 +0000</pubDate>
+      <guid isPermaLink="false">12a93235-6f27-4a70-bdba-0abe221fdb3e</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-09.mp3" length="4765066" type="audio/mpeg" />
+      <itunes:duration>00:06:36</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>8 de agosto — Meloni responde a Sánchez y cambios en la televisión</title>
       <description>El Gobierno de Giorgia Meloni respondió al requerimiento de España sobre los controles a viajeros. Además, Televisión Española pone fin a Cine de barrio y reorganiza sus corresponsalías y mañanas. En el ámbito tecnológico, un juez obliga a Meta a reparar los daños en la salud mental de los menores.</description>

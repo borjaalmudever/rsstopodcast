@@ -571,5 +571,40 @@
         "start_ms": 493284
       }
     ]
+  },
+  {
+    "guid": "12a93235-6f27-4a70-bdba-0abe221fdb3e",
+    "title": "9 de agosto — Antena Tres lidera la audiencia y Silvia Intxaurrondo continúa en Televisión Española",
+    "description": "Antena Tres se corona como la cadena más vista del día gracias a sus informativos y a su media general. En televisión, Silvia Intxaurrondo regresa a La hora de La uno tras los rumores sobre su fichaje por La Séptima. Por su parte, la red social X anuncia que eliminará su programa de reparto de ingresos para creadores.",
+    "pub_date": "2026-08-09T06:32:11.296279+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-09.mp3",
+    "file_size": 4765066,
+    "duration_seconds": 396,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21592
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 111672
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 232132
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 346636
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 390062
+      }
+    ]
   }
 ]
