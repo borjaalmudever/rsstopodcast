@@ -506,9 +506,82 @@ def get_efemeride(dt: datetime, max_events: int = 6) -> list:
 
 # ---------- 4. Normalización de texto para TTS ----------
 
+_UNIDADES = ["", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
+_DIEZ_A_DIECINUEVE = ["diez", "once", "doce", "trece", "catorce", "quince",
+                       "dieciséis", "diecisiete", "dieciocho", "diecinueve"]
+_DECENAS = ["", "", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"]
+# 21-29 no son "veinti" + unidad a pelo: veintidós/veintitrés/veintiséis
+# llevan tilde que no sale de una concatenación simple.
+_VEINTIUNO_A_VEINTINUEVE = ["veintiuno", "veintidós", "veintitrés", "veinticuatro", "veinticinco",
+                            "veintiséis", "veintisiete", "veintiocho", "veintinueve"]
+# Centenas SIEMPRE en masculino: se usan para leer años ("mil ochocientos
+# noventa y seis"), que llevan artículo masculino implícito ("el año..."),
+# y como red de seguridad genérica para cualquier otro dígito suelto que se
+# cuele en el guion. 500/700/900 son irregulares (quinientos/setecientos/
+# novecientos, no "cincocientos/sietecientos/nuevecientos").
+_CENTENAS = ["", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos",
+             "seiscientos", "setecientos", "ochocientos", "novecientos"]
+
+
+def _dos_digitos_a_palabras(n: int) -> str:
+    if n < 10:
+        return _UNIDADES[n]
+    if n < 20:
+        return _DIEZ_A_DIECINUEVE[n - 10]
+    if n < 30:
+        return "veinte" if n == 20 else _VEINTIUNO_A_VEINTINUEVE[n - 21]
+    decena, unidad = divmod(n, 10)
+    if unidad == 0:
+        return _DECENAS[decena]
+    return f"{_DECENAS[decena]} y {_UNIDADES[unidad]}"
+
+
+def _tres_digitos_a_palabras(n: int) -> str:
+    if n == 100:
+        return "cien"
+    centena, resto = divmod(n, 100)
+    partes = []
+    if centena:
+        partes.append(_CENTENAS[centena])
+    if resto:
+        partes.append(_dos_digitos_a_palabras(resto))
+    return " ".join(partes)
+
+
+def numero_a_palabras(n: int) -> str:
+    """Convierte un entero a su forma en palabras en español. Pensado sobre
+    todo para años (de ahí las centenas siempre en masculino), pero sirve de
+    red de seguridad genérica para cualquier dígito suelto que llegue hasta
+    aquí: según las reglas del locutor, todo número que no sea un año se
+    escribe ya en letras, así que lo que sobrevive como dígitos sueltos es
+    casi siempre un año. Por encima de un millón, o en negativos, se deja el
+    número tal cual en vez de arriesgar una conversión incorrecta."""
+    if n == 0:
+        return "cero"
+    if n < 0 or n >= 1_000_000:
+        return str(n)
+    if n < 1000:
+        return _tres_digitos_a_palabras(n)
+    miles, resto = divmod(n, 1000)
+    prefijo = "mil" if miles == 1 else f"{_tres_digitos_a_palabras(miles)} mil"
+    if resto == 0:
+        return prefijo
+    return f"{prefijo} {_tres_digitos_a_palabras(resto)}"
+
+
 def normalize_for_tts(text: str) -> str:
-    """Red de seguridad: convierte símbolos problemáticos a palabras,
-    por si el modelo deja alguno sin transcribir a texto natural."""
+    """Red de seguridad: convierte símbolos y dígitos sueltos a palabras,
+    por si el modelo deja alguno sin transcribir a texto natural.
+
+    Los años se piden en cifras a propósito (ver SYSTEM_LOCUTOR): así se
+    evita que el modelo los deletree mal él mismo (p.ej. "mil cuatrovecientos"
+    en vez de "mil cuatrocientos"). Pero el sintetizador de voz (Fish Audio)
+    tiene su propio conversor de cifras a palabras, y ese conversor se ha
+    visto en producción leyendo centenas en femenino ("mil ochocientas
+    noventa y seis" para 1896, en vez de "ochocientos"). Para no depender de
+    lo que haga el TTS con un número, aquí se convierten explícitamente
+    todos los dígitos sueltos a palabras ANTES de enviar el texto a Fish
+    Audio, con numero_a_palabras() (que sí tiene el género correcto)."""
     text = aplicar_pronunciaciones(text)
     text = text.replace("%", " por ciento")
     text = re.sub(r"(\d)\s*€", r"\1 euros", text)
@@ -516,6 +589,7 @@ def normalize_for_tts(text: str) -> str:
     text = re.sub(r"\$\s*(\d)", r"\1 dólares", text)
     text = text.replace("&", " y ")
     text = text.replace("#", " almohadilla ")
+    text = re.sub(r"\b\d+\b", lambda m: numero_a_palabras(int(m.group(0))), text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
@@ -540,7 +614,7 @@ TRATO AL OYENTE
 
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes, precios y símbolos van escritos con letras, tal y como se leen: "quince por ciento", "treinta euros", "cien millones", "y" en lugar del ampersand.
-- Los años SIEMPRE van en cifras, nunca escritos con letras: "1992", no "mil novecientos noventa y dos". Deletrear un año a mano es la fuente más habitual de números mal formados ("mil cuatrovecientos" en vez de "mil cuatrocientos"); en cifras el sintetizador de voz lo lee bien solo.
+- Los años SIEMPRE van en cifras, nunca escritos con letras: "1992", no "mil novecientos noventa y dos". Deletrear un año a mano es la fuente más habitual de números mal formados ("mil cuatrovecientos" en vez de "mil cuatrocientos"); las cifras se convierten a palabras de forma fiable más adelante, antes de generar el audio.
 - Las centenas (doscientos/doscientas, trescientos/trescientas, cuatrocientos/cuatrocientas... novecientos/novecientas) concuerdan en género con lo que cuentan. Por defecto usa la forma masculina ("trescientos euros", "cuatrocientos empleados", "novecientos mil espectadores"), y solo la femenina cuando lo contado es explícitamente femenino ("trescientas personas", "novecientas páginas"). Ante la duda, masculino.
 
 VERACIDAD
