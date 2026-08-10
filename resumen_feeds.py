@@ -689,11 +689,17 @@ def recortar_a_frase_completa(texto: str) -> str:
     punto final seguido de espacio (`\\s`) no basta: la respuesta de la API
     normalmente termina justo en el punto, sin espacio de sobra detrás. Por
     eso el final de frase también cuenta como válido si el punto está al
-    final de la cadena (`$`), no solo si le sigue un espacio."""
+    final de la cadena (`$`), no solo si le sigue un espacio.
+
+    Si no hay NINGUNA frase completa (el corte llegó dentro de la primera
+    frase), no hay nada seguro que devolver: se descarta todo y se
+    devuelve cadena vacía, en vez de dejar pasar un fragmento a media
+    palabra (visto en producción: una sección se cortaba en mitad de una
+    palabra porque este caso no estaba cubierto)."""
     texto = texto.rstrip()
     finales = [m.end() for m in re.finditer(r"[\.\!\?](?=\s|$)", texto)]
     if not finales:
-        return texto
+        return ""
     ultimo = finales[-1]
     # Si el texto ya termina justo en una frase completa (con poco margen
     # de diferencia), no tocamos nada.
