@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 09 Aug 2026 06:34:47 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 06:39:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>10 de agosto — Adiós a Cine de barrio y llega el iPhone plegable</title>
+      <description>TVE pone fin a Cine de barrio tras más de treinta años y EITB llora la muerte de Oihane Mateos, mientras Mark Gurman detalla el plan de Apple para el iPhone y el iPad plegables y un Apple Watch renovado. Además, Ariana Grande logra su séptimo número uno con Petal, Taylor Swift responde a una pulla de Trump y Phoebe Bridgers regresa con Lost Weekend.</description>
+      <pubDate>Mon, 10 Aug 2026 06:31:49 +0000</pubDate>
+      <guid isPermaLink="false">96019fe5-b399-45a2-8473-c1f33bdf1933</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-10.mp3" length="3916598" type="audio/mpeg" />
+      <itunes:duration>00:05:25</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>9 de agosto — Antena Tres lidera la audiencia y Silvia Intxaurrondo continúa en Televisión Española</title>
       <description>Antena Tres se corona como la cadena más vista del día gracias a sus informativos y a su media general. En televisión, Silvia Intxaurrondo regresa a La hora de La uno tras los rumores sobre su fichaje por La Séptima. Por su parte, la red social X anuncia que eliminará su programa de reparto de ingresos para creadores.</description>

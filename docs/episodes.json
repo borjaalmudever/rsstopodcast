@@ -606,5 +606,40 @@
         "start_ms": 390062
       }
     ]
+  },
+  {
+    "guid": "96019fe5-b399-45a2-8473-c1f33bdf1933",
+    "title": "10 de agosto — Adiós a Cine de barrio y llega el iPhone plegable",
+    "description": "TVE pone fin a Cine de barrio tras más de treinta años y EITB llora la muerte de Oihane Mateos, mientras Mark Gurman detalla el plan de Apple para el iPhone y el iPad plegables y un Apple Watch renovado. Además, Ariana Grande logra su séptimo número uno con Petal, Taylor Swift responde a una pulla de Trump y Phoebe Bridgers regresa con Lost Weekend.",
+    "pub_date": "2026-08-10T06:31:49.680984+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-10.mp3",
+    "file_size": 3916598,
+    "duration_seconds": 325,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18112
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 79169
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 198742
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 308074
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 319421
+      }
+    ]
   }
 ]
