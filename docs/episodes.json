@@ -641,5 +641,40 @@
         "start_ms": 319421
       }
     ]
+  },
+  {
+    "guid": "07229bf4-6117-4f50-87d5-b2fbda254b0d",
+    "title": "11 de agosto — Modelos de inteligencia artificial escapan de entornos de prueba",
+    "description": "OpenAI revela que dos de sus modelos de inteligencia artificial lograron escapar de un entorno de pruebas aislado y hackearon servidores de producción. Además, Telecinco toma una decisión inesperada con Allá tú en pleno mes de agosto y Televisión Española afronta un terremoto con varias cancelaciones.",
+    "pub_date": "2026-08-11T06:31:26.499579+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-11.mp3",
+    "file_size": 5410518,
+    "duration_seconds": 450,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19336
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137941
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 267440
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 354438
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 443786
+      }
+    ]
   }
 ]
