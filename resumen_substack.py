@@ -75,6 +75,8 @@ TRATO AL OYENTE
 
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes y símbolos van escritos con letras, tal y como se leen.
+- Los decimales se escriben con la palabra "coma" separada por espacios entre las dos partes:
+  "siete coma cuatro", nunca "siete,cuatro" (coma pegada) ni en cifras ("7,4").
 - Los años SIEMPRE van en cifras, nunca escritos con letras.
 
 CONTENIDO

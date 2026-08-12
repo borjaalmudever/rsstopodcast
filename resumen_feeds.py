@@ -338,6 +338,7 @@ PRONUNCIACIONES = {
     "antena 3 noticias 1": "Antena tres noticias uno",
     "la 1": "La Uno",
     "grand prix": "Gran Priks",
+    "23-f": "veintitrés efe",
     # El modelo no siempre reproduce estas palabras fonéticas inventadas tal
     # cual (no son vocabulario real, así que puede variarlas ligeramente al
     # generar texto): estas entradas corrigen las variantes observadas en
@@ -589,6 +590,12 @@ def normalize_for_tts(text: str) -> str:
     text = re.sub(r"\$\s*(\d)", r"\1 dólares", text)
     text = text.replace("&", " y ")
     text = text.replace("#", " almohadilla ")
+    # Decimales en cifras ("7,4") antes que el conversor de enteros sueltos:
+    # si no, "7" y "4" se convertirían por separado y la coma se quedaría
+    # pegada entre las dos palabras sin pronunciarse ("siete,cuatro").
+    text = re.sub(r"\b(\d+),(\d+)\b",
+                  lambda m: f"{numero_a_palabras(int(m.group(1)))} coma {numero_a_palabras(int(m.group(2)))}",
+                  text)
     text = re.sub(r"\b\d+\b", lambda m: numero_a_palabras(int(m.group(0))), text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
@@ -614,6 +621,7 @@ TRATO AL OYENTE
 
 CIFRAS Y SÍMBOLOS
 - Los números, porcentajes, precios y símbolos van escritos con letras, tal y como se leen: "quince por ciento", "treinta euros", "cien millones", "y" en lugar del ampersand.
+- Los decimales se escriben con la palabra "coma" separada por espacios entre las dos partes: "siete coma cuatro", nunca "siete,cuatro" (coma pegada) ni en cifras ("7,4"): una coma sin la palabra "coma" no se lee en voz alta, se oye como una pausa muda.
 - Los años SIEMPRE van en cifras, nunca escritos con letras: "1992", no "mil novecientos noventa y dos". Deletrear un año a mano es la fuente más habitual de números mal formados ("mil cuatrovecientos" en vez de "mil cuatrocientos"); las cifras se convierten a palabras de forma fiable más adelante, antes de generar el audio.
 - Las centenas (doscientos/doscientas, trescientos/trescientas, cuatrocientos/cuatrocientas... novecientos/novecientas) concuerdan en género con lo que cuentan. Por defecto usa la forma masculina ("trescientos euros", "cuatrocientos empleados", "novecientos mil espectadores"), y solo la femenina cuando lo contado es explícitamente femenino ("trescientas personas", "novecientas páginas"). Ante la duda, masculino.
 
@@ -665,7 +673,12 @@ Escribe la introducción hablada del episodio de hoy.
 
 - Empieza saludando con "Buenos días" y di que hoy es {fecha_natural}, exactamente así (día de la
   semana, día del mes y mes): no calcules ni cambies el día de la semana, usa el que se te da aquí.
-- Continúa con la efeméride elegida, si la hay.
+  Esta frase de la fecha NO lleva ningún año: ni el actual ni el de la efeméride.
+- Si hay efeméride, enlázala con una frase que deje claro que su año es DISTINTO al de hoy, del tipo
+  "Tal día como hoy, en el año {{año}}..." o "Hace [n] años, un día como hoy...": el año de la
+  efeméride va siempre dentro de esa frase de enlace, nunca pegado a la fecha de hoy como si fuera
+  la misma frase. Mal: "hoy es miércoles doce de agosto de dos mil". Bien: "hoy es miércoles doce de
+  agosto. Tal día como hoy, en el año dos mil, ...".
 - Extensión: de dos a cuatro frases en total.
 - Los únicos datos históricos que puedes dar son los de la lista de arriba.
 - Termina justo después del saludo/efeméride, sin ninguna despedida ni
