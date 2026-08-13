@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 12 Aug 2026 06:34:22 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 06:34:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>13 de agosto — Sueños de libertad lidera el verano y cambios en Telecinco</title>
+      <description>La serie diaria Sueños de libertad lidera la audiencia en Antena tres con un gran dato este verano. Informativos Telecinco prepara cambios en septiembre tras la salida de María Casado. Además, Apple negocia acuerdos millonarios para dar a Siri acceso a noticias.</description>
+      <pubDate>Thu, 13 Aug 2026 06:31:29 +0000</pubDate>
+      <guid isPermaLink="false">b8813dfe-763d-4dbc-8aae-0aa9e8ee33ff</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-13.mp3" length="5450996" type="audio/mpeg" />
+      <itunes:duration>00:07:33</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>12 de agosto — TVE cancela La Promesa por el eclipse solar total</title>
       <description>TVE modifica su programación vespertina para ofrecer una cobertura especial del eclipse solar total, cancelando la emisión de La Promesa. Además, Cristiano Ronaldo y Georgina Rodríguez se han casado en una ceremonia civil íntima en Portugal. Por otro lado, OpenAI y Google alcanzan los mil millones de usuarios cada una.</description>

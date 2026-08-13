@@ -711,5 +711,40 @@
         "start_ms": 375661
       }
     ]
+  },
+  {
+    "guid": "b8813dfe-763d-4dbc-8aae-0aa9e8ee33ff",
+    "title": "13 de agosto — Sueños de libertad lidera el verano y cambios en Telecinco",
+    "description": "La serie diaria Sueños de libertad lidera la audiencia en Antena tres con un gran dato este verano. Informativos Telecinco prepara cambios en septiembre tras la salida de María Casado. Además, Apple negocia acuerdos millonarios para dar a Siri acceso a noticias.",
+    "pub_date": "2026-08-13T06:31:29.991667+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-13.mp3",
+    "file_size": 5450996,
+    "duration_seconds": 453,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21184
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137203
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 241468
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 334682
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 447149
+      }
+    ]
   }
 ]
