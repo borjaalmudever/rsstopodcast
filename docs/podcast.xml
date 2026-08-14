@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 13 Aug 2026 06:34:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 06:33:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>14 de agosto — El eclipse solar total dispara la audiencia televisiva en España</title>
+      <description>El eclipse solar total del miércoles dejó un récord histórico para La Uno de Televisión Española con el programa Aquí la Tierra. Además, el fenómeno astronómico también impulsó una rave en Islandia organizada por Björk que reunió a unas siete mil personas.</description>
+      <pubDate>Fri, 14 Aug 2026 06:31:25 +0000</pubDate>
+      <guid isPermaLink="false">2d3fffdf-82c5-4c76-9de8-84106a040064</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-14.mp3" length="5037116" type="audio/mpeg" />
+      <itunes:duration>00:06:59</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>13 de agosto — Sueños de libertad lidera el verano y cambios en Telecinco</title>
       <description>La serie diaria Sueños de libertad lidera la audiencia en Antena tres con un gran dato este verano. Informativos Telecinco prepara cambios en septiembre tras la salida de María Casado. Además, Apple negocia acuerdos millonarios para dar a Siri acceso a noticias.</description>

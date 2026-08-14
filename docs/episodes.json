@@ -746,5 +746,40 @@
         "start_ms": 447149
       }
     ]
+  },
+  {
+    "guid": "2d3fffdf-82c5-4c76-9de8-84106a040064",
+    "title": "14 de agosto — El eclipse solar total dispara la audiencia televisiva en España",
+    "description": "El eclipse solar total del miércoles dejó un récord histórico para La Uno de Televisión Española con el programa Aquí la Tierra. Además, el fenómeno astronómico también impulsó una rave en Islandia organizada por Björk que reunió a unas siete mil personas.",
+    "pub_date": "2026-08-14T06:31:25.139251+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-14.mp3",
+    "file_size": 5037116,
+    "duration_seconds": 419,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22768
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 113788
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 201883
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 315917
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 412684
+      }
+    ]
   }
 ]
