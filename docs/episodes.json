@@ -781,5 +781,40 @@
         "start_ms": 412684
       }
     ]
+  },
+  {
+    "guid": "3c673802-9e34-4b46-a73d-86233b8d33c0",
+    "title": "15 de agosto — Matthew McConaughey rechazó ser Joel en The Last of Us",
+    "description": "Matthew McConaughey rechazó el papel de Joel en The Last of Us, provocando que Pedro Pascal se quedara con el personaje. Además, Marvel ha anunciado que Adam Driver, Christopher Abbott y Samara Weaving interpretarán a los nuevos X-Men. Por otro lado, Apple trabaja en un MacBook Pro de gama alta que podría llamarse MacBook Ultra con pantalla táctil.",
+    "pub_date": "2026-08-15T06:31:32.087866+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-15.mp3",
+    "file_size": 4595624,
+    "duration_seconds": 382,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21592
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 148269
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 240073
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 278692
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 375929
+      }
+    ]
   }
 ]

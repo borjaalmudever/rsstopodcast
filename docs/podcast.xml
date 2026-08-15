@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 14 Aug 2026 06:33:55 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 06:33:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>15 de agosto — Matthew McConaughey rechazó ser Joel en The Last of Us</title>
+      <description>Matthew McConaughey rechazó el papel de Joel en The Last of Us, provocando que Pedro Pascal se quedara con el personaje. Además, Marvel ha anunciado que Adam Driver, Christopher Abbott y Samara Weaving interpretarán a los nuevos X-Men. Por otro lado, Apple trabaja en un MacBook Pro de gama alta que podría llamarse MacBook Ultra con pantalla táctil.</description>
+      <pubDate>Sat, 15 Aug 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">3c673802-9e34-4b46-a73d-86233b8d33c0</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-15.mp3" length="4595624" type="audio/mpeg" />
+      <itunes:duration>00:06:22</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>14 de agosto — El eclipse solar total dispara la audiencia televisiva en España</title>
       <description>El eclipse solar total del miércoles dejó un récord histórico para La Uno de Televisión Española con el programa Aquí la Tierra. Además, el fenómeno astronómico también impulsó una rave en Islandia organizada por Björk que reunió a unas siete mil personas.</description>
