@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 15 Aug 2026 10:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 06:33:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>16 de agosto — Maria Galiana confiesa que nunca vio Cuéntame cómo pasó</title>
+      <description>La actriz Maria Galiana asegura en un videopodcast que no le parecio una serie buena Cuéntame como paso y confiesa que nunca la vio. Ademas, Maxi Iglesias se despide de su serie con un dardo a Telecinco y Josep Pedrerol arranca una nueva etapa en Mediaset con El chiringuito.</description>
+      <pubDate>Sun, 16 Aug 2026 06:31:14 +0000</pubDate>
+      <guid isPermaLink="false">7ff3bb52-1f55-4c50-8b36-8d8e375c8281</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-16.mp3" length="4509334" type="audio/mpeg" />
+      <itunes:duration>00:06:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>15 de agosto — Matthew McConaughey rechazó ser Joel en The Last of Us</title>
       <description>Matthew McConaughey rechazó el papel de Joel en The Last of Us, provocando que Pedro Pascal se quedara con el personaje. Además, Marvel ha anunciado que Adam Driver, Christopher Abbott y Samara Weaving interpretarán a los nuevos X-Men. Por otro lado, Apple trabaja en un MacBook Pro de gama alta que podría llamarse MacBook Ultra con pantalla táctil.</description>

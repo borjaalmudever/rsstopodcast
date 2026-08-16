@@ -816,5 +816,40 @@
         "start_ms": 375929
       }
     ]
+  },
+  {
+    "guid": "7ff3bb52-1f55-4c50-8b36-8d8e375c8281",
+    "title": "16 de agosto — Maria Galiana confiesa que nunca vio Cuéntame cómo pasó",
+    "description": "La actriz Maria Galiana asegura en un videopodcast que no le parecio una serie buena Cuéntame como paso y confiesa que nunca la vio. Ademas, Maxi Iglesias se despide de su serie con un dardo a Telecinco y Josep Pedrerol arranca una nueva etapa en Mediaset con El chiringuito.",
+    "pub_date": "2026-08-16T06:31:14.223761+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-16.mp3",
+    "file_size": 4509334,
+    "duration_seconds": 375,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19192
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 113477
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 226232
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 294290
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 368775
+      }
+    ]
   }
 ]
