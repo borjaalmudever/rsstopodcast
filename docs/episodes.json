@@ -851,5 +851,40 @@
         "start_ms": 368775
       }
     ]
+  },
+  {
+    "guid": "b0963775-371f-4642-8fbd-abfa9ee3038b",
+    "title": "17 de agosto — Grandes cambios televisivos y fichajes bomba en la actualidad",
+    "description": "Atresmedia prepara cambios profundos en laSexta para intentar contener su crisis de audiencia. Mientras tanto, Josep Pedrerol abre El Chiringuito en Mediaset tras dejar Atresmedia. Además, Alba Carrillo ficha por La Séptima para presentar un magacín de entretenimiento.",
+    "pub_date": "2026-08-17T06:31:24.280185+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-17.mp3",
+    "file_size": 4557028,
+    "duration_seconds": 379,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19048
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 128850
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 244843
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 299110
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 372759
+      }
+    ]
   }
 ]
