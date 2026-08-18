@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 17 Aug 2026 06:33:37 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 06:35:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>18 de agosto — Telecinco relega El camino de la verdad al late night</title>
+      <description>Telecinco traslada al late night la entrega final de El camino de la verdad tras caer al cinco por ciento de cuota. Además, Josep Pedrerol y su equipo estrenan El chiringuito en Cuatro tras su salto a Mediaset. Por su parte, RTVE eleva la calificación de edad de MasterChef hasta los más doce.</description>
+      <pubDate>Tue, 18 Aug 2026 06:31:44 +0000</pubDate>
+      <guid isPermaLink="false">8a1230dc-591c-422f-831f-b803c5c14975</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-18.mp3" length="4402020" type="audio/mpeg" />
+      <itunes:duration>00:06:06</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>17 de agosto — Grandes cambios televisivos y fichajes bomba en la actualidad</title>
       <description>Atresmedia prepara cambios profundos en laSexta para intentar contener su crisis de audiencia. Mientras tanto, Josep Pedrerol abre El Chiringuito en Mediaset tras dejar Atresmedia. Además, Alba Carrillo ficha por La Séptima para presentar un magacín de entretenimiento.</description>

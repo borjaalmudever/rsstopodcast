@@ -886,5 +886,40 @@
         "start_ms": 372759
       }
     ]
+  },
+  {
+    "guid": "8a1230dc-591c-422f-831f-b803c5c14975",
+    "title": "18 de agosto — Telecinco relega El camino de la verdad al late night",
+    "description": "Telecinco traslada al late night la entrega final de El camino de la verdad tras caer al cinco por ciento de cuota. Además, Josep Pedrerol y su equipo estrenan El chiringuito en Cuatro tras su salto a Mediaset. Por su parte, RTVE eleva la calificación de edad de MasterChef hasta los más doce.",
+    "pub_date": "2026-08-18T06:31:44.144673+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-18.mp3",
+    "file_size": 4402020,
+    "duration_seconds": 366,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20272
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 118658
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 214433
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 258564
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 359876
+      }
+    ]
   }
 ]
