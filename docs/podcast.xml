@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 18 Aug 2026 06:35:45 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 06:39:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>19 de agosto — Nuevos detalles sobre Lorca y juicio decisivo contra Meta</title>
+      <description>La televisión pública ha lanzado el tráiler de un documental sobre Federico García Lorca. Además, ha comenzado un juicio decisivo en Estados Unidos contra Meta por la adicción de los adolescentes. Por último, Apple ha cambiado su estrategia en Europa para cerrar un conflicto con la Comisión Europea.</description>
+      <pubDate>Wed, 19 Aug 2026 06:32:06 +0000</pubDate>
+      <guid isPermaLink="false">29685c96-5d47-477e-8800-41a6875a715d</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-19.mp3" length="4781384" type="audio/mpeg" />
+      <itunes:duration>00:06:37</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>18 de agosto — Telecinco relega El camino de la verdad al late night</title>
       <description>Telecinco traslada al late night la entrega final de El camino de la verdad tras caer al cinco por ciento de cuota. Además, Josep Pedrerol y su equipo estrenan El chiringuito en Cuatro tras su salto a Mediaset. Por su parte, RTVE eleva la calificación de edad de MasterChef hasta los más doce.</description>

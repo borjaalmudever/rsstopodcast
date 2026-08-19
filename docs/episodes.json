@@ -921,5 +921,40 @@
         "start_ms": 359876
       }
     ]
+  },
+  {
+    "guid": "29685c96-5d47-477e-8800-41a6875a715d",
+    "title": "19 de agosto — Nuevos detalles sobre Lorca y juicio decisivo contra Meta",
+    "description": "La televisión pública ha lanzado el tráiler de un documental sobre Federico García Lorca. Además, ha comenzado un juicio decisivo en Estados Unidos contra Meta por la adicción de los adolescentes. Por último, Apple ha cambiado su estrategia en Europa para cerrar un conflicto con la Comisión Europea.",
+    "pub_date": "2026-08-19T06:32:06.190197+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-19.mp3",
+    "file_size": 4781384,
+    "duration_seconds": 397,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19984
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 112937
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 225378
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 309084
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 391432
+      }
+    ]
   }
 ]
