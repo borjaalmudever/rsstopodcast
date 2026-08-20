@@ -956,5 +956,40 @@
         "start_ms": 391432
       }
     ]
+  },
+  {
+    "guid": "6283d56d-3b00-4042-ad04-5ff1e5490912",
+    "title": "20 de agosto — Antena 3 arrasa en audiencia y fallece Frank Beard de ZZ Top",
+    "description": "Antena tres noticias lidera las audiencias de la jornada con casi dos millones de espectadores. En el plano cultural, fallece a los setenta y siete años Frank Beard, batería de ZZ Top. Además, OpenAI frena temporalmente el desarrollo de su inteligencia artificial para reforzar la seguridad.",
+    "pub_date": "2026-08-20T06:31:27.343241+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-20.mp3",
+    "file_size": 6006391,
+    "duration_seconds": 499,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20392
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137482
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 252457
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 384646
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 493430
+      }
+    ]
   }
 ]

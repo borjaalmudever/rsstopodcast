@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 19 Aug 2026 06:39:26 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 06:35:12 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>20 de agosto — Antena 3 arrasa en audiencia y fallece Frank Beard de ZZ Top</title>
+      <description>Antena tres noticias lidera las audiencias de la jornada con casi dos millones de espectadores. En el plano cultural, fallece a los setenta y siete años Frank Beard, batería de ZZ Top. Además, OpenAI frena temporalmente el desarrollo de su inteligencia artificial para reforzar la seguridad.</description>
+      <pubDate>Thu, 20 Aug 2026 06:31:27 +0000</pubDate>
+      <guid isPermaLink="false">6283d56d-3b00-4042-ad04-5ff1e5490912</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-20.mp3" length="6006391" type="audio/mpeg" />
+      <itunes:duration>00:08:19</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>19 de agosto — Nuevos detalles sobre Lorca y juicio decisivo contra Meta</title>
       <description>La televisión pública ha lanzado el tráiler de un documental sobre Federico García Lorca. Además, ha comenzado un juicio decisivo en Estados Unidos contra Meta por la adicción de los adolescentes. Por último, Apple ha cambiado su estrategia en Europa para cerrar un conflicto con la Comisión Europea.</description>
