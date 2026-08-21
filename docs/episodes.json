@@ -991,5 +991,40 @@
         "start_ms": 493430
       }
     ]
+  },
+  {
+    "guid": "652752a8-4ce9-4088-8f25-2d82fdf5ec6e",
+    "title": "21 de agosto — Novedades en televisión, videojuegos, cultura pop y cine",
+    "description": "La televisión pública altera su programación para ofrecer la última hora de la contrarreloj. Apple lanzará nuevos modelos de iPhone el mes que viene con un tono cereza oscura. Además, Tom Hanks protagonizará la adaptación cinematográfica de la novela Theo of Golden.",
+    "pub_date": "2026-08-21T06:31:34.647395+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-21.mp3",
+    "file_size": 5294732,
+    "duration_seconds": 440,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18400
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 127053
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 262821
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 331454
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 434151
+      }
+    ]
   }
 ]

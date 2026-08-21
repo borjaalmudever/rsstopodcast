@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 20 Aug 2026 06:35:12 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 06:34:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>21 de agosto — Novedades en televisión, videojuegos, cultura pop y cine</title>
+      <description>La televisión pública altera su programación para ofrecer la última hora de la contrarreloj. Apple lanzará nuevos modelos de iPhone el mes que viene con un tono cereza oscura. Además, Tom Hanks protagonizará la adaptación cinematográfica de la novela Theo of Golden.</description>
+      <pubDate>Fri, 21 Aug 2026 06:31:34 +0000</pubDate>
+      <guid isPermaLink="false">652752a8-4ce9-4088-8f25-2d82fdf5ec6e</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-21.mp3" length="5294732" type="audio/mpeg" />
+      <itunes:duration>00:07:20</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>20 de agosto — Antena 3 arrasa en audiencia y fallece Frank Beard de ZZ Top</title>
       <description>Antena tres noticias lidera las audiencias de la jornada con casi dos millones de espectadores. En el plano cultural, fallece a los setenta y siete años Frank Beard, batería de ZZ Top. Además, OpenAI frena temporalmente el desarrollo de su inteligencia artificial para reforzar la seguridad.</description>
