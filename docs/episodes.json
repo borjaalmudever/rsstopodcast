@@ -1026,5 +1026,40 @@
         "start_ms": 434151
       }
     ]
+  },
+  {
+    "guid": "94d83350-42f2-47c1-9144-40c54a483f5b",
+    "title": "22 de agosto — Antena Tres lidera y TikTok pagará multa millonaria",
+    "description": "Antena Tres Noticias uno fue lo más visto de la jornada con casi dos millones de espectadores. Por otro lado, TikTok pagará cuatrocientos millones de dólares para cerrar una demanda por infringir la ley de protección de la privacidad infantil. Además, Phoebe Bridgers consigue el número uno en Reino Unido con su disco Lost Weekend.",
+    "pub_date": "2026-08-22T06:31:33.061260+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-22.mp3",
+    "file_size": 5443152,
+    "duration_seconds": 452,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19984
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 139295
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 235304
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 336277
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 446524
+      }
+    ]
   }
 ]

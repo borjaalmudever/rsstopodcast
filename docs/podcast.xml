@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 21 Aug 2026 06:34:19 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 06:35:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>22 de agosto — Antena Tres lidera y TikTok pagará multa millonaria</title>
+      <description>Antena Tres Noticias uno fue lo más visto de la jornada con casi dos millones de espectadores. Por otro lado, TikTok pagará cuatrocientos millones de dólares para cerrar una demanda por infringir la ley de protección de la privacidad infantil. Además, Phoebe Bridgers consigue el número uno en Reino Unido con su disco Lost Weekend.</description>
+      <pubDate>Sat, 22 Aug 2026 06:31:33 +0000</pubDate>
+      <guid isPermaLink="false">94d83350-42f2-47c1-9144-40c54a483f5b</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-22.mp3" length="5443152" type="audio/mpeg" />
+      <itunes:duration>00:07:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>21 de agosto — Novedades en televisión, videojuegos, cultura pop y cine</title>
       <description>La televisión pública altera su programación para ofrecer la última hora de la contrarreloj. Apple lanzará nuevos modelos de iPhone el mes que viene con un tono cereza oscura. Además, Tom Hanks protagonizará la adaptación cinematográfica de la novela Theo of Golden.</description>
