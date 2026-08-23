@@ -596,7 +596,21 @@ def normalize_for_tts(text: str) -> str:
     text = re.sub(r"\b(\d+),(\d+)\b",
                   lambda m: f"{numero_a_palabras(int(m.group(1)))} coma {numero_a_palabras(int(m.group(2)))}",
                   text)
+    # Cifras con puntos de millar al estilo español ("1.744.000") también
+    # antes que el conversor de enteros sueltos: si no, cada tramo entre
+    # puntos se convertiría por separado y los puntos se quedarían sueltos
+    # sin pronunciar ("uno.setecientos cuarenta y cuatro.cero").
+    text = re.sub(r"\b\d{1,3}(?:\.\d{3})+\b",
+                  lambda m: numero_a_palabras(int(m.group(0).replace(".", ""))),
+                  text)
     text = re.sub(r"\b\d+\b", lambda m: numero_a_palabras(int(m.group(0))), text)
+    # Apócope: "uno"/"veintiuno" pierden la "o" (o cambian a "veintiún")
+    # delante de "mil" o "millón/millones", tanto si vienen de
+    # numero_a_palabras() como si el modelo ya los escribió en palabras
+    # ("noventa y uno mil" -> "noventa y un mil", "veintiuno mil" ->
+    # "veintiún mil").
+    text = re.sub(r"\bveintiuno(?=\s+(?:mil|millones?)\b)", "veintiún", text)
+    text = re.sub(r"\buno(?=\s+(?:mil|millones?)\b)", "un", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
@@ -734,11 +748,14 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
     if not entries:
         return ""
 
+    ref_dt_articulos = dt or datetime.now(timezone.utc)
+
     def _fecha_articulo(e):
         pub = e.get("published")
         if not pub:
             return "fecha desconocida"
-        return f"{DIAS_ES[pub.weekday()]} {pub.day} de {MESES_ES[pub.month - 1]}"
+        horas = max(0, int((ref_dt_articulos - pub).total_seconds() // 3600))
+        return f"{DIAS_ES[pub.weekday()]} {pub.day} de {MESES_ES[pub.month - 1]} (hace {horas}h)"
 
     # La fecha de cada artículo va en los materiales para que el modelo
     # pueda razonar sobre si un dato sigue vigente o es un resto de días
@@ -763,22 +780,33 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
         ayer_txt = f"{DIAS_ES[ayer_dt.weekday()]} {ayer_dt.day} de {MESES_ES[ayer_dt.month - 1]}"
         instruccion_especifica = f"""
 PRIORIDADES DE ESTA SECCIÓN
-- Las audiencias de televisión se publican SIEMPRE al día siguiente del día
-  que describen: una publicación fechada hoy ({hoy_txt}) cuenta las
-  audiencias de ayer ({ayer_txt}).
-- Busca entre los artículos uno sobre audiencias cuya fecha de publicación
-  sea literalmente hoy ({hoy_txt}). Si existe, abre el segmento con esos
-  datos, antes que con cualquier otra noticia de televisión, y puedes
-  llamarlos "de ayer".
-- Si NINGÚN artículo de audiencias está publicado hoy ({hoy_txt}) —por
-  ejemplo porque el más reciente es de hace varios días—, OMITE POR COMPLETO
-  el ángulo de audiencias: no lo menciones ni como apertura ni como noticia
-  secundaria, y monta la sección solo con las demás noticias de televisión
-  disponibles.
-- Cuando sí haya publicación de hoy, cita explícitamente la cifra (share o
-  espectadores) de estos programas siempre que la cifra aparezca escrita en
-  los resúmenes de arriba: "Y ahora Sonsoles", "YAS Verano", "Directo al
-  grano", "Malas lenguas".
+- Las audiencias de televisión hablan siempre de UN día concreto: el que
+  describen los propios datos, no el día en que se publicó el artículo (no
+  asumas que publicado hoy significa automáticamente "de ayer"; el desfase
+  entre publicación y dato real puede ser mayor, sobre todo en fin de
+  semana). Identifica ese día a partir del texto del artículo (el título o
+  el resumen lo dicen explícitamente: "este viernes", "la jornada de
+  ayer", un día de la semana concreto...).
+- Solo puedes abrir o mencionar el ángulo de audiencias si se cumplen las
+  DOS condiciones a la vez: (1) el día que describen los datos es
+  exactamente ayer ({ayer_txt}), ni antes ni el propio hoy ({hoy_txt}); y
+  (2) el artículo se publicó hace 8 horas o menos (mira la anotación
+  "(hace Xh)" de cada material). Si se cumplen, puedes llamar a esos datos
+  "de ayer" y abrir el segmento con ellos, antes que con cualquier otra
+  noticia de televisión.
+- Si el día que describen los datos no es ayer ({ayer_txt}) —por ejemplo
+  porque hoy es fin de semana y el dato más reciente es de dos o más días
+  atrás—, o si el artículo no se publicó en las últimas 8 horas, OMITE POR
+  COMPLETO el ángulo de audiencias: no lo menciones ni como apertura ni
+  como noticia secundaria, y monta la sección solo con las demás noticias
+  de televisión disponibles. Mal: escribir "lo más visto de ayer viernes"
+  cuando hoy es domingo (viernes no es ayer, es de hace dos días: la
+  frase se contradice a sí misma). Bien: si el dato más reciente es del
+  viernes y hoy es domingo, no se menciona ninguna cifra de audiencia.
+- Cuando sí haya un dato válido de ayer, cita explícitamente la cifra
+  (share o espectadores) de estos programas siempre que la cifra aparezca
+  escrita en los resúmenes de arriba: "Y ahora Sonsoles", "YAS Verano",
+  "Directo al grano", "Malas lenguas".
 - De esa lista, hablas solo de los programas cuya cifra puedas leer
   literalmente en los materiales. Los que no tengan dato disponible se
   quedan fuera del guion.
