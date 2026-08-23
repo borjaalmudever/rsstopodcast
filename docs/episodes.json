@@ -1061,5 +1061,40 @@
         "start_ms": 446524
       }
     ]
+  },
+  {
+    "guid": "838751ce-4930-4eb8-96da-a89452129510",
+    "title": "23 de agosto — Antena tres lidera la audiencia y Amazon sube precios",
+    "description": "Antena tres noticias uno fue lo mas visto de ayer viernes y La Uno prepara su estrategia para lograr el sorpasso. Por otro lado, Amazon ha subido los precios de sus dispositivos Echo, Fire TV y Kindle hasta en un sesenta por ciento. Ademas, se repasan la actualidad de la television, la tecnologia, la cultura pop y el cine.",
+    "pub_date": "2026-08-23T06:31:21.267785+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-23.mp3",
+    "file_size": 3630115,
+    "duration_seconds": 302,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20704
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 136331
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 206898
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 246117
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 295577
+      }
+    ]
   }
 ]

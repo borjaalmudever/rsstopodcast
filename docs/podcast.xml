@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 22 Aug 2026 10:02:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 06:34:16 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>23 de agosto — Antena tres lidera la audiencia y Amazon sube precios</title>
+      <description>Antena tres noticias uno fue lo mas visto de ayer viernes y La Uno prepara su estrategia para lograr el sorpasso. Por otro lado, Amazon ha subido los precios de sus dispositivos Echo, Fire TV y Kindle hasta en un sesenta por ciento. Ademas, se repasan la actualidad de la television, la tecnologia, la cultura pop y el cine.</description>
+      <pubDate>Sun, 23 Aug 2026 06:31:21 +0000</pubDate>
+      <guid isPermaLink="false">838751ce-4930-4eb8-96da-a89452129510</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-23.mp3" length="3630115" type="audio/mpeg" />
+      <itunes:duration>00:05:02</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>22 de agosto — Antena Tres lidera y TikTok pagará multa millonaria</title>
       <description>Antena Tres Noticias uno fue lo más visto de la jornada con casi dos millones de espectadores. Por otro lado, TikTok pagará cuatrocientos millones de dólares para cerrar una demanda por infringir la ley de protección de la privacidad infantil. Además, Phoebe Bridgers consigue el número uno en Reino Unido con su disco Lost Weekend.</description>
