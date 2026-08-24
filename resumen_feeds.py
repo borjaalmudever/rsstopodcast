@@ -750,6 +750,27 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
 
     ref_dt_articulos = dt or datetime.now(timezone.utc)
 
+    if folder_name.strip().upper() in {"TV", "TELEVISIÓN", "TELEVISION"}:
+        # Pedirle al modelo en el prompt que ignore audiencias desfasadas no
+        # ha bastado en la práctica: se ha visto colar datos de hace dos días
+        # (con la etiqueta "de ayer" mal puesta, o incluso admitiendo él
+        # mismo "el pasado [día]" y citándolos de todos modos). La única
+        # garantía real es que esos artículos ni siquiera lleguen a los
+        # materiales cuando no son recientes, así que se filtran aquí.
+        def _es_audiencia(e):
+            texto = f"{e.get('title', '')} {e.get('summary', '')}".lower()
+            return (e.get("feed", "").strip() == "Barlovento Comunicación"
+                     or re.search(r"audiencia|cuota de pantalla|espectadores|"
+                                  r"l[ií]der de audiencia|lo m[aá]s visto", texto))
+
+        def _vigente(e):
+            pub = e.get("published")
+            return pub is not None and (ref_dt_articulos - pub) <= timedelta(hours=8)
+
+        entries = [e for e in entries if not _es_audiencia(e) or _vigente(e)]
+        if not entries:
+            return ""
+
     def _fecha_articulo(e):
         pub = e.get("published")
         if not pub:
