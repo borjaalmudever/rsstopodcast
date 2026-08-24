@@ -1096,5 +1096,40 @@
         "start_ms": 295577
       }
     ]
+  },
+  {
+    "guid": "478f159b-0872-498d-b56d-ec1d6c61edd6",
+    "title": "24 de agosto — Antena Tres lidera la audiencia y llega Supervivientes All Stars",
+    "description": "Antena tres noticias uno Fin de Semana fue lo más visto el veintidós de agosto y Telecinco ultima el estreno de Supervivientes All Stars. Además, Apple prepara cambios en sus tiendas y Rockstar mantiene el lanzamiento de GTA VI.",
+    "pub_date": "2026-08-24T06:31:28.112310+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-24.mp3",
+    "file_size": 4537887,
+    "duration_seconds": 377,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 23224
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 152539
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 251867
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 299811
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 371161
+      }
+    ]
   }
 ]

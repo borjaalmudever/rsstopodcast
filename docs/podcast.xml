@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 23 Aug 2026 06:34:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 06:33:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>24 de agosto — Antena Tres lidera la audiencia y llega Supervivientes All Stars</title>
+      <description>Antena tres noticias uno Fin de Semana fue lo más visto el veintidós de agosto y Telecinco ultima el estreno de Supervivientes All Stars. Además, Apple prepara cambios en sus tiendas y Rockstar mantiene el lanzamiento de GTA VI.</description>
+      <pubDate>Mon, 24 Aug 2026 06:31:28 +0000</pubDate>
+      <guid isPermaLink="false">478f159b-0872-498d-b56d-ec1d6c61edd6</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-24.mp3" length="4537887" type="audio/mpeg" />
+      <itunes:duration>00:06:17</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>23 de agosto — Antena tres lidera la audiencia y Amazon sube precios</title>
       <description>Antena tres noticias uno fue lo mas visto de ayer viernes y La Uno prepara su estrategia para lograr el sorpasso. Por otro lado, Amazon ha subido los precios de sus dispositivos Echo, Fire TV y Kindle hasta en un sesenta por ciento. Ademas, se repasan la actualidad de la television, la tecnologia, la cultura pop y el cine.</description>
