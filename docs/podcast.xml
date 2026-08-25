@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 24 Aug 2026 06:33:45 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 06:34:11 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>25 de agosto — Susanna Griso regresa y Países Bajos renuncia a Eurovisión</title>
+      <description>Susanna Griso ya tiene fecha oficial para su regreso a Antena tres y Países Bajos se aleja de Eurovisión por la falta de medidas con Israel. Además, Apple prepara un nuevo iPad mini y se esperan los nuevos iPhone dieciocho Pro. Por otro lado, Taylor Swift revela detalles sobre la composición de I Knew You Were Trouble.</description>
+      <pubDate>Tue, 25 Aug 2026 06:31:29 +0000</pubDate>
+      <guid isPermaLink="false">0b9d7867-55c9-4a8b-9264-08f432103132</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-25.mp3" length="5195891" type="audio/mpeg" />
+      <itunes:duration>00:07:12</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>24 de agosto — Antena Tres lidera la audiencia y llega Supervivientes All Stars</title>
       <description>Antena tres noticias uno Fin de Semana fue lo más visto el veintidós de agosto y Telecinco ultima el estreno de Supervivientes All Stars. Además, Apple prepara cambios en sus tiendas y Rockstar mantiene el lanzamiento de GTA VI.</description>

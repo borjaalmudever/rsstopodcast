@@ -1131,5 +1131,40 @@
         "start_ms": 371161
       }
     ]
+  },
+  {
+    "guid": "0b9d7867-55c9-4a8b-9264-08f432103132",
+    "title": "25 de agosto — Susanna Griso regresa y Países Bajos renuncia a Eurovisión",
+    "description": "Susanna Griso ya tiene fecha oficial para su regreso a Antena tres y Países Bajos se aleja de Eurovisión por la falta de medidas con Israel. Además, Apple prepara un nuevo iPad mini y se esperan los nuevos iPhone dieciocho Pro. Por otro lado, Taylor Swift revela detalles sobre la composición de I Knew You Were Trouble.",
+    "pub_date": "2026-08-25T06:31:29.748472+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-25.mp3",
+    "file_size": 5195891,
+    "duration_seconds": 432,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18952
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137609
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 225861
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 336578
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 425926
+      }
+    ]
   }
 ]
