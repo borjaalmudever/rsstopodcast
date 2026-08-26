@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 25 Aug 2026 06:34:11 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 06:35:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>26 de agosto — Kit Harington y Dan Stevens protagonizan las nuevas series</title>
+      <description>Kit Harington ficha por la segunda temporada de la serie de Harry Potter como el profesor Gilderoy Lockhart. Además, Dan Stevens será el protagonista de la nueva serie de RoboCop en Amazon MGM Studios. Por otro lado, el mundo llora la muerte de la mítica artista y compositora Dolly Parton a los ochenta años.</description>
+      <pubDate>Wed, 26 Aug 2026 06:32:41 +0000</pubDate>
+      <guid isPermaLink="false">f4461240-4615-464f-b04e-6ce7c0a173cf</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-26.mp3" length="5183026" type="audio/mpeg" />
+      <itunes:duration>00:07:11</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>25 de agosto — Susanna Griso regresa y Países Bajos renuncia a Eurovisión</title>
       <description>Susanna Griso ya tiene fecha oficial para su regreso a Antena tres y Países Bajos se aleja de Eurovisión por la falta de medidas con Israel. Además, Apple prepara un nuevo iPad mini y se esperan los nuevos iPhone dieciocho Pro. Por otro lado, Taylor Swift revela detalles sobre la composición de I Knew You Were Trouble.</description>

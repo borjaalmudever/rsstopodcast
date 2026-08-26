@@ -1166,5 +1166,40 @@
         "start_ms": 425926
       }
     ]
+  },
+  {
+    "guid": "f4461240-4615-464f-b04e-6ce7c0a173cf",
+    "title": "26 de agosto — Kit Harington y Dan Stevens protagonizan las nuevas series",
+    "description": "Kit Harington ficha por la segunda temporada de la serie de Harry Potter como el profesor Gilderoy Lockhart. Además, Dan Stevens será el protagonista de la nueva serie de RoboCop en Amazon MGM Studios. Por otro lado, el mundo llora la muerte de la mítica artista y compositora Dolly Parton a los ochenta años.",
+    "pub_date": "2026-08-26T06:32:41.851206+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-26.mp3",
+    "file_size": 5183026,
+    "duration_seconds": 431,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17344
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 126728
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 226264
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 309004
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 424841
+      }
+    ]
   }
 ]
