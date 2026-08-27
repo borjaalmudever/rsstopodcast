@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 26 Aug 2026 06:35:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 06:34:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>27 de agosto — Gema López llega a Antena Tres y Apple anuncia evento</title>
+      <description>Gema López se incorpora a Y ahora Sonsoles mientras Apple fija su evento anual para el nueve de septiembre. Además, Meta limita el uso de redes sociales en menores y la música despide a figuras como Dolly Parton y Tim Curry.</description>
+      <pubDate>Thu, 27 Aug 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">c997215f-c966-4568-9bf3-4f07612da3b1</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-27.mp3" length="5315755" type="audio/mpeg" />
+      <itunes:duration>00:07:22</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>26 de agosto — Kit Harington y Dan Stevens protagonizan las nuevas series</title>
       <description>Kit Harington ficha por la segunda temporada de la serie de Harry Potter como el profesor Gilderoy Lockhart. Además, Dan Stevens será el protagonista de la nueva serie de RoboCop en Amazon MGM Studios. Por otro lado, el mundo llora la muerte de la mítica artista y compositora Dolly Parton a los ochenta años.</description>

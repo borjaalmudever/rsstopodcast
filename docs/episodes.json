@@ -1201,5 +1201,40 @@
         "start_ms": 424841
       }
     ]
+  },
+  {
+    "guid": "c997215f-c966-4568-9bf3-4f07612da3b1",
+    "title": "27 de agosto — Gema López llega a Antena Tres y Apple anuncia evento",
+    "description": "Gema López se incorpora a Y ahora Sonsoles mientras Apple fija su evento anual para el nueve de septiembre. Además, Meta limita el uso de redes sociales en menores y la música despide a figuras como Dolly Parton y Tim Curry.",
+    "pub_date": "2026-08-27T06:31:32.833469+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-27.mp3",
+    "file_size": 5315755,
+    "duration_seconds": 442,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 29968
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 134963
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 231339
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 359871
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 435923
+      }
+    ]
   }
 ]
