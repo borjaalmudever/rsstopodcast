@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 27 Aug 2026 06:34:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 06:35:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>28 de agosto — Beatriz Luengo gana Maestros de la Costura Celebrity</title>
+      <description>Beatriz Luengo se alza con la victoria en Maestros de la Costura Celebrity y dona su premio a Oxfam Intermón. Por otro lado, Nvidia negocia la adquisición de Hugging Face por doce mil novecientos millones de dólares. Además, el mundo de la música y del cine rinde homenaje a la fallecida Dolly Parton tras su conmocionante muerte.</description>
+      <pubDate>Fri, 28 Aug 2026 06:31:38 +0000</pubDate>
+      <guid isPermaLink="false">01ff85ad-1c9d-4f9c-a7be-caca87968694</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-28.mp3" length="6032435" type="audio/mpeg" />
+      <itunes:duration>00:08:22</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>27 de agosto — Gema López llega a Antena Tres y Apple anuncia evento</title>
       <description>Gema López se incorpora a Y ahora Sonsoles mientras Apple fija su evento anual para el nueve de septiembre. Además, Meta limita el uso de redes sociales en menores y la música despide a figuras como Dolly Parton y Tim Curry.</description>

@@ -1236,5 +1236,40 @@
         "start_ms": 435923
       }
     ]
+  },
+  {
+    "guid": "01ff85ad-1c9d-4f9c-a7be-caca87968694",
+    "title": "28 de agosto — Beatriz Luengo gana Maestros de la Costura Celebrity",
+    "description": "Beatriz Luengo se alza con la victoria en Maestros de la Costura Celebrity y dona su premio a Oxfam Intermón. Por otro lado, Nvidia negocia la adquisición de Hugging Face por doce mil novecientos millones de dólares. Además, el mundo de la música y del cine rinde homenaje a la fallecida Dolly Parton tras su conmocionante muerte.",
+    "pub_date": "2026-08-28T06:31:38.432838+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-28.mp3",
+    "file_size": 6032435,
+    "duration_seconds": 502,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 26608
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 160599
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 281974
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 396896
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 495571
+      }
+    ]
   }
 ]
