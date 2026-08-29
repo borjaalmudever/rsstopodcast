@@ -450,6 +450,18 @@ def parse_opml_by_folder(opml_path: str) -> dict:
 
 # ---------- 2. Descargar entradas recientes ----------
 
+# Sin esto, feedparser se identifica con su propio user-agent por defecto
+# ("feedparser/x.y +https://github.com/kurtmckee/feedparser/"), una firma de
+# bot muy reconocible. Se ha visto en producción que Substack (y alguna otra
+# plataforma de newsletters) responde a ese user-agent con una página de
+# reto en vez del XML real; feedparser no lanza ninguna excepción por eso,
+# así que el fallo es silencioso: la fuente entera se lee como "0 artículos"
+# semana tras semana sin ningún aviso de error. Un user-agent de navegador
+# habitual evita ese bloqueo.
+USER_AGENT_RSS = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+
+
 def strip_html(text: str) -> str:
     text = re.sub(r"<[^>]+>", " ", text or "")
     return re.sub(r"\s+", " ", text).strip()
@@ -460,7 +472,7 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
     entries = []
     for feed_title, url in feeds:
         try:
-            parsed = feedparser.parse(url)
+            parsed = feedparser.parse(url, agent=USER_AGENT_RSS)
         except Exception as e:
             print(f"  [aviso] no se pudo leer {feed_title}: {e}")
             continue

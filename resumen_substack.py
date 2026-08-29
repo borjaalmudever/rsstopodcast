@@ -98,7 +98,7 @@ def fetch_substack_entries(feeds: list, hours: int) -> list:
     results = []
     for feed_title, url in feeds:
         try:
-            parsed = feedparser.parse(url)
+            parsed = feedparser.parse(url, agent=rf.USER_AGENT_RSS)
         except Exception as e:
             print(f"  [aviso] no se pudo leer {feed_title}: {e}")
             continue
