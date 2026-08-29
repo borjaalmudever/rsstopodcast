@@ -1271,5 +1271,40 @@
         "start_ms": 495571
       }
     ]
+  },
+  {
+    "guid": "4c0b1d01-681d-4282-8919-e20d5bf138ff",
+    "title": "29 de agosto — Telecinco estrena Rueda la letra con históricos de Pasapalabra",
+    "description": "Telecinco recupera la prueba final de Pasapalabra en un nuevo concurso presentado por Carlos Sobera con dos históricos ganadores como primeros concursantes. Además, la cadena matinal de Ana Rosa ficha a Federico Jiménez Losantos y Tomás Gómez para su tertulia política. Por su parte, Prime Video estrena la tercera temporada de la secuela de Betty la Fea.",
+    "pub_date": "2026-08-29T06:31:52.719682+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-29.mp3",
+    "file_size": 5593767,
+    "duration_seconds": 465,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15736
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 157251
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 286619
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 373851
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 459047
+      }
+    ]
   }
 ]
