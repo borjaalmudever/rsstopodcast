@@ -1306,5 +1306,40 @@
         "start_ms": 459047
       }
     ]
+  },
+  {
+    "guid": "d0aff973-3484-4ea8-9617-4a40f286048b",
+    "title": "30 de agosto — Telecinco ficha concursantes de Pasapalabra y Apple anuncia evento",
+    "description": "Telecinco renueva sus concursos mientras Ana Rosa valora la audiencia de la cadena y se anuncian nuevos fichajes. Por su parte, Apple celebra su evento anual de septiembre rodeado de gran expectación. Además, Tom Cruise confirma que Anne Hathaway le acompañará en la secuela de Días de trueno.",
+    "pub_date": "2026-08-30T06:31:41.849916+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-30.mp3",
+    "file_size": 4628258,
+    "duration_seconds": 385,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22384
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 129182
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 252934
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 306704
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 378707
+      }
+    ]
   }
 ]
