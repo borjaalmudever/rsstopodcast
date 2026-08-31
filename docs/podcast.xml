@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 30 Aug 2026 06:35:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 06:37:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>31 de agosto — MasterChef se salva de las llamas tras un incendio</title>
+      <description>El plató de MasterChef se ha librado de un incendio en Madrid gracias a la rápida actuación de los servicios de emergencia. Además, la película Coyote versus Acme arrasa inesperadamente en la taquilla y Apple adelanta el lanzamiento de nuevos dispositivos por una fuerte demanda.</description>
+      <pubDate>Mon, 31 Aug 2026 06:32:38 +0000</pubDate>
+      <guid isPermaLink="false">d79af545-0e95-4ca2-b8f9-6e26ded3acc3</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-31.mp3" length="5508418" type="audio/mpeg" />
+      <itunes:duration>00:07:38</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>30 de agosto — Telecinco ficha concursantes de Pasapalabra y Apple anuncia evento</title>
       <description>Telecinco renueva sus concursos mientras Ana Rosa valora la audiencia de la cadena y se anuncian nuevos fichajes. Por su parte, Apple celebra su evento anual de septiembre rodeado de gran expectación. Además, Tom Cruise confirma que Anne Hathaway le acompañará en la secuela de Días de trueno.</description>

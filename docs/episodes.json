@@ -1341,5 +1341,40 @@
         "start_ms": 378707
       }
     ]
+  },
+  {
+    "guid": "d79af545-0e95-4ca2-b8f9-6e26ded3acc3",
+    "title": "31 de agosto — MasterChef se salva de las llamas tras un incendio",
+    "description": "El plató de MasterChef se ha librado de un incendio en Madrid gracias a la rápida actuación de los servicios de emergencia. Además, la película Coyote versus Acme arrasa inesperadamente en la taquilla y Apple adelanta el lanzamiento de nuevos dispositivos por una fuerte demanda.",
+    "pub_date": "2026-08-31T06:32:38.229572+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-08-31.mp3",
+    "file_size": 5508418,
+    "duration_seconds": 458,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22312
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137730
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 261012
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 371128
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 451934
+      }
+    ]
   }
 ]
