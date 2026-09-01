@@ -1376,5 +1376,40 @@
         "start_ms": 451934
       }
     ]
+  },
+  {
+    "guid": "845afac7-ffe6-4621-894a-0a44c507b0d3",
+    "title": "1 de septiembre — Tim Cook deja Apple y regresa Ahora caigo con Arturo Valls",
+    "description": "Tim Cook deja su cargo como consejero delegado de Apple tras quince años y será sustituido por John Ternus. Además, Antena Tres prepara el regreso de Ahora caigo con Arturo Valls cinco años después de su cancelación. En el plano cultural, se lamenta el fallecimiento del actor Francesc Garrido a los cincuenta y seis años.",
+    "pub_date": "2026-09-01T06:32:49.792543+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-01.mp3",
+    "file_size": 5324856,
+    "duration_seconds": 443,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18064
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147249
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 273613
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 344780
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 436663
+      }
+    ]
   }
 ]

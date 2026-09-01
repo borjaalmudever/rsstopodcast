@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 31 Aug 2026 06:37:05 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 06:37:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>1 de septiembre — Tim Cook deja Apple y regresa Ahora caigo con Arturo Valls</title>
+      <description>Tim Cook deja su cargo como consejero delegado de Apple tras quince años y será sustituido por John Ternus. Además, Antena Tres prepara el regreso de Ahora caigo con Arturo Valls cinco años después de su cancelación. En el plano cultural, se lamenta el fallecimiento del actor Francesc Garrido a los cincuenta y seis años.</description>
+      <pubDate>Tue, 01 Sep 2026 06:32:49 +0000</pubDate>
+      <guid isPermaLink="false">845afac7-ffe6-4621-894a-0a44c507b0d3</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-01.mp3" length="5324856" type="audio/mpeg" />
+      <itunes:duration>00:07:23</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>31 de agosto — MasterChef se salva de las llamas tras un incendio</title>
       <description>El plató de MasterChef se ha librado de un incendio en Madrid gracias a la rápida actuación de los servicios de emergencia. Además, la película Coyote versus Acme arrasa inesperadamente en la taquilla y Apple adelanta el lanzamiento de nuevos dispositivos por una fuerte demanda.</description>
