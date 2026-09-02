@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 01 Sep 2026 06:37:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 06:34:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>2 de septiembre — John Ternus asume oficialmente el cargo de Apple</title>
+      <description>John Ternus asume oficialmente el cargo de consejero delegado de Apple mientras Tim Cook pasa a ser presidente ejecutivo. Además, la compañía prepara un gran lanzamiento para la semana que viene. Por otra parte, Anthropic ha presentado los nuevos modelos Claude Fable cinco punto uno y Mythos cinco punto uno.</description>
+      <pubDate>Wed, 02 Sep 2026 06:31:36 +0000</pubDate>
+      <guid isPermaLink="false">174a9119-8d04-4ccb-b09c-339661760a34</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-02.mp3" length="5353723" type="audio/mpeg" />
+      <itunes:duration>00:07:25</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>1 de septiembre — Tim Cook deja Apple y regresa Ahora caigo con Arturo Valls</title>
       <description>Tim Cook deja su cargo como consejero delegado de Apple tras quince años y será sustituido por John Ternus. Además, Antena Tres prepara el regreso de Ahora caigo con Arturo Valls cinco años después de su cancelación. En el plano cultural, se lamenta el fallecimiento del actor Francesc Garrido a los cincuenta y seis años.</description>

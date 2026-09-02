@@ -1411,5 +1411,40 @@
         "start_ms": 436663
       }
     ]
+  },
+  {
+    "guid": "174a9119-8d04-4ccb-b09c-339661760a34",
+    "title": "2 de septiembre — John Ternus asume oficialmente el cargo de Apple",
+    "description": "John Ternus asume oficialmente el cargo de consejero delegado de Apple mientras Tim Cook pasa a ser presidente ejecutivo. Además, la compañía prepara un gran lanzamiento para la semana que viene. Por otra parte, Anthropic ha presentado los nuevos modelos Claude Fable cinco punto uno y Mythos cinco punto uno.",
+    "pub_date": "2026-09-02T06:31:36.589743+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-02.mp3",
+    "file_size": 5353723,
+    "duration_seconds": 445,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 25456
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 158559
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 249162
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 371268
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 439065
+      }
+    ]
   }
 ]
