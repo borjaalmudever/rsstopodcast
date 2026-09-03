@@ -1446,5 +1446,40 @@
         "start_ms": 439065
       }
     ]
+  },
+  {
+    "guid": "8166f8e3-a670-46de-9d21-af7d928500dc",
+    "title": "3 de septiembre — Telecinco cancela su magacín de tarde y prepara profundos cambios",
+    "description": "Telecinco anuncia una profunda reestructuración de su parrilla que incluye la cancelación de su magacín de tarde y el recorte del espacio de Jorge Javier Vázquez. Además, la cadena ultima el estreno de su nuevo concurso diario y el regreso de Joaquín Prat a las mañanas. Por otro lado, la tecnología y el cine también acaparan la actualidad con novedades sobre ciberseguridad y el festival de Venecia.",
+    "pub_date": "2026-09-03T06:31:31.680254+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-03.mp3",
+    "file_size": 5929829,
+    "duration_seconds": 493,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16264
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 164544
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 279284
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 404760
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 487003
+      }
+    ]
   }
 ]
