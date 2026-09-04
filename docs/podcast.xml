@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 03 Sep 2026 06:35:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 06:34:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>4 de septiembre — Apple prepara su primer teléfono plegable y OpenAI presenta GPT-seis</title>
+      <description>Apple anuncia su evento anual donde mostrará sus nuevos modelos y su primer teléfono plegable. Por su parte, OpenAI presenta el nuevo modelo GPT-seis Astra como un salto generacional hacia la inteligencia artificial general. Además, Brasil aprueba la nueva ley Taylor Swift para proteger a los asistentes a grandes conciertos frente al calor extremo.</description>
+      <pubDate>Fri, 04 Sep 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">d22c1be6-7466-4ad2-a37e-a935024cdf3a</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-04.mp3" length="5194321" type="audio/mpeg" />
+      <itunes:duration>00:07:12</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>3 de septiembre — Telecinco cancela su magacín de tarde y prepara profundos cambios</title>
       <description>Telecinco anuncia una profunda reestructuración de su parrilla que incluye la cancelación de su magacín de tarde y el recorte del espacio de Jorge Javier Vázquez. Además, la cadena ultima el estreno de su nuevo concurso diario y el regreso de Joaquín Prat a las mañanas. Por otro lado, la tecnología y el cine también acaparan la actualidad con novedades sobre ciberseguridad y el festival de Venecia.</description>

@@ -1481,5 +1481,40 @@
         "start_ms": 487003
       }
     ]
+  },
+  {
+    "guid": "d22c1be6-7466-4ad2-a37e-a935024cdf3a",
+    "title": "4 de septiembre — Apple prepara su primer teléfono plegable y OpenAI presenta GPT-seis",
+    "description": "Apple anuncia su evento anual donde mostrará sus nuevos modelos y su primer teléfono plegable. Por su parte, OpenAI presenta el nuevo modelo GPT-seis Astra como un salto generacional hacia la inteligencia artificial general. Además, Brasil aprueba la nueva ley Taylor Swift para proteger a los asistentes a grandes conciertos frente al calor extremo.",
+    "pub_date": "2026-09-04T06:31:32.780057+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-04.mp3",
+    "file_size": 5194321,
+    "duration_seconds": 432,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16120
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 120071
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 223081
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 322957
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 425837
+      }
+    ]
   }
 ]
