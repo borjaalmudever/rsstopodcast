@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 04 Sep 2026 06:34:55 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 06:34:39 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>5 de septiembre — Apple presenta su primer plegable y Netflix ficha Pasapalabra</title>
+      <description>Apple celebrará un evento para presentar su nuevo teléfono plegable iPhone Ultra y un potente procesador. Por su parte, Netflix incorpora Pasapalabra a su catálogo tras un acuerdo con Atresmedia. Además, OpenAI anuncia el lanzamiento de su modelo GPT-seis Astra.</description>
+      <pubDate>Sat, 05 Sep 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">24c9af74-2e3c-4dd1-8919-381db33331bb</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-05.mp3" length="5589060" type="audio/mpeg" />
+      <itunes:duration>00:07:45</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>4 de septiembre — Apple prepara su primer teléfono plegable y OpenAI presenta GPT-seis</title>
       <description>Apple anuncia su evento anual donde mostrará sus nuevos modelos y su primer teléfono plegable. Por su parte, OpenAI presenta el nuevo modelo GPT-seis Astra como un salto generacional hacia la inteligencia artificial general. Además, Brasil aprueba la nueva ley Taylor Swift para proteger a los asistentes a grandes conciertos frente al calor extremo.</description>

@@ -1516,5 +1516,40 @@
         "start_ms": 425837
       }
     ]
+  },
+  {
+    "guid": "24c9af74-2e3c-4dd1-8919-381db33331bb",
+    "title": "5 de septiembre — Apple presenta su primer plegable y Netflix ficha Pasapalabra",
+    "description": "Apple celebrará un evento para presentar su nuevo teléfono plegable iPhone Ultra y un potente procesador. Por su parte, Netflix incorpora Pasapalabra a su catálogo tras un acuerdo con Atresmedia. Además, OpenAI anuncia el lanzamiento de su modelo GPT-seis Astra.",
+    "pub_date": "2026-09-05T06:31:32.571831+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-05.mp3",
+    "file_size": 5589060,
+    "duration_seconds": 465,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19840
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 137897
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 273351
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 339634
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 458657
+      }
+    ]
   }
 ]
