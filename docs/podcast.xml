@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 05 Sep 2026 10:02:39 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 06:35:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>6 de septiembre — David Broncano arranca la tercera temporada en Televisión Española</title>
+      <description>David Broncano inicia una nueva temporada en la cadena pública con mayor variedad de temas. Además, TVE prepara un movimiento histórico trasladando el programa de Anne Igartiburu a La dos. Por otro lado, Apple se prepara para presentar su primer iPhone plegable.</description>
+      <pubDate>Sun, 06 Sep 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">dea2ba4a-e1e8-40d4-8a54-acfe9b72a395</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-06.mp3" length="4905955" type="audio/mpeg" />
+      <itunes:duration>00:06:48</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>5 de septiembre — Apple presenta su primer plegable y Netflix ficha Pasapalabra</title>
       <description>Apple celebrará un evento para presentar su nuevo teléfono plegable iPhone Ultra y un potente procesador. Por su parte, Netflix incorpora Pasapalabra a su catálogo tras un acuerdo con Atresmedia. Además, OpenAI anuncia el lanzamiento de su modelo GPT-seis Astra.</description>

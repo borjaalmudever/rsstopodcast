@@ -1551,5 +1551,40 @@
         "start_ms": 458657
       }
     ]
+  },
+  {
+    "guid": "dea2ba4a-e1e8-40d4-8a54-acfe9b72a395",
+    "title": "6 de septiembre — David Broncano arranca la tercera temporada en Televisión Española",
+    "description": "David Broncano inicia una nueva temporada en la cadena pública con mayor variedad de temas. Además, TVE prepara un movimiento histórico trasladando el programa de Anne Igartiburu a La dos. Por otro lado, Apple se prepara para presentar su primer iPhone plegable.",
+    "pub_date": "2026-09-06T06:31:32.319462+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-06.mp3",
+    "file_size": 4905955,
+    "duration_seconds": 408,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20632
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 129546
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 249771
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 311665
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 401797
+      }
+    ]
   }
 ]
