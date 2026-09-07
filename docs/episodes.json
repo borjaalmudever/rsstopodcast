@@ -1586,5 +1586,40 @@
         "start_ms": 401797
       }
     ]
+  },
+  {
+    "guid": "82defe49-c969-47c4-8d6a-87f3401370b7",
+    "title": "7 de septiembre — Bad Bunny gana su primer Emmy por la Super Bowl",
+    "description": "Bad Bunny ha conseguido su primer Emmy por el espectáculo de medio tiempo en la Super Bowl. Además, la serie Sueños de libertad emite un nuevo capítulo y se anuncia el estreno del reality Supervivientes All Stars tres.",
+    "pub_date": "2026-09-07T06:31:24.238941+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-07.mp3",
+    "file_size": 5760072,
+    "duration_seconds": 479,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24496
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 157469
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 257945
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 371797
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 472927
+      }
+    ]
   }
 ]

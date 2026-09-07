@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 06 Sep 2026 06:35:55 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 06:35:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>7 de septiembre — Bad Bunny gana su primer Emmy por la Super Bowl</title>
+      <description>Bad Bunny ha conseguido su primer Emmy por el espectáculo de medio tiempo en la Super Bowl. Además, la serie Sueños de libertad emite un nuevo capítulo y se anuncia el estreno del reality Supervivientes All Stars tres.</description>
+      <pubDate>Mon, 07 Sep 2026 06:31:24 +0000</pubDate>
+      <guid isPermaLink="false">82defe49-c969-47c4-8d6a-87f3401370b7</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-07.mp3" length="5760072" type="audio/mpeg" />
+      <itunes:duration>00:07:59</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>6 de septiembre — David Broncano arranca la tercera temporada en Televisión Española</title>
       <description>David Broncano inicia una nueva temporada en la cadena pública con mayor variedad de temas. Además, TVE prepara un movimiento histórico trasladando el programa de Anne Igartiburu a La dos. Por otro lado, Apple se prepara para presentar su primer iPhone plegable.</description>
