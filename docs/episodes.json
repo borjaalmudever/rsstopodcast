@@ -1621,5 +1621,40 @@
         "start_ms": 472927
       }
     ]
+  },
+  {
+    "guid": "8336e545-3c53-4ada-904f-2b85e456b897",
+    "title": "8 de septiembre — Novedades televisivas, nuevos móviles plegables y estrenos culturales",
+    "description": "El programa repasa el inicio de la temporada televisiva con Pablo Motos y Jorge Javier Vázquez. En tecnología destacan el nuevo plegable de Xiaomi y las novedades sobre Apple. Además, se analizan la actualidad musical y los próximos estrenos cinematográficos.",
+    "pub_date": "2026-09-08T06:31:18.131379+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-08.mp3",
+    "file_size": 4714861,
+    "duration_seconds": 392,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19456
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 133411
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 237989
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 313545
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 385914
+      }
+    ]
   }
 ]

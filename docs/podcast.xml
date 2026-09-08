@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 07 Sep 2026 06:35:09 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 06:34:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>8 de septiembre — Novedades televisivas, nuevos móviles plegables y estrenos culturales</title>
+      <description>El programa repasa el inicio de la temporada televisiva con Pablo Motos y Jorge Javier Vázquez. En tecnología destacan el nuevo plegable de Xiaomi y las novedades sobre Apple. Además, se analizan la actualidad musical y los próximos estrenos cinematográficos.</description>
+      <pubDate>Tue, 08 Sep 2026 06:31:18 +0000</pubDate>
+      <guid isPermaLink="false">8336e545-3c53-4ada-904f-2b85e456b897</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-08.mp3" length="4714861" type="audio/mpeg" />
+      <itunes:duration>00:06:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>7 de septiembre — Bad Bunny gana su primer Emmy por la Super Bowl</title>
       <description>Bad Bunny ha conseguido su primer Emmy por el espectáculo de medio tiempo en la Super Bowl. Además, la serie Sueños de libertad emite un nuevo capítulo y se anuncia el estreno del reality Supervivientes All Stars tres.</description>
