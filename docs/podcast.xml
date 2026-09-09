@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 08 Sep 2026 06:34:05 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 06:34:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>9 de septiembre — Atresmedia estudia acciones contra Telecinco por posible plagio</title>
+      <description>Atresmedia e ITV Studios revisan jurídicamente el estreno de Rueda la letra ante un posible plagio de Pasapalabra. Mientras tanto, Moisés Laguardia regresa a Antena tres tras la marcha voluntaria de Javier Alonso.</description>
+      <pubDate>Wed, 09 Sep 2026 06:31:22 +0000</pubDate>
+      <guid isPermaLink="false">1c310e3d-c954-4c8f-aaea-4c8f1b336551</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-09.mp3" length="5380708" type="audio/mpeg" />
+      <itunes:duration>00:07:27</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>8 de septiembre — Novedades televisivas, nuevos móviles plegables y estrenos culturales</title>
       <description>El programa repasa el inicio de la temporada televisiva con Pablo Motos y Jorge Javier Vázquez. En tecnología destacan el nuevo plegable de Xiaomi y las novedades sobre Apple. Además, se analizan la actualidad musical y los próximos estrenos cinematográficos.</description>

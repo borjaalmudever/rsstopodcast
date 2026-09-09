@@ -1656,5 +1656,40 @@
         "start_ms": 385914
       }
     ]
+  },
+  {
+    "guid": "1c310e3d-c954-4c8f-aaea-4c8f1b336551",
+    "title": "9 de septiembre — Atresmedia estudia acciones contra Telecinco por posible plagio",
+    "description": "Atresmedia e ITV Studios revisan jurídicamente el estreno de Rueda la letra ante un posible plagio de Pasapalabra. Mientras tanto, Moisés Laguardia regresa a Antena tres tras la marcha voluntaria de Javier Alonso.",
+    "pub_date": "2026-09-09T06:31:22.295974+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-09.mp3",
+    "file_size": 5380708,
+    "duration_seconds": 447,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20440
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 139385
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 246967
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 346791
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 441311
+      }
+    ]
   }
 ]
