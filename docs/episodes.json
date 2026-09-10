@@ -1691,5 +1691,40 @@
         "start_ms": 441311
       }
     ]
+  },
+  {
+    "guid": "cee55e14-d783-406d-88ee-72ff2049b22f",
+    "title": "10 de septiembre — Apple presenta su primer móvil plegable y revoluciona la inteligencia artificial",
+    "description": "Apple ha presentado su primer móvil plegable llamado iPhone Duo y ha renovado su catálogo con los nuevos iPhone dieciocho Pro y Pro Max. Además, la inteligencia artificial ha resuelto un gran enigma histórico gracias a los matemáticos españoles Diego Córdoba y Luis Martínez Zoroa. Por su parte, la esperada película Avengers Doomsday ya ha conseguido cincuenta millones de dólares en ventas anticipadas de entradas.",
+    "pub_date": "2026-09-10T06:31:20.654756+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-10.mp3",
+    "file_size": 5415225,
+    "duration_seconds": 450,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15424
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 118121
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 249944
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 341383
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 444210
+      }
+    ]
   }
 ]

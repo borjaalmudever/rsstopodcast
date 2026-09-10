@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 09 Sep 2026 06:34:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 06:36:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>10 de septiembre — Apple presenta su primer móvil plegable y revoluciona la inteligencia artificial</title>
+      <description>Apple ha presentado su primer móvil plegable llamado iPhone Duo y ha renovado su catálogo con los nuevos iPhone dieciocho Pro y Pro Max. Además, la inteligencia artificial ha resuelto un gran enigma histórico gracias a los matemáticos españoles Diego Córdoba y Luis Martínez Zoroa. Por su parte, la esperada película Avengers Doomsday ya ha conseguido cincuenta millones de dólares en ventas anticipadas de entradas.</description>
+      <pubDate>Thu, 10 Sep 2026 06:31:20 +0000</pubDate>
+      <guid isPermaLink="false">cee55e14-d783-406d-88ee-72ff2049b22f</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-10.mp3" length="5415225" type="audio/mpeg" />
+      <itunes:duration>00:07:30</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>9 de septiembre — Atresmedia estudia acciones contra Telecinco por posible plagio</title>
       <description>Atresmedia e ITV Studios revisan jurídicamente el estreno de Rueda la letra ante un posible plagio de Pasapalabra. Mientras tanto, Moisés Laguardia regresa a Antena tres tras la marcha voluntaria de Javier Alonso.</description>
