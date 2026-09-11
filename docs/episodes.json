@@ -1726,5 +1726,40 @@
         "start_ms": 444210
       }
     ]
+  },
+  {
+    "guid": "bbd6112c-4e81-46df-b497-70f549d212dd",
+    "title": "11 de septiembre — Javier Bardem sorprende en La Revuelta de RTVE",
+    "description": "Javier Bardem acude por primera vez al plató de La Revuelta en RTVE y asombra a Broncano con su respuesta sobre el dinero que tiene. Por otro lado, Apple presenta el nuevo iPhone Duo, su primer teléfono plegable que saldrá al mercado en octubre. Además, Harry Styles anuncia las fechas de su gira de dos mil veintisiete con dos conciertos en Madrid.",
+    "pub_date": "2026-09-11T06:31:19.670307+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-11.mp3",
+    "file_size": 5778585,
+    "duration_seconds": 480,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 25960
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 142763
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 221688
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 326815
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 474417
+      }
+    ]
   }
 ]

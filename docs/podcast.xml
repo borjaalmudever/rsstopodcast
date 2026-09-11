@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 10 Sep 2026 06:36:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 06:34:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>11 de septiembre — Javier Bardem sorprende en La Revuelta de RTVE</title>
+      <description>Javier Bardem acude por primera vez al plató de La Revuelta en RTVE y asombra a Broncano con su respuesta sobre el dinero que tiene. Por otro lado, Apple presenta el nuevo iPhone Duo, su primer teléfono plegable que saldrá al mercado en octubre. Además, Harry Styles anuncia las fechas de su gira de dos mil veintisiete con dos conciertos en Madrid.</description>
+      <pubDate>Fri, 11 Sep 2026 06:31:19 +0000</pubDate>
+      <guid isPermaLink="false">bbd6112c-4e81-46df-b497-70f549d212dd</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-11.mp3" length="5778585" type="audio/mpeg" />
+      <itunes:duration>00:08:00</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>10 de septiembre — Apple presenta su primer móvil plegable y revoluciona la inteligencia artificial</title>
       <description>Apple ha presentado su primer móvil plegable llamado iPhone Duo y ha renovado su catálogo con los nuevos iPhone dieciocho Pro y Pro Max. Además, la inteligencia artificial ha resuelto un gran enigma histórico gracias a los matemáticos españoles Diego Córdoba y Luis Martínez Zoroa. Por su parte, la esperada película Avengers Doomsday ya ha conseguido cincuenta millones de dólares en ventas anticipadas de entradas.</description>
