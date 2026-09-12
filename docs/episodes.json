@@ -1761,5 +1761,40 @@
         "start_ms": 474417
       }
     ]
+  },
+  {
+    "guid": "2a7de047-5275-4b4c-b9cc-56d8d25f47f1",
+    "title": "12 de septiembre — Llega el iPhone plegable y Supervivientes All Stars lidera",
+    "description": "El nuevo iPhone Duo marca la actualidad tecnológica junto al estreno de Supervivientes All Stars en televisión. Además, la serie sobre la vida de Raphael llegará a Netflix en octubre y Paramount adaptará Hawái cinco-cero.",
+    "pub_date": "2026-09-12T06:31:40.837893+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-12.mp3",
+    "file_size": 5178319,
+    "duration_seconds": 430,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24136
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 107763
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 209886
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 287505
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 424449
+      }
+    ]
   }
 ]

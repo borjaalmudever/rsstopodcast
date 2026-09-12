@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 11 Sep 2026 06:34:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 06:34:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>12 de septiembre — Llega el iPhone plegable y Supervivientes All Stars lidera</title>
+      <description>El nuevo iPhone Duo marca la actualidad tecnológica junto al estreno de Supervivientes All Stars en televisión. Además, la serie sobre la vida de Raphael llegará a Netflix en octubre y Paramount adaptará Hawái cinco-cero.</description>
+      <pubDate>Sat, 12 Sep 2026 06:31:40 +0000</pubDate>
+      <guid isPermaLink="false">2a7de047-5275-4b4c-b9cc-56d8d25f47f1</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-12.mp3" length="5178319" type="audio/mpeg" />
+      <itunes:duration>00:07:10</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>11 de septiembre — Javier Bardem sorprende en La Revuelta de RTVE</title>
       <description>Javier Bardem acude por primera vez al plató de La Revuelta en RTVE y asombra a Broncano con su respuesta sobre el dinero que tiene. Por otro lado, Apple presenta el nuevo iPhone Duo, su primer teléfono plegable que saldrá al mercado en octubre. Además, Harry Styles anuncia las fechas de su gira de dos mil veintisiete con dos conciertos en Madrid.</description>
