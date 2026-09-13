@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 12 Sep 2026 10:01:48 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 06:34:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>13 de septiembre — Isa Pantoja fulmina el acercamiento a Kiko Rivera</title>
+      <description>Isa Pantoja afirma que no se planteó ir ni llamar a Kiko Rivera tras su segundo ictus. Además, Lady Gaga ya es oficialmente madre junto a su prometido Michael Polansky. Por otro lado, Apple abre las reservas de los nuevos iPhone dieciocho Pro.</description>
+      <pubDate>Sun, 13 Sep 2026 06:31:16 +0000</pubDate>
+      <guid isPermaLink="false">db2d6194-c6ca-40d8-bb5f-5b5478e103b1</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-13.mp3" length="4916310" type="audio/mpeg" />
+      <itunes:duration>00:06:49</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>12 de septiembre — Llega el iPhone plegable y Supervivientes All Stars lidera</title>
       <description>El nuevo iPhone Duo marca la actualidad tecnológica junto al estreno de Supervivientes All Stars en televisión. Además, la serie sobre la vida de Raphael llegará a Netflix en octubre y Paramount adaptará Hawái cinco-cero.</description>

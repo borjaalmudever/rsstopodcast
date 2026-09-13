@@ -1796,5 +1796,40 @@
         "start_ms": 424449
       }
     ]
+  },
+  {
+    "guid": "db2d6194-c6ca-40d8-bb5f-5b5478e103b1",
+    "title": "13 de septiembre — Isa Pantoja fulmina el acercamiento a Kiko Rivera",
+    "description": "Isa Pantoja afirma que no se planteó ir ni llamar a Kiko Rivera tras su segundo ictus. Además, Lady Gaga ya es oficialmente madre junto a su prometido Michael Polansky. Por otro lado, Apple abre las reservas de los nuevos iPhone dieciocho Pro.",
+    "pub_date": "2026-09-13T06:31:16.492227+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-13.mp3",
+    "file_size": 4916310,
+    "duration_seconds": 409,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18712
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 117804
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 211123
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 289082
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 402672
+      }
+    ]
   }
 ]
