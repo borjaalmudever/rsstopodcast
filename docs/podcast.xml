@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 13 Sep 2026 06:34:10 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 06:34:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>14 de septiembre — Alma Bollo evacuada de urgencia y novedades en la televisión</title>
+      <description>Alma Bollo ha sido evacuada de urgencia en helicóptero desde Supervivientes All Stars. Además, Ana María Aldón ha roto su silencio en el plató de Fiesta y Cristóbal Soria ha sufrido un accidente de rafting. Por otro lado, Oasis anunciará sus planes y Céline Dion ha retomado su residencia en París.</description>
+      <pubDate>Mon, 14 Sep 2026 06:31:22 +0000</pubDate>
+      <guid isPermaLink="false">ce5e6435-a9f1-4819-89af-d23b934ad62c</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-14.mp3" length="5684451" type="audio/mpeg" />
+      <itunes:duration>00:07:53</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>13 de septiembre — Isa Pantoja fulmina el acercamiento a Kiko Rivera</title>
       <description>Isa Pantoja afirma que no se planteó ir ni llamar a Kiko Rivera tras su segundo ictus. Además, Lady Gaga ya es oficialmente madre junto a su prometido Michael Polansky. Por otro lado, Apple abre las reservas de los nuevos iPhone dieciocho Pro.</description>

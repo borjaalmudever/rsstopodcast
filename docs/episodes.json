@@ -1831,5 +1831,40 @@
         "start_ms": 402672
       }
     ]
+  },
+  {
+    "guid": "ce5e6435-a9f1-4819-89af-d23b934ad62c",
+    "title": "14 de septiembre — Alma Bollo evacuada de urgencia y novedades en la televisión",
+    "description": "Alma Bollo ha sido evacuada de urgencia en helicóptero desde Supervivientes All Stars. Además, Ana María Aldón ha roto su silencio en el plató de Fiesta y Cristóbal Soria ha sufrido un accidente de rafting. Por otro lado, Oasis anunciará sus planes y Céline Dion ha retomado su residencia en París.",
+    "pub_date": "2026-09-14T06:31:22.791331+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-14.mp3",
+    "file_size": 5684451,
+    "duration_seconds": 473,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 9208
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 140744
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 243807
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 360166
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 466599
+      }
+    ]
   }
 ]
