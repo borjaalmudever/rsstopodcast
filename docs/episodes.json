@@ -1866,5 +1866,40 @@
         "start_ms": 466599
       }
     ]
+  },
+  {
+    "guid": "6bf0b371-d9d9-4cf8-ad42-ef0801cd541b",
+    "title": "15 de septiembre — La maldición de Widow's Bay arrasa en los premios Emmy",
+    "description": "La serie La maldición de Widow's Bay ha batido récords en la setenta y ocho edición de los premios Emmy con catorce galardones. Además, Mediaset ha reorganizado su parrilla nocturna y Oasis ha anunciado su regreso a Barcelona para dos mil veintisiete.",
+    "pub_date": "2026-09-15T06:31:25.345375+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-15.mp3",
+    "file_size": 5204049,
+    "duration_seconds": 433,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 11752
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 139918
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 240682
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 345756
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 426615
+      }
+    ]
   }
 ]
