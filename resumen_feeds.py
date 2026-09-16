@@ -503,7 +503,7 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
 
 def get_efemeride(dt: datetime, max_events: int = 6) -> list:
     headers = {"User-Agent": "ResumenFeedsPodcast/1.0 (uso personal, sin fines comerciales)"}
-    url = f"https://api.wikimedia.org/feed/v1/wikipedia/es/onthisday/selected/{dt.month:02d}/{dt.day:02d}"
+    url = f"https://es.wikipedia.org/api/rest_v1/feed/onthisday/selected/{dt.month:02d}/{dt.day:02d}"
     try:
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
