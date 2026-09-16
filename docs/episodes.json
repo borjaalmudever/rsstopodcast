@@ -1901,5 +1901,40 @@
         "start_ms": 426615
       }
     ]
+  },
+  {
+    "guid": "f9291147-0f34-44f6-8c80-77e34ac35799",
+    "title": "16 de septiembre — María Galiana considera un desperdicio su etapa en Cuéntame",
+    "description": "La actriz María Galiana ha declarado que su trayectoria en la serie Cuéntame ha sido un desperdicio porque preferiría haber hecho más cine. Además, la gala de los premios Emmy ha reconocido el talento de Matthew Rhys y las veintiocho estatuillas conseguidas por Apple TV. Por su parte, la inteligencia artificial deja titulares con la invención de un idioma propio y el rechazo a sus centros de datos.",
+    "pub_date": "2026-09-16T06:31:25.641405+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-16.mp3",
+    "file_size": 5220365,
+    "duration_seconds": 434,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 9424
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 120610
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 226286
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 314850
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 427970
+      }
+    ]
   }
 ]

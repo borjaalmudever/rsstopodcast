@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 15 Sep 2026 06:34:31 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 06:34:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>16 de septiembre — María Galiana considera un desperdicio su etapa en Cuéntame</title>
+      <description>La actriz María Galiana ha declarado que su trayectoria en la serie Cuéntame ha sido un desperdicio porque preferiría haber hecho más cine. Además, la gala de los premios Emmy ha reconocido el talento de Matthew Rhys y las veintiocho estatuillas conseguidas por Apple TV. Por su parte, la inteligencia artificial deja titulares con la invención de un idioma propio y el rechazo a sus centros de datos.</description>
+      <pubDate>Wed, 16 Sep 2026 06:31:25 +0000</pubDate>
+      <guid isPermaLink="false">f9291147-0f34-44f6-8c80-77e34ac35799</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-16.mp3" length="5220365" type="audio/mpeg" />
+      <itunes:duration>00:07:14</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>15 de septiembre — La maldición de Widow's Bay arrasa en los premios Emmy</title>
       <description>La serie La maldición de Widow's Bay ha batido récords en la setenta y ocho edición de los premios Emmy con catorce galardones. Además, Mediaset ha reorganizado su parrilla nocturna y Oasis ha anunciado su regreso a Barcelona para dos mil veintisiete.</description>
