@@ -1936,5 +1936,40 @@
         "start_ms": 427970
       }
     ]
+  },
+  {
+    "guid": "19ca244c-5d85-4a83-aa05-c454566ffa27",
+    "title": "17 de septiembre — Joaquín Prat regresa a las mañanas de Telecinco",
+    "description": "Joaquín Prat vuelve a las mañanas de Telecinco en un movimiento que incluye nuevos fichajes y la llegada de colaboradores. Cristina Tárrega salta a Antena tres tras dos décadas en Mediaset. Por su parte, Madonna abrirá los MTV Video Music Awards y Rosalía consigue siete nominaciones en los Latin Grammy.",
+    "pub_date": "2026-09-17T06:31:23.779844+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-17.mp3",
+    "file_size": 5570861,
+    "duration_seconds": 463,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15280
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 143159
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 247057
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 365167
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 457154
+      }
+    ]
   }
 ]

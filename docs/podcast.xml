@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 16 Sep 2026 06:34:37 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 06:34:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>17 de septiembre — Joaquín Prat regresa a las mañanas de Telecinco</title>
+      <description>Joaquín Prat vuelve a las mañanas de Telecinco en un movimiento que incluye nuevos fichajes y la llegada de colaboradores. Cristina Tárrega salta a Antena tres tras dos décadas en Mediaset. Por su parte, Madonna abrirá los MTV Video Music Awards y Rosalía consigue siete nominaciones en los Latin Grammy.</description>
+      <pubDate>Thu, 17 Sep 2026 06:31:23 +0000</pubDate>
+      <guid isPermaLink="false">19ca244c-5d85-4a83-aa05-c454566ffa27</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-17.mp3" length="5570861" type="audio/mpeg" />
+      <itunes:duration>00:07:43</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>16 de septiembre — María Galiana considera un desperdicio su etapa en Cuéntame</title>
       <description>La actriz María Galiana ha declarado que su trayectoria en la serie Cuéntame ha sido un desperdicio porque preferiría haber hecho más cine. Además, la gala de los premios Emmy ha reconocido el talento de Matthew Rhys y las veintiocho estatuillas conseguidas por Apple TV. Por su parte, la inteligencia artificial deja titulares con la invención de un idioma propio y el rechazo a sus centros de datos.</description>
