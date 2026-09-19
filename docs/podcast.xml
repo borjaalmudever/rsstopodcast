@@ -14,9 +14,19 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 19 Sep 2026 06:36:05 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 10:02:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>19 de septiembre — EDICIÓN SUBSTACK</title>
+      <description>Edgar Otero propone en Minimalismos tres ajustes para reducir el tiempo de pantalla con el móvil. Entre las medidas destaca activar la escala de grises y eliminar aplicaciones de la pantalla de inicio. Estos pequeños cambios buscan recuperar el control del tiempo frente a los estímulos constantes.</description>
+      <pubDate>Sat, 19 Sep 2026 10:01:44 +0000</pubDate>
+      <guid isPermaLink="false">16bb1704-b329-480a-a609-4dbfb041cac5</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-09-19.mp3" length="982867" type="audio/mpeg" />
+      <itunes:duration>00:01:21</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>19 de septiembre — TVE vende Masterchef Junior a Disney Plus y Telecinco renueva El tiempo justo</title>
       <description>TVE vende su talent culinario infantil a Disney Plus mientras Telecinco recupera El tiempo justo con Joaquín Prat. Además, Apple lanza los nuevos iPhone dieciocho Pro y se confirma la secuela de Guerra Mundial Z dirigida por Edward Berger.</description>

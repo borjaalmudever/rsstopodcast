@@ -2041,5 +2041,29 @@
         "start_ms": 467396
       }
     ]
+  },
+  {
+    "guid": "16bb1704-b329-480a-a609-4dbfb041cac5",
+    "title": "19 de septiembre — EDICIÓN SUBSTACK",
+    "description": "Edgar Otero propone en Minimalismos tres ajustes para reducir el tiempo de pantalla con el móvil. Entre las medidas destaca activar la escala de grises y eliminar aplicaciones de la pantalla de inicio. Estos pequeños cambios buscan recuperar el control del tiempo frente a los estímulos constantes.",
+    "pub_date": "2026-09-19T10:01:44.179415+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-09-19.mp3",
+    "file_size": 982867,
+    "duration_seconds": 81,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 15696
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 75097
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
