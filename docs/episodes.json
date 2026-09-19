@@ -2006,5 +2006,40 @@
         "start_ms": 443498
       }
     ]
+  },
+  {
+    "guid": "373c89ee-db67-4ace-a522-1caf62541faa",
+    "title": "19 de septiembre — TVE vende Masterchef Junior a Disney Plus y Telecinco renueva El tiempo justo",
+    "description": "TVE vende su talent culinario infantil a Disney Plus mientras Telecinco recupera El tiempo justo con Joaquín Prat. Además, Apple lanza los nuevos iPhone dieciocho Pro y se confirma la secuela de Guerra Mundial Z dirigida por Edward Berger.",
+    "pub_date": "2026-09-19T06:31:28.731542+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-19.mp3",
+    "file_size": 5693864,
+    "duration_seconds": 473,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 9640
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 154054
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 268924
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 360964
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 467396
+      }
+    ]
   }
 ]
