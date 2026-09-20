@@ -2065,5 +2065,40 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "8b3d416a-5da0-4e73-94b5-2968b48c18ed",
+    "title": "20 de septiembre — Shakira triunfa en Madrid y los iPhone dieciocho ya están a la venta",
+    "description": "Shakira inaugura su residencia de conciertos en Madrid hablando de desamor. Además, los nuevos iPhone dieciocho Pro ya se encuentran a la venta en las tiendas oficiales de Apple. Por otro lado, Madonna se inspira estéticamente en el fenómeno de Charli XCX para su último disco.",
+    "pub_date": "2026-09-20T06:31:48.832894+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-20.mp3",
+    "file_size": 5406125,
+    "duration_seconds": 449,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 9016
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 146377
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 262998
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 360522
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 443445
+      }
+    ]
   }
 ]

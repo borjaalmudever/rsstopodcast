@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 19 Sep 2026 10:02:27 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 06:36:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>20 de septiembre — Shakira triunfa en Madrid y los iPhone dieciocho ya están a la venta</title>
+      <description>Shakira inaugura su residencia de conciertos en Madrid hablando de desamor. Además, los nuevos iPhone dieciocho Pro ya se encuentran a la venta en las tiendas oficiales de Apple. Por otro lado, Madonna se inspira estéticamente en el fenómeno de Charli XCX para su último disco.</description>
+      <pubDate>Sun, 20 Sep 2026 06:31:48 +0000</pubDate>
+      <guid isPermaLink="false">8b3d416a-5da0-4e73-94b5-2968b48c18ed</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-20.mp3" length="5406125" type="audio/mpeg" />
+      <itunes:duration>00:07:29</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>19 de septiembre — EDICIÓN SUBSTACK</title>
       <description>Edgar Otero propone en Minimalismos tres ajustes para reducir el tiempo de pantalla con el móvil. Entre las medidas destaca activar la escala de grises y eliminar aplicaciones de la pantalla de inicio. Estos pequeños cambios buscan recuperar el control del tiempo frente a los estímulos constantes.</description>
