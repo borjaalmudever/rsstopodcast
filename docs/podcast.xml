@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 20 Sep 2026 06:36:14 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 06:36:30 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>21 de septiembre — Javier Bardem protagoniza nueva serie y la inteligencia artificial</title>
+      <description>Javier Bardem protagonizará una serie en HBO Max titulada The Spread interpretando a un multimillonario visionario. Además, Europa se plantea modificar su normativa para garantizar a las grandes tecnológicas el acceso total a los datos de los ciudadanos y la nueva película de Resident Evil arrasa en taquilla.</description>
+      <pubDate>Mon, 21 Sep 2026 06:31:29 +0000</pubDate>
+      <guid isPermaLink="false">c07327d5-bb27-49f9-95b8-d916d82f743b</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-21.mp3" length="4784521" type="audio/mpeg" />
+      <itunes:duration>00:06:38</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>20 de septiembre — Shakira triunfa en Madrid y los iPhone dieciocho ya están a la venta</title>
       <description>Shakira inaugura su residencia de conciertos en Madrid hablando de desamor. Además, los nuevos iPhone dieciocho Pro ya se encuentran a la venta en las tiendas oficiales de Apple. Por otro lado, Madonna se inspira estéticamente en el fenómeno de Charli XCX para su último disco.</description>

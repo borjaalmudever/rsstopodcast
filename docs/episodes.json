@@ -2100,5 +2100,40 @@
         "start_ms": 443445
       }
     ]
+  },
+  {
+    "guid": "c07327d5-bb27-49f9-95b8-d916d82f743b",
+    "title": "21 de septiembre — Javier Bardem protagoniza nueva serie y la inteligencia artificial",
+    "description": "Javier Bardem protagonizará una serie en HBO Max titulada The Spread interpretando a un multimillonario visionario. Además, Europa se plantea modificar su normativa para garantizar a las grandes tecnológicas el acceso total a los datos de los ciudadanos y la nueva película de Resident Evil arrasa en taquilla.",
+    "pub_date": "2026-09-21T06:31:29.395659+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-21.mp3",
+    "file_size": 4784521,
+    "duration_seconds": 398,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20440
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 123973
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 227767
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 288355
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 391679
+      }
+    ]
   }
 ]
