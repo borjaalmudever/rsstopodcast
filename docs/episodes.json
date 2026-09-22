@@ -2135,5 +2135,40 @@
         "start_ms": 391679
       }
     ]
+  },
+  {
+    "guid": "70b325ea-834f-4d4f-898d-74826d283a3a",
+    "title": "22 de septiembre — Giovanna González deja Telecinco y Lady Gaga bate récord",
+    "description": "Giovanna González abandona Telecinco para fichar por un magacín de TVE. Por otro lado, Lady Gaga y Bruno Mars baten un récord histórico en Spotify con su canción Die with a Smile. Además, el presidente del Gobierno ha reclamado un nuevo contrato social para abordar la inteligencia artificial.",
+    "pub_date": "2026-09-22T06:31:34.158085+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-22.mp3",
+    "file_size": 4835354,
+    "duration_seconds": 402,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19000
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 118327
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 206291
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 303346
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 395933
+      }
+    ]
   }
 ]
