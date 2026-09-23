@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 22 Sep 2026 06:35:43 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 06:36:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>23 de septiembre — La política en televisión y nuevos lanzamientos tecnológicos</title>
+      <description>La política ha ganado espacio en la televisión española según un informe reciente. Apple ha lanzado los nuevos auriculares Beats trescientos sesenta y Paramount se ha fusionado con Warner Brothers Discovery. Además, Taylor Swift estrena el single Patient Zero y Robert Eggers dirigirá una nueva adaptación de Romeo y Julieta.</description>
+      <pubDate>Wed, 23 Sep 2026 06:31:32 +0000</pubDate>
+      <guid isPermaLink="false">77bde4dd-e13b-4e66-83bb-3c0fdd406b3e</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-23.mp3" length="5299125" type="audio/mpeg" />
+      <itunes:duration>00:07:20</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>22 de septiembre — Giovanna González deja Telecinco y Lady Gaga bate récord</title>
       <description>Giovanna González abandona Telecinco para fichar por un magacín de TVE. Por otro lado, Lady Gaga y Bruno Mars baten un récord histórico en Spotify con su canción Die with a Smile. Además, el presidente del Gobierno ha reclamado un nuevo contrato social para abordar la inteligencia artificial.</description>
