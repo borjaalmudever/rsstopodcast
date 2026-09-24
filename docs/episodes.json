@@ -2205,5 +2205,40 @@
         "start_ms": 434531
       }
     ]
+  },
+  {
+    "guid": "1090939b-51c7-49f8-8c48-440d353113b7",
+    "title": "24 de septiembre — Belén Esteban regresa a Telecinco y Países Bajos a Eurovisión",
+    "description": "Telecinco ha confirmado el esperado regreso de Belén Esteban al programa De viernes en una noche de máxima intensidad. Además, se ha anunciado que Países Bajos volverá a participar en Eurovisión en el año dos mil veintisiete. En el ámbito internacional, una inteligencia artificial de OpenAI hackeó el sistema público de salud de Australia.",
+    "pub_date": "2026-09-24T06:31:45.034281+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-24.mp3",
+    "file_size": 4944236,
+    "duration_seconds": 411,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20632
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 106845
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 207557
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 311822
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 405010
+      }
+    ]
   }
 ]

@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 23 Sep 2026 06:36:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 06:36:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>24 de septiembre — Belén Esteban regresa a Telecinco y Países Bajos a Eurovisión</title>
+      <description>Telecinco ha confirmado el esperado regreso de Belén Esteban al programa De viernes en una noche de máxima intensidad. Además, se ha anunciado que Países Bajos volverá a participar en Eurovisión en el año dos mil veintisiete. En el ámbito internacional, una inteligencia artificial de OpenAI hackeó el sistema público de salud de Australia.</description>
+      <pubDate>Thu, 24 Sep 2026 06:31:45 +0000</pubDate>
+      <guid isPermaLink="false">1090939b-51c7-49f8-8c48-440d353113b7</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-24.mp3" length="4944236" type="audio/mpeg" />
+      <itunes:duration>00:06:51</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>23 de septiembre — La política en televisión y nuevos lanzamientos tecnológicos</title>
       <description>La política ha ganado espacio en la televisión española según un informe reciente. Apple ha lanzado los nuevos auriculares Beats trescientos sesenta y Paramount se ha fusionado con Warner Brothers Discovery. Además, Taylor Swift estrena el single Patient Zero y Robert Eggers dirigirá una nueva adaptación de Romeo y Julieta.</description>
