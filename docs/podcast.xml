@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 24 Sep 2026 06:36:13 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 06:36:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>25 de septiembre — Atresmedia resucita la mítica serie Compañeros veinticinco años después</title>
+      <description>Atresmedia prepara una nueva ficción para conocer la vida adulta de Quimi y Valle intentando contar con parte del reparto original. Además, Telecinco ceba la esperada entrevista de Belén Esteban en De viernes y U2 anuncia nuevo disco para noviembre.</description>
+      <pubDate>Fri, 25 Sep 2026 06:31:59 +0000</pubDate>
+      <guid isPermaLink="false">d71a3c70-3b77-4791-be2e-0eab8956798d</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-25.mp3" length="5232917" type="audio/mpeg" />
+      <itunes:duration>00:07:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>24 de septiembre — Belén Esteban regresa a Telecinco y Países Bajos a Eurovisión</title>
       <description>Telecinco ha confirmado el esperado regreso de Belén Esteban al programa De viernes en una noche de máxima intensidad. Además, se ha anunciado que Países Bajos volverá a participar en Eurovisión en el año dos mil veintisiete. En el ámbito internacional, una inteligencia artificial de OpenAI hackeó el sistema público de salud de Australia.</description>

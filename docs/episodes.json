@@ -2240,5 +2240,40 @@
         "start_ms": 405010
       }
     ]
+  },
+  {
+    "guid": "d71a3c70-3b77-4791-be2e-0eab8956798d",
+    "title": "25 de septiembre — Atresmedia resucita la mítica serie Compañeros veinticinco años después",
+    "description": "Atresmedia prepara una nueva ficción para conocer la vida adulta de Quimi y Valle intentando contar con parte del reparto original. Además, Telecinco ceba la esperada entrevista de Belén Esteban en De viernes y U2 anuncia nuevo disco para noviembre.",
+    "pub_date": "2026-09-25T06:31:59.687670+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-25.mp3",
+    "file_size": 5232917,
+    "duration_seconds": 435,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 12352
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147676
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 255258
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 328593
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 429018
+      }
+    ]
   }
 ]
