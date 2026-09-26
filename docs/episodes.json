@@ -2275,5 +2275,40 @@
         "start_ms": 429018
       }
     ]
+  },
+  {
+    "guid": "aca1bd86-c8dd-4475-8bf2-c9206acf0df4",
+    "title": "26 de septiembre — Regresa Belén Esteban a Telecinco y Taylor Swift bate récords",
+    "description": "Telecinco acoge el esperado regreso de Belén Esteban tras tres años fuera de la cadena en una entrevista con Santi Acosta. Por otro lado, Taylor Swift bate dos récords en Spotify para dos mil veintiséis con su nuevo lanzamiento. Además, Estados Unidos destina dos mil millones a modernizar su infraestructura eléctrica ante el consumo de la inteligencia artificial.",
+    "pub_date": "2026-09-26T06:31:42.502836+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-26.mp3",
+    "file_size": 5236682,
+    "duration_seconds": 435,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17896
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 111998
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 247923
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 337690
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 429337
+      }
+    ]
   }
 ]

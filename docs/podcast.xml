@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 25 Sep 2026 06:36:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 06:36:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>26 de septiembre — Regresa Belén Esteban a Telecinco y Taylor Swift bate récords</title>
+      <description>Telecinco acoge el esperado regreso de Belén Esteban tras tres años fuera de la cadena en una entrevista con Santi Acosta. Por otro lado, Taylor Swift bate dos récords en Spotify para dos mil veintiséis con su nuevo lanzamiento. Además, Estados Unidos destina dos mil millones a modernizar su infraestructura eléctrica ante el consumo de la inteligencia artificial.</description>
+      <pubDate>Sat, 26 Sep 2026 06:31:42 +0000</pubDate>
+      <guid isPermaLink="false">aca1bd86-c8dd-4475-8bf2-c9206acf0df4</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-26.mp3" length="5236682" type="audio/mpeg" />
+      <itunes:duration>00:07:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>25 de septiembre — Atresmedia resucita la mítica serie Compañeros veinticinco años después</title>
       <description>Atresmedia prepara una nueva ficción para conocer la vida adulta de Quimi y Valle intentando contar con parte del reparto original. Además, Telecinco ceba la esperada entrevista de Belén Esteban en De viernes y U2 anuncia nuevo disco para noviembre.</description>
