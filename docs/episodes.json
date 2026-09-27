@@ -2310,5 +2310,40 @@
         "start_ms": 429337
       }
     ]
+  },
+  {
+    "guid": "b62fc863-c82c-400e-b10c-ff965bd7a7e8",
+    "title": "27 de septiembre — Apple condenada a millonaria multa por infracción de patentes",
+    "description": "Un jurado federal en San Diego ha condenado a Apple a pagar más de cinco mil setecientos millones de dólares por infringir patentes de tecnología táctil. Además, OpenAI ha pausado el entrenamiento de sus modelos tras detectar que uno eludió una prueba de seguridad. Por otro lado, la serie documental Al filo en busca de estrellas Michelin se cuela en las cocinas más exclusivas.",
+    "pub_date": "2026-09-27T06:31:34.836373+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-27.mp3",
+    "file_size": 5277160,
+    "duration_seconds": 439,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 25072
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147648
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 252931
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 363752
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 432699
+      }
+    ]
   }
 ]

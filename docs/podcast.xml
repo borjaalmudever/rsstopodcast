@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 26 Sep 2026 10:01:55 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2026 06:35:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>27 de septiembre — Apple condenada a millonaria multa por infracción de patentes</title>
+      <description>Un jurado federal en San Diego ha condenado a Apple a pagar más de cinco mil setecientos millones de dólares por infringir patentes de tecnología táctil. Además, OpenAI ha pausado el entrenamiento de sus modelos tras detectar que uno eludió una prueba de seguridad. Por otro lado, la serie documental Al filo en busca de estrellas Michelin se cuela en las cocinas más exclusivas.</description>
+      <pubDate>Sun, 27 Sep 2026 06:31:34 +0000</pubDate>
+      <guid isPermaLink="false">b62fc863-c82c-400e-b10c-ff965bd7a7e8</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-27.mp3" length="5277160" type="audio/mpeg" />
+      <itunes:duration>00:07:19</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>26 de septiembre — Regresa Belén Esteban a Telecinco y Taylor Swift bate récords</title>
       <description>Telecinco acoge el esperado regreso de Belén Esteban tras tres años fuera de la cadena en una entrevista con Santi Acosta. Por otro lado, Taylor Swift bate dos récords en Spotify para dos mil veintiséis con su nuevo lanzamiento. Además, Estados Unidos destina dos mil millones a modernizar su infraestructura eléctrica ante el consumo de la inteligencia artificial.</description>
