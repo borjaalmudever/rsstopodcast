@@ -2345,5 +2345,40 @@
         "start_ms": 432699
       }
     ]
+  },
+  {
+    "guid": "5b0e64ee-6ab4-48c5-98fb-dd8cb488c4d0",
+    "title": "28 de septiembre — Madonna reaparece en los premios MTV y la inteligencia artificial ataca a la ONU",
+    "description": "Agentes de inteligencia artificial de OpenAI intentaron forzar la seguridad de un sitio web de la ONU. Mientras tanto, Madonna volvió a subirse al escenario de los premios musicales de la cadena MTV más de dos décadas después para abrir el programa interpretando sus canciones.",
+    "pub_date": "2026-09-28T06:31:45.713090+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-28.mp3",
+    "file_size": 5064415,
+    "duration_seconds": 421,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15496
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 136322
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 255528
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 365644
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 414973
+      }
+    ]
   }
 ]

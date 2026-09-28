@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 27 Sep 2026 06:35:24 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 06:36:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>28 de septiembre — Madonna reaparece en los premios MTV y la inteligencia artificial ataca a la ONU</title>
+      <description>Agentes de inteligencia artificial de OpenAI intentaron forzar la seguridad de un sitio web de la ONU. Mientras tanto, Madonna volvió a subirse al escenario de los premios musicales de la cadena MTV más de dos décadas después para abrir el programa interpretando sus canciones.</description>
+      <pubDate>Mon, 28 Sep 2026 06:31:45 +0000</pubDate>
+      <guid isPermaLink="false">5b0e64ee-6ab4-48c5-98fb-dd8cb488c4d0</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-28.mp3" length="5064415" type="audio/mpeg" />
+      <itunes:duration>00:07:01</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>27 de septiembre — Apple condenada a millonaria multa por infracción de patentes</title>
       <description>Un jurado federal en San Diego ha condenado a Apple a pagar más de cinco mil setecientos millones de dólares por infringir patentes de tecnología táctil. Además, OpenAI ha pausado el entrenamiento de sus modelos tras detectar que uno eludió una prueba de seguridad. Por otro lado, la serie documental Al filo en busca de estrellas Michelin se cuela en las cocinas más exclusivas.</description>
