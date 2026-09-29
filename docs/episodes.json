@@ -2380,5 +2380,40 @@
         "start_ms": 414973
       }
     ]
+  },
+  {
+    "guid": "7c660c47-619b-4a7b-a289-c374fcf947bb",
+    "title": "29 de septiembre — Ana Rosa no salva a Telecinco y OpenAI frena su IA",
+    "description": "Las nueve horas diarias producidas por Ana Rosa Quintana no consiguen salvar a Telecinco en las audiencias. Además, OpenAI retrasa el lanzamiento de su nueva inteligencia artificial por problemas de seguridad y Anthropic advierte sobre riesgos catastróficos.",
+    "pub_date": "2026-09-29T06:31:37.344073+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-29.mp3",
+    "file_size": 5575254,
+    "duration_seconds": 463,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16816
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 143180
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 250213
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 346301
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 457540
+      }
+    ]
   }
 ]

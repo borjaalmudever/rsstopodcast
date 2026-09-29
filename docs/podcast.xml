@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 28 Sep 2026 06:36:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 06:36:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>29 de septiembre — Ana Rosa no salva a Telecinco y OpenAI frena su IA</title>
+      <description>Las nueve horas diarias producidas por Ana Rosa Quintana no consiguen salvar a Telecinco en las audiencias. Además, OpenAI retrasa el lanzamiento de su nueva inteligencia artificial por problemas de seguridad y Anthropic advierte sobre riesgos catastróficos.</description>
+      <pubDate>Tue, 29 Sep 2026 06:31:37 +0000</pubDate>
+      <guid isPermaLink="false">7c660c47-619b-4a7b-a289-c374fcf947bb</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-29.mp3" length="5575254" type="audio/mpeg" />
+      <itunes:duration>00:07:43</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>28 de septiembre — Madonna reaparece en los premios MTV y la inteligencia artificial ataca a la ONU</title>
       <description>Agentes de inteligencia artificial de OpenAI intentaron forzar la seguridad de un sitio web de la ONU. Mientras tanto, Madonna volvió a subirse al escenario de los premios musicales de la cadena MTV más de dos décadas después para abrir el programa interpretando sus canciones.</description>
