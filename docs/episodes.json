@@ -2415,5 +2415,40 @@
         "start_ms": 457540
       }
     ]
+  },
+  {
+    "guid": "3e4ea307-7e3a-438d-af4b-0c33f02b54da",
+    "title": "30 de septiembre — Jennifer Lawrence protagoniza The Flood y Juego de Tronos llega al cine",
+    "description": "Warner Bros anuncia que Jennifer Lawrence encabezará el thriller de ciencia ficción The Flood y que la franquicia de Juego de tronos saltará a la gran pantalla. Además, la televisión se conmueve con la muerte de Dennis Haskins y el cierre del canal Gol por parte de Mediapro.",
+    "pub_date": "2026-09-30T06:32:00.688201+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-30.mp3",
+    "file_size": 5166709,
+    "duration_seconds": 429,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20488
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 133895
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 215825
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 295482
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 423518
+      }
+    ]
   }
 ]

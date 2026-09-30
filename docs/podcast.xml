@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 29 Sep 2026 06:36:05 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 06:36:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>30 de septiembre — Jennifer Lawrence protagoniza The Flood y Juego de Tronos llega al cine</title>
+      <description>Warner Bros anuncia que Jennifer Lawrence encabezará el thriller de ciencia ficción The Flood y que la franquicia de Juego de tronos saltará a la gran pantalla. Además, la televisión se conmueve con la muerte de Dennis Haskins y el cierre del canal Gol por parte de Mediapro.</description>
+      <pubDate>Wed, 30 Sep 2026 06:32:00 +0000</pubDate>
+      <guid isPermaLink="false">3e4ea307-7e3a-438d-af4b-0c33f02b54da</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-09-30.mp3" length="5166709" type="audio/mpeg" />
+      <itunes:duration>00:07:09</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>29 de septiembre — Ana Rosa no salva a Telecinco y OpenAI frena su IA</title>
       <description>Las nueve horas diarias producidas por Ana Rosa Quintana no consiguen salvar a Telecinco en las audiencias. Además, OpenAI retrasa el lanzamiento de su nueva inteligencia artificial por problemas de seguridad y Anthropic advierte sobre riesgos catastróficos.</description>
