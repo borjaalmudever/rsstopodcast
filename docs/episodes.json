@@ -2450,5 +2450,40 @@
         "start_ms": 423518
       }
     ]
+  },
+  {
+    "guid": "ff01e519-99c3-4a54-ba31-f57e1b7b2fe6",
+    "title": "1 de octubre — Regresa la serie Compañeros y Arnold Schwarzenegger estrena película",
+    "description": "Atresmedia anuncia el regreso de la mítica serie Compañeros veinticinco años después y Prime Video desvela el tráiler de la nueva comedia navideña de Arnold Schwarzenegger. Además, Apple prepara nuevos dispositivos para el hogar con inteligencia artificial y el Azkena Rock Festival anuncia su cartel para Vitoria-Gasteiz.",
+    "pub_date": "2026-10-01T06:31:53.899886+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-01.mp3",
+    "file_size": 5955245,
+    "duration_seconds": 495,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17704
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 129387
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 267846
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 370308
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 489148
+      }
+    ]
   }
 ]
