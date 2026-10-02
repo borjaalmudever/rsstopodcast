@@ -2485,5 +2485,40 @@
         "start_ms": 489148
       }
     ]
+  },
+  {
+    "guid": "cb26c936-91dd-4ae4-8b26-049317c655ed",
+    "title": "2 de octubre — La dos de Televisión Española crece y Belén Esteban vuelve a Telecinco",
+    "description": "La dos cierra septiembre con un tres coma seis por ciento de cuota y mejora sus registros históricos. Además, Belén Esteban regresará a un plató de Telecinco en el programa de ¡De viernes!. Por otra parte, Tom Cruise protagoniza la comedia catastrófica Digger de Alejandro G. Iñárritu.",
+    "pub_date": "2026-10-02T06:32:01.080102+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-02.mp3",
+    "file_size": 6489617,
+    "duration_seconds": 540,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24448
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 153581
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 314923
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 396617
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 533639
+      }
+    ]
   }
 ]

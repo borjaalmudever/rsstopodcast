@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 01 Oct 2026 06:36:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 06:38:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>2 de octubre — La dos de Televisión Española crece y Belén Esteban vuelve a Telecinco</title>
+      <description>La dos cierra septiembre con un tres coma seis por ciento de cuota y mejora sus registros históricos. Además, Belén Esteban regresará a un plató de Telecinco en el programa de ¡De viernes!. Por otra parte, Tom Cruise protagoniza la comedia catastrófica Digger de Alejandro G. Iñárritu.</description>
+      <pubDate>Fri, 02 Oct 2026 06:32:01 +0000</pubDate>
+      <guid isPermaLink="false">cb26c936-91dd-4ae4-8b26-049317c655ed</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-02.mp3" length="6489617" type="audio/mpeg" />
+      <itunes:duration>00:09:00</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>1 de octubre — Regresa la serie Compañeros y Arnold Schwarzenegger estrena película</title>
       <description>Atresmedia anuncia el regreso de la mítica serie Compañeros veinticinco años después y Prime Video desvela el tráiler de la nueva comedia navideña de Arnold Schwarzenegger. Además, Apple prepara nuevos dispositivos para el hogar con inteligencia artificial y el Azkena Rock Festival anuncia su cartel para Vitoria-Gasteiz.</description>
