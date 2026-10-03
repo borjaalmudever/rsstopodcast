@@ -2520,5 +2520,40 @@
         "start_ms": 533639
       }
     ]
+  },
+  {
+    "guid": "181dbbd1-31c2-4e88-8d87-05685688a102",
+    "title": "3 de octubre — Telecinco ofrece un contrato a Jesulín y Campanario",
+    "description": "Telecinco lanza una oferta en directo a Jesulín de Ubrique y María José Campanario durante la última gala de Supervivientes All Stars. Además, Apple limita el acceso total a los discos en los ordenadores Mac por la inteligencia artificial y Muse anuncia tres conciertos en España.",
+    "pub_date": "2026-10-03T06:31:56.833201+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-03.mp3",
+    "file_size": 5559251,
+    "duration_seconds": 462,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22072
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 126649
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 253849
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 342963
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 456161
+      }
+    ]
   }
 ]
