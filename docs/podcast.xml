@@ -14,9 +14,19 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 03 Oct 2026 06:36:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 10:02:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>3 de octubre — EDICIÓN SUBSTACK</title>
+      <description>Edgar Otero propone en Minimalismos un método realista para recuperar el control del tiempo ante pantallas adictivas. La estrategia incluye eliminar aplicaciones sin piedad aplicando la regla de los últimos siete días y trasladar herramientas al ordenador. Al final, solo quedan imprescindibles como el correo, la mensajería personal, las fotos y el calendario.</description>
+      <pubDate>Sat, 03 Oct 2026 10:02:09 +0000</pubDate>
+      <guid isPermaLink="false">0cb4abf6-3dcc-4d4d-bc14-46f5c8a6cba1</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-10-03.mp3" length="1178353" type="audio/mpeg" />
+      <itunes:duration>00:01:37</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>3 de octubre — Telecinco ofrece un contrato a Jesulín y Campanario</title>
       <description>Telecinco lanza una oferta en directo a Jesulín de Ubrique y María José Campanario durante la última gala de Supervivientes All Stars. Además, Apple limita el acceso total a los discos en los ordenadores Mac por la inteligencia artificial y Muse anuncia tres conciertos en España.</description>

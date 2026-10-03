@@ -2555,5 +2555,29 @@
         "start_ms": 456161
       }
     ]
+  },
+  {
+    "guid": "0cb4abf6-3dcc-4d4d-bc14-46f5c8a6cba1",
+    "title": "3 de octubre — EDICIÓN SUBSTACK",
+    "description": "Edgar Otero propone en Minimalismos un método realista para recuperar el control del tiempo ante pantallas adictivas. La estrategia incluye eliminar aplicaciones sin piedad aplicando la regla de los últimos siete días y trasladar herramientas al ordenador. Al final, solo quedan imprescindibles como el correo, la mensajería personal, las fotos y el calendario.",
+    "pub_date": "2026-10-03T10:02:09.188557+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-10-03.mp3",
+    "file_size": 1178353,
+    "duration_seconds": 97,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 14400
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 91382
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
