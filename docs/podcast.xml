@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 04 Oct 2026 06:35:05 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 06:36:15 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>5 de octubre — Sanciones en Supervivientes y el gran fracaso de Tom Cruise</title>
+      <description>Telecinco impone un castigo implacable en Supervivientes All Stars tras una rebelión de los participantes. Además, la película Digger se convierte en el mayor fracaso de la carrera de Tom Cruise tras recaudar ocho millones en su estreno. Por último, Apple planea un evento con nuevos dispositivos y Taylor Swift hace doblete en el número uno en Reino Unido.</description>
+      <pubDate>Mon, 05 Oct 2026 06:32:00 +0000</pubDate>
+      <guid isPermaLink="false">cd03210a-8089-4906-a706-7decee106313</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-05.mp3" length="5173298" type="audio/mpeg" />
+      <itunes:duration>00:07:10</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>4 de octubre — Belen Esteban regresa a Telecinco y carga contra la cadena</title>
       <description>Belen Esteban ha concedido su primera entrevista en directo en Telecinco tras mas de tres anos de ausencia y ha acusado a la cadena de provocar polémicas. Por su parte, Jesulin de Ubrique y Maria Jose Campanario han respondido con un comunicado legal advirtiendo con posibles demandas.</description>

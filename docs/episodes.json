@@ -2614,5 +2614,40 @@
         "start_ms": 366444
       }
     ]
+  },
+  {
+    "guid": "cd03210a-8089-4906-a706-7decee106313",
+    "title": "5 de octubre — Sanciones en Supervivientes y el gran fracaso de Tom Cruise",
+    "description": "Telecinco impone un castigo implacable en Supervivientes All Stars tras una rebelión de los participantes. Además, la película Digger se convierte en el mayor fracaso de la carrera de Tom Cruise tras recaudar ocho millones en su estreno. Por último, Apple planea un evento con nuevos dispositivos y Taylor Swift hace doblete en el número uno en Reino Unido.",
+    "pub_date": "2026-10-05T06:32:00.192513+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-05.mp3",
+    "file_size": 5173298,
+    "duration_seconds": 430,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 23944
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 142053
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 232185
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 333263
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 424048
+      }
+    ]
   }
 ]
