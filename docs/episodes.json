@@ -2649,5 +2649,40 @@
         "start_ms": 424048
       }
     ]
+  },
+  {
+    "guid": "cf4ce4b1-4928-4d48-9045-cf3907353d43",
+    "title": "6 de octubre — Nuevos debates electorales y subida de precios en Apple",
+    "description": "La televisión en abierto afronta nuevos debates electorales mientras RTVE lanza La dos en ultra alta definición. Por otro lado, los planes Familiar y Premium de Apple One suben de precio en España y Taylor Swift vuelve a lo más alto de las listas con su reedición.",
+    "pub_date": "2026-10-06T06:32:29.828531+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-06.mp3",
+    "file_size": 5383846,
+    "duration_seconds": 448,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15568
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 122079
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 239039
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 340978
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 441585
+      }
+    ]
   }
 ]

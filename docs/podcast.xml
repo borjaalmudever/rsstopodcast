@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 05 Oct 2026 06:36:15 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 06:37:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>6 de octubre — Nuevos debates electorales y subida de precios en Apple</title>
+      <description>La televisión en abierto afronta nuevos debates electorales mientras RTVE lanza La dos en ultra alta definición. Por otro lado, los planes Familiar y Premium de Apple One suben de precio en España y Taylor Swift vuelve a lo más alto de las listas con su reedición.</description>
+      <pubDate>Tue, 06 Oct 2026 06:32:29 +0000</pubDate>
+      <guid isPermaLink="false">cf4ce4b1-4928-4d48-9045-cf3907353d43</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-06.mp3" length="5383846" type="audio/mpeg" />
+      <itunes:duration>00:07:28</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>5 de octubre — Sanciones en Supervivientes y el gran fracaso de Tom Cruise</title>
       <description>Telecinco impone un castigo implacable en Supervivientes All Stars tras una rebelión de los participantes. Además, la película Digger se convierte en el mayor fracaso de la carrera de Tom Cruise tras recaudar ocho millones en su estreno. Por último, Apple planea un evento con nuevos dispositivos y Taylor Swift hace doblete en el número uno en Reino Unido.</description>
