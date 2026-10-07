@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 06 Oct 2026 06:37:18 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 06:35:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>7 de octubre — Paramount Pictures y Warner Brothers Discovery se fusionan oficialmente</title>
+      <description>Paramount Pictures y Warner Brothers Discovery se fusionan en una megaoperación valorada en ciento once mil millones de dólares. Además, Pablo Motos invita a Pedro Sánchez a El hormiguero y Prime Video emitirá en exclusiva los Premios Emmy.</description>
+      <pubDate>Wed, 07 Oct 2026 06:31:54 +0000</pubDate>
+      <guid isPermaLink="false">ffb52e3e-08c8-4e0b-ad88-57d41c624218</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-07.mp3" length="5185850" type="audio/mpeg" />
+      <itunes:duration>00:07:11</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>6 de octubre — Nuevos debates electorales y subida de precios en Apple</title>
       <description>La televisión en abierto afronta nuevos debates electorales mientras RTVE lanza La dos en ultra alta definición. Por otro lado, los planes Familiar y Premium de Apple One suben de precio en España y Taylor Swift vuelve a lo más alto de las listas con su reedición.</description>

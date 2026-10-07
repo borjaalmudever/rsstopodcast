@@ -2684,5 +2684,40 @@
         "start_ms": 441585
       }
     ]
+  },
+  {
+    "guid": "ffb52e3e-08c8-4e0b-ad88-57d41c624218",
+    "title": "7 de octubre — Paramount Pictures y Warner Brothers Discovery se fusionan oficialmente",
+    "description": "Paramount Pictures y Warner Brothers Discovery se fusionan en una megaoperación valorada en ciento once mil millones de dólares. Además, Pablo Motos invita a Pedro Sánchez a El hormiguero y Prime Video emitirá en exclusiva los Premios Emmy.",
+    "pub_date": "2026-10-07T06:31:54.436650+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-07.mp3",
+    "file_size": 5185850,
+    "duration_seconds": 431,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18064
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 123974
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 234690
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 331980
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 425064
+      }
+    ]
   }
 ]
