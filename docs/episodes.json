@@ -2719,5 +2719,40 @@
         "start_ms": 425064
       }
     ]
+  },
+  {
+    "guid": "3d0aef5f-a83d-4670-a136-d8662c3e45da",
+    "title": "8 de octubre — Rosalía gana el Premio Nacional de las Músicas Actuales",
+    "description": "El Ministerio de Cultura concede el galardón a Rosalía por la trascendencia artística de su disco LUX. Con treinta y cuatro años, se convierte en la persona más joven en recibir este reconocimiento.",
+    "pub_date": "2026-10-08T06:32:07.888618+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-08.mp3",
+    "file_size": 5730577,
+    "duration_seconds": 476,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19672
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 118294
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 240269
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 364047
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 470427
+      }
+    ]
   }
 ]
