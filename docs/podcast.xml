@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 08 Oct 2026 06:37:02 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 06:34:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>9 de octubre — Anne Carson gana el Premio Nobel de Literatura de 2026</title>
+      <description>La Academia Sueca reconoce la obra audaz e inventiva de Anne Carson con el Premio Nobel de Literatura de dos mil veintiséis. Además, Shakira protagonizó una extraña entrevista en La Revuelta y Apple anunció un evento para el trece de octubre.</description>
+      <pubDate>Fri, 09 Oct 2026 06:31:51 +0000</pubDate>
+      <guid isPermaLink="false">49cca0f9-db6f-49d4-a137-57cfc0d3c317</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-09.mp3" length="5526618" type="audio/mpeg" />
+      <itunes:duration>00:07:39</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>8 de octubre — Rosalía gana el Premio Nacional de las Músicas Actuales</title>
       <description>El Ministerio de Cultura concede el galardón a Rosalía por la trascendencia artística de su disco LUX. Con treinta y cuatro años, se convierte en la persona más joven en recibir este reconocimiento.</description>

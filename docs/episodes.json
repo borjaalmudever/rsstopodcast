@@ -2754,5 +2754,40 @@
         "start_ms": 470427
       }
     ]
+  },
+  {
+    "guid": "49cca0f9-db6f-49d4-a137-57cfc0d3c317",
+    "title": "9 de octubre — Anne Carson gana el Premio Nobel de Literatura de 2026",
+    "description": "La Academia Sueca reconoce la obra audaz e inventiva de Anne Carson con el Premio Nobel de Literatura de dos mil veintiséis. Además, Shakira protagonizó una extraña entrevista en La Revuelta y Apple anunció un evento para el trece de octubre.",
+    "pub_date": "2026-10-09T06:31:51.284392+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-09.mp3",
+    "file_size": 5526618,
+    "duration_seconds": 459,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17104
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 141952
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 273123
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 357587
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 453492
+      }
+    ]
   }
 ]
