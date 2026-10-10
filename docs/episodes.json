@@ -2789,5 +2789,40 @@
         "start_ms": 453492
       }
     ]
+  },
+  {
+    "guid": "601e28c9-c3e9-4dc9-9dc2-42a29dff1dac",
+    "title": "10 de octubre — Netflix prepara una miniserie sobre el crimen de Daniel Sancho",
+    "description": "Netflix anuncia una miniserie sobre el caso de Daniel Sancho protagonizada por Martiño Rivas. Por otro lado, Apple recorta la producción del iPhone dieciocho Pro y Guillermo del Toro recuerda las dificultades del rodaje de El laberinto del fauno.",
+    "pub_date": "2026-10-10T06:32:11.668577+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-10.mp3",
+    "file_size": 5536345,
+    "duration_seconds": 460,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20488
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147270
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 255139
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 343704
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 454290
+      }
+    ]
   }
 ]

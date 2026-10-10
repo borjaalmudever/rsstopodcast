@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 09 Oct 2026 06:34:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 06:36:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>10 de octubre — Netflix prepara una miniserie sobre el crimen de Daniel Sancho</title>
+      <description>Netflix anuncia una miniserie sobre el caso de Daniel Sancho protagonizada por Martiño Rivas. Por otro lado, Apple recorta la producción del iPhone dieciocho Pro y Guillermo del Toro recuerda las dificultades del rodaje de El laberinto del fauno.</description>
+      <pubDate>Sat, 10 Oct 2026 06:32:11 +0000</pubDate>
+      <guid isPermaLink="false">601e28c9-c3e9-4dc9-9dc2-42a29dff1dac</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-10.mp3" length="5536345" type="audio/mpeg" />
+      <itunes:duration>00:07:40</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>9 de octubre — Anne Carson gana el Premio Nobel de Literatura de 2026</title>
       <description>La Academia Sueca reconoce la obra audaz e inventiva de Anne Carson con el Premio Nobel de Literatura de dos mil veintiséis. Además, Shakira protagonizó una extraña entrevista en La Revuelta y Apple anunció un evento para el trece de octubre.</description>
