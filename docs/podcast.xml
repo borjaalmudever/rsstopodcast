@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 10 Oct 2026 10:02:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 06:36:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>11 de octubre — Maria Patino regresa a la television en laSexta</title>
+      <description>Maria Patino confirma su regreso a la television y su fichaje por el nuevo formato de Marc Giro en laSexta. Ademas, Satya Nadella pide asumir que todos los modelos avanzados de inteligencia artificial estan comprometidos. Por otro lado, Shane Gillis vuelve a presentar el programa Saturday Night Live por tercera vez.</description>
+      <pubDate>Sun, 11 Oct 2026 06:31:55 +0000</pubDate>
+      <guid isPermaLink="false">6552ee82-83f5-4c4e-b8e8-4b309859a4dd</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-11.mp3" length="5196832" type="audio/mpeg" />
+      <itunes:duration>00:07:12</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>10 de octubre — Netflix prepara una miniserie sobre el crimen de Daniel Sancho</title>
       <description>Netflix anuncia una miniserie sobre el caso de Daniel Sancho protagonizada por Martiño Rivas. Por otro lado, Apple recorta la producción del iPhone dieciocho Pro y Guillermo del Toro recuerda las dificultades del rodaje de El laberinto del fauno.</description>

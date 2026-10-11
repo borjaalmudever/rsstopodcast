@@ -2824,5 +2824,40 @@
         "start_ms": 454290
       }
     ]
+  },
+  {
+    "guid": "6552ee82-83f5-4c4e-b8e8-4b309859a4dd",
+    "title": "11 de octubre — Maria Patino regresa a la television en laSexta",
+    "description": "Maria Patino confirma su regreso a la television y su fichaje por el nuevo formato de Marc Giro en laSexta. Ademas, Satya Nadella pide asumir que todos los modelos avanzados de inteligencia artificial estan comprometidos. Por otro lado, Shane Gillis vuelve a presentar el programa Saturday Night Live por tercera vez.",
+    "pub_date": "2026-10-11T06:31:55.451461+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-11.mp3",
+    "file_size": 5196832,
+    "duration_seconds": 432,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21712
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 122188
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 236797
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 330221
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 426048
+      }
+    ]
   }
 ]
