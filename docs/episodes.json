@@ -2859,5 +2859,40 @@
         "start_ms": 426048
       }
     ]
+  },
+  {
+    "guid": "6179e056-f5f6-43fa-9aa0-ed4aac296711",
+    "title": "12 de octubre — Novedades de televisión, tecnología, música y cine",
+    "description": "TVE cambia su estrategia nocturna con MasterChef Celebrity Legends y Apple prepara nuevos dispositivos para los próximos días. Además, Rosalía deslumbra en Saturday Night Live y Quentin Tarantino prepara una obra titulada The Popinjay Cavalier.",
+    "pub_date": "2026-10-12T06:51:27.289181+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-12.mp3",
+    "file_size": 5107090,
+    "duration_seconds": 425,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17752
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 130950
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 245036
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 328716
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 418535
+      }
+    ]
   }
 ]

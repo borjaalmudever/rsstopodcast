@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 11 Oct 2026 06:36:05 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 06:57:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>12 de octubre — Novedades de televisión, tecnología, música y cine</title>
+      <description>TVE cambia su estrategia nocturna con MasterChef Celebrity Legends y Apple prepara nuevos dispositivos para los próximos días. Además, Rosalía deslumbra en Saturday Night Live y Quentin Tarantino prepara una obra titulada The Popinjay Cavalier.</description>
+      <pubDate>Mon, 12 Oct 2026 06:51:27 +0000</pubDate>
+      <guid isPermaLink="false">6179e056-f5f6-43fa-9aa0-ed4aac296711</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-12.mp3" length="5107090" type="audio/mpeg" />
+      <itunes:duration>00:07:05</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>11 de octubre — Maria Patino regresa a la television en laSexta</title>
       <description>Maria Patino confirma su regreso a la television y su fichaje por el nuevo formato de Marc Giro en laSexta. Ademas, Satya Nadella pide asumir que todos los modelos avanzados de inteligencia artificial estan comprometidos. Por otro lado, Shane Gillis vuelve a presentar el programa Saturday Night Live por tercera vez.</description>
