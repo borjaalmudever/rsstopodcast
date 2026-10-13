@@ -2894,5 +2894,40 @@
         "start_ms": 418535
       }
     ]
+  },
+  {
+    "guid": "3eebab3b-6adc-4e17-b9b7-474031adbc14",
+    "title": "13 de octubre — María Patiño ficha por La Sexta para regresar",
+    "description": "La periodista María Patiño regresa a la televisión como colaboradora en La Sexta. Además, Fontaines D.C. y Rosalía publican su primera colaboración musical titulada Where Is Gone. Por otro lado, Apple prepara importantes novedades tecnológicas y Disney presenta un nuevo adelanto de su próximo largometraje animado.",
+    "pub_date": "2026-10-13T06:32:00.498795+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-13.mp3",
+    "file_size": 4993501,
+    "duration_seconds": 415,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18184
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 145331
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 234445
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 308250
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 409093
+      }
+    ]
   }
 ]

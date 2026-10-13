@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 12 Oct 2026 06:57:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 06:36:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>13 de octubre — María Patiño ficha por La Sexta para regresar</title>
+      <description>La periodista María Patiño regresa a la televisión como colaboradora en La Sexta. Además, Fontaines D.C. y Rosalía publican su primera colaboración musical titulada Where Is Gone. Por otro lado, Apple prepara importantes novedades tecnológicas y Disney presenta un nuevo adelanto de su próximo largometraje animado.</description>
+      <pubDate>Tue, 13 Oct 2026 06:32:00 +0000</pubDate>
+      <guid isPermaLink="false">3eebab3b-6adc-4e17-b9b7-474031adbc14</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-13.mp3" length="4993501" type="audio/mpeg" />
+      <itunes:duration>00:06:55</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>12 de octubre — Novedades de televisión, tecnología, música y cine</title>
       <description>TVE cambia su estrategia nocturna con MasterChef Celebrity Legends y Apple prepara nuevos dispositivos para los próximos días. Además, Rosalía deslumbra en Saturday Night Live y Quentin Tarantino prepara una obra titulada The Popinjay Cavalier.</description>
