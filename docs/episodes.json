@@ -2929,5 +2929,40 @@
         "start_ms": 409093
       }
     ]
+  },
+  {
+    "guid": "f94f502f-7ee1-4016-a812-4872464dea1b",
+    "title": "14 de octubre — Netflix compra los derechos de la Copa del Mundo dos mil treinta",
+    "description": "Netflix adquiere en exclusiva los derechos de la Copa del Mundo de fútbol de dos mil treinta para España y Andorra. Además, Apple lanza su primera pantalla inteligente llamada HomeView y Arde Bogotá debuta en el número uno de discos en España.",
+    "pub_date": "2026-10-14T06:32:03.367332+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-14.mp3",
+    "file_size": 5249547,
+    "duration_seconds": 436,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17152
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 104828
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 236652
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 324903
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 430422
+      }
+    ]
   }
 ]

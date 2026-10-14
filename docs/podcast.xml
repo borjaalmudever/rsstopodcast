@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 13 Oct 2026 06:36:20 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 06:37:46 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>14 de octubre — Netflix compra los derechos de la Copa del Mundo dos mil treinta</title>
+      <description>Netflix adquiere en exclusiva los derechos de la Copa del Mundo de fútbol de dos mil treinta para España y Andorra. Además, Apple lanza su primera pantalla inteligente llamada HomeView y Arde Bogotá debuta en el número uno de discos en España.</description>
+      <pubDate>Wed, 14 Oct 2026 06:32:03 +0000</pubDate>
+      <guid isPermaLink="false">f94f502f-7ee1-4016-a812-4872464dea1b</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-14.mp3" length="5249547" type="audio/mpeg" />
+      <itunes:duration>00:07:16</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>13 de octubre — María Patiño ficha por La Sexta para regresar</title>
       <description>La periodista María Patiño regresa a la televisión como colaboradora en La Sexta. Además, Fontaines D.C. y Rosalía publican su primera colaboración musical titulada Where Is Gone. Por otro lado, Apple prepara importantes novedades tecnológicas y Disney presenta un nuevo adelanto de su próximo largometraje animado.</description>
