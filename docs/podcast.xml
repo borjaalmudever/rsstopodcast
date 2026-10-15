@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 14 Oct 2026 06:37:46 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 06:36:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>15 de octubre — Apple supera los cinco billones y regresa Girls</title>
+      <description>Apple alcanza una capitalización bursátil superior a los cinco billones de dólares y se convierte en la segunda empresa en lograrlo tras Nvidia. Además, HBO anuncia la vuelta sorpresa de la serie Girls para dos mil veintisiete con cinco nuevos capítulos.</description>
+      <pubDate>Thu, 15 Oct 2026 06:32:14 +0000</pubDate>
+      <guid isPermaLink="false">a911957e-a0c2-4268-99cd-18d2b660adc5</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-15.mp3" length="5415852" type="audio/mpeg" />
+      <itunes:duration>00:07:30</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>14 de octubre — Netflix compra los derechos de la Copa del Mundo dos mil treinta</title>
       <description>Netflix adquiere en exclusiva los derechos de la Copa del Mundo de fútbol de dos mil treinta para España y Andorra. Además, Apple lanza su primera pantalla inteligente llamada HomeView y Arde Bogotá debuta en el número uno de discos en España.</description>

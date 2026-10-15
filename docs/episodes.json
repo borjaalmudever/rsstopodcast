@@ -2964,5 +2964,40 @@
         "start_ms": 430422
       }
     ]
+  },
+  {
+    "guid": "a911957e-a0c2-4268-99cd-18d2b660adc5",
+    "title": "15 de octubre — Apple supera los cinco billones y regresa Girls",
+    "description": "Apple alcanza una capitalización bursátil superior a los cinco billones de dólares y se convierte en la segunda empresa en lograrlo tras Nvidia. Además, HBO anuncia la vuelta sorpresa de la serie Girls para dos mil veintisiete con cinco nuevos capítulos.",
+    "pub_date": "2026-10-15T06:32:14.030562+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-15.mp3",
+    "file_size": 5415852,
+    "duration_seconds": 450,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21352
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147716
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 251327
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 360111
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 444235
+      }
+    ]
   }
 ]
