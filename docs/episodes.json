@@ -2999,5 +2999,40 @@
         "start_ms": 444235
       }
     ]
+  },
+  {
+    "guid": "faa2de7c-d39f-4024-b581-dda56c58a0fa",
+    "title": "16 de octubre — Cristina Pedroche y el nuevo iPhone Duo encabezan las noticias",
+    "description": "Cristina Pedroche volverá a presentar las Campanadas en Antena tres y hoy mismo se abren las reservas del iPhone Duo. Además, Justice componen la banda sonora del Grand Theft Auto seis y Paramount estrena la película Street Fighter.",
+    "pub_date": "2026-10-16T06:32:37.319053+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-16.mp3",
+    "file_size": 4934510,
+    "duration_seconds": 410,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21928
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 124154
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 228550
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 310427
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 404164
+      }
+    ]
   }
 ]

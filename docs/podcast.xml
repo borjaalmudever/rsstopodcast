@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 15 Oct 2026 06:36:37 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 06:37:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>16 de octubre — Cristina Pedroche y el nuevo iPhone Duo encabezan las noticias</title>
+      <description>Cristina Pedroche volverá a presentar las Campanadas en Antena tres y hoy mismo se abren las reservas del iPhone Duo. Además, Justice componen la banda sonora del Grand Theft Auto seis y Paramount estrena la película Street Fighter.</description>
+      <pubDate>Fri, 16 Oct 2026 06:32:37 +0000</pubDate>
+      <guid isPermaLink="false">faa2de7c-d39f-4024-b581-dda56c58a0fa</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-16.mp3" length="4934510" type="audio/mpeg" />
+      <itunes:duration>00:06:50</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>15 de octubre — Apple supera los cinco billones y regresa Girls</title>
       <description>Apple alcanza una capitalización bursátil superior a los cinco billones de dólares y se convierte en la segunda empresa en lograrlo tras Nvidia. Además, HBO anuncia la vuelta sorpresa de la serie Girls para dos mil veintisiete con cinco nuevos capítulos.</description>
