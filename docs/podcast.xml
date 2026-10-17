@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 16 Oct 2026 06:37:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 06:36:31 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>17 de octubre — Telecinco recupera a Belén Esteban y arrasa el iPhone Duo</title>
+      <description>Telecinco vuelve a contar con Belén Esteban para su programa De viernes y las reservas del nuevo iPhone Duo se agotan en tiempo récord. Además, Miley Cyrus arranca sus conciertos en el Hollywood Bowl y Julianne Moore sorprende en su último rodaje con Jesse Eisenberg.</description>
+      <pubDate>Sat, 17 Oct 2026 06:31:57 +0000</pubDate>
+      <guid isPermaLink="false">6e0fc72d-8dd6-4aa0-bf72-f8f6b9184f68</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-17.mp3" length="5640834" type="audio/mpeg" />
+      <itunes:duration>00:07:49</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>16 de octubre — Cristina Pedroche y el nuevo iPhone Duo encabezan las noticias</title>
       <description>Cristina Pedroche volverá a presentar las Campanadas en Antena tres y hoy mismo se abren las reservas del iPhone Duo. Además, Justice componen la banda sonora del Grand Theft Auto seis y Paramount estrena la película Street Fighter.</description>

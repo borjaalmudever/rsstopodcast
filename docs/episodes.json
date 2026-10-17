@@ -3034,5 +3034,40 @@
         "start_ms": 404164
       }
     ]
+  },
+  {
+    "guid": "6e0fc72d-8dd6-4aa0-bf72-f8f6b9184f68",
+    "title": "17 de octubre — Telecinco recupera a Belén Esteban y arrasa el iPhone Duo",
+    "description": "Telecinco vuelve a contar con Belén Esteban para su programa De viernes y las reservas del nuevo iPhone Duo se agotan en tiempo récord. Además, Miley Cyrus arranca sus conciertos en el Hollywood Bowl y Julianne Moore sorprende en su último rodaje con Jesse Eisenberg.",
+    "pub_date": "2026-10-17T06:31:57.243146+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-17.mp3",
+    "file_size": 5640834,
+    "duration_seconds": 469,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22912
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 151078
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 277729
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 378102
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 462983
+      }
+    ]
   }
 ]
