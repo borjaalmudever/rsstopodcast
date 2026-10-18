@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 17 Oct 2026 10:02:12 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 06:36:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>18 de octubre — Antonio Banderas y Nicolas Cage en True Detective</title>
+      <description>Antonio Banderas y Nicolas Cage protagonizarán la quinta temporada de True Detective en HBO Max. Además, el lanzamiento del nuevo iPhone Duo ha sido histórico y se ha agotado en cuestión de minutos. Por otro lado, Miley Cyrus ha vuelto a ofrecer un concierto completo después de casi cuatro años de pausa.</description>
+      <pubDate>Sun, 18 Oct 2026 06:32:02 +0000</pubDate>
+      <guid isPermaLink="false">9fea4b54-8ff9-454b-95f9-d1290e49d1d5</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-18.mp3" length="5240447" type="audio/mpeg" />
+      <itunes:duration>00:07:16</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>17 de octubre — Telecinco recupera a Belén Esteban y arrasa el iPhone Duo</title>
       <description>Telecinco vuelve a contar con Belén Esteban para su programa De viernes y las reservas del nuevo iPhone Duo se agotan en tiempo récord. Además, Miley Cyrus arranca sus conciertos en el Hollywood Bowl y Julianne Moore sorprende en su último rodaje con Jesse Eisenberg.</description>
