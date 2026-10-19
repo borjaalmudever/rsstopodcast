@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 18 Oct 2026 06:36:34 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 06:36:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>19 de octubre — Televisión Española celebra su setenta aniversario con un especial</title>
+      <description>Televisión Española conmemora su setenta aniversario con un especial en Torrespaña que reúne a rostros míticos de la cadena. Además, la película La bola negra supera a Torrente presidente en la taquilla nacional acumulando veintiocho coma seis millones de euros. Por otro lado, Donald Trump presumió de haber renombrado el golfo de México y el lago Ontario.</description>
+      <pubDate>Mon, 19 Oct 2026 06:32:20 +0000</pubDate>
+      <guid isPermaLink="false">782b2f66-0a9e-4b47-816a-4fd526d8e704</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-19.mp3" length="5252371" type="audio/mpeg" />
+      <itunes:duration>00:07:17</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>18 de octubre — Antonio Banderas y Nicolas Cage en True Detective</title>
       <description>Antonio Banderas y Nicolas Cage protagonizarán la quinta temporada de True Detective en HBO Max. Además, el lanzamiento del nuevo iPhone Duo ha sido histórico y se ha agotado en cuestión de minutos. Por otro lado, Miley Cyrus ha vuelto a ofrecer un concierto completo después de casi cuatro años de pausa.</description>

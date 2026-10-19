@@ -3104,5 +3104,40 @@
         "start_ms": 429666
       }
     ]
+  },
+  {
+    "guid": "782b2f66-0a9e-4b47-816a-4fd526d8e704",
+    "title": "19 de octubre — Televisión Española celebra su setenta aniversario con un especial",
+    "description": "Televisión Española conmemora su setenta aniversario con un especial en Torrespaña que reúne a rostros míticos de la cadena. Además, la película La bola negra supera a Torrente presidente en la taquilla nacional acumulando veintiocho coma seis millones de euros. Por otro lado, Donald Trump presumió de haber renombrado el golfo de México y el lago Ontario.",
+    "pub_date": "2026-10-19T06:32:20.232457+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-19.mp3",
+    "file_size": 5252371,
+    "duration_seconds": 437,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22672
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 160007
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 275295
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 359236
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 430639
+      }
+    ]
   }
 ]
