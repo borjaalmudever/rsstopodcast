@@ -3139,5 +3139,40 @@
         "start_ms": 430639
       }
     ]
+  },
+  {
+    "guid": "64d17045-40b8-45b9-aee5-90853f784051",
+    "title": "20 de octubre — Antena tres Noticias lidera la audiencia y Netflix compra La velada",
+    "description": "Antena tres Noticias dos fue lo más visto del lunes y Netflix ha comprado los derechos de emisión de La velada del año de Ibai Llanos en exclusiva. Además, Apple celebrará un evento para prensa el próximo veintiocho de octubre bajo el eslogan Pro and tell y Lucho RK entra directo al número uno de álbumes en España.",
+    "pub_date": "2026-10-20T06:32:03.944793+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-20.mp3",
+    "file_size": 4751574,
+    "duration_seconds": 395,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16576
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 128781
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 248536
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 304109
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 388938
+      }
+    ]
   }
 ]
