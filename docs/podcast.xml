@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 20 Oct 2026 06:35:48 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 06:36:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>21 de octubre — Jaime Lorente defiende La Revuelta y Musk anuncia fusión</title>
+      <description>Jaime Lorente acudió a La Revuelta para recoger firmas y evitar la cancelación del espacio televisivo. Además, Elon Musk ha anunciado que Tesla y SpaceX discuten una posible fusión tras la petición de los accionistas. Por otro lado, Rosalía y Anitta actuarán en la próxima ceremonia de los Latin Grammy.</description>
+      <pubDate>Wed, 21 Oct 2026 06:32:18 +0000</pubDate>
+      <guid isPermaLink="false">2cacb967-7676-444a-ada5-4aaeacccf0d7</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-21.mp3" length="5605063" type="audio/mpeg" />
+      <itunes:duration>00:07:46</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>20 de octubre — Antena tres Noticias lidera la audiencia y Netflix compra La velada</title>
       <description>Antena tres Noticias dos fue lo más visto del lunes y Netflix ha comprado los derechos de emisión de La velada del año de Ibai Llanos en exclusiva. Además, Apple celebrará un evento para prensa el próximo veintiocho de octubre bajo el eslogan Pro and tell y Lucho RK entra directo al número uno de álbumes en España.</description>

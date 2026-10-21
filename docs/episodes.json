@@ -3174,5 +3174,40 @@
         "start_ms": 388938
       }
     ]
+  },
+  {
+    "guid": "2cacb967-7676-444a-ada5-4aaeacccf0d7",
+    "title": "21 de octubre — Jaime Lorente defiende La Revuelta y Musk anuncia fusión",
+    "description": "Jaime Lorente acudió a La Revuelta para recoger firmas y evitar la cancelación del espacio televisivo. Además, Elon Musk ha anunciado que Tesla y SpaceX discuten una posible fusión tras la petición de los accionistas. Por otro lado, Rosalía y Anitta actuarán en la próxima ceremonia de los Latin Grammy.",
+    "pub_date": "2026-10-21T06:32:18.336482+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-21.mp3",
+    "file_size": 5605063,
+    "duration_seconds": 466,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19552
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147483
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 253994
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 357527
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 459989
+      }
+    ]
   }
 ]
