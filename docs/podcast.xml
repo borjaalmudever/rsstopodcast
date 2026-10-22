@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 21 Oct 2026 06:36:45 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 06:36:16 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>22 de octubre — Lorenzo Milá pudo presentar Gran Hermano y Pedro Sánchez acude a La Revuelta</title>
+      <description>El veterano periodista Lorenzo Milá desvela que estuvo a punto de presentar la primera edición de Gran Hermano en Telecinco. Por su parte, el presidente del Gobierno Pedro Sánchez acude como invitado al programa de David Broncano en RTVE. Además, el nuevo teléfono plegable de Apple llega a las tiendas con listas de espera y un precio de dos mil trescientos euros.</description>
+      <pubDate>Thu, 22 Oct 2026 06:32:16 +0000</pubDate>
+      <guid isPermaLink="false">326c32c5-50d6-405e-a483-bdbacb2d16ac</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-22.mp3" length="5221620" type="audio/mpeg" />
+      <itunes:duration>00:07:14</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>21 de octubre — Jaime Lorente defiende La Revuelta y Musk anuncia fusión</title>
       <description>Jaime Lorente acudió a La Revuelta para recoger firmas y evitar la cancelación del espacio televisivo. Además, Elon Musk ha anunciado que Tesla y SpaceX discuten una posible fusión tras la petición de los accionistas. Por otro lado, Rosalía y Anitta actuarán en la próxima ceremonia de los Latin Grammy.</description>

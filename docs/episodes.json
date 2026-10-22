@@ -3209,5 +3209,40 @@
         "start_ms": 459989
       }
     ]
+  },
+  {
+    "guid": "326c32c5-50d6-405e-a483-bdbacb2d16ac",
+    "title": "22 de octubre — Lorenzo Milá pudo presentar Gran Hermano y Pedro Sánchez acude a La Revuelta",
+    "description": "El veterano periodista Lorenzo Milá desvela que estuvo a punto de presentar la primera edición de Gran Hermano en Telecinco. Por su parte, el presidente del Gobierno Pedro Sánchez acude como invitado al programa de David Broncano en RTVE. Además, el nuevo teléfono plegable de Apple llega a las tiendas con listas de espera y un precio de dos mil trescientos euros.",
+    "pub_date": "2026-10-22T06:32:16.800469+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-22.mp3",
+    "file_size": 5221620,
+    "duration_seconds": 434,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22120
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 123746
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 219181
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 319971
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 428049
+      }
+    ]
   }
 ]
