@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 22 Oct 2026 06:36:16 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 06:35:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>23 de octubre — Pedro Sánchez reconoce su mayor error en La Revuelta</title>
+      <description>El presidente del Gobierno acudió al programa La Revuelta, donde admitió que los casos de corrupción de su exministro José Luis Ábalos han sido su peor error y una enorme decepción. Además, la demanda del nuevo iPhone Duo ha superado las expectativas iniciales de Apple en varios mercados importantes. Por otro lado, la artista Raye ha ganado el premio Mercury al mejor álbum del año con su trabajo This Music May Contain Hope.</description>
+      <pubDate>Fri, 23 Oct 2026 06:32:16 +0000</pubDate>
+      <guid isPermaLink="false">f0cb63f5-bcb4-4ac6-8a61-6fb2fdae1b36</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-23.mp3" length="4930116" type="audio/mpeg" />
+      <itunes:duration>00:06:50</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>22 de octubre — Lorenzo Milá pudo presentar Gran Hermano y Pedro Sánchez acude a La Revuelta</title>
       <description>El veterano periodista Lorenzo Milá desvela que estuvo a punto de presentar la primera edición de Gran Hermano en Telecinco. Por su parte, el presidente del Gobierno Pedro Sánchez acude como invitado al programa de David Broncano en RTVE. Además, el nuevo teléfono plegable de Apple llega a las tiendas con listas de espera y un precio de dos mil trescientos euros.</description>

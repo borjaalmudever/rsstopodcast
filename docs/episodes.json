@@ -3244,5 +3244,40 @@
         "start_ms": 428049
       }
     ]
+  },
+  {
+    "guid": "f0cb63f5-bcb4-4ac6-8a61-6fb2fdae1b36",
+    "title": "23 de octubre — Pedro Sánchez reconoce su mayor error en La Revuelta",
+    "description": "El presidente del Gobierno acudió al programa La Revuelta, donde admitió que los casos de corrupción de su exministro José Luis Ábalos han sido su peor error y una enorme decepción. Además, la demanda del nuevo iPhone Duo ha superado las expectativas iniciales de Apple en varios mercados importantes. Por otro lado, la artista Raye ha ganado el premio Mercury al mejor álbum del año con su trabajo This Music May Contain Hope.",
+    "pub_date": "2026-10-23T06:32:16.568271+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-23.mp3",
+    "file_size": 4930116,
+    "duration_seconds": 410,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18904
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 130874
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 235504
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 322502
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 403831
+      }
+    ]
   }
 ]
