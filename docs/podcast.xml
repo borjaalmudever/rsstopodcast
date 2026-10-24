@@ -14,9 +14,19 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 24 Oct 2026 06:36:08 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 10:02:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>24 de octubre — EDICIÓN SUBSTACK</title>
+      <description>El boletín Minimalismos de Edgar Otero analiza cómo Google Fotos se ha convertido en un incordio lleno de notificaciones y collages no pedidos. Se advierte que su inteligencia artificial busca extraer datos personales y se destaca la importancia de recuperar la intimidad digital.</description>
+      <pubDate>Sat, 24 Oct 2026 10:01:39 +0000</pubDate>
+      <guid isPermaLink="false">0b39fcf2-1902-4662-875c-3735967a2265</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-10-24.mp3" length="949920" type="audio/mpeg" />
+      <itunes:duration>00:01:18</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>24 de octubre — Largas colas por el nuevo teléfono plegable de Apple</title>
       <description>El nuevo iPhone Duo ya se puede comprar y genera largas colas, aunque las primeras unidades registran problemas en las pantallas junto a cierres de tiendas en Francia. Además, el legendario reproductor de música de Apple celebra su veinticinco aniversario con un iPod virtual interactivo en su web.</description>

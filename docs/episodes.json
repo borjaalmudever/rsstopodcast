@@ -3314,5 +3314,29 @@
         "start_ms": 406306
       }
     ]
+  },
+  {
+    "guid": "0b39fcf2-1902-4662-875c-3735967a2265",
+    "title": "24 de octubre — EDICIÓN SUBSTACK",
+    "description": "El boletín Minimalismos de Edgar Otero analiza cómo Google Fotos se ha convertido en un incordio lleno de notificaciones y collages no pedidos. Se advierte que su inteligencia artificial busca extraer datos personales y se destaca la importancia de recuperar la intimidad digital.",
+    "pub_date": "2026-10-24T10:01:39.157949+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-10-24.mp3",
+    "file_size": 949920,
+    "duration_seconds": 78,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 13488
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 72367
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
