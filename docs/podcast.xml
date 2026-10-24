@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 23 Oct 2026 06:35:57 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 06:36:08 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>24 de octubre — Largas colas por el nuevo teléfono plegable de Apple</title>
+      <description>El nuevo iPhone Duo ya se puede comprar y genera largas colas, aunque las primeras unidades registran problemas en las pantallas junto a cierres de tiendas en Francia. Además, el legendario reproductor de música de Apple celebra su veinticinco aniversario con un iPod virtual interactivo en su web.</description>
+      <pubDate>Sat, 24 Oct 2026 06:31:50 +0000</pubDate>
+      <guid isPermaLink="false">0ac38abb-0996-4833-b769-973b05b83169</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-24.mp3" length="4959926" type="audio/mpeg" />
+      <itunes:duration>00:06:52</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>23 de octubre — Pedro Sánchez reconoce su mayor error en La Revuelta</title>
       <description>El presidente del Gobierno acudió al programa La Revuelta, donde admitió que los casos de corrupción de su exministro José Luis Ábalos han sido su peor error y una enorme decepción. Además, la demanda del nuevo iPhone Duo ha superado las expectativas iniciales de Apple en varios mercados importantes. Por otro lado, la artista Raye ha ganado el premio Mercury al mejor álbum del año con su trabajo This Music May Contain Hope.</description>

@@ -3279,5 +3279,40 @@
         "start_ms": 403831
       }
     ]
+  },
+  {
+    "guid": "0ac38abb-0996-4833-b769-973b05b83169",
+    "title": "24 de octubre — Largas colas por el nuevo teléfono plegable de Apple",
+    "description": "El nuevo iPhone Duo ya se puede comprar y genera largas colas, aunque las primeras unidades registran problemas en las pantallas junto a cierres de tiendas en Francia. Además, el legendario reproductor de música de Apple celebra su veinticinco aniversario con un iPod virtual interactivo en su web.",
+    "pub_date": "2026-10-24T06:31:50.226158+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-24.mp3",
+    "file_size": 4959926,
+    "duration_seconds": 412,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21928
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 140507
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 247723
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 319674
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 406306
+      }
+    ]
   }
 ]
