@@ -3338,5 +3338,40 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "3fb24833-5c8a-40f5-a18d-82c76f41378e",
+    "title": "25 de octubre — La reina Letizia protagoniza un divertido momento en Asturias",
+    "description": "La reina Letizia ha protagonizado un divertido momento en Asturias al preguntar a un periodista por qué se inventaba el nombre de su compañera. Además, España rozó el triunfo en Eurovisión Junior dos mil veintiséis con la actuación de Lucas Paulano.",
+    "pub_date": "2026-10-25T07:31:39.672457+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-25.mp3",
+    "file_size": 4081961,
+    "duration_seconds": 339,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16864
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 135521
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 224452
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 264795
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 333193
+      }
+    ]
   }
 ]

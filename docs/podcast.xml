@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 24 Oct 2026 10:02:24 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 07:35:08 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>25 de octubre — La reina Letizia protagoniza un divertido momento en Asturias</title>
+      <description>La reina Letizia ha protagonizado un divertido momento en Asturias al preguntar a un periodista por qué se inventaba el nombre de su compañera. Además, España rozó el triunfo en Eurovisión Junior dos mil veintiséis con la actuación de Lucas Paulano.</description>
+      <pubDate>Sun, 25 Oct 2026 07:31:39 +0000</pubDate>
+      <guid isPermaLink="false">3fb24833-5c8a-40f5-a18d-82c76f41378e</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-25.mp3" length="4081961" type="audio/mpeg" />
+      <itunes:duration>00:05:39</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>24 de octubre — EDICIÓN SUBSTACK</title>
       <description>El boletín Minimalismos de Edgar Otero analiza cómo Google Fotos se ha convertido en un incordio lleno de notificaciones y collages no pedidos. Se advierte que su inteligencia artificial busca extraer datos personales y se destaca la importancia de recuperar la intimidad digital.</description>
