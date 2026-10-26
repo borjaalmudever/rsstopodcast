@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 25 Oct 2026 07:35:08 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 07:36:02 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>26 de octubre — Antena tres lidera y españa roza el triunfo en eurovisión junior</title>
+      <description>Antena tres noticias uno fin de semana fue lo más visto de la jornada y españa logró la segunda posición en eurovisión junior con lucas paulano. Además, apple prepara nuevos imac y macbook pro con el chip m6, mientras que clayface lidera la taquilla norteamericana.</description>
+      <pubDate>Mon, 26 Oct 2026 07:31:41 +0000</pubDate>
+      <guid isPermaLink="false">e72c1c68-f441-4dc9-9319-cbe79e5536ea</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-26.mp3" length="5277788" type="audio/mpeg" />
+      <itunes:duration>00:07:19</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>25 de octubre — La reina Letizia protagoniza un divertido momento en Asturias</title>
       <description>La reina Letizia ha protagonizado un divertido momento en Asturias al preguntar a un periodista por qué se inventaba el nombre de su compañera. Además, España rozó el triunfo en Eurovisión Junior dos mil veintiséis con la actuación de Lucas Paulano.</description>

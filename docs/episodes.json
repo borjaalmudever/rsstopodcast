@@ -3373,5 +3373,40 @@
         "start_ms": 333193
       }
     ]
+  },
+  {
+    "guid": "e72c1c68-f441-4dc9-9319-cbe79e5536ea",
+    "title": "26 de octubre — Antena tres lidera y españa roza el triunfo en eurovisión junior",
+    "description": "Antena tres noticias uno fin de semana fue lo más visto de la jornada y españa logró la segunda posición en eurovisión junior con lucas paulano. Además, apple prepara nuevos imac y macbook pro con el chip m6, mientras que clayface lidera la taquilla norteamericana.",
+    "pub_date": "2026-10-26T07:31:41.103717+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-26.mp3",
+    "file_size": 5277788,
+    "duration_seconds": 439,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17944
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 154652
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 286789
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 379220
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 432755
+      }
+    ]
   }
 ]
