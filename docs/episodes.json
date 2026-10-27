@@ -3408,5 +3408,40 @@
         "start_ms": 432755
       }
     ]
+  },
+  {
+    "guid": "173d7a8a-f4c4-4f23-831a-3adcf3314c09",
+    "title": "27 de octubre — Prime Video y Movistar Plus se alian en El Supermercado",
+    "description": "Prime Video y Movistar Plus producen juntas la comedia El Supermercado. Netflix inicia el rodaje de la miniserie policíaca Jotadé. Ademas, Apple lanza iOS veintisiete punto dos y Walter Koenig fallece a los noventa anos.",
+    "pub_date": "2026-10-27T07:31:32.568110+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-27.mp3",
+    "file_size": 4500548,
+    "duration_seconds": 374,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16216
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 101776
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 190576
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 280029
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 368046
+      }
+    ]
   }
 ]
