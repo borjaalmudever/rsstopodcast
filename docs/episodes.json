@@ -3443,5 +3443,40 @@
         "start_ms": 368046
       }
     ]
+  },
+  {
+    "guid": "5c56dcc6-6128-49fd-8e5e-0e0859a9571c",
+    "title": "28 de octubre — Jay-Z actuara en la Super Bowl de dos mil veintisiete",
+    "description": "Jay-Z se ha confirmado para actuar en el intermedio de la Super Bowl dos mil veintisiete tras decidir que él es la mejor opción. Por otro lado, Televisión Española ha cambiado de horario La revuelta para apretar la pelea por la audiencia. Además, Apple ha anunciado el nuevo iMac con el procesador M6 de dos nanómetros.",
+    "pub_date": "2026-10-28T07:32:00.257519+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-28.mp3",
+    "file_size": 6482087,
+    "duration_seconds": 539,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18112
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 154898
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 299783
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 424685
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 532998
+      }
+    ]
   }
 ]
