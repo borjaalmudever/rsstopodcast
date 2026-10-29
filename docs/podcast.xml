@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 28 Oct 2026 07:37:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 07:36:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>29 de octubre — Trágico accidente en Toledo y novedades tecnológicas de Apple</title>
+      <description>Un grave accidente ferroviario en Toledo sacude a la industria televisiva y obliga a modificar la programación habitual de las cadenas. Por otro lado, Apple revoluciona su catálogo presentando nuevos portátiles con pantallas OLED táctiles y la Dynamic Island. Además, el grupo Everything but the Girl anuncia el lanzamiento de su próximo disco titulado Blue Reservoir para febrero de dos mil veintisiete.</description>
+      <pubDate>Thu, 29 Oct 2026 07:31:40 +0000</pubDate>
+      <guid isPermaLink="false">8e4d0de2-8cbe-44e7-9607-e1ed6adc1df8</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-29.mp3" length="6360339" type="audio/mpeg" />
+      <itunes:duration>00:08:49</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>28 de octubre — Jay-Z actuara en la Super Bowl de dos mil veintisiete</title>
       <description>Jay-Z se ha confirmado para actuar en el intermedio de la Super Bowl dos mil veintisiete tras decidir que él es la mejor opción. Por otro lado, Televisión Española ha cambiado de horario La revuelta para apretar la pelea por la audiencia. Además, Apple ha anunciado el nuevo iMac con el procesador M6 de dos nanómetros.</description>

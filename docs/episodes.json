@@ -3478,5 +3478,40 @@
         "start_ms": 532998
       }
     ]
+  },
+  {
+    "guid": "8e4d0de2-8cbe-44e7-9607-e1ed6adc1df8",
+    "title": "29 de octubre — Trágico accidente en Toledo y novedades tecnológicas de Apple",
+    "description": "Un grave accidente ferroviario en Toledo sacude a la industria televisiva y obliga a modificar la programación habitual de las cadenas. Por otro lado, Apple revoluciona su catálogo presentando nuevos portátiles con pantallas OLED táctiles y la Dynamic Island. Además, el grupo Everything but the Girl anuncia el lanzamiento de su próximo disco titulado Blue Reservoir para febrero de dos mil veintisiete.",
+    "pub_date": "2026-10-29T07:31:40.896253+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-29.mp3",
+    "file_size": 6360339,
+    "duration_seconds": 529,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22168
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 198425
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 347673
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 407764
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 522870
+      }
+    ]
   }
 ]
