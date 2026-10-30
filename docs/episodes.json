@@ -3513,5 +3513,40 @@
         "start_ms": 522870
       }
     ]
+  },
+  {
+    "guid": "c0d07c59-269f-4bad-9bc5-476d6121bbbe",
+    "title": "30 de octubre — La televisión altera su programación por la tragedia ferroviaria en Toledo",
+    "description": "La televisión altera su programación para cubrir el accidente de trenes en Toledo, impulsando los datos de Horizonte y provocando aplazamientos en debates y entrevistas. Además, General Motors pagará una multa millonaria por vender datos de conducción, y el cine lamenta el fallecimiento del actor Patrick Stewart.",
+    "pub_date": "2026-10-30T07:31:39.691535+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-30.mp3",
+    "file_size": 5386670,
+    "duration_seconds": 448,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19552
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 132567
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 249475
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 336838
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 441782
+      }
+    ]
   }
 ]

@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 29 Oct 2026 07:36:52 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 07:35:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>30 de octubre — La televisión altera su programación por la tragedia ferroviaria en Toledo</title>
+      <description>La televisión altera su programación para cubrir el accidente de trenes en Toledo, impulsando los datos de Horizonte y provocando aplazamientos en debates y entrevistas. Además, General Motors pagará una multa millonaria por vender datos de conducción, y el cine lamenta el fallecimiento del actor Patrick Stewart.</description>
+      <pubDate>Fri, 30 Oct 2026 07:31:39 +0000</pubDate>
+      <guid isPermaLink="false">c0d07c59-269f-4bad-9bc5-476d6121bbbe</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-30.mp3" length="5386670" type="audio/mpeg" />
+      <itunes:duration>00:07:28</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>29 de octubre — Trágico accidente en Toledo y novedades tecnológicas de Apple</title>
       <description>Un grave accidente ferroviario en Toledo sacude a la industria televisiva y obliga a modificar la programación habitual de las cadenas. Por otro lado, Apple revoluciona su catálogo presentando nuevos portátiles con pantallas OLED táctiles y la Dynamic Island. Además, el grupo Everything but the Girl anuncia el lanzamiento de su próximo disco titulado Blue Reservoir para febrero de dos mil veintisiete.</description>
