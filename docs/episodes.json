@@ -3548,5 +3548,40 @@
         "start_ms": 441782
       }
     ]
+  },
+  {
+    "guid": "78e04e06-6c6a-464a-9998-e5839fdcc147",
+    "title": "31 de octubre — Horizonte lidera la noche televisiva frente a Supervivientes",
+    "description": "El programa Horizonte lideró en su tramo principal por delante de Supervivientes All Stars en la noche del miércoles. Por otro lado, las ventas de los nuevos iPhone 18 Pro han subido un veintinueve por ciento en China. Además, David Fincher estrena su nueva película protagonizada por Brad Pitt titulada Cliff Booth.",
+    "pub_date": "2026-10-31T07:31:49.870571+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-31.mp3",
+    "file_size": 5769171,
+    "duration_seconds": 480,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17944
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 144726
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 272840
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 378985
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 473637
+      }
+    ]
   }
 ]

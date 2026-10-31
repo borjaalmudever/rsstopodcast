@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 30 Oct 2026 07:35:58 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 07:36:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>31 de octubre — Horizonte lidera la noche televisiva frente a Supervivientes</title>
+      <description>El programa Horizonte lideró en su tramo principal por delante de Supervivientes All Stars en la noche del miércoles. Por otro lado, las ventas de los nuevos iPhone 18 Pro han subido un veintinueve por ciento en China. Además, David Fincher estrena su nueva película protagonizada por Brad Pitt titulada Cliff Booth.</description>
+      <pubDate>Sat, 31 Oct 2026 07:31:49 +0000</pubDate>
+      <guid isPermaLink="false">78e04e06-6c6a-464a-9998-e5839fdcc147</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-10-31.mp3" length="5769171" type="audio/mpeg" />
+      <itunes:duration>00:08:00</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>30 de octubre — La televisión altera su programación por la tragedia ferroviaria en Toledo</title>
       <description>La televisión altera su programación para cubrir el accidente de trenes en Toledo, impulsando los datos de Horizonte y provocando aplazamientos en debates y entrevistas. Además, General Motors pagará una multa millonaria por vender datos de conducción, y el cine lamenta el fallecimiento del actor Patrick Stewart.</description>
