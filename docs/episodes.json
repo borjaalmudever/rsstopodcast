@@ -3583,5 +3583,40 @@
         "start_ms": 473637
       }
     ]
+  },
+  {
+    "guid": "199735b7-4310-4dee-8d9b-8bf12b6c7599",
+    "title": "1 de noviembre — Dexter, la ciberseguridad y la actualidad cultural",
+    "description": "Michael C. Hall repasa las dos décadas de Dexter mientras se descubren agujeros de seguridad en PHP y se analiza la Seminci en Valladolid. Además, Lily Allen sorprende en Halloween y se repasan estrenos de series y documentales.",
+    "pub_date": "2026-11-01T07:31:34.904677+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-01.mp3",
+    "file_size": 4599075,
+    "duration_seconds": 382,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21712
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 143086
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 255605
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 323403
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 376258
+      }
+    ]
   }
 ]

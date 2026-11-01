@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 31 Oct 2026 11:01:54 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 07:35:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>1 de noviembre — Dexter, la ciberseguridad y la actualidad cultural</title>
+      <description>Michael C. Hall repasa las dos décadas de Dexter mientras se descubren agujeros de seguridad en PHP y se analiza la Seminci en Valladolid. Además, Lily Allen sorprende en Halloween y se repasan estrenos de series y documentales.</description>
+      <pubDate>Sun, 01 Nov 2026 07:31:34 +0000</pubDate>
+      <guid isPermaLink="false">199735b7-4310-4dee-8d9b-8bf12b6c7599</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-01.mp3" length="4599075" type="audio/mpeg" />
+      <itunes:duration>00:06:22</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>31 de octubre — Horizonte lidera la noche televisiva frente a Supervivientes</title>
       <description>El programa Horizonte lideró en su tramo principal por delante de Supervivientes All Stars en la noche del miércoles. Por otro lado, las ventas de los nuevos iPhone 18 Pro han subido un veintinueve por ciento en China. Además, David Fincher estrena su nueva película protagonizada por Brad Pitt titulada Cliff Booth.</description>
