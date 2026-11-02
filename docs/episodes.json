@@ -3618,5 +3618,40 @@
         "start_ms": 376258
       }
     ]
+  },
+  {
+    "guid": "1bee6066-4bc5-4874-8312-68635a4ecdc8",
+    "title": "2 de noviembre — Madonna se rinde a los Javis y Pasapalabra se tambalea",
+    "description": "Madonna califica de experiencia transformadora la película de los Javis mientras Mediaset podría recuperar el nombre de Pasapalabra tras ganar una batalla legal. Además, Corea del Norte está detrás del robo masivo de criptomonedas en Binance y fallece Marty Erlichman a los noventa y siete años.",
+    "pub_date": "2026-11-02T07:31:48.480990+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-02.mp3",
+    "file_size": 4501803,
+    "duration_seconds": 374,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19000
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 95287
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 215878
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 304547
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 368139
+      }
+    ]
   }
 ]

@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 01 Nov 2026 07:35:13 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 07:35:31 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>2 de noviembre — Madonna se rinde a los Javis y Pasapalabra se tambalea</title>
+      <description>Madonna califica de experiencia transformadora la película de los Javis mientras Mediaset podría recuperar el nombre de Pasapalabra tras ganar una batalla legal. Además, Corea del Norte está detrás del robo masivo de criptomonedas en Binance y fallece Marty Erlichman a los noventa y siete años.</description>
+      <pubDate>Mon, 02 Nov 2026 07:31:48 +0000</pubDate>
+      <guid isPermaLink="false">1bee6066-4bc5-4874-8312-68635a4ecdc8</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-02.mp3" length="4501803" type="audio/mpeg" />
+      <itunes:duration>00:06:14</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>1 de noviembre — Dexter, la ciberseguridad y la actualidad cultural</title>
       <description>Michael C. Hall repasa las dos décadas de Dexter mientras se descubren agujeros de seguridad en PHP y se analiza la Seminci en Valladolid. Además, Lily Allen sorprende en Halloween y se repasan estrenos de series y documentales.</description>
