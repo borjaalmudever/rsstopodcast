@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 02 Nov 2026 07:35:31 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 07:37:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>3 de noviembre — Kiko Rivera reaparece en televisión tras sufrir un ictus</title>
+      <description>Kiko Rivera ha reaparecido en televisión para desvelar el drama de haber sufrido su segundo ictus en pleno vuelo. Además, el programa de Pablo Motos encara la semana con invitados como Miguel Ángel Revilla y Almudena Cid ha roto a llorar al revelar sus graves secuelas físicas.</description>
+      <pubDate>Tue, 03 Nov 2026 07:32:16 +0000</pubDate>
+      <guid isPermaLink="false">931e0de3-6f5d-4e6d-9baf-231258090b72</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-03.mp3" length="5675351" type="audio/mpeg" />
+      <itunes:duration>00:07:52</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>2 de noviembre — Madonna se rinde a los Javis y Pasapalabra se tambalea</title>
       <description>Madonna califica de experiencia transformadora la película de los Javis mientras Mediaset podría recuperar el nombre de Pasapalabra tras ganar una batalla legal. Además, Corea del Norte está detrás del robo masivo de criptomonedas en Binance y fallece Marty Erlichman a los noventa y siete años.</description>

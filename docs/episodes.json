@@ -3653,5 +3653,40 @@
         "start_ms": 368139
       }
     ]
+  },
+  {
+    "guid": "931e0de3-6f5d-4e6d-9baf-231258090b72",
+    "title": "3 de noviembre — Kiko Rivera reaparece en televisión tras sufrir un ictus",
+    "description": "Kiko Rivera ha reaparecido en televisión para desvelar el drama de haber sufrido su segundo ictus en pleno vuelo. Además, el programa de Pablo Motos encara la semana con invitados como Miguel Ángel Revilla y Almudena Cid ha roto a llorar al revelar sus graves secuelas físicas.",
+    "pub_date": "2026-11-03T07:32:16.575234+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-03.mp3",
+    "file_size": 5675351,
+    "duration_seconds": 472,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19096
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 144180
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 247974
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 352421
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 465855
+      }
+    ]
   }
 ]
