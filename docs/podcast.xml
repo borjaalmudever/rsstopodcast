@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 03 Nov 2026 07:37:01 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 07:36:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>4 de noviembre — Belén Esteban y Ana Obregón protagonistas de la televisión</title>
+      <description>Belén Esteban se convierte en la nueva imagen de Idealo protagonizando una gigantesca lona en Madrid contra el Black Friday. Por su parte, Ana Obregón emite un comunicado público pidiendo perdón a Antonia Dellatte. Además, Movistar Plus anuncia su nueva serie Ceremonia sobre los Juegos Olímpicos de noventa y dos.</description>
+      <pubDate>Wed, 04 Nov 2026 07:31:54 +0000</pubDate>
+      <guid isPermaLink="false">88456826-6df6-4b42-abed-9268b947752d</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-04.mp3" length="5859227" type="audio/mpeg" />
+      <itunes:duration>00:08:07</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>3 de noviembre — Kiko Rivera reaparece en televisión tras sufrir un ictus</title>
       <description>Kiko Rivera ha reaparecido en televisión para desvelar el drama de haber sufrido su segundo ictus en pleno vuelo. Además, el programa de Pablo Motos encara la semana con invitados como Miguel Ángel Revilla y Almudena Cid ha roto a llorar al revelar sus graves secuelas físicas.</description>

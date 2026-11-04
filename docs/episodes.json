@@ -3688,5 +3688,40 @@
         "start_ms": 465855
       }
     ]
+  },
+  {
+    "guid": "88456826-6df6-4b42-abed-9268b947752d",
+    "title": "4 de noviembre — Belén Esteban y Ana Obregón protagonistas de la televisión",
+    "description": "Belén Esteban se convierte en la nueva imagen de Idealo protagonizando una gigantesca lona en Madrid contra el Black Friday. Por su parte, Ana Obregón emite un comunicado público pidiendo perdón a Antonia Dellatte. Además, Movistar Plus anuncia su nueva serie Ceremonia sobre los Juegos Olímpicos de noventa y dos.",
+    "pub_date": "2026-11-04T07:31:54.090888+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-04.mp3",
+    "file_size": 5859227,
+    "duration_seconds": 487,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19840
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 149260
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 277008
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 369048
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 481149
+      }
+    ]
   }
 ]
