@@ -3723,5 +3723,40 @@
         "start_ms": 481149
       }
     ]
+  },
+  {
+    "guid": "dbc4e7db-3a08-4730-9b0b-b97ab18c51e7",
+    "title": "5 de noviembre — Estrenos televisivos y novedades tecnológicas en la actualidad de hoy",
+    "description": "La televisión se mueve con la llegada de La Séptima y el estreno de La que se avecina en Amazon Prime Video. En geek, Apple TV prepara un spin-off de Silo y Nothing lanzará su primer dispositivo sin pantalla. Además, el cine destaca con la secuela de El señor de la guerra y la nueva película de Constantine.",
+    "pub_date": "2026-11-05T07:32:31.597099+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-05.mp3",
+    "file_size": 6250514,
+    "duration_seconds": 520,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 21760
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 174612
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 293635
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 380450
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 513737
+      }
+    ]
   }
 ]
