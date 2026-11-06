@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 05 Nov 2026 07:37:43 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 07:36:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>6 de noviembre — El Gran Wyoming se jubila y deja El Intermedio</title>
+      <description>El Gran Wyoming dejará El Intermedio en enero tras dos décadas y será relevado por Gonzo. Además, The New York Times negocia la compra de Letterboxd por trescientos treinta millones de dólares y U dos anuncia conciertos en España para dos mil veintisiete.</description>
+      <pubDate>Fri, 06 Nov 2026 07:31:57 +0000</pubDate>
+      <guid isPermaLink="false">af71ca12-e97c-4431-b2dd-fe336fdca996</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-06.mp3" length="5070377" type="audio/mpeg" />
+      <itunes:duration>00:07:01</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>5 de noviembre — Estrenos televisivos y novedades tecnológicas en la actualidad de hoy</title>
       <description>La televisión se mueve con la llegada de La Séptima y el estreno de La que se avecina en Amazon Prime Video. En geek, Apple TV prepara un spin-off de Silo y Nothing lanzará su primer dispositivo sin pantalla. Además, el cine destaca con la secuela de El señor de la guerra y la nueva película de Constantine.</description>

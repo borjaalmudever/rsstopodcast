@@ -3758,5 +3758,40 @@
         "start_ms": 513737
       }
     ]
+  },
+  {
+    "guid": "af71ca12-e97c-4431-b2dd-fe336fdca996",
+    "title": "6 de noviembre — El Gran Wyoming se jubila y deja El Intermedio",
+    "description": "El Gran Wyoming dejará El Intermedio en enero tras dos décadas y será relevado por Gonzo. Además, The New York Times negocia la compra de Letterboxd por trescientos treinta millones de dólares y U dos anuncia conciertos en España para dos mil veintisiete.",
+    "pub_date": "2026-11-06T07:31:57.922736+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-06.mp3",
+    "file_size": 5070377,
+    "duration_seconds": 421,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16264
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 112587
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 227953
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 331930
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 415480
+      }
+    ]
   }
 ]
