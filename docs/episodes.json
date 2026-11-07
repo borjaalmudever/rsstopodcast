@@ -3793,5 +3793,40 @@
         "start_ms": 415480
       }
     ]
+  },
+  {
+    "guid": "8ab62c68-c9ab-4756-b6e9-9124674d1d05",
+    "title": "7 de noviembre — Pedro Almodóvar canta en La Revuelta y OpenAI alcanza récord",
+    "description": "Pedro Almodóvar sorprende cantando en directo en La Revuelta y aconseja a David Broncano sobre su próxima entrevista con Santiago Abascal. Mientras tanto, OpenAI alcanza una enorme valoración tras una nueva ronda de financiación y se sitúa entre las empresas más valiosas del mundo. En el ámbito cultural, Letterboxd es vendida a The New York Times y se anuncian importantes novedades discográficas y cinematográficas.",
+    "pub_date": "2026-11-07T07:31:43.652886+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-07.mp3",
+    "file_size": 4465718,
+    "duration_seconds": 371,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24400
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 111763
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 207485
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 271600
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 365154
+      }
+    ]
   }
 ]

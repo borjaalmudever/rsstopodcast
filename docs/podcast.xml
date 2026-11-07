@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 06 Nov 2026 07:36:05 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 07:35:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>7 de noviembre — Pedro Almodóvar canta en La Revuelta y OpenAI alcanza récord</title>
+      <description>Pedro Almodóvar sorprende cantando en directo en La Revuelta y aconseja a David Broncano sobre su próxima entrevista con Santiago Abascal. Mientras tanto, OpenAI alcanza una enorme valoración tras una nueva ronda de financiación y se sitúa entre las empresas más valiosas del mundo. En el ámbito cultural, Letterboxd es vendida a The New York Times y se anuncian importantes novedades discográficas y cinematográficas.</description>
+      <pubDate>Sat, 07 Nov 2026 07:31:43 +0000</pubDate>
+      <guid isPermaLink="false">8ab62c68-c9ab-4756-b6e9-9124674d1d05</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-07.mp3" length="4465718" type="audio/mpeg" />
+      <itunes:duration>00:06:11</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>6 de noviembre — El Gran Wyoming se jubila y deja El Intermedio</title>
       <description>El Gran Wyoming dejará El Intermedio en enero tras dos décadas y será relevado por Gonzo. Además, The New York Times negocia la compra de Letterboxd por trescientos treinta millones de dólares y U dos anuncia conciertos en España para dos mil veintisiete.</description>
