@@ -3828,5 +3828,40 @@
         "start_ms": 365154
       }
     ]
+  },
+  {
+    "guid": "d8bb94c2-0296-4ac2-b7df-98b1a38e9c6d",
+    "title": "8 de noviembre — Nuevos frentes en televisión y el futuro de Tesla",
+    "description": "La televisión nacional afronta polémicas y nuevos estrenos mientras Elon Musk anuncia el fin del Cybertruck para dar paso al Cybercab. Además, la actualidad cultural y cinematográfica repasa la música reciente y los nombres que suenan para el nuevo agente secreto.",
+    "pub_date": "2026-11-08T07:31:48.561785+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-08.mp3",
+    "file_size": 3953310,
+    "duration_seconds": 328,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17464
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 115224
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 197284
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 283785
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 322508
+      }
+    ]
   }
 ]

@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 07 Nov 2026 11:01:55 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 07:34:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>8 de noviembre — Nuevos frentes en televisión y el futuro de Tesla</title>
+      <description>La televisión nacional afronta polémicas y nuevos estrenos mientras Elon Musk anuncia el fin del Cybertruck para dar paso al Cybercab. Además, la actualidad cultural y cinematográfica repasa la música reciente y los nombres que suenan para el nuevo agente secreto.</description>
+      <pubDate>Sun, 08 Nov 2026 07:31:48 +0000</pubDate>
+      <guid isPermaLink="false">d8bb94c2-0296-4ac2-b7df-98b1a38e9c6d</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-08.mp3" length="3953310" type="audio/mpeg" />
+      <itunes:duration>00:05:28</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>7 de noviembre — Pedro Almodóvar canta en La Revuelta y OpenAI alcanza récord</title>
       <description>Pedro Almodóvar sorprende cantando en directo en La Revuelta y aconseja a David Broncano sobre su próxima entrevista con Santiago Abascal. Mientras tanto, OpenAI alcanza una enorme valoración tras una nueva ronda de financiación y se sitúa entre las empresas más valiosas del mundo. En el ámbito cultural, Letterboxd es vendida a The New York Times y se anuncian importantes novedades discográficas y cinematográficas.</description>
