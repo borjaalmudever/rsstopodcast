@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 08 Nov 2026 07:34:57 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 07:35:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>9 de noviembre — David Broncano entrevista a Santiago Abascal en La revuelta</title>
+      <description>David Broncano recibe a Santiago Abascal en La revuelta en una entrevista que genera gran expectación. Además, Pedro Sánchez rompe su silencio en La última hora de La Séptima con Javier Ruiz. Por su parte, una investigación destapa miles de perfiles pedófilos en TikTok.</description>
+      <pubDate>Mon, 09 Nov 2026 07:31:41 +0000</pubDate>
+      <guid isPermaLink="false">67a6d874-1a07-44e1-b9fd-7d9c964b0c51</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-09.mp3" length="5429971" type="audio/mpeg" />
+      <itunes:duration>00:07:31</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>8 de noviembre — Nuevos frentes en televisión y el futuro de Tesla</title>
       <description>La televisión nacional afronta polémicas y nuevos estrenos mientras Elon Musk anuncia el fin del Cybertruck para dar paso al Cybercab. Además, la actualidad cultural y cinematográfica repasa la música reciente y los nombres que suenan para el nuevo agente secreto.</description>

@@ -3863,5 +3863,40 @@
         "start_ms": 322508
       }
     ]
+  },
+  {
+    "guid": "67a6d874-1a07-44e1-b9fd-7d9c964b0c51",
+    "title": "9 de noviembre — David Broncano entrevista a Santiago Abascal en La revuelta",
+    "description": "David Broncano recibe a Santiago Abascal en La revuelta en una entrevista que genera gran expectación. Además, Pedro Sánchez rompe su silencio en La última hora de La Séptima con Javier Ruiz. Por su parte, una investigación destapa miles de perfiles pedófilos en TikTok.",
+    "pub_date": "2026-11-09T07:31:41.337008+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-09.mp3",
+    "file_size": 5429971,
+    "duration_seconds": 451,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19447
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 138138
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 254262
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 354350
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 445197
+      }
+    ]
   }
 ]
