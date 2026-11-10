@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Mon, 09 Nov 2026 07:35:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 07:36:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>10 de noviembre — Tensa entrevista a Santiago Abascal en La Revuelta</title>
+      <description>La visita de Santiago Abascal a La Revuelta deja un fuerte cruce de declaraciones con David Broncano. Además, Apple lanza una actualización urgente para solucionar vulnerabilidades y Russell Brand es condenado a prisión.</description>
+      <pubDate>Tue, 10 Nov 2026 07:31:51 +0000</pubDate>
+      <guid isPermaLink="false">bca9172d-399d-418a-afbc-39408f7e7283</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-10.mp3" length="4970593" type="audio/mpeg" />
+      <itunes:duration>00:06:53</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>9 de noviembre — David Broncano entrevista a Santiago Abascal en La revuelta</title>
       <description>David Broncano recibe a Santiago Abascal en La revuelta en una entrevista que genera gran expectación. Además, Pedro Sánchez rompe su silencio en La última hora de La Séptima con Javier Ruiz. Por su parte, una investigación destapa miles de perfiles pedófilos en TikTok.</description>

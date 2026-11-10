@@ -3898,5 +3898,40 @@
         "start_ms": 445197
       }
     ]
+  },
+  {
+    "guid": "bca9172d-399d-418a-afbc-39408f7e7283",
+    "title": "10 de noviembre — Tensa entrevista a Santiago Abascal en La Revuelta",
+    "description": "La visita de Santiago Abascal a La Revuelta deja un fuerte cruce de declaraciones con David Broncano. Además, Apple lanza una actualización urgente para solucionar vulnerabilidades y Russell Brand es condenado a prisión.",
+    "pub_date": "2026-11-10T07:31:51.049330+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-10.mp3",
+    "file_size": 4970593,
+    "duration_seconds": 413,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20857
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 101253
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 215188
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 298601
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 406956
+      }
+    ]
   }
 ]
