@@ -3933,5 +3933,40 @@
         "start_ms": 406956
       }
     ]
+  },
+  {
+    "guid": "443f33b8-e5f8-4c23-b213-156c61451007",
+    "title": "11 de noviembre — David Broncano se arrepiente de su entrevista a Santiago Abascal",
+    "description": "David Broncano reconoce que se equivocó al aceptar determinadas condiciones en su encuentro con Santiago Abascal y que tendría que haber utilizado más la comedia. Por otro lado, Verónica Dulanto deja Mediaset España tras más de veinte años para liderar un magacín diario en Telemadrid. Además, Dua Lipa, Tame Impala y Sza encabezarán el festival Coachella en dos mil veintisiete.",
+    "pub_date": "2026-11-11T07:31:44.689026+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-11.mp3",
+    "file_size": 5025818,
+    "duration_seconds": 418,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 22660
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 109351
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 208355
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 322673
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 411549
+      }
+    ]
   }
 ]
