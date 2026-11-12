@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 11 Nov 2026 07:35:24 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 07:37:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>12 de noviembre — Huelga general en la televisión y novedades de Google</title>
+      <description>La huelga general deja sin emisión a la televisión pública y a Canal Sur, mientras Google lanza la aplicación Gemini en Apple CarPlay. Además, Nicolas Cage regresa en el tráiler de Lords of War y Dua Lipa encabeza el cartel del festival Coachella.</description>
+      <pubDate>Thu, 12 Nov 2026 07:32:08 +0000</pubDate>
+      <guid isPermaLink="false">4d007e05-ebb4-4cd5-aa97-554874612668</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-12.mp3" length="5504964" type="audio/mpeg" />
+      <itunes:duration>00:07:38</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>11 de noviembre — David Broncano se arrepiente de su entrevista a Santiago Abascal</title>
       <description>David Broncano reconoce que se equivocó al aceptar determinadas condiciones en su encuentro con Santiago Abascal y que tendría que haber utilizado más la comedia. Por otro lado, Verónica Dulanto deja Mediaset España tras más de veinte años para liderar un magacín diario en Telemadrid. Además, Dua Lipa, Tame Impala y Sza encabezarán el festival Coachella en dos mil veintisiete.</description>

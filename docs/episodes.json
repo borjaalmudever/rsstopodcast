@@ -3968,5 +3968,40 @@
         "start_ms": 411549
       }
     ]
+  },
+  {
+    "guid": "4d007e05-ebb4-4cd5-aa97-554874612668",
+    "title": "12 de noviembre — Huelga general en la televisión y novedades de Google",
+    "description": "La huelga general deja sin emisión a la televisión pública y a Canal Sur, mientras Google lanza la aplicación Gemini en Apple CarPlay. Además, Nicolas Cage regresa en el tráiler de Lords of War y Dua Lipa encabeza el cartel del festival Coachella.",
+    "pub_date": "2026-11-12T07:32:08.092140+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-12.mp3",
+    "file_size": 5504964,
+    "duration_seconds": 458,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 23130
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 116169
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 225727
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 314171
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 451457
+      }
+    ]
   }
 ]
