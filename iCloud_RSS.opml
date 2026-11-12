@@ -27,7 +27,7 @@
 <outline htmlUrl="https://www.eldiario.es/vertele/" xmlUrl="https://vertele.eldiario.es/rss/" text="Vertele" title="Vertele" type="rss" />
 <outline text="EL PAÍS" title="EL PAÍS" htmlUrl="https://elpais.com" xmlUrl="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/television/portada" type="rss" />
 <outline xmlUrl="https://www.elperiodico.com/es/rss/yotele/rss.xml" title="Yotele" type="rss" text="Yotele" htmlUrl="https://www.elperiodico.com/es/" />
-<outline htmlUrl="https://barloventocomunicacion.es" title="Barlovento Comunicación" xmlUrl="https://barloventocomunicacion.es/feed/" text="Barlovento Comunicación" type="rss" />
+<outline htmlUrl="https://www.dos30.com" title="Dos Treinta" xmlUrl="https://feeds.feedburner.com/d0s30" text="Dos Treinta" type="rss" />
 </outline>
 <outline text="NOTICIAS DE INTERNET" title="NOTICIAS DE INTERNET">
 <outline text="Kuration" title="Kuration" type="rss" xmlUrl="https://www.kuration.email/feed" htmlUrl="https://www.kuration.email" />
