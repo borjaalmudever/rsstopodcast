@@ -48,6 +48,7 @@ import uuid
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import feedparser
 import requests
@@ -326,6 +327,17 @@ TRANSICIONES = [
     "Seguimos con {folder}.",
 ]
 
+# ---------- Sección de televisión (audiencias de Dos30) ----------
+TV_FOLDER = "TELEVISIÓN"
+DOS30_FEED_URL = "https://feeds.feedburner.com/d0s30"
+TRANSICION_TV_AUDIENCIA = "Comenzamos con los últimos datos de audiencias en televisión."
+TRANSICION_TV_NOVEDADES = "Comenzamos con las novedades de televisión."
+
+
+def _es_dos30(url: str) -> bool:
+    return (url or "").strip().rstrip("/").lower() == DOS30_FEED_URL.rstrip("/").lower()
+TZ_LOCAL = ZoneInfo("Europe/Madrid")
+
 # Nombres de fuente que se pronuncian mal por defecto en TTS: se sustituyen
 # por una versión fonética antes de pasarlos a Gemini, así el guion ya los
 # cita correctamente.
@@ -497,6 +509,63 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
     # Se recorta solo para no reventar el tamaño del prompt; la SELECCIÓN de
     # cuáles importan de verdad la hace Gemini, no este corte por fecha.
     return entries[:max_entries]
+
+
+def _titulo_menciona_fecha(titulo: str, dia) -> bool:
+    """True si el título lleva la fecha `dia` (un date) en alguno de los
+    formatos habituales: '10 de noviembre', '10/11', '10/11/2026', '2026-11-10'."""
+    t = titulo.lower()
+    d, m = dia.day, dia.month
+    patrones = (
+        rf"(?<!\d){d}\s+de\s+{MESES_ES[m - 1]}\b",
+        rf"(?<!\d){d:02d}/{m:02d}(?:/\d{{2,4}})?(?!\d)",
+        rf"(?<!\d){d}/{m}(?:/\d{{2,4}})?(?!\d)",
+        rf"{dia.year}-{m:02d}-{d:02d}",
+    )
+    return any(re.search(p, t) for p in patrones)
+
+
+def fetch_audiencia_dos30(now: datetime):
+    """Devuelve la última entrada de Dos30 solo si está publicada en las
+    últimas 24h y su título lleva la fecha del día anterior (hora de Madrid).
+    En cualquier otro caso devuelve None."""
+    try:
+        parsed = feedparser.parse(DOS30_FEED_URL, agent=USER_AGENT_RSS)
+    except Exception as e:
+        print(f"  [aviso] no se pudo leer Dos30: {e}")
+        return None
+
+    fechadas = []
+    for entry in parsed.entries:
+        pub = None
+        for key in ("published_parsed", "updated_parsed"):
+            if getattr(entry, key, None):
+                pub = datetime(*entry[key][:6], tzinfo=timezone.utc)
+                break
+        if pub:
+            fechadas.append((pub, entry))
+    if not fechadas:
+        print("  [aviso] Dos30 no tiene entradas con fecha")
+        return None
+
+    pub, ultima = max(fechadas, key=lambda x: x[0])
+    titulo = ultima.get("title", "") or ""
+
+    if now - pub > timedelta(hours=24):
+        print(f"  [aviso] la última entrada de Dos30 es de hace más de 24h ({titulo!r}), no se usa")
+        return None
+
+    ayer = now.astimezone(TZ_LOCAL).date() - timedelta(days=1)
+    if not _titulo_menciona_fecha(titulo, ayer):
+        print(f"  [aviso] el título de Dos30 no lleva la fecha de ayer ({titulo!r}), no se usa")
+        return None
+
+    return {
+        "feed": "Dos30 (AUDIENCIAS DE AYER)",
+        "title": titulo,
+        "summary": strip_html(getattr(ultima, "summary", "") or getattr(ultima, "description", ""))[:600],
+        "published": pub,
+    }
 
 
 # ---------- 3. Efeméride real del día (Wikipedia) ----------
@@ -756,32 +825,12 @@ EJEMPLO_SEGMENTO = """El Confidencial cuenta que la compañía cerrará su plant
 
 
 def build_folder_segment(folder_name: str, entries: list, client, word_budget: int,
-                          dt: datetime = None, claude_client=None) -> str:
+                          dt: datetime = None, claude_client=None,
+                          audiencia_tv: bool = False) -> str:
     if not entries:
         return ""
 
     ref_dt_articulos = dt or datetime.now(timezone.utc)
-
-    if folder_name.strip().upper() in {"TV", "TELEVISIÓN", "TELEVISION"}:
-        # Pedirle al modelo en el prompt que ignore audiencias desfasadas no
-        # ha bastado en la práctica: se ha visto colar datos de hace dos días
-        # (con la etiqueta "de ayer" mal puesta, o incluso admitiendo él
-        # mismo "el pasado [día]" y citándolos de todos modos). La única
-        # garantía real es que esos artículos ni siquiera lleguen a los
-        # materiales cuando no son recientes, así que se filtran aquí.
-        def _es_audiencia(e):
-            texto = f"{e.get('title', '')} {e.get('summary', '')}".lower()
-            return (e.get("feed", "").strip() == "Barlovento Comunicación"
-                     or re.search(r"audiencia|cuota de pantalla|espectadores|"
-                                  r"l[ií]der de audiencia|lo m[aá]s visto", texto))
-
-        def _vigente(e):
-            pub = e.get("published")
-            return pub is not None and (ref_dt_articulos - pub) <= timedelta(hours=8)
-
-        entries = [e for e in entries if not _es_audiencia(e) or _vigente(e)]
-        if not entries:
-            return ""
 
     def _fecha_articulo(e):
         pub = e.get("published")
@@ -808,41 +857,30 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
     # "TV" a secas hacía que este bloque no se aplicara nunca.
     if folder_name.strip().upper() in {"TV", "TELEVISIÓN", "TELEVISION"}:
         ref_dt = dt or datetime.now(timezone.utc)
-        hoy_txt = f"{DIAS_ES[ref_dt.weekday()]} {ref_dt.day} de {MESES_ES[ref_dt.month - 1]}"
-        ayer_dt = ref_dt - timedelta(days=1)
-        ayer_txt = f"{DIAS_ES[ayer_dt.weekday()]} {ayer_dt.day} de {MESES_ES[ayer_dt.month - 1]}"
-        instruccion_especifica = f"""
+        ayer = ref_dt.astimezone(TZ_LOCAL).date() - timedelta(days=1)
+        ayer_txt = f"{DIAS_ES[ayer.weekday()]} {ayer.day} de {MESES_ES[ayer.month - 1]}"
+        if audiencia_tv:
+            instruccion_especifica = f"""
 PRIORIDADES DE ESTA SECCIÓN
-- Las audiencias de televisión hablan siempre de UN día concreto: el que
-  describen los propios datos, no el día en que se publicó el artículo (no
-  asumas que publicado hoy significa automáticamente "de ayer"; el desfase
-  entre publicación y dato real puede ser mayor, sobre todo en fin de
-  semana). Identifica ese día a partir del texto del artículo (el título o
-  el resumen lo dicen explícitamente: "este viernes", "la jornada de
-  ayer", un día de la semana concreto...).
-- Solo puedes abrir o mencionar el ángulo de audiencias si se cumplen las
-  DOS condiciones a la vez: (1) el día que describen los datos es
-  exactamente ayer ({ayer_txt}), ni antes ni el propio hoy ({hoy_txt}); y
-  (2) el artículo se publicó hace 8 horas o menos (mira la anotación
-  "(hace Xh)" de cada material). Si se cumplen, puedes llamar a esos datos
-  "de ayer" y abrir el segmento con ellos, antes que con cualquier otra
-  noticia de televisión.
-- Si el día que describen los datos no es ayer ({ayer_txt}) —por ejemplo
-  porque hoy es fin de semana y el dato más reciente es de dos o más días
-  atrás—, o si el artículo no se publicó en las últimas 8 horas, OMITE POR
-  COMPLETO el ángulo de audiencias: no lo menciones ni como apertura ni
-  como noticia secundaria, y monta la sección solo con las demás noticias
-  de televisión disponibles. Mal: escribir "lo más visto de ayer viernes"
-  cuando hoy es domingo (viernes no es ayer, es de hace dos días: la
-  frase se contradice a sí misma). Bien: si el dato más reciente es del
-  viernes y hoy es domingo, no se menciona ninguna cifra de audiencia.
-- Cuando sí haya un dato válido de ayer, cita explícitamente la cifra
-  (share o espectadores) de estos programas siempre que la cifra aparezca
-  escrita en los resúmenes de arriba: "Y ahora Sonsoles", "YAS Verano",
-  "Directo al grano", "Malas lenguas".
-- De esa lista, hablas solo de los programas cuya cifra puedas leer
-  literalmente en los materiales. Los que no tengan dato disponible se
-  quedan fuera del guion.
+- El PRIMER material es la audiencia de ayer ({ayer_txt}) publicada por Dos30.
+  El segmento empieza con ella, sin saludos, justo después de la transición.
+- Cita explícitamente la cifra (share o espectadores) de cada programa cuya
+  cifra aparezca escrita en ese material, como "Y ahora Sonsoles", "YAS Verano",
+  "Directo al grano" o "Malas lenguas" si salen. Puedes referirte a esos datos
+  como "de ayer". Habla solo de los programas cuya cifra puedas leer
+  literalmente en ese material; los que no tengan dato se quedan fuera.
+- Después de la audiencia, sigue con el resto de noticias de televisión, por
+  relevancia y dentro de la extensión prevista. Si hay menos noticias de las
+  indicadas, usa las que haya.
+- Las únicas cifras de audiencia que cites son las de ese primer material.
+"""
+        else:
+            instruccion_especifica = """
+PRIORIDADES DE ESTA SECCIÓN
+- No hay datos de audiencia de ayer en esta sección: empieza directamente con
+  la noticia más relevante de televisión.
+- No cites cifras de audiencia, share ni espectadores.
+- Si hay menos noticias de las indicadas, usa las que haya.
 """
     elif folder_name.strip().upper() == "CULTURA POP":
         instruccion_especifica = """
@@ -1250,11 +1288,25 @@ def main():
     folder_entries = {}
 
     for folder_name, feeds in folders.items():
+        if folder_name == TV_FOLDER:
+            # El feed de Dos30 se trata aparte (audiencia de ayer, ver abajo)
+            feeds = [(t, u) for t, u in feeds if not _es_dos30(u)]
         print(f"== {folder_name} ({len(feeds)} feeds) ==")
         entries = fetch_recent_entries(feeds, args.hours)
         print(f"  {len(entries)} artículos disponibles en las últimas {args.hours}h")
         if entries:
             folder_entries[folder_name] = entries
+
+    # --- Televisión: la última entrada de Dos30 va primero, solo si es de
+    # ayer y está publicada en las últimas 24h. Después, el resto de noticias
+    # de televisión (ya recogidas arriba, sin el feed de Dos30). ---
+    audiencia_tv = None
+    if TV_FOLDER in folders:
+        audiencia_tv = fetch_audiencia_dos30(now)
+        if audiencia_tv:
+            folder_entries[TV_FOLDER] = [audiencia_tv] + folder_entries.get(TV_FOLDER, [])
+        else:
+            print("Sin audiencias de ayer en Dos30 publicadas en las últimas 24h.")
 
     if not folder_entries:
         print("Sin novedades en ninguna carpeta hoy. No se genera episodio.")
@@ -1289,7 +1341,8 @@ def main():
     for folder_name, entries in folder_entries.items():
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
         cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name],
-                                      dt=now, claude_client=claude_client)
+                                      dt=now, claude_client=claude_client,
+                                      audiencia_tv=(folder_name == TV_FOLDER and audiencia_tv is not None))
         if not cuerpo.strip():
             # Sin cuerpo, la sección sería solo la transición seguida de
             # música: mejor dejarla fuera del episodio que emitir el hueco.
@@ -1298,12 +1351,14 @@ def main():
         # La transición se decide DESPUÉS de confirmar que la sección tiene
         # contenido: así "Empezamos con..." siempre cae en la sección que de
         # verdad abre el episodio, no en una que luego resulte vacía.
-        if primera_seccion:
+        if folder_name == TV_FOLDER:
+            transicion = TRANSICION_TV_AUDIENCIA if audiencia_tv else TRANSICION_TV_NOVEDADES
+        elif primera_seccion:
             transicion = f"Empezamos con las novedades sobre {folder_name}."
-            primera_seccion = False
         else:
             transicion = TRANSICIONES[transicion_idx % len(TRANSICIONES)].format(folder=folder_name)
             transicion_idx += 1
+        primera_seccion = False
         segment_texts[folder_name] = f"{transicion} {cuerpo}"
 
     if not segment_texts:
