@@ -329,7 +329,7 @@ TRANSICIONES = [
 
 # ---------- Sección de televisión (audiencias de Dos30) ----------
 TV_FOLDER = "TELEVISIÓN"
-DOS30_FEED_URL = "https://feeds.feedburner.com/d0s30"
+DOS30_FEED_URL = "https://script.google.com/macros/s/AKfycbz4BH6lTQB20IAO4hlLsg1cb5bzLdVKQodfRkmsKsrBD7eUa3J9zRcwLli85mEuOycjVA/exec"
 TRANSICION_TV_AUDIENCIA = "Arrancamos con últimos datos de audiencias en televisión, proporcionados por Dos Treinta."
 TRANSICION_TV_NOVEDADES = "Comenzamos con las novedades de televisión."
 
