@@ -33,6 +33,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import feedparser
+import requests
 
 import resumen_feeds as rf
 
@@ -98,7 +99,17 @@ def fetch_substack_entries(feeds: list, hours: int) -> list:
     results = []
     for feed_title, url in feeds:
         try:
-            parsed = feedparser.parse(url, agent=rf.USER_AGENT_RSS)
+            r = requests.get(url, timeout=30, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+            })
+            print(f"  [feed] {feed_title}: HTTP {r.status_code}, {len(r.content)} bytes, "
+                  f"tipo {r.headers.get('content-type', '?')}")
+            r.raise_for_status()
+            parsed = feedparser.parse(r.content)
+            if not parsed.entries:
+                print(f"  [aviso] {feed_title}: 0 entradas (bozo={parsed.bozo})")
         except Exception as e:
             print(f"  [aviso] no se pudo leer {feed_title}: {e}")
             continue
