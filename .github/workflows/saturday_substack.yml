@@ -33,7 +33,7 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install feedparser requests google-genai anthropic mutagen
+          pip install feedparser requests google-genai anthropic mutagen curl_cffi
           sudo apt-get update -y && sudo apt-get install -y ffmpeg
 
       - name: Generar edición Substack
