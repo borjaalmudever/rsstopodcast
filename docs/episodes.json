@@ -4003,5 +4003,40 @@
         "start_ms": 451457
       }
     ]
+  },
+  {
+    "guid": "77834ea8-c11e-4ee6-aa55-19170f5e7eff",
+    "title": "13 de noviembre — Asraf Beno gana Supervivientes All Stars tres en Telecinco",
+    "description": "Asraf Beno se impone a Yola Berrocal en la gran final de Supervivientes All Stars tres y consigue un premio de cincuenta mil euros. Además, Rosalía triunfa en los Latin Grammy al ganar el Álbum del año por su trabajo Lux. Por otro lado, Microsoft sufre una caída global de sus servicios y Jensen Huang dimite como consejero delegado de Nvidia.",
+    "pub_date": "2026-11-13T07:46:54.853884+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-13.mp3",
+    "file_size": 5647736,
+    "duration_seconds": 469,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 24018
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 151241
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 252533
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 362859
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 463336
+      }
+    ]
   }
 ]

@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 12 Nov 2026 07:37:57 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 07:50:54 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>13 de noviembre — Asraf Beno gana Supervivientes All Stars tres en Telecinco</title>
+      <description>Asraf Beno se impone a Yola Berrocal en la gran final de Supervivientes All Stars tres y consigue un premio de cincuenta mil euros. Además, Rosalía triunfa en los Latin Grammy al ganar el Álbum del año por su trabajo Lux. Por otro lado, Microsoft sufre una caída global de sus servicios y Jensen Huang dimite como consejero delegado de Nvidia.</description>
+      <pubDate>Fri, 13 Nov 2026 07:46:54 +0000</pubDate>
+      <guid isPermaLink="false">77834ea8-c11e-4ee6-aa55-19170f5e7eff</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-13.mp3" length="5647736" type="audio/mpeg" />
+      <itunes:duration>00:07:49</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>12 de noviembre — Huelga general en la televisión y novedades de Google</title>
       <description>La huelga general deja sin emisión a la televisión pública y a Canal Sur, mientras Google lanza la aplicación Gemini en Apple CarPlay. Además, Nicolas Cage regresa en el tráiler de Lords of War y Dua Lipa encabeza el cartel del festival Coachella.</description>
