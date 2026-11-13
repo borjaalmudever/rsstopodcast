@@ -4038,5 +4038,29 @@
         "start_ms": 463336
       }
     ]
+  },
+  {
+    "guid": "e6a619ee-f19a-46c9-8a95-6deae56eac75",
+    "title": "13 de noviembre — EDICIÓN SUBSTACK",
+    "description": "Repasamos la última publicación de Minimalismos sobre la experiencia tras un año pagando la suscripción Mail Plus de Proton. Se valora que Proton Mail con dominio propio es muy recomendable si buscas un correo sin seguimientos. Sin embargo, se advierte que probar otras aplicaciones de la compañía como Drive o Calendar resultó ser un desastre.",
+    "pub_date": "2026-11-13T09:55:18.692826+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-13.mp3",
+    "file_size": 1042797,
+    "duration_seconds": 86,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 14080
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 79990
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]

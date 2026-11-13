@@ -14,9 +14,19 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 13 Nov 2026 07:50:54 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 09:56:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>13 de noviembre — EDICIÓN SUBSTACK</title>
+      <description>Repasamos la última publicación de Minimalismos sobre la experiencia tras un año pagando la suscripción Mail Plus de Proton. Se valora que Proton Mail con dominio propio es muy recomendable si buscas un correo sin seguimientos. Sin embargo, se advierte que probar otras aplicaciones de la compañía como Drive o Calendar resultó ser un desastre.</description>
+      <pubDate>Fri, 13 Nov 2026 09:55:18 +0000</pubDate>
+      <guid isPermaLink="false">e6a619ee-f19a-46c9-8a95-6deae56eac75</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-13.mp3" length="1042797" type="audio/mpeg" />
+      <itunes:duration>00:01:26</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>13 de noviembre — Asraf Beno gana Supervivientes All Stars tres en Telecinco</title>
       <description>Asraf Beno se impone a Yola Berrocal en la gran final de Supervivientes All Stars tres y consigue un premio de cincuenta mil euros. Además, Rosalía triunfa en los Latin Grammy al ganar el Álbum del año por su trabajo Lux. Por otro lado, Microsoft sufre una caída global de sus servicios y Jensen Huang dimite como consejero delegado de Nvidia.</description>
