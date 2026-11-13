@@ -35,6 +35,13 @@ from pathlib import Path
 import feedparser
 import requests
 
+# curl_cffi imita la huella TLS de Chrome; Substack bloquea con 403 las peticiones
+# que parecen de un script (como las de GitHub Actions) aunque lleven cabeceras de navegador.
+try:
+    from curl_cffi import requests as cffi_requests
+except ImportError:
+    cffi_requests = None
+
 import resumen_feeds as rf
 
 try:
@@ -99,11 +106,14 @@ def fetch_substack_entries(feeds: list, hours: int) -> list:
     results = []
     for feed_title, url in feeds:
         try:
-            r = requests.get(url, timeout=30, headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-                "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-            })
+            if cffi_requests is not None:
+                r = cffi_requests.get(url, timeout=30, impersonate="chrome")
+            else:
+                r = requests.get(url, timeout=30, headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                    "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+                })
             print(f"  [feed] {feed_title}: HTTP {r.status_code}, {len(r.content)} bytes, "
                   f"tipo {r.headers.get('content-type', '?')}")
             r.raise_for_status()
