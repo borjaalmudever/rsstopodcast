@@ -30,20 +30,20 @@
 <outline htmlUrl="https://www.dos30.com" title="Dos Treinta" xmlUrl="https://script.google.com/macros/s/AKfycbz4BH6lTQB20IAO4hlLsg1cb5bzLdVKQodfRkmsKsrBD7eUa3J9zRcwLli85mEuOycjVA/exec" text="Dos Treinta" type="rss" />
 </outline>
 <outline text="NOTICIAS DE INTERNET" title="NOTICIAS DE INTERNET">
-<outline text="Kuration" title="Kuration" type="rss" xmlUrl="https://www.kuration.email/feed" htmlUrl="https://www.kuration.email" />
+<outline text="Kuration" title="Kuration" type="rss" xmlUrl="https://feeds.feedburner.com/kuration/RaZeKV3vbtR" htmlUrl="https://www.kuration.email" />
 </outline>
 <outline text="HERRAMIENTAS ONLINE" title="HERRAMIENTAS ONLINE">
-<outline text="Good Tools" title="Good Tools" type="rss" xmlUrl="https://goodtools.substack.com/feed" htmlUrl="https://goodtools.substack.com" />
-<outline text="Wonder Tools" title="Wonder Tools" type="rss" xmlUrl="https://wondertools.substack.com/feed" htmlUrl="https://wondertools.substack.com" />
+<outline text="Good Tools" title="Good Tools" type="rss" xmlUrl="https://feeds.feedburner.com/substack/66bW8IibNjK" htmlUrl="https://goodtools.substack.com" />
+<outline text="Wonder Tools" title="Wonder Tools" type="rss" xmlUrl="https://feeds.feedburner.com/substack/UPDwA8f4fgw" htmlUrl="https://wondertools.substack.com" />
 </outline>
 <outline text="REFLEXIONES DIGITALES" title="REFLEXIONES DIGITALES">
-<outline text="Escape the Algorythm" title="Escape the Algorythm" type="rss" xmlUrl="https://escapethealgorithm.substack.com/feed" htmlUrl="https://escapethealgorithm.substack.com" />
-<outline text="Górgola Digital" title="Górgola Digital" type="rss" xmlUrl="https://gargoladigital.substack.com/feed" htmlUrl="https://gargoladigital.substack.com" />
-<outline text="Hemorragia Digital" title="Hemorragia Digital" type="rss" xmlUrl="https://bloodygirls.substack.com/feed" htmlUrl="https://bloodygirls.substack.com" />
-<outline text="Minimalismos" title="Minimalismos" type="rss" xmlUrl="https://www.edgarotero.es/feed" htmlUrl="https://www.edgarotero.es" />
-<outline text="Truffle Season" title="Truffle Season" type="rss" xmlUrl="https://truffleseason.substack.com/feed" htmlUrl="https://truffleseason.substack.com" />
-<outline text="One Hit Wonder" title="One Hit Wonder" type="rss" xmlUrl="https://onehitwonders.substack.com/feed" htmlUrl="https://onehitwonders.substack.com" />
-<outline text="Las Personas y el Momento" title="Las Personas y el Momento" type="rss" xmlUrl="https://annapacheco.substack.com/feed" htmlUrl="https://annapacheco.substack.com" />
+<outline text="Escape the Algorythm" title="Escape the Algorythm" type="rss" xmlUrl="https://feeds.feedburner.com/substack/4tcJs5eg5Fd" htmlUrl="https://escapethealgorithm.substack.com" />
+<outline text="Górgola Digital" title="Górgola Digital" type="rss" xmlUrl="https://feeds.feedburner.com/substack/NUyDtgY1u5Y" htmlUrl="https://gargoladigital.substack.com" />
+<outline text="Hemorragia Digital" title="Hemorragia Digital" type="rss" xmlUrl="https://feeds.feedburner.com/substack/2EACAaikkn5" htmlUrl="https://bloodygirls.substack.com" />
+<outline text="Minimalismos" title="Minimalismos" type="rss" xmlUrl="https://feeds.feedburner.com/edgarotero/oQJNNxV8dGf" htmlUrl="https://www.edgarotero.es" />
+<outline text="Truffle Season" title="Truffle Season" type="rss" xmlUrl="https://feeds.feedburner.com/substack/qEgyBUpRIul" htmlUrl="https://truffleseason.substack.com" />
+<outline text="One Hit Wonder" title="One Hit Wonder" type="rss" xmlUrl="https://feeds.feedburner.com/substack/9eetg7YKiZj" htmlUrl="https://onehitwonders.substack.com" />
+<outline text="Las Personas y el Momento" title="Las Personas y el Momento" type="rss" xmlUrl="https://feeds.feedburner.com/substack/E70ssXnib68" htmlUrl="https://annapacheco.substack.com" />
 </outline>
 </body>
 </opml>
