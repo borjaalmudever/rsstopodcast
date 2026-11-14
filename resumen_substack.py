@@ -22,14 +22,17 @@ música); añadirla más adelante es un cambio local a este fichero.
 """
 
 import argparse
+import functools
 import json
 import math
 import os
 import re
 import subprocess
 import sys
+import time
 import uuid
 from datetime import datetime, timedelta, timezone
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import feedparser
@@ -58,6 +61,7 @@ except ImportError:
 
 
 SUBSTACK_SECTION_ORDER = ["NOTICIAS DE INTERNET", "HERRAMIENTAS ONLINE", "REFLEXIONES DIGITALES"]
+SECCIONES_TEXTO = ("NOTICIAS DE INTERNET", "HERRAMIENTAS ONLINE")
 
 # Pausa de silencio entre bloques de voz (y entre música y voz) al encadenar
 # el episodio. Sin música de fondo bajo las secciones esta primera versión,
@@ -96,6 +100,51 @@ CONTENIDO
 
 # ---------- Substacks: última publicación por fuente, con autor y texto largo ----------
 
+def _descargar_feed(feed_title: str, url: str):
+    """Descarga un feed. Devuelve (título, contenido) o (título, None) si falla."""
+    try:
+        if cffi_requests is not None:
+            r = cffi_requests.get(url, timeout=30, impersonate="chrome")
+        else:
+            r = requests.get(url, timeout=30, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+            })
+        print(f"  [feed] {feed_title}: HTTP {r.status_code}, {len(r.content)} bytes, "
+              f"tipo {r.headers.get('content-type', '?')}")
+        r.raise_for_status()
+        return feed_title, r.content
+    except Exception as e:
+        print(f"  [aviso] no se pudo leer {feed_title}: {e}")
+        return feed_title, None
+
+
+def _fecha_entrada(entry):
+    """Fecha de publicación de una entrada (UTC), o None si no tiene."""
+    for key in ("published_parsed", "updated_parsed"):
+        if getattr(entry, key, None):
+            return datetime(*entry[key][:6], tzinfo=timezone.utc)
+    return None
+
+
+def _entrada_substack(entry, feed_title: str, published: datetime) -> dict:
+    """Convierte una entrada de feedparser en el dict que usa el guion."""
+    content_list = getattr(entry, "content", None)
+    if content_list:
+        contenido = rf.strip_html(content_list[0].get("value", ""))
+    else:
+        contenido = rf.strip_html(getattr(entry, "summary", "") or getattr(entry, "description", ""))
+    autor = entry.get("author") or None
+    return {
+        "feed": rf.aplicar_pronunciaciones(feed_title),
+        "title": entry.get("title", "Sin título"),
+        "author": rf.aplicar_pronunciaciones(autor) if autor else None,
+        "content": contenido[:4000],
+        "published": published,
+    }
+
+
 def fetch_substack_entries(feeds: list, hours: int) -> list:
     """Para cada fuente, la entrada más reciente publicada dentro de `hours`
     (si no hay ninguna, esa fuente se omite). A diferencia de
@@ -103,50 +152,25 @@ def fetch_substack_entries(feeds: list, hours: int) -> list:
     aquí interesa UNA sola publicación por fuente con su autor y el texto
     más completo posible, para poder comentarla con detalle."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    # Las descargas son I/O puro: se hacen en paralelo. Parseo y selección van en orden.
+    with ThreadPoolExecutor(max_workers=min(8, len(feeds))) as pool:
+        descargas = list(pool.map(lambda f: _descargar_feed(*f), feeds))
+
     results = []
-    for feed_title, url in feeds:
-        try:
-            if cffi_requests is not None:
-                r = cffi_requests.get(url, timeout=30, impersonate="chrome")
-            else:
-                r = requests.get(url, timeout=30, headers={
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                                  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-                    "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-                })
-            print(f"  [feed] {feed_title}: HTTP {r.status_code}, {len(r.content)} bytes, "
-                  f"tipo {r.headers.get('content-type', '?')}")
-            r.raise_for_status()
-            parsed = feedparser.parse(r.content)
-            if not parsed.entries:
-                print(f"  [aviso] {feed_title}: 0 entradas (bozo={parsed.bozo})")
-        except Exception as e:
-            print(f"  [aviso] no se pudo leer {feed_title}: {e}")
+    for feed_title, contenido in descargas:
+        if contenido is None:
             continue
+        parsed = feedparser.parse(contenido)
+        if not parsed.entries:
+            print(f"  [aviso] {feed_title}: 0 entradas (bozo={parsed.bozo})")
 
         mejor = None
         for entry in parsed.entries:
-            published = None
-            for key in ("published_parsed", "updated_parsed"):
-                if getattr(entry, key, None):
-                    published = datetime(*entry[key][:6], tzinfo=timezone.utc)
-                    break
+            published = _fecha_entrada(entry)
             if not published or published < cutoff:
                 continue
             if mejor is None or published > mejor["published"]:
-                content_list = getattr(entry, "content", None)
-                if content_list:
-                    contenido = rf.strip_html(content_list[0].get("value", ""))
-                else:
-                    contenido = rf.strip_html(getattr(entry, "summary", "") or getattr(entry, "description", ""))
-                autor = entry.get("author") or None
-                mejor = {
-                    "feed": rf.aplicar_pronunciaciones(feed_title),
-                    "title": entry.get("title", "Sin título"),
-                    "author": rf.aplicar_pronunciaciones(autor) if autor else None,
-                    "content": contenido[:4000],
-                    "published": published,
-                }
+                mejor = _entrada_substack(entry, feed_title, published)
         if mejor:
             results.append(mejor)
         else:
@@ -205,12 +229,21 @@ Responde solo con el texto del comentario."""
         return rf.normalize_for_tts(f"Esta semana {source_name} ha publicado {entry['title']}.")
 
 
-# ---------- Audio: silencio y encadenado con pausas ----------
+# ---------- Audio: silencio, reintentos de TTS y encadenado con pausas ----------
 
-def _make_silence(duration_sec: float, out_path: Path):
+def _slug(texto: str) -> str:
+    """Nombre seguro para ficheros temporales."""
+    return re.sub(r"[^\w\-]+", "_", texto)
+
+
+@functools.lru_cache(maxsize=None)
+def _silencio(duracion_sec: float, tmp_dir: str) -> Path:
+    """Genera una sola vez por duración el fichero de silencio y devuelve su ruta."""
+    ruta = Path(tmp_dir) / f"_silencio_{str(duracion_sec).replace('.', '_')}.mp3"
     cmd = ["ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
-           "-t", str(duration_sec), "-c:a", "libmp3lame", "-b:a", "96k", str(out_path)]
+           "-t", str(duracion_sec), "-c:a", "libmp3lame", "-b:a", "96k", str(ruta)]
     subprocess.run(cmd, check=True, capture_output=True)
+    return ruta
 
 
 def concat_with_pauses(paths: list, pause_sec: float, out_path: Path, tmp_dir: Path):
@@ -221,14 +254,30 @@ def concat_with_pauses(paths: list, pause_sec: float, out_path: Path, tmp_dir: P
     if len(paths) == 1:
         rf.concatenate_segments(paths, out_path)
         return
-    silence_path = tmp_dir / "_silencio.mp3"
-    _make_silence(pause_sec, silence_path)
-    interleaved = []
+    silencio = _silencio(pause_sec, str(tmp_dir))
+    intercalados = []
     for i, p in enumerate(paths):
-        interleaved.append(p)
+        intercalados.append(p)
         if i < len(paths) - 1:
-            interleaved.append(silence_path)
-    rf.concatenate_segments(interleaved, out_path)
+            intercalados.append(silencio)
+    rf.concatenate_segments(intercalados, out_path)
+
+
+def _tts_con_reintentos(texto: str, ruta_salida: Path, api_key: str, modelo: str,
+                        reference_id: str, etiqueta: str):
+    """Llama a Fish Audio y reintenta con espera creciente ante 503/502/504/500/429
+    (saturación temporal del servicio). Cualquier otro error se propaga."""
+    for intento in range(1, 6):
+        try:
+            rf.text_to_speech_fish(texto, ruta_salida, api_key, model=modelo, reference_id=reference_id)
+            return
+        except requests.exceptions.HTTPError as e:
+            codigo = getattr(e.response, "status_code", None)
+            if codigo not in (429, 500, 502, 503, 504) or intento == 5:
+                raise
+            espera = 10 * intento
+            print(f"  [aviso] Fish Audio {codigo} en '{etiqueta}', reintento {intento}/4 en {espera}s")
+            time.sleep(espera)
 
 
 # ---------- Main ----------
@@ -279,10 +328,11 @@ def main():
     episode_image_path = docs_dir / args.episode_image
     if not episode_image_path.exists():
         sys.exit(f"Falta el episode art en {episode_image_path}")
-    episode_image_url = f"{args.base_url.rstrip('/')}/{args.episode_image}"
+    base_url = args.base_url.rstrip("/")
+    episode_image_url = f"{base_url}/{args.episode_image}"
 
     episodes_path = docs_dir / "episodes.json"
-    episodes = json.loads(episodes_path.read_text()) if episodes_path.exists() else []
+    episodes = json.loads(episodes_path.read_text(encoding="utf-8")) if episodes_path.exists() else []
 
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     claude_client = None
@@ -293,14 +343,13 @@ def main():
     print(f"Modelo de guion: {rf.GEMINI_MODEL} (temperatura {rf.GEMINI_TEMPERATURE})")
 
     folders = rf.parse_opml_by_folder(args.opml_path)
-    folders = {k: v for k, v in folders.items() if k in SUBSTACK_SECTION_ORDER}
 
     now = datetime.now(timezone.utc)
     date_str = now.strftime("%Y-%m-%d")
 
     # --- NOTICIAS DE INTERNET / HERRAMIENTAS ONLINE: como una sección normal del diario ---
     folder_entries = {}
-    for folder_name in ("NOTICIAS DE INTERNET", "HERRAMIENTAS ONLINE"):
+    for folder_name in SECCIONES_TEXTO:
         feeds = folders.get(folder_name, [])
         if not feeds:
             continue
@@ -359,7 +408,7 @@ def main():
 
     # --- Segmentos de texto: NOTICIAS DE INTERNET / HERRAMIENTAS ONLINE ---
     segment_texts = {}
-    for folder_name in ("NOTICIAS DE INTERNET", "HERRAMIENTAS ONLINE"):
+    for folder_name in SECCIONES_TEXTO:
         if folder_name not in folder_entries:
             continue
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
@@ -379,7 +428,7 @@ def main():
     if reflexiones_entries:
         apertura_seccion = _abre_seccion("REFLEXIONES DIGITALES")
         reflexiones_voice_specs.append((apertura_seccion, "A"))
-        reflexiones_clip_texts.append(apertura_seccion)
+        reflexiones_clip_texts.append(f"[A] {apertura_seccion}")
         for i, entry in enumerate(reflexiones_entries):
             voz = "B" if i % 2 == 0 else "A"
             fuente = entry["feed"]
@@ -408,8 +457,7 @@ def main():
     episode_title = f"{now.day} de {rf.MESES_ES[now.month - 1]} — EDICIÓN SUBSTACK"
     episode_description = meta.get("descripcion", "Resumen de las publicaciones de Substack de la semana.")
 
-    full_transcript = "\n\n".join(partes_transcripcion)
-    (transcripts_dir / f"{date_str}_substack.txt").write_text(full_transcript, encoding="utf-8")
+    (transcripts_dir / f"{date_str}_substack.txt").write_text(guion_texto, encoding="utf-8")
 
     # --- Voz ---
     print("Generando audio con Fish Audio...")
@@ -417,10 +465,10 @@ def main():
     voice_ids = {"A": args.fish_reference_id, "B": args.fish_reference_id_2}
 
     def _synth(text, voz, idx, tag):
-        safe_tag = re.sub(r"[^\w\-]+", "_", tag)
+        safe_tag = _slug(tag)
         raw_path = tmp_dir / f"{safe_tag}_{idx}_raw.mp3"
         norm_path = tmp_dir / f"{safe_tag}_{idx}.mp3"
-        rf.text_to_speech_fish(text, raw_path, fish_key, model=args.fish_model, reference_id=voice_ids[voz])
+        _tts_con_reintentos(text, raw_path, fish_key, args.fish_model, voice_ids[voz], tag)
         rf.normalize_voice_audio(raw_path, norm_path)
         return norm_path
 
@@ -438,7 +486,7 @@ def main():
     section_merged_paths = {}
     for folder_name in ordered_sections_present:
         clips = section_clip_paths[folder_name]
-        safe = re.sub(r"[^\w\-]+", "_", folder_name)
+        safe = _slug(folder_name)
         merged_path = tmp_dir / f"seccion_{safe}.mp3"
         concat_with_pauses(clips, REFLEXION_PAUSE_SEC, merged_path, tmp_dir)
         section_merged_paths[folder_name] = merged_path
@@ -480,7 +528,7 @@ def main():
         "title": episode_title,
         "description": episode_description,
         "pub_date": now.isoformat(),
-        "mp3_url": f"{args.base_url.rstrip('/')}/audio/{final_mp3.name}",
+        "mp3_url": f"{base_url}/audio/{final_mp3.name}",
         "file_size": file_size,
         "duration_seconds": int(duration_seconds),
         "chapters": [{"title": c["title"], "start_ms": int(c["start_ms"])} for c in chapters],
