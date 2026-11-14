@@ -4062,5 +4062,40 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "2d05b2d3-9ab4-4177-881b-1c4fabfa0390",
+    "title": "14 de noviembre — El debate entre Sánchez y Feijóo será el jueves",
+    "description": "El esperado debate cara a cara entre Pedro Sánchez y Alberto Núñez Feijóo se celebrará el jueves diecinueve de noviembre organizado por la Academia de Televisión. Este movimiento ha provocado que Telecinco adelante el estreno de Gran Hermano VIP al miércoles para evitar coincidir. Además, Asraf Beno se ha proclamado ganador de la tercera edición de Supervivientes All Stars.",
+    "pub_date": "2026-11-14T07:47:02.693683+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-14.mp3",
+    "file_size": 5002284,
+    "duration_seconds": 416,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 15685
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 134490
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 236606
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 319688
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 409610
+      }
+    ]
   }
 ]
