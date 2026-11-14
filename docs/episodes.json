@@ -4097,5 +4097,29 @@
         "start_ms": 409610
       }
     ]
+  },
+  {
+    "guid": "c55ac909-fcf9-4119-ab45-e063a262e2eb",
+    "title": "14 de noviembre — EDICIÓN SUBSTACK",
+    "description": "OpenAI ha comenzado a desplegar ChatGPT Wallet junto a gigantes de pagos para que un agente pague por ti usando tokens. El acceso es muy limitado y requiere aprobación biométrica, generando dudas sobre su adopción masiva ante posibles alucinaciones. Analizamos este choque tecnológico con el comercio electrónico actual.",
+    "pub_date": "2026-11-14T11:02:09.454250+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-14.mp3",
+    "file_size": 1074803,
+    "duration_seconds": 89,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 12722
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 82654
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
