@@ -4121,5 +4121,33 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "6416ddb0-36a2-4e30-aa9b-8208a862673a",
+    "title": "14 de noviembre — EDICIÓN SUBSTACK",
+    "description": "Hoy repasamos instrucciones sencillas para inteligencia artificial y las reflexiones sobre el trabajo enfocado y sin distracciones. También analizamos el nuevo monedero de OpenAI y la complejidad de los vínculos personales en la amistad.",
+    "pub_date": "2026-11-14T13:18:25.570390+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-14.mp3",
+    "file_size": 2762730,
+    "duration_seconds": 229,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "HERRAMIENTAS ONLINE",
+        "start_ms": 13662
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 33960
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 223175
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]

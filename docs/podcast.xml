@@ -14,9 +14,29 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 14 Nov 2026 11:02:56 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 13:20:30 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>14 de noviembre — EDICIÓN SUBSTACK</title>
+      <description>Hoy repasamos instrucciones sencillas para inteligencia artificial y las reflexiones sobre el trabajo enfocado y sin distracciones. También analizamos el nuevo monedero de OpenAI y la complejidad de los vínculos personales en la amistad.</description>
+      <pubDate>Sat, 14 Nov 2026 13:18:25 +0000</pubDate>
+      <guid isPermaLink="false">6416ddb0-36a2-4e30-aa9b-8208a862673a</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-14.mp3" length="2762730" type="audio/mpeg" />
+      <itunes:duration>00:03:49</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
+    <item>
+      <title>14 de noviembre — EDICIÓN SUBSTACK</title>
+      <description>OpenAI ha comenzado a desplegar ChatGPT Wallet junto a gigantes de pagos para que un agente pague por ti usando tokens. El acceso es muy limitado y requiere aprobación biométrica, generando dudas sobre su adopción masiva ante posibles alucinaciones. Analizamos este choque tecnológico con el comercio electrónico actual.</description>
+      <pubDate>Sat, 14 Nov 2026 11:02:09 +0000</pubDate>
+      <guid isPermaLink="false">c55ac909-fcf9-4119-ab45-e063a262e2eb</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-14.mp3" length="1074803" type="audio/mpeg" />
+      <itunes:duration>00:01:29</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>14 de noviembre — El debate entre Sánchez y Feijóo será el jueves</title>
       <description>El esperado debate cara a cara entre Pedro Sánchez y Alberto Núñez Feijóo se celebrará el jueves diecinueve de noviembre organizado por la Academia de Televisión. Este movimiento ha provocado que Telecinco adelante el estreno de Gran Hermano VIP al miércoles para evitar coincidir. Además, Asraf Beno se ha proclamado ganador de la tercera edición de Supervivientes All Stars.</description>
