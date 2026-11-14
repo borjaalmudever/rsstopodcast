@@ -1096,6 +1096,8 @@ def text_to_speech_fish(text: str, out_path: Path, api_key: str,
     payload = {
         "text": text,
         "format": "mp3",
+        "temperature": 0.5,
+        "top_p": 0.5,
         "max_new_tokens": 8192,
     }
     if reference_id:
