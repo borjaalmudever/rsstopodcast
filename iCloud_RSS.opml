@@ -7,6 +7,7 @@
 <outline text="CULTURA POP" title="CULTURA POP">
 <outline text="Yé Né Sé Pop" type="rss" htmlUrl="https://jenesaispop.com/" xmlUrl="https://jenesaispop.com/feed/" title="Yé Né Sé Pop" />
 <outline text="Variety" type="rss" htmlUrl="https://variety.com" title="Variety" xmlUrl="https://feeds.feedburner.com/variety/boxofficeandratings/tvratings" />
+<outline text="Dazed" type="rss" htmlUrl="https://www.dazeddigital.com/" title="The Drop by Dazed" xmlUrl="https://feeds.feedburner.com/kill-the-newsletter/wK4mBNUKANg" />
 </outline>
 <outline title="GEEK" text="GEEK">
 <outline title="Lo mejor de Genbeta" text="Lo mejor de Genbeta" htmlUrl="https://www.genbeta.com" xmlUrl="https://www.genbeta.com/lomejor/rss2.xml" type="rss" />
