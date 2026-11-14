@@ -201,10 +201,9 @@ Responde solo con el texto de la bienvenida."""
 
 def build_reflexion_monologue(source_name: str, entry: dict, client, claude_client=None) -> str:
     """Comentario de una sola voz (resumen + lo más destacado + reflexión
-    breve) sobre una publicación. Ante cualquier fallo, degrada a una frase
+    breve) sobre una publicación. Evita saludar. Ante cualquier fallo, degrada a una frase
     de resumen genérica en vez de reventar el episodio por una sola fuente."""
     prompt = f"""PUBLICACIÓN A COMENTAR
-Fuente: {source_name}
 Título: {entry['title']}
 
 Texto:
@@ -212,7 +211,7 @@ Texto:
 
 ENCARGO
 Comenta la publicación de arriba: resume lo esencial, destaca lo más interesante y añade una
-reflexión personal breve. Entre cuatro y seis frases en total.
+reflexión breve. Entre cuatro y ocho frases en total. No incluyas saludos al inicio.
 
 Responde solo con el texto del comentario."""
 
