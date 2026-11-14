@@ -65,6 +65,30 @@ try:
 except ImportError:
     anthropic = None
 
+try:
+    from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
+except ImportError:
+    ID3 = None
+
+MESES_ES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+
+# Índice: datetime.weekday() (0 = lunes) -> nombre del día.
+DIAS_ES = [
+    "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
+]
+
+TRANSICIONES = [
+    "Vamos ahora con {folder}.",
+    "Pasamos a {folder}.",
+    "Toca hablar de {folder}.",
+    "Seguimos con {folder}.",
+]
+
+TZ_LOCAL = ZoneInfo("Europe/Madrid")
+
 
 # El alias "-latest" apunta siempre al último modelo de la familia y puede
 # cambiar de un día para otro sin que toques una línea de código. En un cron
@@ -304,39 +328,16 @@ def generate_script(gemini_client, claude_client, prompt: str, system_instructio
     return claude_generate(claude_client, prompt, system_instruction=system_instruction,
                            max_output_tokens=max_output_tokens)
 
-try:
-    from mutagen.id3 import ID3, ID3NoHeaderError, CHAP, CTOC, TIT2, CTOCFlags
-except ImportError:
-    ID3 = None
-
-
-MESES_ES = [
-    "enero", "febrero", "marzo", "abril", "mayo", "junio",
-    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
-]
-
-# Índice: datetime.weekday() (0 = lunes) -> nombre del día.
-DIAS_ES = [
-    "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
-]
-
-TRANSICIONES = [
-    "Vamos ahora con {folder}.",
-    "Pasamos a {folder}.",
-    "Toca hablar de {folder}.",
-    "Seguimos con {folder}.",
-]
-
 # ---------- Sección de televisión (audiencias de Dos30) ----------
 TV_FOLDER = "TELEVISIÓN"
 DOS30_FEED_URL = "https://script.google.com/macros/s/AKfycbz4BH6lTQB20IAO4hlLsg1cb5bzLdVKQodfRkmsKsrBD7eUa3J9zRcwLli85mEuOycjVA/exec"
-TRANSICION_TV_AUDIENCIA = "Arrancamos con últimos datos de audiencias en televisión, proporcionados por Dos Treinta."
+TRANSICION_TV_AUDIENCIA = "Arrancamos repasando las audiencias de ayer, con los datos de Dos Treinta."
+TRANSICION_TV_NOTICIAS = "Y vamos ahora con las últimas noticias sobre televisión."
 TRANSICION_TV_NOVEDADES = "Comenzamos con las novedades de televisión."
 
 
 def _es_dos30(url: str) -> bool:
     return (url or "").strip().rstrip("/").lower() == DOS30_FEED_URL.rstrip("/").lower()
-TZ_LOCAL = ZoneInfo("Europe/Madrid")
 
 # Nombres de fuente que se pronuncian mal por defecto en TTS: se sustituyen
 # por una versión fonética antes de pasarlos a Gemini, así el guion ya los
@@ -479,22 +480,35 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list:
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+def _parse_feed(url: str):
+    """Descarga y parsea un feed con timeout. feedparser.parse(url) no admite
+    timeout: un feed que no responde bloquearía todo el job."""
+    resp = requests.get(url, headers={"User-Agent": USER_AGENT_RSS}, timeout=20)
+    resp.raise_for_status()
+    return feedparser.parse(resp.content)
+
+
+def _fecha_publicacion(entry):
+    """Fecha de publicación (UTC) de una entrada de feedparser, o None."""
+    for key in ("published_parsed", "updated_parsed"):
+        if getattr(entry, key, None):
+            return datetime(*entry[key][:6], tzinfo=timezone.utc)
+    return None
+
+
+def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40,
+                         now: datetime = None) -> list:
+    cutoff = (now or datetime.now(timezone.utc)) - timedelta(hours=hours)
     entries = []
     for feed_title, url in feeds:
         try:
-            parsed = feedparser.parse(url, agent=USER_AGENT_RSS)
+            parsed = _parse_feed(url)
         except Exception as e:
             print(f"  [aviso] no se pudo leer {feed_title}: {e}")
             continue
 
         for entry in parsed.entries:
-            published = None
-            for key in ("published_parsed", "updated_parsed"):
-                if getattr(entry, key, None):
-                    published = datetime(*entry[key][:6], tzinfo=timezone.utc)
-                    break
+            published = _fecha_publicacion(entry)
             if published and published < cutoff:
                 continue
 
@@ -511,18 +525,35 @@ def fetch_recent_entries(feeds: list, hours: int, max_entries: int = 40) -> list
     return entries[:max_entries]
 
 
-def _titulo_menciona_fecha(titulo: str, dia) -> bool:
-    """True si el título lleva la fecha `dia` (un date) en alguno de los
-    formatos habituales: '10 de noviembre', '10/11', '10/11/2026', '2026-11-10'."""
+def _fechas_en_titulo(titulo: str, year: int) -> set:
+    """Devuelve el conjunto de fechas (date) que el título menciona
+    explícitamente, en los formatos habituales: '13 de noviembre',
+    '13/11', '13/11/2026', '2026-11-13'. Si el título no menciona ninguna,
+    el conjunto está vacío."""
     t = titulo.lower()
-    d, m = dia.day, dia.month
-    patrones = (
-        rf"(?<!\d){d}\s+de\s+{MESES_ES[m - 1]}\b",
-        rf"(?<!\d){d:02d}/{m:02d}(?:/\d{{2,4}})?(?!\d)",
-        rf"(?<!\d){d}/{m}(?:/\d{{2,4}})?(?!\d)",
-        rf"{dia.year}-{m:02d}-{d:02d}",
-    )
-    return any(re.search(p, t) for p in patrones)
+    fechas = set()
+    meses = [m.lower() for m in MESES_ES]
+    # Fecha con el mes escrito, con o sin "de": "13 de noviembre",
+    # "13 noviembre 2026". Es la fecha de emisión en los títulos de Dos30
+    # ("CURVAS ESP VIERNES 13 NOVIEMBRE 2026").
+    for d, mes in re.findall(r"(?<!\d)(\d{1,2})\s+(?:de\s+)?(" + "|".join(meses) + r")\b", t):
+        fechas.add((int(d), meses.index(mes) + 1, year))
+    # En Dos30 el "(dd/mm/yyyy)" del principio es la fecha de PUBLICACIÓN,
+    # no la de emisión, así que no se tiene en cuenta.
+    t_sin_publicacion = re.sub(r"\(\s*\d{1,2}/\d{1,2}/\d{2,4}\s*\)", " ", t)
+    for d, m, y in re.findall(r"(?<!\d)(\d{1,2})/(\d{1,2})(?:/(\d{4}|\d{2}))?(?!\d)", t_sin_publicacion):
+        anio = year if not y else (int(y) if len(y) == 4 else 2000 + int(y))
+        fechas.add((int(d), int(m), anio))
+    for y, m, d in re.findall(r"(?<!\d)(\d{4})-(\d{2})-(\d{2})", t):
+        fechas.add((int(d), int(m), int(y)))
+
+    validas = set()
+    for d, m, y in fechas:
+        try:
+            validas.add(datetime(y, m, d).date())
+        except ValueError:
+            pass  # p. ej. "31/02": no es una fecha real, se ignora
+    return validas
 
 
 def fetch_audiencia_dos30(now: datetime):
@@ -530,18 +561,14 @@ def fetch_audiencia_dos30(now: datetime):
     últimas 24h y su título lleva la fecha del día anterior (hora de Madrid).
     En cualquier otro caso devuelve None."""
     try:
-        parsed = feedparser.parse(DOS30_FEED_URL, agent=USER_AGENT_RSS)
+        parsed = _parse_feed(DOS30_FEED_URL)
     except Exception as e:
         print(f"  [aviso] no se pudo leer Dos30: {e}")
         return None
 
     fechadas = []
     for entry in parsed.entries:
-        pub = None
-        for key in ("published_parsed", "updated_parsed"):
-            if getattr(entry, key, None):
-                pub = datetime(*entry[key][:6], tzinfo=timezone.utc)
-                break
+        pub = _fecha_publicacion(entry)
         if pub:
             fechadas.append((pub, entry))
     if not fechadas:
@@ -555,9 +582,13 @@ def fetch_audiencia_dos30(now: datetime):
         print(f"  [aviso] la última entrada de Dos30 es de hace más de 24h ({titulo!r}), no se usa")
         return None
 
+    # Solo se descarta si el título fecha la entrada en un día distinto a
+    # ayer. Si no menciona ninguna fecha, o menciona la de ayer, se acepta:
+    # la publicación de las últimas 24h ya acota la entrada al día de hoy.
     ayer = now.astimezone(TZ_LOCAL).date() - timedelta(days=1)
-    if not _titulo_menciona_fecha(titulo, ayer):
-        print(f"  [aviso] el título de Dos30 no lleva la fecha de ayer ({titulo!r}), no se usa")
+    fechas_titulo = _fechas_en_titulo(titulo, ayer.year)
+    if fechas_titulo and ayer not in fechas_titulo:
+        print(f"  [aviso] el título de Dos30 fecha la entrada en otro día ({titulo!r}), no se usa")
         return None
 
     return {
@@ -824,9 +855,54 @@ def recortar_a_frase_completa(texto: str) -> str:
 EJEMPLO_SEGMENTO = """El Confidencial cuenta que la compañía cerrará su planta de Vitoria a final de año, con unos cuatrocientos empleos afectados; la dirección lo achaca a la caída de pedidos, aunque el comité de empresa lo discute y ya ha convocado paros para la semana que viene. Con esto enlaza otra historia que publica Expansión: el sector encadena tres trimestres de descensos y las previsiones para el año que viene tampoco invitan al optimismo."""
 
 
+def build_audiencia_dos30_segment(entry: dict, dt: datetime, client, claude_client=None) -> str:
+    """Resume la publicación de Dos30 con las audiencias de ayer. Va en su
+    propia llamada para poder cerrarla siempre con Directo al Grano y Y ahora
+    Sonsoles, y dejar después el paso fijo a las noticias de televisión."""
+    if not entry:
+        return ""
+
+    pub = entry.get("published")
+    fecha = "fecha desconocida"
+    if pub:
+        local = pub.astimezone(TZ_LOCAL)
+        fecha = f"{DIAS_ES[local.weekday()]} {local.day} de {MESES_ES[local.month - 1]}"
+
+    prompt = f"""Sección de televisión del episodio de hoy: resumen de las audiencias de ayer publicadas por Dos30.
+
+MATERIAL (título, fecha de publicación y resumen):
+- {entry.get('title', '')} (publicado el {fecha}): {entry.get('summary', '')}
+
+ENCARGO
+Escribe el segmento hablado con las audiencias de ayer, en unas 250 palabras.
+Primero resume todo el contenido del material: liderazgos, cadenas, bloques,
+programas destacados y sus cifras. Después cierra el segmento mencionando los
+datos de Directo al Grano y de Y ahora Sonsoles, pero solo si aparecen en el
+material; si no aparecen, no los menciones.
+
+REGLAS
+- Cita solo cifras (share o espectadores) que aparezcan escritas literalmente en el material. No inventes, no redondees y no deduzcas ninguna.
+- Puedes referirte a los datos como "de ayer".
+- El cierre con Directo al Grano y Y ahora Sonsoles va al final, después de todo el resumen.
+- Sin saludos, sin despedida y sin nombrar la sección.
+- Frases completas y sin markdown.
+
+Responde solo con el texto del segmento."""
+
+    text, truncated = generate_script(
+        client, claude_client, prompt,
+        system_instruction=SYSTEM_LOCUTOR,
+        max_output_tokens=_tope_tokens(250),
+    )
+    text_recortado = recortar_a_frase_completa(text)
+    if text_recortado != text:
+        motivo = "se quedó sin espacio de tokens" if truncated else "terminó a media frase"
+        print(f"  [aviso] el resumen de Dos30 {motivo}, se recorta a la última frase completa")
+    return normalize_for_tts(text_recortado)
+
+
 def build_folder_segment(folder_name: str, entries: list, client, word_budget: int,
-                          dt: datetime = None, claude_client=None,
-                          audiencia_tv: bool = False) -> str:
+                          dt: datetime = None, claude_client=None) -> str:
     if not entries:
         return ""
 
@@ -856,29 +932,12 @@ def build_folder_segment(folder_name: str, entries: list, client, word_budget: i
     # OJO: la carpeta se llama "TELEVISIÓN" en SECTION_MUSIC. Comparar contra
     # "TV" a secas hacía que este bloque no se aplicara nunca.
     if folder_name.strip().upper() in {"TV", "TELEVISIÓN", "TELEVISION"}:
-        ref_dt = dt or datetime.now(timezone.utc)
-        ayer = ref_dt.astimezone(TZ_LOCAL).date() - timedelta(days=1)
-        ayer_txt = f"{DIAS_ES[ayer.weekday()]} {ayer.day} de {MESES_ES[ayer.month - 1]}"
-        if audiencia_tv:
-            instruccion_especifica = f"""
+        # Este segmento solo recibe noticias de televisión: el resumen de
+        # audiencias de Dos30 tiene su propia llamada (ver
+        # build_audiencia_dos30_segment) y se une en main().
+        instruccion_especifica = """
 PRIORIDADES DE ESTA SECCIÓN
-- El PRIMER material es la audiencia de ayer ({ayer_txt}) publicada por Dos30.
-  El segmento empieza con ella, sin saludos, justo después de la transición.
-- Cita explícitamente la cifra (share o espectadores) de cada programa cuya
-  cifra aparezca escrita en ese material, como "Y ahora Sonsoles", "YAS Verano",
-  "Directo al grano" o "Malas lenguas" si salen. Puedes referirte a esos datos
-  como "de ayer". Habla solo de los programas cuya cifra puedas leer
-  literalmente en ese material; los que no tengan dato se quedan fuera.
-- Después de la audiencia, sigue con el resto de noticias de televisión, por
-  relevancia y dentro de la extensión prevista. Si hay menos noticias de las
-  indicadas, usa las que haya.
-- Las únicas cifras de audiencia que cites son las de ese primer material.
-"""
-        else:
-            instruccion_especifica = """
-PRIORIDADES DE ESTA SECCIÓN
-- No hay datos de audiencia de ayer en esta sección: empieza directamente con
-  la noticia más relevante de televisión.
+- Empieza directamente con la noticia más relevante de televisión.
 - No cites cifras de audiencia, share ni espectadores.
 - Si hay menos noticias de las indicadas, usa las que haya.
 """
@@ -1224,6 +1283,13 @@ def write_chapters(mp3_path: Path, chapters: list):
     tags.save(str(mp3_path), v2_version=3)
 
 
+def locucion_normalizada(text: str, raw_path: Path, out_path: Path, api_key: str,
+                         model: str, reference_id: str = None):
+    """TTS de una locución (intro o sección) seguido de su normalización de volumen."""
+    text_to_speech_fish(text, raw_path, api_key, model=model, reference_id=reference_id)
+    normalize_voice_audio(raw_path, out_path)
+
+
 # ---------- Main ----------
 
 def main():
@@ -1292,7 +1358,7 @@ def main():
             # El feed de Dos30 se trata aparte (audiencia de ayer, ver abajo)
             feeds = [(t, u) for t, u in feeds if not _es_dos30(u)]
         print(f"== {folder_name} ({len(feeds)} feeds) ==")
-        entries = fetch_recent_entries(feeds, args.hours)
+        entries = fetch_recent_entries(feeds, args.hours, now=now)
         print(f"  {len(entries)} artículos disponibles en las últimas {args.hours}h")
         if entries:
             folder_entries[folder_name] = entries
@@ -1340,9 +1406,25 @@ def main():
     primera_seccion = True
     for folder_name, entries in folder_entries.items():
         print(f"Generando segmento: {folder_name} (~{word_budgets[folder_name]} palabras)")
-        cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name],
-                                      dt=now, claude_client=claude_client,
-                                      audiencia_tv=(folder_name == TV_FOLDER and audiencia_tv is not None))
+        con_audiencia = False
+        if folder_name == TV_FOLDER and audiencia_tv:
+            # Primero el resumen de audiencias de Dos30, después el paso fijo
+            # y las noticias de televisión (el resto de entradas de la sección).
+            cuerpo_aud = build_audiencia_dos30_segment(audiencia_tv, now, client, claude_client)
+            noticias_tv = [e for e in entries if e is not audiencia_tv]
+            cuerpo_news = ""
+            if noticias_tv:
+                cuerpo_news = build_folder_segment(folder_name, noticias_tv, client,
+                                                   max(120, word_budgets[folder_name] - 150),
+                                                   dt=now, claude_client=claude_client)
+            con_audiencia = bool(cuerpo_aud.strip())
+            if con_audiencia and cuerpo_news.strip():
+                cuerpo = f"{cuerpo_aud} {TRANSICION_TV_NOTICIAS} {cuerpo_news}"
+            else:
+                cuerpo = cuerpo_aud if con_audiencia else cuerpo_news
+        else:
+            cuerpo = build_folder_segment(folder_name, entries, client, word_budgets[folder_name],
+                                          dt=now, claude_client=claude_client)
         if not cuerpo.strip():
             # Sin cuerpo, la sección sería solo la transición seguida de
             # música: mejor dejarla fuera del episodio que emitir el hueco.
@@ -1352,7 +1434,7 @@ def main():
         # contenido: así "Empezamos con..." siempre cae en la sección que de
         # verdad abre el episodio, no en una que luego resulte vacía.
         if folder_name == TV_FOLDER:
-            transicion = TRANSICION_TV_AUDIENCIA if audiencia_tv else TRANSICION_TV_NOVEDADES
+            transicion = TRANSICION_TV_AUDIENCIA if con_audiencia else TRANSICION_TV_NOVEDADES
         elif primera_seccion:
             transicion = f"Empezamos con las novedades sobre {folder_name}."
         else:
@@ -1382,9 +1464,8 @@ def main():
     print("Generando audio con Fish Audio...")
     intro_path_raw = tmp_dir / "intro_raw.mp3"
     intro_path = tmp_dir / "intro.mp3"
-    text_to_speech_fish(intro_text, intro_path_raw, os.environ["FISH_API_KEY"],
-                         model=args.fish_model, reference_id=args.fish_reference_id)
-    normalize_voice_audio(intro_path_raw, intro_path)
+    locucion_normalizada(intro_text, intro_path_raw, intro_path, os.environ["FISH_API_KEY"],
+                         args.fish_model, args.fish_reference_id)
 
     ordered_sections = list(segment_texts.keys())
     section_mixed_paths = {}
@@ -1393,12 +1474,11 @@ def main():
         safe = re.sub(r"[^\w\-]+", "_", folder_name.strip())
         voice_path_raw = tmp_dir / f"voz_{safe}_raw.mp3"
         voice_path = tmp_dir / f"voz_{safe}.mp3"
-        text_to_speech_fish(segment_texts[folder_name], voice_path_raw, os.environ["FISH_API_KEY"],
-                             model=args.fish_model, reference_id=args.fish_reference_id)
         # Cada sección es una llamada TTS independiente y puede volver con un
         # volumen natural distinto: normalizar aquí, antes de mezclar, es lo
         # que evita que la voz salte de nivel entre secciones.
-        normalize_voice_audio(voice_path_raw, voice_path)
+        locucion_normalizada(segment_texts[folder_name], voice_path_raw, voice_path,
+                             os.environ["FISH_API_KEY"], args.fish_model, args.fish_reference_id)
         print(f"  Mezclando música de fondo: {folder_name}")
         mixed_path = tmp_dir / f"mix_{safe}.mp3"
         mix_section_audio(voice_path, music_dir / SECTION_MUSIC[folder_name], mixed_path)
