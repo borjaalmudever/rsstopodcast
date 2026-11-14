@@ -18,7 +18,7 @@
 <outline text="The Verge" type="rss" xmlUrl="https://www.theverge.com/rss/index.xml" htmlUrl="https://www.theverge.com" title="The Verge" />
 </outline>
 <outline title="POPCORN" text="POPCORN">
-<outline text="Roten Tomeitos" xmlUrl="https://editorial.rottentomatoes.com/rss/feed" type="rss" title="Roten Tomeitos" htmlUrl="https://editorial.rottentomatoes.com" />
+<outline text="The Film Stage" title="The Film Stage" type="rss" xmlUrl="https://thefilmstage.com/feed/" htmlUrl="https://thefilmstage.com" />
 <outline xmlUrl="https://www.elseptimoarte.net/rss.php" title="El Septimo Arte" type="rss" text="El Septimo Arte" htmlUrl="https://www.elseptimoarte.net/noticias/" />
 <outline title="Letterboxd Journal" xmlUrl="https://letterboxd.com/journal/rss/" htmlUrl="https://letterboxd.com/journal/" text="Letterboxd Journal" type="rss" />
 <outline type="rss" htmlUrl="https://www.indiewire.com" title="IndieWire" text="IndieWire" xmlUrl="https://www.indiewire.com/feed/rss/" />
