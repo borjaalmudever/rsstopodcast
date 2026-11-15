@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 14 Nov 2026 13:20:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 07:51:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>15 de noviembre — Belén Esteban regresa a Gran Hermano VIP once años después</title>
+      <description>Telecinco adelanta el estreno de Gran Hermano VIP con el fichaje bomba de Belén Esteban como concursante oficial. Además, La Uno modifica su parrilla para emitir el cara a cara entre Pedro Sánchez y Alberto Núnez Feijóo. Por su parte, SpaceX logra capturar con éxito la nave Starship con su torre Mechazilla.</description>
+      <pubDate>Sun, 15 Nov 2026 07:46:52 +0000</pubDate>
+      <guid isPermaLink="false">86df1671-669f-4bfa-b41f-f7009dba41da</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-15.mp3" length="5659032" type="audio/mpeg" />
+      <itunes:duration>00:07:50</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>14 de noviembre — EDICIÓN SUBSTACK</title>
       <description>Hoy repasamos instrucciones sencillas para inteligencia artificial y las reflexiones sobre el trabajo enfocado y sin distracciones. También analizamos el nuevo monedero de OpenAI y la complejidad de los vínculos personales en la amistad.</description>

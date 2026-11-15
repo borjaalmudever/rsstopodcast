@@ -4149,5 +4149,40 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "86df1671-669f-4bfa-b41f-f7009dba41da",
+    "title": "15 de noviembre — Belén Esteban regresa a Gran Hermano VIP once años después",
+    "description": "Telecinco adelanta el estreno de Gran Hermano VIP con el fichaje bomba de Belén Esteban como concursante oficial. Además, La Uno modifica su parrilla para emitir el cara a cara entre Pedro Sánchez y Alberto Núnez Feijóo. Por su parte, SpaceX logra capturar con éxito la nave Starship con su torre Mechazilla.",
+    "pub_date": "2026-11-15T07:46:52.805698+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-15.mp3",
+    "file_size": 5659032,
+    "duration_seconds": 470,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19264
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 207754
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 293683
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 387816
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 464276
+      }
+    ]
   }
 ]
