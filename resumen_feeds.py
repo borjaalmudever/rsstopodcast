@@ -882,6 +882,10 @@ material; si no aparecen, no los menciones.
 
 REGLAS
 - Cita solo cifras (share o espectadores) que aparezcan escritas literalmente en el material. No inventes, no redondees y no deduzcas ninguna.
+- La transición que suena justo antes ya ha anunciado la sección y de qué
+  fuente vienen los datos. No vuelvas a nombrar Dos30 ni a dar la fecha
+  de emisión, y no anuncies lo que vas a contar: empieza directamente con
+  el dato principal.
 - Puedes referirte a los datos como "de ayer".
 - El cierre con Directo al Grano y Y ahora Sonsoles va al final, después de todo el resumen.
 - Sin saludos, sin despedida y sin nombrar la sección.
