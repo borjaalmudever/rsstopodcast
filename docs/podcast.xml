@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 15 Nov 2026 07:51:34 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 07:50:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>16 de noviembre — La Uno lidera las audiencias gracias al deporte</title>
+      <description>La Uno domina las audiencias de televisión con un dieciocho coma cuatro por ciento de cuota de pantalla gracias a la emisión deportiva. Además, Pedro Sánchez explica los motivos por los cuales rechaza acudir a El Hormiguero. Por otro lado, el cohete Vulcan de United Launch Alliance sufre su primer fallo en veinte años de historia.</description>
+      <pubDate>Mon, 16 Nov 2026 07:46:40 +0000</pubDate>
+      <guid isPermaLink="false">3e825ec5-2711-4742-b500-432fd7c2f289</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-16.mp3" length="5566153" type="audio/mpeg" />
+      <itunes:duration>00:07:43</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>15 de noviembre — Belén Esteban regresa a Gran Hermano VIP once años después</title>
       <description>Telecinco adelanta el estreno de Gran Hermano VIP con el fichaje bomba de Belén Esteban como concursante oficial. Además, La Uno modifica su parrilla para emitir el cara a cara entre Pedro Sánchez y Alberto Núnez Feijóo. Por su parte, SpaceX logra capturar con éxito la nave Starship con su torre Mechazilla.</description>

@@ -4184,5 +4184,40 @@
         "start_ms": 464276
       }
     ]
+  },
+  {
+    "guid": "3e825ec5-2711-4742-b500-432fd7c2f289",
+    "title": "16 de noviembre — La Uno lidera las audiencias gracias al deporte",
+    "description": "La Uno domina las audiencias de televisión con un dieciocho coma cuatro por ciento de cuota de pantalla gracias a la emisión deportiva. Además, Pedro Sánchez explica los motivos por los cuales rechaza acudir a El Hormiguero. Por otro lado, el cohete Vulcan de United Launch Alliance sufre su primer fallo en veinte años de historia.",
+    "pub_date": "2026-11-16T07:46:40.903513+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-16.mp3",
+    "file_size": 5566153,
+    "duration_seconds": 463,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 27074
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 175795
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 317022
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 372694
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 456539
+      }
+    ]
   }
 ]
