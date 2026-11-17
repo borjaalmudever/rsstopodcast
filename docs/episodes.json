@@ -4219,5 +4219,40 @@
         "start_ms": 456539
       }
     ]
+  },
+  {
+    "guid": "1c896b30-bc72-4621-96c5-3f0668e076b4",
+    "title": "17 de noviembre — Robert Pattinson sera el nuevo James Bond y otras noticias",
+    "description": "Antena tres lidera las audiencias de ayer superando su promedio mensual. Amazon MGM Studios anuncia de manera oficial que Robert Pattinson sera el encargado de dar vida al nuevo James Bond. Por otro lado, California presenta una demanda contra OpenAI tras un incidente con su inteligencia artificial.",
+    "pub_date": "2026-11-17T07:47:03.193952+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-17.mp3",
+    "file_size": 6235451,
+    "duration_seconds": 518,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20100
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 153287
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 291889
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 375847
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 512261
+      }
+    ]
   }
 ]
