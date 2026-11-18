@@ -4254,5 +4254,40 @@
         "start_ms": 512261
       }
     ]
+  },
+  {
+    "guid": "d76e186a-f627-4dd3-a19f-69b12d51eb87",
+    "title": "18 de noviembre — Antena Tres lidera las audiencias y Manolo Sarriá deja Canal Sur",
+    "description": "Antena Tres se hace con el liderazgo de la jornada con un trece coma nueve por ciento de cuota de pantalla. Por otro lado, RTVA retira a Manolo Sarriá de Atrápame si puedes tras una denuncia por acoso sexual. Además, Àngels Barceló reaparecerá ante las cámaras en La Uno.",
+    "pub_date": "2026-11-18T07:46:50.096089+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-18.mp3",
+    "file_size": 5767914,
+    "duration_seconds": 479,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 20570
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 166169
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 300124
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 401913
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 473345
+      }
+    ]
   }
 ]

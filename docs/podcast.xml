@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 17 Nov 2026 07:51:51 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 07:53:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>18 de noviembre — Antena Tres lidera las audiencias y Manolo Sarriá deja Canal Sur</title>
+      <description>Antena Tres se hace con el liderazgo de la jornada con un trece coma nueve por ciento de cuota de pantalla. Por otro lado, RTVA retira a Manolo Sarriá de Atrápame si puedes tras una denuncia por acoso sexual. Además, Àngels Barceló reaparecerá ante las cámaras en La Uno.</description>
+      <pubDate>Wed, 18 Nov 2026 07:46:50 +0000</pubDate>
+      <guid isPermaLink="false">d76e186a-f627-4dd3-a19f-69b12d51eb87</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-18.mp3" length="5767914" type="audio/mpeg" />
+      <itunes:duration>00:07:59</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>17 de noviembre — Robert Pattinson sera el nuevo James Bond y otras noticias</title>
       <description>Antena tres lidera las audiencias de ayer superando su promedio mensual. Amazon MGM Studios anuncia de manera oficial que Robert Pattinson sera el encargado de dar vida al nuevo James Bond. Por otro lado, California presenta una demanda contra OpenAI tras un incidente con su inteligencia artificial.</description>
