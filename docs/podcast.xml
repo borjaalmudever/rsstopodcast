@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 18 Nov 2026 07:53:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 07:53:17 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>19 de noviembre — Antena tres lidera las audiencias de ayer</title>
+      <description>Antena tres lidera la jornada de ayer con un trece coma ocho por ciento de cuota. Además, el mercado laboral tecnológico muestra un rápido crecimiento de la inteligencia artificial. Por último, la edición de dos mil veintiséis de los premios Hollywood Music in Media corona a Taylor Swift.</description>
+      <pubDate>Thu, 19 Nov 2026 07:47:27 +0000</pubDate>
+      <guid isPermaLink="false">ae48f06a-ac0c-4b53-b246-d93b91e96ff4</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-19.mp3" length="6195600" type="audio/mpeg" />
+      <itunes:duration>00:08:35</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>18 de noviembre — Antena Tres lidera las audiencias y Manolo Sarriá deja Canal Sur</title>
       <description>Antena Tres se hace con el liderazgo de la jornada con un trece coma nueve por ciento de cuota de pantalla. Por otro lado, RTVA retira a Manolo Sarriá de Atrápame si puedes tras una denuncia por acoso sexual. Además, Àngels Barceló reaparecerá ante las cámaras en La Uno.</description>

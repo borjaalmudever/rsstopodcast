@@ -4289,5 +4289,40 @@
         "start_ms": 473345
       }
     ]
+  },
+  {
+    "guid": "ae48f06a-ac0c-4b53-b246-d93b91e96ff4",
+    "title": "19 de noviembre — Antena tres lidera las audiencias de ayer",
+    "description": "Antena tres lidera la jornada de ayer con un trece coma ocho por ciento de cuota. Además, el mercado laboral tecnológico muestra un rápido crecimiento de la inteligencia artificial. Por último, la edición de dos mil veintiséis de los premios Hollywood Music in Media corona a Taylor Swift.",
+    "pub_date": "2026-11-19T07:47:27.548245+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-19.mp3",
+    "file_size": 6195600,
+    "duration_seconds": 515,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 27728
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 172568
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 303454
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 404698
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 508950
+      }
+    ]
   }
 ]
