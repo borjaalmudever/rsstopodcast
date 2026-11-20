@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 19 Nov 2026 07:53:17 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 07:52:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>20 de noviembre — Antena 3 lidera audiencias y SkyShowtime cerrará en 2027</title>
+      <description>Antena 3 se alza con el liderazgo indiscutible de la jornada gracias al rendimiento de sus programas. Por otro lado, se anuncia el cierre definitivo de SkyShowtime para el año dos mil veintisiete. Además, los estrenos de cine y las novedades en inteligencia artificial acaparan la actualidad.</description>
+      <pubDate>Fri, 20 Nov 2026 07:46:58 +0000</pubDate>
+      <guid isPermaLink="false">87a071e3-18c4-41fc-9eb6-3e7afcbbdd71</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-20.mp3" length="5379451" type="audio/mpeg" />
+      <itunes:duration>00:07:27</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>19 de noviembre — Antena tres lidera las audiencias de ayer</title>
       <description>Antena tres lidera la jornada de ayer con un trece coma ocho por ciento de cuota. Además, el mercado laboral tecnológico muestra un rápido crecimiento de la inteligencia artificial. Por último, la edición de dos mil veintiséis de los premios Hollywood Music in Media corona a Taylor Swift.</description>

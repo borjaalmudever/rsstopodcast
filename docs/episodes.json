@@ -4324,5 +4324,40 @@
         "start_ms": 508950
       }
     ]
+  },
+  {
+    "guid": "87a071e3-18c4-41fc-9eb6-3e7afcbbdd71",
+    "title": "20 de noviembre — Antena 3 lidera audiencias y SkyShowtime cerrará en 2027",
+    "description": "Antena 3 se alza con el liderazgo indiscutible de la jornada gracias al rendimiento de sus programas. Por otro lado, se anuncia el cierre definitivo de SkyShowtime para el año dos mil veintisiete. Además, los estrenos de cine y las novedades en inteligencia artificial acaparan la actualidad.",
+    "pub_date": "2026-11-20T07:46:58.456428+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-20.mp3",
+    "file_size": 5379451,
+    "duration_seconds": 447,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18794
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 146893
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 245892
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 341499
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 440990
+      }
+    ]
   }
 ]
