@@ -4394,5 +4394,33 @@
         "start_ms": 410018
       }
     ]
+  },
+  {
+    "guid": "cd3760f8-0b4a-4d31-bb06-1d34dcac5d67",
+    "title": "21 de noviembre — EDICIÓN SUBSTACK",
+    "description": "Descubre cómo reparar auriculares con un soldador, el sorprendente culebrón que sacude la cúpula de Nvidia y las nuevas reglas sobre el dinero y la amistad en la generación zeta. Además, repasamos recomendaciones de podcasts y el lanzamiento en bolsillo del libro Unmasking Autism.",
+    "pub_date": "2026-11-21T11:02:01.150299+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-21.mp3",
+    "file_size": 3649167,
+    "duration_seconds": 303,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "HERRAMIENTAS ONLINE",
+        "start_ms": 13375
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 33071
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 296948
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]

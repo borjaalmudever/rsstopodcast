@@ -14,9 +14,19 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sat, 21 Nov 2026 07:50:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 11:04:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>21 de noviembre — EDICIÓN SUBSTACK</title>
+      <description>Descubre cómo reparar auriculares con un soldador, el sorprendente culebrón que sacude la cúpula de Nvidia y las nuevas reglas sobre el dinero y la amistad en la generación zeta. Además, repasamos recomendaciones de podcasts y el lanzamiento en bolsillo del libro Unmasking Autism.</description>
+      <pubDate>Sat, 21 Nov 2026 11:02:01 +0000</pubDate>
+      <guid isPermaLink="false">cd3760f8-0b4a-4d31-bb06-1d34dcac5d67</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-21.mp3" length="3649167" type="audio/mpeg" />
+      <itunes:duration>00:05:03</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg" />
+    </item>
     <item>
       <title>21 de noviembre — El cara a cara entre Sánchez y Feijóo acapara la atención</title>
       <description>El debate televisivo entre Pedro Sánchez y Alberto Núñez Feijóo acapara la atención de millones de espectadores en una retransmisión ofrecida por una veintena de cadenas. Además, la plataforma HBO Max comienza a aplicar en España nuevas restricciones que impiden compartir cuentas entre diferentes domicilios y SkyShowtime anuncia su cese de operaciones para finales de dos mil veintisiete.</description>
