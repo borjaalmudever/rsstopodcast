@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Fri, 20 Nov 2026 07:52:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 07:50:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>21 de noviembre — El cara a cara entre Sánchez y Feijóo acapara la atención</title>
+      <description>El debate televisivo entre Pedro Sánchez y Alberto Núñez Feijóo acapara la atención de millones de espectadores en una retransmisión ofrecida por una veintena de cadenas. Además, la plataforma HBO Max comienza a aplicar en España nuevas restricciones que impiden compartir cuentas entre diferentes domicilios y SkyShowtime anuncia su cese de operaciones para finales de dos mil veintisiete.</description>
+      <pubDate>Sat, 21 Nov 2026 07:46:38 +0000</pubDate>
+      <guid isPermaLink="false">37a49d26-533b-4ddd-92cf-87e4df8caa78</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-21.mp3" length="5007305" type="audio/mpeg" />
+      <itunes:duration>00:06:56</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>20 de noviembre — Antena 3 lidera audiencias y SkyShowtime cerrará en 2027</title>
       <description>Antena 3 se alza con el liderazgo indiscutible de la jornada gracias al rendimiento de sus programas. Por otro lado, se anuncia el cierre definitivo de SkyShowtime para el año dos mil veintisiete. Además, los estrenos de cine y las novedades en inteligencia artificial acaparan la actualidad.</description>

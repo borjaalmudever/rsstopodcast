@@ -4359,5 +4359,40 @@
         "start_ms": 440990
       }
     ]
+  },
+  {
+    "guid": "37a49d26-533b-4ddd-92cf-87e4df8caa78",
+    "title": "21 de noviembre — El cara a cara entre Sánchez y Feijóo acapara la atención",
+    "description": "El debate televisivo entre Pedro Sánchez y Alberto Núñez Feijóo acapara la atención de millones de espectadores en una retransmisión ofrecida por una veintena de cadenas. Además, la plataforma HBO Max comienza a aplicar en España nuevas restricciones que impiden compartir cuentas entre diferentes domicilios y SkyShowtime anuncia su cese de operaciones para finales de dos mil veintisiete.",
+    "pub_date": "2026-11-21T07:46:38.583126+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-21.mp3",
+    "file_size": 5007305,
+    "duration_seconds": 416,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 26108
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 145505
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 242756
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 330982
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 410018
+      }
+    ]
   }
 ]
