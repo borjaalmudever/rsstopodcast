@@ -4422,5 +4422,40 @@
       }
     ],
     "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
+  },
+  {
+    "guid": "c9a04157-c5b6-450a-bd97-ee8b76c25ff5",
+    "title": "22 de noviembre — Rosalía triunfa en Los Los40 Music Awards y más",
+    "description": "La Séptima emite la serie Moncloa cuatro estaciones antes de las elecciones. Rosalía triunfa en Los Los40 Music Awards junto a otros artistas. La inteligencia artificial y las novedades tecnológicas marcan la actualidad internacional.",
+    "pub_date": "2026-11-22T07:46:54.364313+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-22.mp3",
+    "file_size": 4698856,
+    "duration_seconds": 390,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 19081
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 153585
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 278184
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 316849
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 384336
+      }
+    ]
   }
 ]
