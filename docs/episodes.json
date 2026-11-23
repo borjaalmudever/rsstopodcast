@@ -4457,5 +4457,40 @@
         "start_ms": 384336
       }
     ]
+  },
+  {
+    "guid": "07959e52-6e46-4e2b-8591-91415b7cd93d",
+    "title": "23 de noviembre — Pedro Sánchez en Salvados y el éxito de Los Juegos del Hambre",
+    "description": "El presidente del Gobierno explica su estrategia en Salvados mientras la precuela de Los Juegos del Hambre arrasa en la taquilla internacional con cientos de millones de dólares. Además, Raphael recibe el alta hospitalaria tras sufrir taquicardias y la BBC pide disculpas por un incidente en directo.",
+    "pub_date": "2026-11-23T07:46:51.723548+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-23.mp3",
+    "file_size": 5388238,
+    "duration_seconds": 448,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17827
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 111847
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 212324
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 350159
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 441720
+      }
+    ]
   }
 ]

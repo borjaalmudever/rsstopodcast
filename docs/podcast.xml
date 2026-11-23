@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Sun, 22 Nov 2026 07:50:58 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 07:49:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>23 de noviembre — Pedro Sánchez en Salvados y el éxito de Los Juegos del Hambre</title>
+      <description>El presidente del Gobierno explica su estrategia en Salvados mientras la precuela de Los Juegos del Hambre arrasa en la taquilla internacional con cientos de millones de dólares. Además, Raphael recibe el alta hospitalaria tras sufrir taquicardias y la BBC pide disculpas por un incidente en directo.</description>
+      <pubDate>Mon, 23 Nov 2026 07:46:51 +0000</pubDate>
+      <guid isPermaLink="false">07959e52-6e46-4e2b-8591-91415b7cd93d</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-23.mp3" length="5388238" type="audio/mpeg" />
+      <itunes:duration>00:07:28</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>22 de noviembre — Rosalía triunfa en Los Los40 Music Awards y más</title>
       <description>La Séptima emite la serie Moncloa cuatro estaciones antes de las elecciones. Rosalía triunfa en Los Los40 Music Awards junto a otros artistas. La inteligencia artificial y las novedades tecnológicas marcan la actualidad internacional.</description>
