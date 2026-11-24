@@ -4492,5 +4492,40 @@
         "start_ms": 441720
       }
     ]
+  },
+  {
+    "guid": "f627ed9e-0bef-423c-9f56-9bb9211d214c",
+    "title": "24 de noviembre — Jensen Huang regresa a Nvidia y U2 arrasa",
+    "description": "Nvidia readmite a Jensen Huang como su presidente y consejero delegado tras una votación unánime. Además, U2 se corona número uno en España y Europa con su disco Carnaval de Luz. Por otro lado, Steven Spielberg dirigirÃ¡ su primer wéstern basado en la novela El corazón en invierno.",
+    "pub_date": "2026-11-24T07:46:53.586419+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-24.mp3",
+    "file_size": 5751285,
+    "duration_seconds": 478,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17644
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 115989
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 222478
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 343353
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 471941
+      }
+    ]
   }
 ]
