@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Tue, 24 Nov 2026 07:51:39 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 07:51:33 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>25 de noviembre — Antena Tres lidera las audiencias y Huawei condenada en Nueva York</title>
+      <description>Antena Tres se sitúa como líder de la jornada de ayer superando su acumulado mensual, mientras un jurado en Nueva York declara culpable a Huawei por robar secretos comerciales. Además, la plataforma Tidal anuncia la prohibición total de canciones generadas con inteligencia artificial a partir de diciembre.</description>
+      <pubDate>Wed, 25 Nov 2026 07:46:53 +0000</pubDate>
+      <guid isPermaLink="false">d6cfb9bc-89ee-4629-b440-647890a78fc6</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-25.mp3" length="5654953" type="audio/mpeg" />
+      <itunes:duration>00:07:50</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>24 de noviembre — Jensen Huang regresa a Nvidia y U2 arrasa</title>
       <description>Nvidia readmite a Jensen Huang como su presidente y consejero delegado tras una votación unánime. Además, U2 se corona número uno en España y Europa con su disco Carnaval de Luz. Por otro lado, Steven Spielberg dirigirÃ¡ su primer wéstern basado en la novela El corazón en invierno.</description>

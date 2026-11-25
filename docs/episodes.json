@@ -4527,5 +4527,40 @@
         "start_ms": 471941
       }
     ]
+  },
+  {
+    "guid": "d6cfb9bc-89ee-4629-b440-647890a78fc6",
+    "title": "25 de noviembre — Antena Tres lidera las audiencias y Huawei condenada en Nueva York",
+    "description": "Antena Tres se sitúa como líder de la jornada de ayer superando su acumulado mensual, mientras un jurado en Nueva York declara culpable a Huawei por robar secretos comerciales. Además, la plataforma Tidal anuncia la prohibición total de canciones generadas con inteligencia artificial a partir de diciembre.",
+    "pub_date": "2026-11-25T07:46:53.523557+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-25.mp3",
+    "file_size": 5654953,
+    "duration_seconds": 470,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 16861
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 148840
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 235261
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 347775
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 463947
+      }
+    ]
   }
 ]
