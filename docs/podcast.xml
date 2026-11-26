@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Wed, 25 Nov 2026 07:51:33 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 07:59:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>26 de noviembre — Antena Tres lidera las audiencias y Moisés deja Pasapalabra</title>
+      <description>Antena Tres se sitúa como líder de la jornada en audiencias y Moisés Laguardia abandona voluntariamente Pasapalabra tras veintinueve días. Además, Amazon tendrá que retirar cuatrocientos mil productos peligrosos y WhatsApp estrena la programación de mensajes.</description>
+      <pubDate>Thu, 26 Nov 2026 07:55:40 +0000</pubDate>
+      <guid isPermaLink="false">4186bbdb-d723-4408-82de-ca7c7c4aa571</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-26.mp3" length="5525047" type="audio/mpeg" />
+      <itunes:duration>00:07:39</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>25 de noviembre — Antena Tres lidera las audiencias y Huawei condenada en Nueva York</title>
       <description>Antena Tres se sitúa como líder de la jornada de ayer superando su acumulado mensual, mientras un jurado en Nueva York declara culpable a Huawei por robar secretos comerciales. Además, la plataforma Tidal anuncia la prohibición total de canciones generadas con inteligencia artificial a partir de diciembre.</description>

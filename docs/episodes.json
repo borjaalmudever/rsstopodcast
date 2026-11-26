@@ -4562,5 +4562,40 @@
         "start_ms": 463947
       }
     ]
+  },
+  {
+    "guid": "4186bbdb-d723-4408-82de-ca7c7c4aa571",
+    "title": "26 de noviembre — Antena Tres lidera las audiencias y Moisés deja Pasapalabra",
+    "description": "Antena Tres se sitúa como líder de la jornada en audiencias y Moisés Laguardia abandona voluntariamente Pasapalabra tras veintinueve días. Además, Amazon tendrá que retirar cuatrocientos mil productos peligrosos y WhatsApp estrena la programación de mensajes.",
+    "pub_date": "2026-11-26T07:55:40.002513+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-26.mp3",
+    "file_size": 5525047,
+    "duration_seconds": 459,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 17357
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 147751
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 259170
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 356360
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 453118
+      }
+    ]
   }
 ]
