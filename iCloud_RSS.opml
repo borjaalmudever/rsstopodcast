@@ -10,7 +10,7 @@
 <outline text="Dazed" type="rss" htmlUrl="https://www.dazeddigital.com/" title="The Drop by Dazed" xmlUrl="https://feeds.feedburner.com/kill-the-newsletter/wK4mBNUKANg" />
 </outline>
 <outline title="GEEK" text="GEEK">
-<outline title="Lo mejor de Genbeta" text="Lo mejor de Genbeta" htmlUrl="https://www.genbeta.com" xmlUrl="https://www.genbeta.com/lomejor/rss2.xml" type="rss" />
+<outline title="Ars Technica" text="Ars Technica" htmlUrl="https://arstechnica.com/gadgets" xmlUrl="https://arstechnica.com/gadgets/feed" type="rss" />
 <outline title="Fast Company" htmlUrl="https://www.fastcompany.com" xmlUrl="https://www.fastcompany.com/technology/rss" type="rss" text="Fast Company" />
 <outline htmlUrl="https://www.macrumors.com" type="rss" xmlUrl="https://feeds.macrumors.com/MacRumors-Front" text="MacRumors" title="MacRumors" />
 <outline title="EL PAÍS" text="EL PAÍS" xmlUrl="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada" htmlUrl="https://elpais.com" type="rss" />
