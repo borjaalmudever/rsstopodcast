@@ -4597,5 +4597,40 @@
         "start_ms": 453118
       }
     ]
+  },
+  {
+    "guid": "6f7fd34c-acc9-4dc5-9d7c-8b76c597e6f2",
+    "title": "27 de noviembre — La Uno lidera las audiencias y Mad Cool anuncia cartel",
+    "description": "La Uno destaca en las audiencias de televisión con un quince coma nueve por ciento de cuota. Además, el festival Mad Cool anuncia los primeros nombres para su edición de dos mil veintisiete, y las salas de cine reciben el estreno de la comedia Ahora los suegros son ellos.",
+    "pub_date": "2026-11-27T07:46:47.813943+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-27.mp3",
+    "file_size": 5547011,
+    "duration_seconds": 461,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 18480
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 166050
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 272927
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 366951
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 454955
+      }
+    ]
   }
 ]

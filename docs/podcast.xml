@@ -14,9 +14,18 @@
       <link>https://borja.almudever.com</link>
     </image>
     <itunes:category text="News" />
-    <lastBuildDate>Thu, 26 Nov 2026 07:59:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 07:50:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     
+    <item>
+      <title>27 de noviembre — La Uno lidera las audiencias y Mad Cool anuncia cartel</title>
+      <description>La Uno destaca en las audiencias de televisión con un quince coma nueve por ciento de cuota. Además, el festival Mad Cool anuncia los primeros nombres para su edición de dos mil veintisiete, y las salas de cine reciben el estreno de la comedia Ahora los suegros son ellos.</description>
+      <pubDate>Fri, 27 Nov 2026 07:46:47 +0000</pubDate>
+      <guid isPermaLink="false">6f7fd34c-acc9-4dc5-9d7c-8b76c597e6f2</guid>
+      <enclosure url="https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-27.mp3" length="5547011" type="audio/mpeg" />
+      <itunes:duration>00:07:41</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>26 de noviembre — Antena Tres lidera las audiencias y Moisés deja Pasapalabra</title>
       <description>Antena Tres se sitúa como líder de la jornada en audiencias y Moisés Laguardia abandona voluntariamente Pasapalabra tras veintinueve días. Además, Amazon tendrá que retirar cuatrocientos mil productos peligrosos y WhatsApp estrena la programación de mensajes.</description>
