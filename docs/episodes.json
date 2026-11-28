@@ -4632,5 +4632,40 @@
         "start_ms": 454955
       }
     ]
+  },
+  {
+    "guid": "34239676-fe34-4156-b5cc-d9ae47103483",
+    "title": "28 de noviembre — Antena Tres lidera las audiencias y Los Planetas anuncian disco",
+    "description": "Antena Tres se alza con el liderazgo de audiencia del día mientras continúan las reacciones tras el debate a cuatro. En cultura pop, Los Planetas anuncian su nuevo álbum titulado Amores imposibles en el capitalismo. Por último, Sylvester Stallone confiesa su deseo de contar con Arnold Schwarzenegger en una serie derivada de Tulsa King.",
+    "pub_date": "2026-11-28T07:46:54.379197+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_2026-11-28.mp3",
+    "file_size": 6010468,
+    "duration_seconds": 500,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "TELEVISIÓN",
+        "start_ms": 9520
+      },
+      {
+        "title": "GEEK",
+        "start_ms": 184552
+      },
+      {
+        "title": "CULTURA POP",
+        "start_ms": 296242
+      },
+      {
+        "title": "POPCORN",
+        "start_ms": 386108
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 493529
+      }
+    ]
   }
 ]
