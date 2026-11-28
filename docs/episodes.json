@@ -4667,5 +4667,33 @@
         "start_ms": 493529
       }
     ]
+  },
+  {
+    "guid": "bae7e9c4-ea64-40c2-9db6-b35830ad820a",
+    "title": "28 de noviembre — EDICIÓN SUBSTACK",
+    "description": "Repasamos las últimas publicaciones de Substack sobre herramientas online de productividad y reflexiones digitales actuales. Descubrimos cómo crear pequeñas aplicaciones con inteligencia artificial sin saber programar y analizamos la conexión entre el pasado feudal y el presente laboral.",
+    "pub_date": "2026-11-28T11:02:23.298929+00:00",
+    "mp3_url": "https://borjaalmudever.github.io/rsstopodcast/audio/episodio_substack_2026-11-28.mp3",
+    "file_size": 4827735,
+    "duration_seconds": 401,
+    "chapters": [
+      {
+        "title": "Introducción",
+        "start_ms": 0
+      },
+      {
+        "title": "HERRAMIENTAS ONLINE",
+        "start_ms": 13140
+      },
+      {
+        "title": "REFLEXIONES DIGITALES",
+        "start_ms": 56033
+      },
+      {
+        "title": "Cierre",
+        "start_ms": 395068
+      }
+    ],
+    "image_url": "https://borjaalmudever.github.io/rsstopodcast/substack_cover.jpg"
   }
 ]
